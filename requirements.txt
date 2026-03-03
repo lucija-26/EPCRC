@@ -1,0 +1,33 @@
+# Requirements for EPCRC
+# Ecosystem Pruning via Convex Routing Coverage
+
+# Core dependencies
+numpy
+scipy
+cvxpy
+pandas
+
+# Convex solvers
+ecos
+scs
+
+# Visualization
+matplotlib
+seaborn
+
+# Progress bars
+tqdm
+
+# Deep learning (for real-world experiments)
+torch
+torchvision
+transformers
+
+# Datasets
+datasets
+
+# Development
+pytest
+black
+isort
+jupyter
