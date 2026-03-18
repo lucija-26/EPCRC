@@ -4,7 +4,7 @@ from typing import Any, Iterable, Optional, Sequence, Tuple
 
 import numpy as np
 
-from core import Intervention, ModelUnit
+from .core import Intervention, ModelUnit
 
 
 class Ecosystem:
