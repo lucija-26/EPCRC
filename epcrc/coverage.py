@@ -5,7 +5,7 @@ from typing import Dict, List, Optional, Set, Tuple
 
 import numpy as np
 
-from geometry import DISCOSolver
+from .geometry import DISCOSolver
 
 
 @dataclass

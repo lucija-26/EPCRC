@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, Optional, Set
 
-from coverage import CoverageFunctional, SubstitutionCertificate
+from .coverage import CoverageFunctional, SubstitutionCertificate
 
 
 @dataclass

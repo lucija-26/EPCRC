@@ -3,10 +3,10 @@
 Minimal implementation for Section 4.1 backward elimination.
 """
 
-from core import Intervention, ModelUnit, Scalarizer
-from coverage import CoverageFunctional, SubstitutionCertificate
-from ecosystem import Ecosystem
-from pruning import BackwardEliminationPruner, PruningResult, PruningStep
+from .core import Intervention, ModelUnit, Scalarizer
+from .coverage import CoverageFunctional, SubstitutionCertificate
+from .ecosystem import Ecosystem
+from .pruning import BackwardEliminationPruner, PruningResult, PruningStep
 
 __all__ = [
     "CoverageFunctional",

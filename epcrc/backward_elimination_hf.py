@@ -1,11 +1,8 @@
-"""Run EPCRC backward elimination on real Hugging Face text models.
+"""EPCRC backward elimination on real Hugging Face text models.
 
-This script builds Y_fit / Y_eval by querying multiple models on many
-intervened inputs, then runs Section 4.1 backward elimination.
-
-Run from project root either way:
-    python -m epcrc.backward_elimination_hf
-    python /Users/lucijajurkovic/Desktop/EPCRC/epcrc/backward_elimination_hf.py
+Provides reusable building blocks (model loading, masking interventions,
+query-grid construction, response-matrix building) and the main
+``run_backward_elimination_real_models`` driver used by experiment scripts.
 """
 
 from __future__ import annotations
@@ -33,27 +30,6 @@ from epcrc.coverage import CoverageFunctional
 from epcrc.pruning import BackwardEliminationPruner
 from epcrc.utils import make_stable_seed
 
-
-# -----------------------------------------------------------------------------
-# CONFIG: edit these and run this file directly
-# -----------------------------------------------------------------------------
-MODEL_IDS = [
-    "textattack/bert-base-uncased-SST-2",
-    "textattack/bert-base-uncased-SST-2",
-    "textattack/bert-base-uncased-SST-2",
-    "textattack/bert-base-uncased-SST-2",
-    "textattack/distilbert-base-uncased-SST-2",
-    "textattack/roberta-base-SST-2",
-]
-MAX_SAMPLES = 80
-GAMMA = 0.08
-METRIC = "mean_abs"  # one of: mean_abs, rmse, max
-FIT_DOSES = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
-EVAL_DOSES = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-BATCH_SIZE = 16
-
-# Set to a path like "results/backward_elimination_hf_summary.json" if you want saving.
-OUTPUT_JSON: Optional[str] = None
 
 
 def uniquify_names(names: Sequence[str]) -> List[str]:
@@ -357,18 +333,3 @@ def run_backward_elimination_real_models(
         print(f"\nSaved result JSON: {output_json}")
 
 
-def main() -> None:
-    run_backward_elimination_real_models(
-        model_ids=MODEL_IDS,
-        max_samples=int(MAX_SAMPLES),
-        gamma=float(GAMMA),
-        doses_fit=[float(x) for x in FIT_DOSES],
-        doses_eval=[float(x) for x in EVAL_DOSES],
-        metric=str(METRIC),
-        batch_size=int(BATCH_SIZE),
-        output_json=OUTPUT_JSON,
-    )
-
-
-if __name__ == "__main__":
-    main()
