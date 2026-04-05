@@ -111,6 +111,13 @@ class CoverageFunctional:
             return coverage, certs
         return coverage, None
 
+    def compute_sum_uniqueness(self, kept_set: Set[int]) -> float:
+        """Sum of U(i|S) over all models i."""
+        key = frozenset(kept_set)
+        if key not in self._cache:
+            self.compute_coverage(kept_set)
+        return float(sum(c.uniqueness for c in self._cache[key].values()))
+
     def find_bottleneck(self, kept_set: Set[int]) -> SubstitutionCertificate:
         _, certs = self.compute_coverage(kept_set, return_certificates=True)
         assert certs is not None

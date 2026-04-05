@@ -68,6 +68,14 @@ results/
 data/raw/
 data/processed/
 
+# UTD19 dataset + per-experiment caches (trained models, bundle.npz, etc.)
+data/utd19_u.csv
+data/*.csv
+data/exp_0_utd19_cache/
+data/smoke_cache/
+data/exp00_models/
+data/exp000_models/
+
 # Keep directory structure
 !results/.gitkeep
 !data/.gitkeep

@@ -6,7 +6,7 @@ Minimal implementation for Section 4.1 backward elimination.
 from .core import Intervention, ModelUnit, Scalarizer
 from .coverage import CoverageFunctional, SubstitutionCertificate
 from .ecosystem import Ecosystem
-from .pruning import BackwardEliminationPruner, PruningResult, PruningStep
+from .pruning import BackwardEliminationPruner, ForwardSelectionPruner, PruningResult, PruningStep
 
 __all__ = [
     "CoverageFunctional",
@@ -16,6 +16,7 @@ __all__ = [
     "Scalarizer",
     "Ecosystem",
     "BackwardEliminationPruner",
+    "ForwardSelectionPruner",
     "PruningResult",
     "PruningStep",
 ]
