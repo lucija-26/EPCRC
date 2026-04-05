@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Tuple
 
-import cvxpy as cp
 import numpy as np
+from scipy.optimize import minimize
 
 
 class DISCOSolver:
@@ -34,29 +34,32 @@ class DISCOSolver:
         if p == 0:
             return float("inf"), np.array([], dtype=float)
 
-        w = cp.Variable(p)
-        objective = cp.Minimize(cp.sum_squares(target - peers @ w))
-        constraints = [w >= 0, cp.sum(w) == 1]
-        problem = cp.Problem(objective, constraints)
+        if p == 1:
+            weights = np.array([1.0])
+            dist = float(np.linalg.norm(target - peers @ weights, ord=2))
+            return dist, weights
 
-        for solver in (cp.ECOS, cp.SCS, None):
-            try:
-                if solver is None:
-                    problem.solve()
-                else:
-                    problem.solve(solver=solver)
-                if w.value is not None:
-                    break
-            except Exception:
-                continue
+        # Precompute Gram matrix and cross terms for fast objective/gradient
+        PtP = peers.T @ peers      # (p, p)
+        Pty = peers.T @ target      # (p,)
 
-        if w.value is None:
-            fallback = np.ones(p, dtype=float) / p
-            dist = float(np.linalg.norm(target - peers @ fallback, ord=2))
-            return dist, fallback
+        def obj_and_grad(w):
+            r = PtP @ w - Pty
+            obj = 0.5 * w @ PtP @ w - Pty @ w
+            return float(obj), r
 
-        weights = np.asarray(w.value, dtype=float).reshape(-1)
-        weights = np.clip(weights, 0.0, None)
+        w0 = np.ones(p, dtype=float) / p
+        bounds = [(0.0, None)] * p
+        constraints = {"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
+                       "jac": lambda w: np.ones(p)}
+
+        result = minimize(
+            obj_and_grad, w0, jac=True,
+            method="SLSQP", bounds=bounds, constraints=constraints,
+            options={"maxiter": 500, "ftol": 1e-12},
+        )
+
+        weights = np.clip(result.x, 0.0, None)
         s = float(weights.sum())
         if s <= 0:
             weights = np.ones(p, dtype=float) / p
