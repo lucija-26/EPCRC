@@ -282,8 +282,12 @@ class PriorityQueuePruner:
                 continue
 
             if entry_gen == generation:
-                # Fresh entry — decide whether to accept
-                if gain > 0:
+                # Fresh entry — decide whether to accept.
+                # If E(S) > gamma, keep adding even when gain=0 (safe because
+                # adding a model can never increase E(S)).  Only stop early
+                # when gain < 0 (shouldn't happen) or when gain=0 AND E(S)
+                # already satisfies gamma.
+                if gain > 0 or (gain >= 0 and E_current > self.gamma):
                     # Accept: add model to S
                     it += 1
                     S.add(m_idx)
@@ -316,11 +320,12 @@ class PriorityQueuePruner:
                             print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE")
                         phase1_done = True
                 else:
-                    # Best fresh gain is non-positive — no beneficial add exists
+                    # gain < 0 or (gain=0 and E(S) already <= gamma) — stop
                     if debug:
                         print(
-                            f"[Phase 1] Best gain={gain:.6f} <= 0 for "
-                            f"{self.coverage_fn.model_names[m_idx]} -> STOP"
+                            f"[Phase 1] Best gain={gain:.6f} for "
+                            f"{self.coverage_fn.model_names[m_idx]}, "
+                            f"E(S)={E_current:.6f} -> STOP"
                         )
                     phase1_done = True
             else:
