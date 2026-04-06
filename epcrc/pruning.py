@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+import heapq
 from dataclasses import dataclass
-from typing import Dict, Optional, Set
+from typing import Dict, List, Optional, Set
 
 from .coverage import CoverageFunctional, SubstitutionCertificate
 
@@ -218,3 +219,173 @@ class BackwardEliminationPruner:
                     action="remove",
                 )
             )
+
+
+class PriorityQueuePruner:
+    """Lazy greedy forward selection with priority queue, followed by backward cleanup.
+
+    Phase 1 (forward / add): Use a max-heap with lazy re-evaluation to greedily
+    add models that reduce E(S) the most, until E(S) <= gamma or no beneficial
+    add exists.
+
+    Phase 2 (backward / prune): Simple sweep to remove any model from S whose
+    removal keeps E(S) <= gamma.
+    """
+
+    def __init__(
+        self,
+        coverage_fn: CoverageFunctional,
+        tolerance_gamma: float,
+    ):
+        self.coverage_fn = coverage_fn
+        self.gamma = float(tolerance_gamma)
+
+    def run(self, debug: bool = False) -> PruningResult:
+        all_models = set(range(self.coverage_fn.N))
+        S: Set[int] = set()
+        history: List[PruningStep] = []
+        it = 0
+
+        # Current coverage of empty set
+        E_current, _ = self.coverage_fn.compute_coverage(S)
+
+        # --- Phase 1: Lazy greedy forward selection ---
+        # Generation counter: incremented each time S changes.
+        # Heap entries with generation < current are stale.
+        generation = 0
+
+        # Compute initial gains for all models and build max-heap.
+        # Heap entries: (-gain, timestamp, model_idx, entry_generation)
+        # Negate gain because heapq is a min-heap.
+        heap: List[tuple] = []
+        timestamp = 0  # tie-breaker for FIFO ordering
+        for m in sorted(all_models):
+            E_with_m, _ = self.coverage_fn.compute_coverage(S | {m})
+            gain = E_current - E_with_m
+            heapq.heappush(heap, (-gain, timestamp, m, generation))
+            timestamp += 1
+
+        if debug:
+            print(f"[Phase 1] Initial E(empty) = {E_current:.6f}")
+            print(f"[Phase 1] Initial heap size = {len(heap)}")
+            for neg_g, _, m, _ in sorted(heap):
+                name = self.coverage_fn.model_names[m]
+                print(f"  g({name}) = {-neg_g:.6f}")
+
+        phase1_done = False
+        while heap and not phase1_done:
+            neg_gain, _, m_idx, entry_gen = heapq.heappop(heap)
+            gain = -neg_gain
+
+            if m_idx in S:
+                # Already added in a previous iteration, skip
+                continue
+
+            if entry_gen == generation:
+                # Fresh entry — decide whether to accept
+                if gain > 0:
+                    # Accept: add model to S
+                    it += 1
+                    S.add(m_idx)
+                    E_current, _ = self.coverage_fn.compute_coverage(S)
+                    generation += 1  # all remaining entries are now stale
+
+                    model_name = self.coverage_fn.model_names[m_idx]
+                    sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+                    history.append(
+                        PruningStep(
+                            iteration=it,
+                            removed_model_idx=m_idx,
+                            removed_model_name=model_name,
+                            kept_set=set(S),
+                            coverage=E_current,
+                            sum_uniqueness=sum_u,
+                            action="add",
+                        )
+                    )
+
+                    if debug:
+                        print(
+                            f"[Phase 1] iter {it}: ADD {model_name}  "
+                            f"gain={gain:.6f}  E(S)={E_current:.6f}  |S|={len(S)}"
+                        )
+
+                    if E_current <= self.gamma:
+                        # Coverage satisfied — exit phase 1
+                        if debug:
+                            print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE")
+                        phase1_done = True
+                else:
+                    # Best fresh gain is non-positive — no beneficial add exists
+                    if debug:
+                        print(
+                            f"[Phase 1] Best gain={gain:.6f} <= 0 for "
+                            f"{self.coverage_fn.model_names[m_idx]} -> STOP"
+                        )
+                    phase1_done = True
+            else:
+                # Stale entry — recompute gain with current S
+                E_with_m, _ = self.coverage_fn.compute_coverage(S | {m_idx})
+                new_gain = E_current - E_with_m
+                heapq.heappush(heap, (-new_gain, timestamp, m_idx, generation))
+                timestamp += 1
+
+        # --- Phase 2: Simple backward pruning ---
+        if debug:
+            print(f"\n[Phase 2] Starting backward cleanup, |S|={len(S)}, E(S)={E_current:.6f}")
+
+        changed = True
+        while changed:
+            changed = False
+            for m_idx in sorted(S):
+                S_without = S - {m_idx}
+                E_without, _ = self.coverage_fn.compute_coverage(S_without)
+                if E_without <= self.gamma:
+                    it += 1
+                    S = S_without
+                    E_current = E_without
+                    model_name = self.coverage_fn.model_names[m_idx]
+                    sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+                    history.append(
+                        PruningStep(
+                            iteration=it,
+                            removed_model_idx=m_idx,
+                            removed_model_name=model_name,
+                            kept_set=set(S),
+                            coverage=E_current,
+                            sum_uniqueness=sum_u,
+                            action="remove",
+                        )
+                    )
+
+                    if debug:
+                        print(
+                            f"[Phase 2] iter {it}: REMOVE {model_name}  "
+                            f"E(S)={E_current:.6f}  |S|={len(S)}"
+                        )
+                    changed = True
+                    break  # restart the inner loop with updated S
+
+        # --- Final stop step ---
+        it += 1
+        E_final, certs_final = self.coverage_fn.compute_coverage(S, return_certificates=True)
+        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+        history.append(
+            PruningStep(
+                iteration=it,
+                removed_model_idx=None,
+                removed_model_name=None,
+                kept_set=set(S),
+                coverage=E_final,
+                sum_uniqueness=sum_u,
+                action="stop",
+            )
+        )
+        assert certs_final is not None
+        return PruningResult(
+            kept_set=set(S),
+            coverage=E_final,
+            sum_uniqueness=sum_u,
+            history=history,
+            certificates=certs_final,
+        )
