@@ -246,31 +246,62 @@ class PriorityQueuePruner:
         history: List[PruningStep] = []
         it = 0
 
-        # Current coverage of empty set
-        E_current, _ = self.coverage_fn.compute_coverage(S)
-
         # --- Phase 1: Lazy greedy forward selection ---
+        # Bootstrap: pick the first model as the one with lowest E({m}),
+        # since E(empty) = inf makes gain-based ranking meaningless.
+        best_first_m = -1
+        best_first_E = float("inf")
+        for m in sorted(all_models):
+            E_m, _ = self.coverage_fn.compute_coverage({m})
+            if E_m < best_first_E:
+                best_first_E = E_m
+                best_first_m = m
+
+        it += 1
+        S.add(best_first_m)
+        E_current = best_first_E
+        model_name = self.coverage_fn.model_names[best_first_m]
+        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+        history.append(
+            PruningStep(
+                iteration=it,
+                removed_model_idx=best_first_m,
+                removed_model_name=model_name,
+                kept_set=set(S),
+                coverage=E_current,
+                sum_uniqueness=sum_u,
+                action="add",
+            )
+        )
+
+        if debug:
+            print(f"[Phase 1] Bootstrap: ADD {model_name}  E({{m}})={E_current:.6f}")
+
         # Generation counter: incremented each time S changes.
         # Heap entries with generation < current are stale.
         generation = 0
 
-        # Compute initial gains for all models and build max-heap.
-        # Heap entries: (-gain, timestamp, model_idx, entry_generation)
-        # Negate gain because heapq is a min-heap.
-        heap: List[tuple] = []
-        timestamp = 0  # tie-breaker for FIFO ordering
-        for m in sorted(all_models):
-            E_with_m, _ = self.coverage_fn.compute_coverage(S | {m})
-            gain = E_current - E_with_m
-            heapq.heappush(heap, (-gain, timestamp, m, generation))
-            timestamp += 1
+        if E_current > self.gamma:
+            # Compute initial gains against current S (singleton) and build max-heap.
+            # Heap entries: (-gain, timestamp, model_idx, entry_generation)
+            # Negate gain because heapq is a min-heap.
+            heap: List[tuple] = []
+            timestamp = 0
+            for m in sorted(all_models - S):
+                E_with_m, _ = self.coverage_fn.compute_coverage(S | {m})
+                gain = E_current - E_with_m
+                heapq.heappush(heap, (-gain, timestamp, m, generation))
+                timestamp += 1
 
-        if debug:
-            print(f"[Phase 1] Initial E(empty) = {E_current:.6f}")
-            print(f"[Phase 1] Initial heap size = {len(heap)}")
-            for neg_g, _, m, _ in sorted(heap):
-                name = self.coverage_fn.model_names[m]
-                print(f"  g({name}) = {-neg_g:.6f}")
+            if debug:
+                print(f"[Phase 1] E(S)={E_current:.6f}, heap size = {len(heap)}")
+                for neg_g, _, m, _ in sorted(heap):
+                    name = self.coverage_fn.model_names[m]
+                    print(f"  g({name}) = {-neg_g:.6f}")
+        else:
+            heap = []
+            if debug:
+                print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE after bootstrap")
 
         phase1_done = False
         while heap and not phase1_done:
