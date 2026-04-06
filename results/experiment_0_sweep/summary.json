@@ -1,0 +1,524 @@
+{
+  "experiment": "experiment_0_gamma_sweep",
+  "description": "Backward elimination + forward selection sweep across multiple gamma tolerances on the UTD19 traffic ecosystem. One JSON per (algorithm, gamma) with full step metrics; this summary holds the aggregate comparison table and Y scale reference.",
+  "gammas": [
+    40.0,
+    60.0,
+    80.0,
+    100.0
+  ],
+  "algorithms": [
+    "backward_elimination",
+    "forward_selection"
+  ],
+  "metric": "mean_abs",
+  "n_models": 20,
+  "model_names": [
+    "augsburg",
+    "basel",
+    "bern",
+    "bordeaux",
+    "bremen",
+    "cagliari",
+    "constance",
+    "darmstadt",
+    "essen",
+    "hamburg",
+    "losangeles",
+    "luzern",
+    "madrid",
+    "marseille",
+    "speyer",
+    "strasbourg",
+    "taipeh",
+    "torino",
+    "wolfsburg",
+    "zurich"
+  ],
+  "data_csv": "/home/s243168/EPCRC/data/utd19_u.csv",
+  "cache_dir": "/home/s243168/EPCRC/data/exp_0_utd19_cache",
+  "pipeline": {
+    "horizon_steps": 12,
+    "lag_steps": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "max_days_per_city": 14,
+    "max_detectors_per_city": 40,
+    "min_points_per_detector": 2000,
+    "min_train": 500,
+    "min_val": 200,
+    "min_test": 200,
+    "max_fit_samples": 1500,
+    "max_eval_samples": 1500,
+    "seed": 0
+  },
+  "model_params": {
+    "max_iter": 300,
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 40,
+    "l2_regularization": 0.0
+  },
+  "per_city_train_rmse": {
+    "augsburg": 64.54565225704211,
+    "basel": 70.45288639490227,
+    "bern": 61.12899241571613,
+    "bordeaux": 97.24145036763588,
+    "bremen": 99.27206999909681,
+    "cagliari": 148.48542171464425,
+    "constance": 58.50224250856013,
+    "darmstadt": 81.95654804599451,
+    "essen": 54.318629984862945,
+    "hamburg": 85.15832602554289,
+    "losangeles": 155.73777991461563,
+    "luzern": 88.20961972991162,
+    "madrid": 142.60781745860578,
+    "marseille": 154.34796078185988,
+    "speyer": 76.53646679643407,
+    "strasbourg": 108.27143370566897,
+    "taipeh": 151.9208171575769,
+    "torino": 141.05111365599782,
+    "wolfsburg": 108.1674990329208,
+    "zurich": 68.83190460658774
+  },
+  "Y_fit_shape": [
+    1500,
+    20
+  ],
+  "Y_eval_shape": [
+    1500,
+    20
+  ],
+  "Y_eval_stats": {
+    "global": {
+      "mean": 356.9335040618521,
+      "std": 304.35634668385336,
+      "abs_mean": 356.9422618111154
+    },
+    "pairwise_abs_diff": {
+      "mean": 106.20264124496278,
+      "median": 97.09341961832745,
+      "min": 37.476055613236795,
+      "max": 266.55112745527134
+    },
+    "per_column": [
+      {
+        "model": "augsburg",
+        "mean": 302.95584614568435,
+        "std": 202.70998809524667,
+        "min": 8.43357846853551,
+        "max": 822.1727103394238
+      },
+      {
+        "model": "basel",
+        "mean": 319.81438929452105,
+        "std": 231.16755355901822,
+        "min": 9.23162834985242,
+        "max": 1198.6151211957226
+      },
+      {
+        "model": "bern",
+        "mean": 307.98682913143904,
+        "std": 206.24466229698646,
+        "min": 9.242045220543579,
+        "max": 1000.9673487980451
+      },
+      {
+        "model": "bordeaux",
+        "mean": 421.0478837566296,
+        "std": 317.23534854333957,
+        "min": 29.825636385348744,
+        "max": 1799.207308124327
+      },
+      {
+        "model": "bremen",
+        "mean": 357.46863093399986,
+        "std": 329.16226214074413,
+        "min": 13.48703069766758,
+        "max": 1759.8810193610623
+      },
+      {
+        "model": "cagliari",
+        "mean": 383.28256022774303,
+        "std": 425.5219027448492,
+        "min": -37.823904124390616,
+        "max": 5085.349302351521
+      },
+      {
+        "model": "constance",
+        "mean": 279.8381426582421,
+        "std": 181.192417906226,
+        "min": 3.6331607145979636,
+        "max": 745.8508198837281
+      },
+      {
+        "model": "darmstadt",
+        "mean": 307.33808455808656,
+        "std": 202.3133177149282,
+        "min": 9.2514396664211,
+        "max": 786.6286981254635
+      },
+      {
+        "model": "essen",
+        "mean": 305.73798021240066,
+        "std": 228.00570879082642,
+        "min": 5.666755374806204,
+        "max": 1071.8544024177354
+      },
+      {
+        "model": "hamburg",
+        "mean": 330.35817788003885,
+        "std": 254.6477880958961,
+        "min": 10.401736036194169,
+        "max": 1105.8340183250118
+      },
+      {
+        "model": "losangeles",
+        "mean": 536.6436435523293,
+        "std": 394.6471978648389,
+        "min": -30.892683420597802,
+        "max": 2868.115763959313
+      },
+      {
+        "model": "luzern",
+        "mean": 342.46556149990016,
+        "std": 258.0816435419522,
+        "min": 12.715489150402012,
+        "max": 1108.2860408378178
+      },
+      {
+        "model": "madrid",
+        "mean": 468.7802042535688,
+        "std": 362.0073051849535,
+        "min": 25.85433528441838,
+        "max": 2536.0089157899683
+      },
+      {
+        "model": "marseille",
+        "mean": 395.8223153964184,
+        "std": 429.0401059573361,
+        "min": -2.031307605129074,
+        "max": 5483.8661077804145
+      },
+      {
+        "model": "speyer",
+        "mean": 311.0344024054497,
+        "std": 232.08338605066672,
+        "min": 5.638241904793224,
+        "max": 1016.5289348435837
+      },
+      {
+        "model": "strasbourg",
+        "mean": 341.1695488289285,
+        "std": 310.0468165229468,
+        "min": -2.308200421198002,
+        "max": 1617.6521250369603
+      },
+      {
+        "model": "taipeh",
+        "mean": 392.1264391114876,
+        "std": 354.717193933691,
+        "min": 37.7886789989936,
+        "max": 2484.748309149846
+      },
+      {
+        "model": "torino",
+        "mean": 426.6591470978927,
+        "std": 373.8621411297608,
+        "min": 3.56688014462789,
+        "max": 2866.220758188031
+      },
+      {
+        "model": "wolfsburg",
+        "mean": 328.09040928892836,
+        "std": 248.02403636735008,
+        "min": 9.472548701514844,
+        "max": 1280.1518139211487
+      },
+      {
+        "model": "zurich",
+        "mean": 280.0498850033531,
+        "std": 188.17545996414685,
+        "min": 5.85243134874413,
+        "max": 797.3699748069052
+      }
+    ]
+  },
+  "runs": [
+    {
+      "gamma": 40.0,
+      "algorithm": "backward_elimination",
+      "kept_set_size": 19,
+      "coverage_E_S": 39.98253364159487,
+      "sum_uniqueness_U": 39.98253364159487,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "hamburg",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "luzern"
+      ],
+      "wall_time_seconds": 0.4997,
+      "result_file": "backward_elimination_gamma40.json"
+    },
+    {
+      "gamma": 40.0,
+      "algorithm": "forward_selection",
+      "kept_set_size": 20,
+      "coverage_E_S": 0.0,
+      "sum_uniqueness_U": 0.0,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "hamburg",
+        "losangeles",
+        "luzern",
+        "madrid",
+        "marseille",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "removed_set_names": [],
+      "wall_time_seconds": 10.3958,
+      "result_file": "forward_selection_gamma40.json"
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "backward_elimination",
+      "kept_set_size": 15,
+      "coverage_E_S": 58.714239622192984,
+      "sum_uniqueness_U": 262.08359776688695,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "strasbourg",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "bremen",
+        "hamburg",
+        "luzern",
+        "speyer",
+        "taipeh"
+      ],
+      "wall_time_seconds": 1.9167,
+      "result_file": "backward_elimination_gamma60.json"
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "forward_selection",
+      "kept_set_size": 19,
+      "coverage_E_S": 59.58881426100883,
+      "sum_uniqueness_U": 59.58881426100883,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "hamburg",
+        "losangeles",
+        "luzern",
+        "madrid",
+        "marseille",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "wolfsburg"
+      ],
+      "wall_time_seconds": 10.3847,
+      "result_file": "forward_selection_gamma60.json"
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "backward_elimination",
+      "kept_set_size": 10,
+      "coverage_E_S": 76.48689854306495,
+      "sum_uniqueness_U": 668.5520012950213,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "bern",
+        "bordeaux",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "torino",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "augsburg",
+        "basel",
+        "bremen",
+        "cagliari",
+        "hamburg",
+        "luzern",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "wolfsburg"
+      ],
+      "wall_time_seconds": 5.7268,
+      "result_file": "backward_elimination_gamma80.json"
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "forward_selection",
+      "kept_set_size": 15,
+      "coverage_E_S": 64.7807730858502,
+      "sum_uniqueness_U": 287.1202382525486,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "taipeh",
+        "torino",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "hamburg",
+        "luzern",
+        "speyer",
+        "strasbourg",
+        "wolfsburg"
+      ],
+      "wall_time_seconds": 10.3917,
+      "result_file": "forward_selection_gamma80.json"
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "backward_elimination",
+      "kept_set_size": 5,
+      "coverage_E_S": 95.10699667178471,
+      "sum_uniqueness_U": 1174.2191366827362,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "constance",
+        "essen",
+        "losangeles",
+        "madrid",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "darmstadt",
+        "hamburg",
+        "luzern",
+        "marseille",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg"
+      ],
+      "wall_time_seconds": 8.4586,
+      "result_file": "backward_elimination_gamma100.json"
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "forward_selection",
+      "kept_set_size": 10,
+      "coverage_E_S": 92.78981245209832,
+      "sum_uniqueness_U": 781.4677714338055,
+      "satisfies_gamma": true,
+      "kept_set_names": [
+        "bremen",
+        "cagliari",
+        "constance",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "taipeh",
+        "torino",
+        "zurich"
+      ],
+      "removed_set_names": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "darmstadt",
+        "hamburg",
+        "luzern",
+        "speyer",
+        "strasbourg",
+        "wolfsburg"
+      ],
+      "wall_time_seconds": 10.2228,
+      "result_file": "forward_selection_gamma100.json"
+    }
+  ]
+}
