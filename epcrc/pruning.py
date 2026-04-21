@@ -313,51 +313,41 @@ class PriorityQueuePruner:
                 continue
 
             if entry_gen == generation:
-                # Fresh entry — decide whether to accept.
-                # If E(S) > gamma, keep adding even when gain=0 (safe because
-                # adding a model can never increase E(S)).  Only stop early
-                # when gain < 0 (shouldn't happen) or when gain=0 AND E(S)
-                # already satisfies gamma.
-                if gain > 0 or (gain >= 0 and E_current > self.gamma):
-                    # Accept: add model to S
-                    it += 1
-                    S.add(m_idx)
-                    E_current, _ = self.coverage_fn.compute_coverage(S)
-                    generation += 1  # all remaining entries are now stale
+                # Fresh entry.  Phase 1 keeps adding while E(S) > gamma even
+                # when the best gain is negative: DISCO weights are fit on
+                # Y_fit but U(i|S) is evaluated on Y_eval, so a single add
+                # can transiently raise E(S).  Picking the highest-gain
+                # (= least-bad) model mirrors regular forward selection,
+                # which eventually drives E(S) below gamma.
+                it += 1
+                S.add(m_idx)
+                E_current, _ = self.coverage_fn.compute_coverage(S)
+                generation += 1  # all remaining entries are now stale
 
-                    model_name = self.coverage_fn.model_names[m_idx]
-                    sum_u = self.coverage_fn.compute_sum_uniqueness(S)
-                    history.append(
-                        PruningStep(
-                            iteration=it,
-                            removed_model_idx=m_idx,
-                            removed_model_name=model_name,
-                            kept_set=set(S),
-                            coverage=E_current,
-                            sum_uniqueness=sum_u,
-                            action="add",
-                        )
+                model_name = self.coverage_fn.model_names[m_idx]
+                sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+                history.append(
+                    PruningStep(
+                        iteration=it,
+                        removed_model_idx=m_idx,
+                        removed_model_name=model_name,
+                        kept_set=set(S),
+                        coverage=E_current,
+                        sum_uniqueness=sum_u,
+                        action="add",
+                    )
+                )
+
+                if debug:
+                    print(
+                        f"[Phase 1] iter {it}: ADD {model_name}  "
+                        f"gain={gain:.6f}  E(S)={E_current:.6f}  |S|={len(S)}"
                     )
 
+                if E_current <= self.gamma:
+                    # Coverage satisfied — exit phase 1
                     if debug:
-                        print(
-                            f"[Phase 1] iter {it}: ADD {model_name}  "
-                            f"gain={gain:.6f}  E(S)={E_current:.6f}  |S|={len(S)}"
-                        )
-
-                    if E_current <= self.gamma:
-                        # Coverage satisfied — exit phase 1
-                        if debug:
-                            print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE")
-                        phase1_done = True
-                else:
-                    # gain < 0 or (gain=0 and E(S) already <= gamma) — stop
-                    if debug:
-                        print(
-                            f"[Phase 1] Best gain={gain:.6f} for "
-                            f"{self.coverage_fn.model_names[m_idx]}, "
-                            f"E(S)={E_current:.6f} -> STOP"
-                        )
+                        print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE")
                     phase1_done = True
             else:
                 # Stale entry — recompute gain with current S
