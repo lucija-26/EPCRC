@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 import heapq
+import logging
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Set
+from itertools import combinations
+from typing import Dict, List, Optional, Set, Tuple
 
 from .coverage import CoverageFunctional, SubstitutionCertificate
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -222,23 +226,36 @@ class BackwardEliminationPruner:
 
 
 class PriorityQueuePruner:
-    """Lazy greedy forward selection with priority queue, followed by backward cleanup.
+    """Lazy greedy forward + backward cleanup, with optional k-swap escape.
 
-    Phase 1 (forward / add): Use a max-heap with lazy re-evaluation to greedily
-    add models that reduce E(S) the most, until E(S) <= gamma or no beneficial
-    add exists.
+    Phase 1 (forward / add): Max-heap with lazy re-evaluation.  Greedily add
+    the highest-gain (= least-bad) model until E(S) <= gamma.
 
-    Phase 2 (backward / prune): Simple sweep to remove any model from S whose
+    Phase 2 (backward / prune): Greedy sweep — remove any model from S whose
     removal keeps E(S) <= gamma.
+
+    Phase 3 (k-swap, optional): Escape the Phase 2 local optimum by adding k
+    models and re-running cleanup.  If cleanup removes k+1 or more, the net
+    effect is |S| - 1 (or better).  Iterate until no k-swap improves.
     """
 
     def __init__(
         self,
         coverage_fn: CoverageFunctional,
         tolerance_gamma: float,
+        max_swap_k: int = 2,
+        improvement_mode: str = "first",
+        max_candidates: Optional[int] = None,
+        allow_pure_swaps: bool = True,
     ):
+        if improvement_mode not in ("first", "best"):
+            raise ValueError(f"improvement_mode must be 'first' or 'best', got {improvement_mode!r}")
         self.coverage_fn = coverage_fn
         self.gamma = float(tolerance_gamma)
+        self.max_swap_k = int(max_swap_k)
+        self.improvement_mode = improvement_mode
+        self.max_candidates = max_candidates
+        self.allow_pure_swaps = allow_pure_swaps
 
     def run(self, debug: bool = False) -> PruningResult:
         all_models = set(range(self.coverage_fn.N))
@@ -360,37 +377,20 @@ class PriorityQueuePruner:
         if debug:
             print(f"\n[Phase 2] Starting backward cleanup, |S|={len(S)}, E(S)={E_current:.6f}")
 
-        changed = True
-        while changed:
-            changed = False
-            for m_idx in sorted(S):
-                S_without = S - {m_idx}
-                E_without, _ = self.coverage_fn.compute_coverage(S_without)
-                if E_without <= self.gamma:
-                    it += 1
-                    S = S_without
-                    E_current = E_without
-                    model_name = self.coverage_fn.model_names[m_idx]
-                    sum_u = self.coverage_fn.compute_sum_uniqueness(S)
-                    history.append(
-                        PruningStep(
-                            iteration=it,
-                            removed_model_idx=m_idx,
-                            removed_model_name=model_name,
-                            kept_set=set(S),
-                            coverage=E_current,
-                            sum_uniqueness=sum_u,
-                            action="remove",
-                        )
-                    )
+        S, E_current, it = self._backward_cleanup(
+            S, it, history=history, debug=debug, phase_label="Phase 2"
+        )
 
-                    if debug:
-                        print(
-                            f"[Phase 2] iter {it}: REMOVE {model_name}  "
-                            f"E(S)={E_current:.6f}  |S|={len(S)}"
-                        )
-                    changed = True
-                    break  # restart the inner loop with updated S
+        # --- Phase 3: k-swap local search (remove-k-add-(k-1) compound moves) ---
+        if self.max_swap_k > 0:
+            if debug:
+                print(
+                    f"\n[Phase 3] Starting k-swap, |S|={len(S)}, E(S)={E_current:.6f}, "
+                    f"max_k={self.max_swap_k}, mode={self.improvement_mode}"
+                )
+            S, E_current, it = self._kswap(
+                S, E_current, it, all_models, history=history, debug=debug
+            )
 
         # --- Final stop step ---
         it += 1
@@ -415,3 +415,220 @@ class PriorityQueuePruner:
             history=history,
             certificates=certs_final,
         )
+
+    def _backward_cleanup(
+        self,
+        S_in: Set[int],
+        it_start: int,
+        history: Optional[List[PruningStep]] = None,
+        debug: bool = False,
+        phase_label: str = "cleanup",
+    ) -> Tuple[Set[int], float, int]:
+        """Greedy backward sweep: remove any model whose removal keeps E(S) <= gamma.
+
+        If E(S_in) > gamma, no removal is feasible and S is returned unchanged.
+        When `history` is provided, append a "remove" step per accepted removal.
+        Returns (S, E(S), it).
+        """
+        S = set(S_in)
+        E_cur, _ = self.coverage_fn.compute_coverage(S)
+        it = it_start
+
+        changed = True
+        while changed:
+            changed = False
+            for m_idx in sorted(S):
+                S_without = S - {m_idx}
+                E_without, _ = self.coverage_fn.compute_coverage(S_without)
+                if E_without <= self.gamma:
+                    S = S_without
+                    E_cur = E_without
+                    if history is not None:
+                        it += 1
+                        name = self.coverage_fn.model_names[m_idx]
+                        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+                        history.append(
+                            PruningStep(
+                                iteration=it,
+                                removed_model_idx=m_idx,
+                                removed_model_name=name,
+                                kept_set=set(S),
+                                coverage=E_cur,
+                                sum_uniqueness=sum_u,
+                                action="remove",
+                            )
+                        )
+                        if debug:
+                            print(
+                                f"[{phase_label}] iter {it}: REMOVE {name}  "
+                                f"E(S)={E_cur:.6f}  |S|={len(S)}"
+                            )
+                    changed = True
+                    break  # restart with updated S
+        return S, E_cur, it
+
+    def _kswap(
+        self,
+        S_in: Set[int],
+        E_in: float,
+        it_start: int,
+        all_models: Set[int],
+        history: List[PruningStep],
+        debug: bool = False,
+    ) -> Tuple[Set[int], float, int]:
+        """Remove-k-add-(k-1) local search to shrink |S| past the phase-2 local minimum.
+
+        Two move families are tried for each k in 1..max_swap_k:
+          - Reduction (n_remove=k, n_add=k-1): removes k models from S and adds k-1
+            models from J\\S, reducing |S| by 1.
+          - Pure swap (n_remove=k, n_add=k, optional): replaces k models with k
+            different ones, keeping |S| fixed.  Useful when |S| is already minimal
+            but a different set has better coverage margin.
+
+        Time complexity per outer iteration:
+          Let s = |S|, M = |J \\ S| = N - s.
+            Reduction neighbourhood:  C(s, k) * C(M, k-1) candidates per k
+            Pure-swap neighbourhood:  C(s, k) * C(M, k)   candidates per k
+          Each candidate requires one E_hat evaluation costing O(N) QP solves.
+          Total per outer while-iteration:
+            O(sum_{k=1}^{max_k} [C(s,k)*C(M,k-1) + C(s,k)*C(M,k)] * N_qp)
+          where N_qp is the per-evaluation QP cost.
+
+        After every accepted move the search restarts from k=1 so that newly
+        opened single-step opportunities are not missed.
+
+        Accepted moves are emitted at INFO level via the module logger so that
+        the full search trajectory is auditable without requiring debug=True.
+        """
+        S = set(S_in)
+        E_cur = E_in
+        it = it_start
+
+        global_improved = True
+        while global_improved:
+            global_improved = False
+
+            for k in range(1, self.max_swap_k + 1):
+                # Reduction first; pure swap only when no reduction is found.
+                move_types: List[Tuple[int, int]] = [(k, k - 1)]
+                if self.allow_pure_swaps:
+                    move_types.append((k, k))
+
+                for n_remove, n_add in move_types:
+                    sorted_S = sorted(S)
+                    available = sorted(all_models - S)  # disjoint from S by construction
+
+                    if len(sorted_S) < n_remove or len(available) < n_add:
+                        continue
+
+                    candidates_checked = 0
+                    best_move: Optional[Tuple[tuple, tuple, Set[int], float]] = None
+                    done = False  # break out of both inner loops
+
+                    for remove_combo in combinations(sorted_S, n_remove):
+                        if done:
+                            break
+                        S_partial = S - set(remove_combo)
+                        # remove_combo ⊆ S and available = all_models - S, so they
+                        # are disjoint: add_combo never overlaps remove_combo.
+                        add_iter = (
+                            [()]
+                            if n_add == 0
+                            else combinations(available, n_add)
+                        )
+
+                        for add_combo in add_iter:
+                            S_candidate = S_partial | set(add_combo)
+                            E_candidate, _ = self.coverage_fn.compute_coverage(S_candidate)
+                            candidates_checked += 1
+
+                            if E_candidate <= self.gamma:
+                                if self.improvement_mode == "first":
+                                    best_move = (
+                                        remove_combo,
+                                        tuple(add_combo),
+                                        S_candidate,
+                                        E_candidate,
+                                    )
+                                    done = True
+                                    break
+                                elif best_move is None or E_candidate < best_move[3]:
+                                    best_move = (
+                                        remove_combo,
+                                        tuple(add_combo),
+                                        S_candidate,
+                                        E_candidate,
+                                    )
+
+                            if (
+                                self.max_candidates is not None
+                                and candidates_checked >= self.max_candidates
+                            ):
+                                done = True
+                                break
+
+                    if best_move is not None:
+                        remove_combo, add_combo, S_new, E_new = best_move
+                        S_from = set(S)
+                        S = S_new
+                        E_cur = E_new
+
+                        logger.info(
+                            "[kswap k=%d %d-out-%d-in] from=%s → to=%s  "
+                            "E_hat=%.6f  |S| %d → %d",
+                            k,
+                            n_remove,
+                            n_add,
+                            sorted(S_from),
+                            sorted(S),
+                            E_cur,
+                            len(S_from),
+                            len(S),
+                        )
+                        if debug:
+                            rm_names = [self.coverage_fn.model_names[m] for m in remove_combo]
+                            ad_names = [self.coverage_fn.model_names[m] for m in add_combo]
+                            print(
+                                f"[Phase 3 k={k} {n_remove}-out-{n_add}-in]"
+                                f"  REMOVE={rm_names}  ADD={ad_names}"
+                                f"  from={sorted(S_from)} → to={sorted(S)}"
+                                f"  E(S')={E_cur:.6f}  |S'|={len(S)}"
+                            )
+
+                        # Record the compound move in history as individual steps.
+                        # Additions are listed before removals so the kept_set
+                        # snapshot is always feasible (E ≤ γ) for both sub-steps.
+                        for m_add in add_combo:
+                            it += 1
+                            history.append(
+                                PruningStep(
+                                    iteration=it,
+                                    removed_model_idx=m_add,
+                                    removed_model_name=self.coverage_fn.model_names[m_add],
+                                    kept_set=set(S),
+                                    coverage=E_cur,
+                                    sum_uniqueness=self.coverage_fn.compute_sum_uniqueness(S),
+                                    action="add",
+                                )
+                            )
+                        for m_rem in remove_combo:
+                            it += 1
+                            history.append(
+                                PruningStep(
+                                    iteration=it,
+                                    removed_model_idx=m_rem,
+                                    removed_model_name=self.coverage_fn.model_names[m_rem],
+                                    kept_set=set(S),
+                                    coverage=E_cur,
+                                    sum_uniqueness=self.coverage_fn.compute_sum_uniqueness(S),
+                                    action="remove",
+                                )
+                            )
+
+                        global_improved = True
+                        break  # restart from k=1
+
+                if global_improved:
+                    break  # restart k loop
+
+        return S, E_cur, it
