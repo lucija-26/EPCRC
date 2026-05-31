@@ -8,6 +8,8 @@ from .coverage import CoverageFunctional, SubstitutionCertificate
 from .ecosystem import Ecosystem
 from .pruning import (
     BackwardEliminationPruner,
+    BackwardKSwapPruner,
+    ForwardKSwapPruner,
     ForwardSelectionPruner,
     PriorityQueuePruner,
     PruningResult,
@@ -22,6 +24,8 @@ __all__ = [
     "Scalarizer",
     "Ecosystem",
     "BackwardEliminationPruner",
+    "BackwardKSwapPruner",
+    "ForwardKSwapPruner",
     "ForwardSelectionPruner",
     "PriorityQueuePruner",
     "PruningResult",

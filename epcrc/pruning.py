@@ -229,14 +229,19 @@ class PriorityQueuePruner:
     """Lazy greedy forward + backward cleanup, with optional k-swap escape.
 
     Phase 1 (forward / add): Max-heap with lazy re-evaluation.  Greedily add
-    the highest-gain (= least-bad) model until E(S) <= gamma.
+    the highest-gain (= least-bad) model until E(S) <= gamma.  NOTE: because E is
+    a max of residuals (not submodular), the lazy heap gives no speedup -- every
+    add invalidates it -- so this computes the same set as plain forward
+    selection, modulo gain-tie ordering.  Kept as-is to preserve verified results.
 
     Phase 2 (backward / prune): Greedy sweep — remove any model from S whose
     removal keeps E(S) <= gamma.
 
-    Phase 3 (k-swap, optional): Escape the Phase 2 local optimum by adding k
-    models and re-running cleanup.  If cleanup removes k+1 or more, the net
-    effect is |S| - 1 (or better).  Iterate until no k-swap improves.
+    Phase 3 (k-swap, optional): Escape the Phase 2 single-deletion optimum with
+    remove-k / add-(k-1) reduction moves (|S| -> |S|-1 while keeping E <= gamma) --
+    the minimal move that monotonicity forbids plain backward from making.
+    Optional pure swaps (off by default) are a slow heuristic and rarely help; for
+    the strongest result, seed from backward instead (see BackwardKSwapPruner).
     """
 
     def __init__(
@@ -246,7 +251,8 @@ class PriorityQueuePruner:
         max_swap_k: int = 2,
         improvement_mode: str = "first",
         max_candidates: Optional[int] = None,
-        allow_pure_swaps: bool = True,
+        allow_pure_swaps: bool = False,
+        swap_rel_tol: float = 1e-9,
     ):
         if improvement_mode not in ("first", "best"):
             raise ValueError(f"improvement_mode must be 'first' or 'best', got {improvement_mode!r}")
@@ -256,6 +262,10 @@ class PriorityQueuePruner:
         self.improvement_mode = improvement_mode
         self.max_candidates = max_candidates
         self.allow_pure_swaps = allow_pure_swaps
+        # Pure swaps keep |S| fixed, so they are accepted only when they lower E
+        # by at least swap_rel_tol * max(|E|, 1).  This margin makes the
+        # lexicographic potential strictly decrease -> guaranteed termination.
+        self.swap_rel_tol = float(swap_rel_tol)
 
     def run(self, debug: bool = False) -> PruningResult:
         all_models = set(range(self.coverage_fn.N))
@@ -482,8 +492,17 @@ class PriorityQueuePruner:
           - Reduction (n_remove=k, n_add=k-1): removes k models from S and adds k-1
             models from J\\S, reducing |S| by 1.
           - Pure swap (n_remove=k, n_add=k, optional): replaces k models with k
-            different ones, keeping |S| fixed.  Useful when |S| is already minimal
-            but a different set has better coverage margin.
+            different ones, keeping |S| fixed.  Accepted only when it strictly
+            lowers E by a margin -- the 2nd coordinate of the lexicographic
+            potential Phi(S) = (|S|, E(S)).  A pure swap followed by a reduction
+            composes into a deeper reduction, so it is only a cheaper, incomplete
+            surrogate for a larger max_swap_k; it never makes |S| progress itself.
+
+        Acceptance uses Phi(S) = (|S|, E(S)) compared lexicographically: a
+        reduction lowers the first coordinate (any feasible candidate is taken);
+        a pure swap must lower the second.  Every accepted move strictly
+        decreases Phi over a finite lattice, so the search always terminates,
+        |S| never increases, and feasibility (E <= gamma) is preserved.
 
         Time complexity per outer iteration:
           Let s = |S|, M = |J \\ S| = N - s.
@@ -515,6 +534,11 @@ class PriorityQueuePruner:
                     move_types.append((k, k))
 
                 for n_remove, n_add in move_types:
+                    # Reduction shrinks |S| (1st lexicographic coord); pure swap
+                    # keeps it and must instead lower E (2nd coord) by a margin.
+                    is_reduction = n_add < n_remove
+                    pure_tol = self.swap_rel_tol * max(abs(E_cur), 1.0)
+
                     sorted_S = sorted(S)
                     available = sorted(all_models - S)  # disjoint from S by construction
 
@@ -542,7 +566,15 @@ class PriorityQueuePruner:
                             E_candidate, _ = self.coverage_fn.compute_coverage(S_candidate)
                             candidates_checked += 1
 
-                            if E_candidate <= self.gamma:
+                            if is_reduction:
+                                # |S| drops by 1: any feasible candidate lowers Phi.
+                                accept = E_candidate <= self.gamma
+                            else:
+                                # Pure swap keeps |S|: require strict, margin-beating
+                                # E improvement (feasibility E < E_cur <= gamma implied).
+                                accept = E_candidate < E_cur - pure_tol
+
+                            if accept:
                                 if self.improvement_mode == "first":
                                     best_move = (
                                         remove_combo,
@@ -632,3 +664,157 @@ class PriorityQueuePruner:
                     break  # restart k loop
 
         return S, E_cur, it
+
+
+class BackwardKSwapPruner(PriorityQueuePruner):
+    """Backward elimination seed + the k-swap reduction escape.
+
+    Backward elimination halts at a single-deletion local optimum S0: feasible
+    (E(S0) <= gamma) but with no single removal staying feasible.  By
+    monotonicity of E you cannot remove >= 2 models without adding >= 1 back
+    (E(S \\ {a, b}) >= E(S \\ {a}) > gamma), so the minimal escape from S0 is a
+    remove-k / add-(k-1) reduction -- exactly what plain backward cannot do.
+
+    Applying that escape from the *backward* seed is sound and dominant:
+    reductions only lower |S| while preserving E <= gamma, so the result is
+    feasible with ``|result| <= |backward|``, and the search terminates.  Pure
+    swaps are inherited but default OFF here, because reduction-only is the
+    provably-correct, terminating core; turn them on only to probe plateaus.
+    """
+
+    def __init__(
+        self,
+        coverage_fn: CoverageFunctional,
+        tolerance_gamma: float,
+        max_swap_k: int = 2,
+        improvement_mode: str = "first",
+        max_candidates: Optional[int] = None,
+        allow_pure_swaps: bool = False,
+        swap_rel_tol: float = 1e-9,
+    ):
+        super().__init__(
+            coverage_fn,
+            tolerance_gamma,
+            max_swap_k=max_swap_k,
+            improvement_mode=improvement_mode,
+            max_candidates=max_candidates,
+            allow_pure_swaps=allow_pure_swaps,
+            swap_rel_tol=swap_rel_tol,
+        )
+
+    def run(self, debug: bool = False) -> PruningResult:
+        all_models = set(range(self.coverage_fn.N))
+
+        # Phase A: backward elimination seed (a single-deletion local optimum).
+        seed = BackwardEliminationPruner(self.coverage_fn, self.gamma).run(debug=debug)
+        S: Set[int] = set(seed.kept_set)
+        # Carry over backward's trajectory minus its trailing "stop" sentinel so
+        # the combined history is continuous.
+        history: List[PruningStep] = [s for s in seed.history if s.action != "stop"]
+        it = history[-1].iteration if history else 0
+        E_cur, _ = self.coverage_fn.compute_coverage(S)
+
+        if debug:
+            print(f"\n[BackwardKSwap] seed |S|={len(S)}  E(S)={E_cur:.6f}")
+
+        # Phase B: k-swap reduction escape from the backward seed.
+        if self.max_swap_k > 0:
+            S, E_cur, it = self._kswap(
+                S, E_cur, it, all_models, history=history, debug=debug
+            )
+
+        it += 1
+        E_final, certs_final = self.coverage_fn.compute_coverage(S, return_certificates=True)
+        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+        history.append(
+            PruningStep(
+                iteration=it,
+                removed_model_idx=None,
+                removed_model_name=None,
+                kept_set=set(S),
+                coverage=E_final,
+                sum_uniqueness=sum_u,
+                action="stop",
+            )
+        )
+        assert certs_final is not None
+        return PruningResult(
+            kept_set=set(S),
+            coverage=E_final,
+            sum_uniqueness=sum_u,
+            history=history,
+            certificates=certs_final,
+        )
+
+
+class ForwardKSwapPruner(PriorityQueuePruner):
+    """Forward selection seed + the k-swap reduction escape (no backward cleanup).
+
+    Mirrors :class:`BackwardKSwapPruner` but seeds from forward greedy selection
+    instead of backward elimination, then applies the same reduction-only
+    (remove-k / add-(k-1)) escape.  The k=1 reduction sub-move already performs
+    single-removal cleanup, so this also subsumes a plain backward sweep on the
+    forward set.  Pure swaps default OFF.
+    """
+
+    def __init__(
+        self,
+        coverage_fn: CoverageFunctional,
+        tolerance_gamma: float,
+        max_swap_k: int = 2,
+        improvement_mode: str = "first",
+        max_candidates: Optional[int] = None,
+        allow_pure_swaps: bool = False,
+        swap_rel_tol: float = 1e-9,
+    ):
+        super().__init__(
+            coverage_fn,
+            tolerance_gamma,
+            max_swap_k=max_swap_k,
+            improvement_mode=improvement_mode,
+            max_candidates=max_candidates,
+            allow_pure_swaps=allow_pure_swaps,
+            swap_rel_tol=swap_rel_tol,
+        )
+
+    def run(self, debug: bool = False) -> PruningResult:
+        all_models = set(range(self.coverage_fn.N))
+
+        # Phase A: forward selection seed.
+        seed = ForwardSelectionPruner(self.coverage_fn, self.gamma).run(debug=debug)
+        S: Set[int] = set(seed.kept_set)
+        history: List[PruningStep] = [s for s in seed.history if s.action != "stop"]
+        it = history[-1].iteration if history else 0
+        E_cur, _ = self.coverage_fn.compute_coverage(S)
+
+        if debug:
+            print(f"\n[ForwardKSwap] seed |S|={len(S)}  E(S)={E_cur:.6f}")
+
+        # Phase B: k-swap reduction escape from the forward seed.
+        if self.max_swap_k > 0:
+            S, E_cur, it = self._kswap(
+                S, E_cur, it, all_models, history=history, debug=debug
+            )
+
+        it += 1
+        E_final, certs_final = self.coverage_fn.compute_coverage(S, return_certificates=True)
+        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+        history.append(
+            PruningStep(
+                iteration=it,
+                removed_model_idx=None,
+                removed_model_name=None,
+                kept_set=set(S),
+                coverage=E_final,
+                sum_uniqueness=sum_u,
+                action="stop",
+            )
+        )
+        assert certs_final is not None
+        return PruningResult(
+            kept_set=set(S),
+            coverage=E_final,
+            sum_uniqueness=sum_u,
+            history=history,
+            certificates=certs_final,
+        )
