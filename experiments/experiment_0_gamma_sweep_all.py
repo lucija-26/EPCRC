@@ -30,6 +30,7 @@ from epcrc.coverage import CoverageFunctional
 from epcrc.metrics import step_metrics
 from epcrc.pruning import (
     BackwardEliminationPruner,
+    BackwardKSwapPruner,
     ForwardSelectionPruner,
     PriorityQueuePruner,
 )
@@ -211,10 +212,20 @@ def main() -> None:
         improvement_mode=KSWAP_MODE,
         max_candidates=KSWAP_MAX_CANDIDATES,
     )
+    # Backward seed + reduction-only k-swap escape: provably feasible with
+    # |S| <= |backward|, so this is the principled "best base + escape" variant.
+    backward_kswap_factory = partial(
+        BackwardKSwapPruner,
+        max_swap_k=KSWAP_MAX_K,
+        improvement_mode=KSWAP_MODE,
+        max_candidates=KSWAP_MAX_CANDIDATES,
+        allow_pure_swaps=False,
+    )
     algorithms = [
         ("backward_elimination", BackwardEliminationPruner, set(range(N))),
         ("forward_selection",    ForwardSelectionPruner,    set()),
         ("pq_kswap",             pq_kswap_factory,          set()),
+        ("backward_kswap",       backward_kswap_factory,    set(range(N))),
     ]
 
     # ------------------------------------------------------------------
