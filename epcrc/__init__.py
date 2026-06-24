@@ -14,6 +14,7 @@ from .pruning import (
     PriorityQueuePruner,
     PruningResult,
     PruningStep,
+    WarmStartForwardWorstCoveredPruner,
 )
 
 __all__ = [
@@ -27,6 +28,7 @@ __all__ = [
     "BackwardKSwapPruner",
     "ForwardKSwapPruner",
     "ForwardSelectionPruner",
+    "WarmStartForwardWorstCoveredPruner",
     "PriorityQueuePruner",
     "PruningResult",
     "PruningStep",
