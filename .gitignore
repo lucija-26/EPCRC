@@ -116,3 +116,9 @@ htmlcov/
 .env
 .env.local
 secrets.yaml
+
+# Too large for GitHub (55MB); the .parquet twin is committed instead
+results/forward_beats_backward/replay_results.json
+
+# Claude Code local settings
+.claude/

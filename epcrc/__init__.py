@@ -6,6 +6,7 @@ Minimal implementation for Section 4.1 backward elimination.
 from .core import Intervention, ModelUnit, Scalarizer
 from .coverage import CoverageFunctional, SubstitutionCertificate
 from .ecosystem import Ecosystem
+from .milp import MilpResult, milp_min_representative_set
 from .pruning import (
     BackwardEliminationPruner,
     BackwardKSwapPruner,
@@ -32,4 +33,6 @@ __all__ = [
     "PriorityQueuePruner",
     "PruningResult",
     "PruningStep",
+    "MilpResult",
+    "milp_min_representative_set",
 ]
