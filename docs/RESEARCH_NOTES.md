@@ -276,6 +276,24 @@ fine for Gurobi (MIQCP), not for HiGHS/scipy. The relative form stays linear
 | Exp 4 risk-controlled pruning | **unlocked** | compare `BackwardEliminationPruner` vs `RiskControlledBackwardPruner` across γ and δ; report size premium + violation rates under resampling |
 | Exp 5 synthetic scaling | done | replay + synthetic optimum studies |
 
+## 4.95 Next-level ideas (added 2026-07-02; math in docs/MATH_COMPANION.md §6)
+
+1. **Carathéodory ⇒ provable certificate sparsity.** If model behaviors have
+   intrinsic dimension d, sparse certificates with r = d+1 are lossless
+   (verified: r=3 == dense optimum on all d=2 trials). Approximate
+   Carathéodory (Barman): r = O(ρ²/γ²) *independent of dimension*. This
+   turns the paper's OP5 "geometric question" into a theorem + a testable
+   knee in the size-vs-r plot (estimate d by PCA on Y_eval).
+2. **This problem has a name in the literature**: representative selection /
+   archetype selection / separable NMF. Cite & compare: SPA (Arora et al.
+   2012; Gillis & Vavasis) — a provable ~20-line pruner under
+   near-separability; SMRS (Elhamifar, Sapiro & Vidal, CVPR 2012) — convex
+   row-sparse self-representation relaxation of the WHOLE pruning problem;
+   coresets / epsilon-kernels (Agarwal, Har-Peled, Varadarajan) for
+   hull-approximation complexity (OP2 hardness hooks live there too).
+3. **Price of honest splitting** (§3.4) — third-sample check decides
+   overfitting-vs-inefficiency interpretation.
+
 ## 5. Open threads, in priority order
 
 1. **Server runs** (§2) → final tables → write the optimality-gap section.
