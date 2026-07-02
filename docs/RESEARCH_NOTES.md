@@ -261,6 +261,21 @@ fine for Gurobi (MIQCP), not for HiGHS/scipy. The relative form stays linear
 
 ---
 
+## 4.9 Scorecard: the paper's open problems & experiments vs this repo
+
+| paper item | status | where |
+|---|---|---|
+| OP1 certifiable coverage (UCB) | **code ready, not run** | `epcrc/risk.py` (`RiskControlledBackwardPruner`); union bound over models, per fixed S; adaptive-uniform bounds remain the open problem — say so honestly |
+| OP2 complexity of minimal sets | **answered empirically** | exact optimum + MILP + k-swap gap tables; NP-hardness proof still open (fine to state as conjecture) |
+| OP3 active query design | not touched | out of scope for the special course; one sentence in the report |
+| OP4 robust pruning across contexts | not touched | recipe: split UTD19 eval queries into contexts (e.g. per-city pools or time-of-day), E_rob(S)=max_c E_c(S); all pruners work unchanged on E_rob |
+| OP5 sparse certificates | **code ready, not run** | `milp_min_representative_set(..., max_support=r)`; sweep r = 1,2,3,∞ → the size-vs-sparsity tradeoff plot (paper eq. 11) |
+| Exp 1 consolidation curves | done | gamma sweep experiments |
+| Exp 2 robust contexts | not done | = OP4 recipe above |
+| Exp 3 sparse certificates | **unlocked** | sparse MILP sweep, ~10 lines around `experiment_milp_optimum.py` |
+| Exp 4 risk-controlled pruning | **unlocked** | compare `BackwardEliminationPruner` vs `RiskControlledBackwardPruner` across γ and δ; report size premium + violation rates under resampling |
+| Exp 5 synthetic scaling | done | replay + synthetic optimum studies |
+
 ## 5. Open threads, in priority order
 
 1. **Server runs** (§2) → final tables → write the optimality-gap section.
@@ -285,4 +300,46 @@ fine for Gurobi (MIQCP), not for HiGHS/scipy. The relative form stays linear
 4. Exact optimum: exhaustive (protocol) and MILP (oracle) — the sandwich.
 5. The price of honest splitting.
 6. β: definition, one-sidedness, the (γ, β) frontier.
-7. Open problems revisited (which of the paper's OP1–OP5 you touched).
+7. Sparse certificates (size vs r) and risk-controlled pruning (size premium
+   for certification) — the two paper experiments this repo now unlocks.
+8. Open problems revisited (which of the paper's OP1–OP5 you touched).
+
+## 7. One-month plan (server back, no Fable)
+
+Week 1 — runs + core tables. `git pull`, run §2 commands, plus:
+```bash
+# sparse MILP sweep (Exp 3): edit experiment_milp_optimum.py to loop
+#   max_support in [1, 2, 3, None]  around the milp_min_representative_set call
+# risk-controlled comparison (Exp 4): backward vs RiskControlledBackwardPruner
+#   on the UTD19 bundle, gammas 60..160, delta in [0.01, 0.05, 0.1]
+# beta: delete data/exp_0_utd19_cache/bundle.npz, rerun a sweep to regenerate
+#   (now with y_eval_true), then quality_eligible_set + backward+kswap on the pool
+```
+Push the JSONs, re-run `notebooks/optimality_gap_analysis.ipynb` locally.
+
+Week 2 — the two new plots: size-vs-r (sparse) and size-premium-vs-δ
+(risk-controlled); plus the (γ, β) frontier if the bundle regen went well.
+
+Weeks 3–4 — write the report along §6. Every number you need is then in
+`results/`. If time remains: the k=3-failure-instance hunt (§5 item 4), or
+OP4 contexts.
+
+## 8. Working with Claude (Opus) after this session
+
+Opus in Claude Code is fully capable of continuing this — the quality of the
+continuation depends far more on the context it gets than on the model. What
+survives this session automatically:
+
+- **This file** — tell it: *"Read docs/RESEARCH_NOTES.md and CLAUDE.md first,
+  then <task>."* That one sentence replaces most of the shared history.
+- **Project memory** (`MEMORY.md` in the Claude project dir) — loaded
+  automatically each session on this machine; it summarizes the findings.
+- **The tests** (`pytest tests/ -q`, 14 passing) — insist any change keeps
+  them green; they encode the invariants (kswap never worse than backward,
+  Jensen bound, UCB dominance, MILP-vs-bruteforce, hull-vertex recovery).
+
+Habits that keep it on rails: ask for small steps and run the tests after
+each; ask it to *explain the numbers it produces* (a wrong explanation
+exposes a wrong run); when it proposes a new experiment, make it first say
+which paper section / open problem the experiment answers; commit + push
+often so the server and laptop never diverge.

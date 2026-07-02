@@ -7,6 +7,7 @@ from .core import Intervention, ModelUnit, Scalarizer
 from .coverage import CoverageFunctional, SubstitutionCertificate
 from .ecosystem import Ecosystem
 from .milp import MilpResult, milp_min_representative_set
+from .risk import RiskControlledBackwardPruner, coverage_ucb, uniqueness_ucb
 from .task_error import (
     beta_coverage,
     joint_feasible,
@@ -45,4 +46,7 @@ __all__ = [
     "joint_feasible",
     "quality_eligible_set",
     "substitution_task_errors",
+    "RiskControlledBackwardPruner",
+    "coverage_ucb",
+    "uniqueness_ucb",
 ]
