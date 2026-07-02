@@ -24,13 +24,13 @@ Row = a query, column = a model. Two separate samples (fit vs eval) is the
 **Routing weights (the certificate).** To substitute model $i$ using kept set
 $S$, find simplex weights by least squares **on the fit sample**:
 
-$$w_i^\*(S) \;=\; \arg\min_{w \in \Delta^{|S|-1}} \; \big\| Y^{\text{fit}}_{:,i} - Y^{\text{fit}}_{:,S}\, w \big\|_2^2,
+$$w_i^*(S) \;=\; \arg\min_{w \in \Delta^{|S|-1}} \; \big\| Y^{\text{fit}}_{:,i} - Y^{\text{fit}}_{:,S}\, w \big\|_2^2,
 \qquad \Delta^{|S|-1} = \Big\{ w \in \mathbb{R}^{|S|} : w_j \ge 0,\; \textstyle\sum_j w_j = 1 \Big\}.$$
 
 **Uniqueness / substitution error**, judged **on the eval sample** with mean
 absolute error:
 
-$$U(i \mid S) \;=\; \frac{1}{n} \sum_{t=1}^{n} \Big| \, Y^{\text{eval}}_{t,i} - \big( Y^{\text{eval}}_{:,S}\, w_i^\*(S) \big)_t \Big|.$$
+$$U(i \mid S) \;=\; \frac{1}{n} \sum_{t=1}^{n} \Big| \, Y^{\text{eval}}_{t,i} - \big( Y^{\text{eval}}_{:,S}\, w_i^*(S) \big)_t \Big|.$$
 
 **Coverage error** = the worst-substituted model:
 
@@ -56,7 +56,7 @@ Everything in the repo is about the left one.
 **Backward elimination.** Start $S = J$. Repeat: remove the best feasible
 single model,
 
-$$j^\* = \arg\min_{j \in S} \mathcal{E}(S \setminus \{j\}) \quad \text{subject to} \quad \mathcal{E}(S \setminus \{j\}) \le \gamma,$$
+$$j^* = \arg\min_{j \in S} \mathcal{E}(S \setminus \{j\}) \quad \text{subject to} \quad \mathcal{E}(S \setminus \{j\}) \le \gamma,$$
 
 stop when no single removal is feasible. The stopping point is a
 *single-deletion local optimum*.
@@ -89,7 +89,7 @@ sharing **zero** models with the backward seed).
 
 ## 3. The MILP, written out completely
 
-Variables: for all $j, i \in J$ and rows $t = 1..n$,
+Variables: for all $j, i \in J$ and rows $t = 1, \dots, n$,
 
 $$z_j \in \{0,1\} \;(\text{keep model } j), \qquad w_{ij} \ge 0 \;(\text{weight of } j \text{ in } i\text{'s recipe}), \qquad e_{ti} \ge 0 \;(\text{residual envelope}).$$
 
@@ -107,9 +107,10 @@ $$
 
 Three tricks to internalize:
 
-1. **$w_{ij} \le z_j$** — if $z_j = 0$, the weight is forced to 0. One linear
-   inequality implements "pruned models can't be used." (Works because
-   $w_{ij} \le 1$ always; this is a big-M constraint with $M = 1$.)
+1. **The coupling trick** $w_{ij} \le z_j$ — if $z_j = 0$, the weight is
+   forced to 0. One linear inequality implements "pruned models can't be
+   used." (Works because $w_{ij} \le 1$ always; this is a big-M constraint
+   with $M = 1$.)
 2. **The two $e$-inequalities** — together they say $e_{ti} \ge |r_{ti}|$,
    turning an absolute value into two linear rows. Example: residual $r = -3$
    gives $e \ge -3$ and $e \ge 3$, i.e. $e \ge 3 = |-3|$.
@@ -137,16 +138,16 @@ UTD19: large, e.g. 4 vs ~8.7 at $\gamma = 60$).
 
 ## 4. Beta (task-error preservation), with full derivations
 
-Ground truth $y^\* \in \mathbb{R}^n$ at the eval queries; task loss $L$
-(RMSE/MAE/MSE). Define, with $\hat{y}_i = Y^{\text{eval}}_{:,S} w_i^\*(S)$
+Ground truth $y^* \in \mathbb{R}^n$ at the eval queries; task loss $L$
+(RMSE/MAE/MSE). Define, with $\hat{y}_i = Y^{\text{eval}}_{:,S} w_i^*(S)$
 the substitute's predictions:
 
-$$\delta(i \mid S) \;=\; L(\hat{y}_i,\, y^\*) \;-\; L\big(Y^{\text{eval}}_{:,i},\, y^\*\big), \qquad B(S) = \max_{i} \delta(i \mid S).$$
+$$\delta(i \mid S) \;=\; L(\hat{y}_i,\, y^*) \;-\; L\big(Y^{\text{eval}}_{:,i},\, y^*\big), \qquad B(S) = \max_{i} \delta(i \mid S).$$
 
 **Bound 1 (triangle inequality; drift is capped by $\gamma$).** For any norm
 loss in the *same metric* as the fidelity term:
 
-$$L(\hat{y}_i, y^\*) \;\le\; L\big(Y_{:,i}, y^\*\big) + L\big(\hat{y}_i, Y_{:,i}\big) \;=\; L\big(Y_{:,i}, y^\*\big) + U(i \mid S) \;\le\; L\big(Y_{:,i}, y^\*\big) + \gamma,$$
+$$L(\hat{y}_i, y^*) \;\le\; L\big(Y_{:,i}, y^*\big) + L\big(\hat{y}_i, Y_{:,i}\big) \;=\; L\big(Y_{:,i}, y^*\big) + U(i \mid S) \;\le\; L\big(Y_{:,i}, y^*\big) + \gamma,$$
 
 hence $\delta(i|S) \le \gamma$ automatically. (Careful: MAE-fidelity does
 **not** bound RMSE-drift — keep both in the same metric.)
@@ -154,11 +155,11 @@ hence $\delta(i|S) \le \gamma$ automatically. (Careful: MAE-fidelity does
 **Bound 2 (Jensen; a blend is at least as good as its worst ingredient).**
 For convex $\ell$ (e.g. $\ell(r) = r^2$ or $|r|$), simplex weights, per query $t$:
 
-$$\ell\Big( \sum_{j \in S} w_j \big(Y_{t,j} - y^\*_t\big) \Big) \;\le\; \sum_{j \in S} w_j \, \ell\big(Y_{t,j} - y^\*_t\big).$$
+$$\ell\Big( \sum_{j \in S} w_j \big(Y_{t,j} - y^*_t\big) \Big) \;\le\; \sum_{j \in S} w_j \, \ell\big(Y_{t,j} - y^*_t\big).$$
 
 Average over $t$:
 
-$$L\Big( \sum_j w_j Y_{:,j},\; y^\* \Big) \;\le\; \sum_{j \in S} w_j \, L\big(Y_{:,j},\, y^\*\big) \;\le\; \max_{j \in S} L\big(Y_{:,j},\, y^\*\big).$$
+$$L\Big( \sum_j w_j Y_{:,j},\; y^* \Big) \;\le\; \sum_{j \in S} w_j \, L\big(Y_{:,j},\, y^*\big) \;\le\; \max_{j \in S} L\big(Y_{:,j},\, y^*\big).$$
 
 Numeric picture: truth 100, kept models predict 90 and 110 (each error 10) —
 any weighted average lands in $[90, 110]$ (error $\le 10$), and the 50/50 mix
@@ -168,7 +169,7 @@ negative.
 **The design consequence (quality by construction).** Pre-filter the
 keep-eligible pool
 
-$$K_\beta \;=\; \big\{\, j \in J \;:\; L\big(Y^{\text{eval}}_{:,j},\, y^\*\big) \le \beta \,\big\},$$
+$$K_\beta \;=\; \big\{\, j \in J \;:\; L\big(Y^{\text{eval}}_{:,j},\, y^*\big) \le \beta \,\big\},$$
 
 then solve the ordinary problem restricted to it:
 
