@@ -160,6 +160,11 @@ class Utd19Bundle:
     Y_fit: np.ndarray           # (n_fit, n_models)
     Y_eval: np.ndarray          # (n_eval, n_models)
     per_city_rmse: Dict[str, float]  # train-set diagnostic, for reporting
+    # Ground-truth flow at the shared query points (needed for the beta /
+    # task-error-preservation constraint).  None for bundles cached before
+    # this field existed; regenerate the bundle to populate them.
+    y_fit_true: Optional[np.ndarray] = None    # (n_fit,)
+    y_eval_true: Optional[np.ndarray] = None   # (n_eval,)
 
 
 def _load_raw_csv(data_csv: str, chunked: bool = True) -> pd.DataFrame:
@@ -195,6 +200,8 @@ def build_or_load_bundle(
                 Y_fit=data["Y_fit"],
                 Y_eval=data["Y_eval"],
                 per_city_rmse=dict(data["per_city_rmse"].item()),
+                y_fit_true=data["y_fit_true"] if "y_fit_true" in data else None,
+                y_eval_true=data["y_eval_true"] if "y_eval_true" in data else None,
             )
 
     rng = set_global_seed(cfg["seed"])
@@ -282,6 +289,8 @@ def build_or_load_bundle(
     # Pool & subsample shared query points
     X_val_all = np.concatenate([city_data[c]["val"][0] for c in model_names], axis=0)
     X_test_all = np.concatenate([city_data[c]["test"][0] for c in model_names], axis=0)
+    y_val_all = np.concatenate([city_data[c]["val"][1] for c in model_names], axis=0)
+    y_test_all = np.concatenate([city_data[c]["test"][1] for c in model_names], axis=0)
 
     fit_n = min(cfg["max_fit_samples"], X_val_all.shape[0])
     eval_n = min(cfg["max_eval_samples"], X_test_all.shape[0])
@@ -291,6 +300,8 @@ def build_or_load_bundle(
 
     X_fit = X_val_all[fit_idx]
     X_eval = X_test_all[eval_idx]
+    y_fit_true = y_val_all[fit_idx]
+    y_eval_true = y_test_all[eval_idx]
 
     if verbose:
         print(f"[resp] building response matrices: fit={fit_n}, eval={eval_n}")
@@ -303,6 +314,8 @@ def build_or_load_bundle(
         Y_fit=Y_fit,
         Y_eval=Y_eval,
         per_city_rmse=np.array(city_train_rmse, dtype=object),
+        y_fit_true=y_fit_true,
+        y_eval_true=y_eval_true,
     )
     if verbose:
         print(f"[cache] saved bundle to {bundle_path}")
@@ -312,4 +325,6 @@ def build_or_load_bundle(
         Y_fit=Y_fit,
         Y_eval=Y_eval,
         per_city_rmse=city_train_rmse,
+        y_fit_true=y_fit_true,
+        y_eval_true=y_eval_true,
     )
