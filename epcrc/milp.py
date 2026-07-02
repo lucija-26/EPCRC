@@ -58,13 +58,19 @@ def milp_min_representative_set(
     metric: str = "mean_abs",
     time_limit: Optional[float] = None,
     mip_rel_gap: float = 0.0,
+    max_support: Optional[int] = None,
 ) -> MilpResult:
     """Exact oracle-routing minimum representative set via MILP (HiGHS).
 
-    Variable layout (x has length N + N*N + n*N):
+    Variable layout (x has length N + N*N + n*N [+ N*N]):
       x[0:N]                    z_j     binary keep indicators
       x[N + i*N + j]            w_ij    routing weight of target i on model j
       x[N + N*N + i*n + t]      e_ti    |residual| envelope for target i, row t
+      x[... + i*N + j]          u_ij    binary support indicators (sparse mode)
+
+    max_support = r enforces ||w_i||_0 <= r for every certificate (the sparse
+    substitution variant, paper Open Problem 5 / eq. 11): binary u_ij with
+    w_ij <= u_ij and sum_j u_ij <= r.
     """
     Y = np.asarray(Y_eval, dtype=float)
     n, N = Y.shape
@@ -126,13 +132,37 @@ def milp_min_representative_set(
         e_ub = float(gamma)
 
     A = sparse.vstack(rows_A, format="csc")
-    constraint = LinearConstraint(A, np.concatenate(lb_list), np.concatenate(ub_list))
+    lb_rows = np.concatenate(lb_list)
+    ub_rows = np.concatenate(ub_list)
+
+    n_u = N * N if max_support is not None else 0
+    if max_support is not None:
+        # Pad existing rows with zero columns for u, then add:
+        #   (5a) w_ij - u_ij <= 0            (support indicator coupling)
+        #   (5b) sum_j u_ij <= max_support   (per-target sparsity budget)
+        A = sparse.hstack([A, sparse.csr_matrix((A.shape[0], n_u))], format="csc")
+        A_supp = sparse.hstack([
+            sparse.csr_matrix((n_u, n_z)),
+            sparse.eye(n_u),
+            sparse.csr_matrix((n_u, n_e)),
+            -sparse.eye(n_u),
+        ])
+        A_card = sparse.hstack([
+            sparse.csr_matrix((N, n_z + n_w + n_e)),
+            sparse.kron(sparse.eye(N), np.ones((1, N))),
+        ])
+        A = sparse.vstack([A, A_supp, A_card], format="csc")
+        lb_rows = np.concatenate([lb_rows, np.full(n_u, -np.inf), np.full(N, -np.inf)])
+        ub_rows = np.concatenate([ub_rows, np.zeros(n_u), np.full(N, float(max_support))])
+        n_var += n_u
+
+    constraint = LinearConstraint(A, lb_rows, ub_rows)
 
     lb = np.zeros(n_var)
-    ub = np.concatenate([np.ones(n_z), np.ones(n_w), np.full(n_e, e_ub)])
-    integrality = np.concatenate([np.ones(n_z), np.zeros(n_w + n_e)])
+    ub = np.concatenate([np.ones(n_z), np.ones(n_w), np.full(n_e, e_ub), np.ones(n_u)])
+    integrality = np.concatenate([np.ones(n_z), np.zeros(n_w + n_e), np.ones(n_u)])
 
-    c = np.concatenate([np.ones(n_z), np.zeros(n_w + n_e)])
+    c = np.concatenate([np.ones(n_z), np.zeros(n_w + n_e + n_u)])
 
     options = {"mip_rel_gap": mip_rel_gap}
     if time_limit is not None:
