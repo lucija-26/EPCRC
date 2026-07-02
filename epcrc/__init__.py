@@ -7,6 +7,12 @@ from .core import Intervention, ModelUnit, Scalarizer
 from .coverage import CoverageFunctional, SubstitutionCertificate
 from .ecosystem import Ecosystem
 from .milp import MilpResult, milp_min_representative_set
+from .task_error import (
+    beta_coverage,
+    joint_feasible,
+    quality_eligible_set,
+    substitution_task_errors,
+)
 from .pruning import (
     BackwardEliminationPruner,
     BackwardKSwapPruner,
@@ -35,4 +41,8 @@ __all__ = [
     "PruningStep",
     "MilpResult",
     "milp_min_representative_set",
+    "beta_coverage",
+    "joint_feasible",
+    "quality_eligible_set",
+    "substitution_task_errors",
 ]
