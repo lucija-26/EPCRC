@@ -3,7 +3,30 @@ from __future__ import annotations
 from typing import Tuple
 
 import numpy as np
-from scipy.optimize import minimize
+from scipy.optimize import minimize, nnls
+
+
+def _slsqp_simplex(target: np.ndarray, peers: np.ndarray) -> np.ndarray:
+    """Solve min ||target - peers @ w||^2 s.t. w >= 0, sum(w) = 1 via SLSQP.
+
+    Only sound on unit-scale inputs (callers must normalize first); used as a
+    fallback when NNLS fails to converge.
+    """
+    p = peers.shape[1]
+    PtP = peers.T @ peers
+    Pty = peers.T @ target
+
+    def obj_and_grad(w):
+        return float(0.5 * w @ PtP @ w - Pty @ w), PtP @ w - Pty
+
+    result = minimize(
+        obj_and_grad, np.ones(p) / p, jac=True,
+        method="SLSQP", bounds=[(0.0, None)] * p,
+        constraints={"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
+                     "jac": lambda w: np.ones(p)},
+        options={"maxiter": 500, "ftol": 1e-14},
+    )
+    return np.asarray(result.x, dtype=float)
 
 
 class DISCOSolver:
@@ -39,27 +62,31 @@ class DISCOSolver:
             dist = float(np.linalg.norm(target - peers @ weights, ord=2))
             return dist, weights
 
-        # Precompute Gram matrix and cross terms for fast objective/gradient
-        PtP = peers.T @ peers      # (p, p)
-        Pty = peers.T @ target      # (p,)
+        # Normalize to unit scale: the solve is scale-invariant in exact
+        # arithmetic, but unscaled traffic data (values ~5e3, objective ~1e10)
+        # previously made the optimizer terminate far from the optimum.
+        scale = max(float(np.abs(peers).max()), float(np.abs(target).max()))
+        if scale <= 0:
+            weights = np.ones(p, dtype=float) / p
+            return 0.0, weights
 
-        def obj_and_grad(w):
-            r = PtP @ w - Pty
-            obj = 0.5 * w @ PtP @ w - Pty @ w
-            return float(obj), r
+        # Simplex-constrained least squares via penalty-augmented NNLS:
+        # append a row lam * 1^T w = lam so NNLS drives sum(w) -> 1, then
+        # renormalize to enforce the constraint exactly.  lam is large enough
+        # that the constraint violation is ~1e-9 on unit-scale data, and small
+        # enough not to swamp the data block in the normal equations.
+        lam = 1e4
+        A = np.vstack([peers / scale, lam * np.ones((1, p))])
+        b = np.concatenate([target / scale, [lam]])
+        try:
+            w, _ = nnls(A, b, maxiter=100 * p)
+        except RuntimeError:
+            # NNLS's active-set method can cycle on degenerate/underdetermined
+            # systems; fall back to SLSQP on the normalized problem (correct
+            # there, unlike on raw-scale data -- just slower).
+            w = _slsqp_simplex(target / scale, peers / scale)
 
-        w0 = np.ones(p, dtype=float) / p
-        bounds = [(0.0, None)] * p
-        constraints = {"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
-                       "jac": lambda w: np.ones(p)}
-
-        result = minimize(
-            obj_and_grad, w0, jac=True,
-            method="SLSQP", bounds=bounds, constraints=constraints,
-            options={"maxiter": 500, "ftol": 1e-12},
-        )
-
-        weights = np.clip(result.x, 0.0, None)
+        weights = np.clip(w, 0.0, None)
         s = float(weights.sum())
         if s <= 0:
             weights = np.ones(p, dtype=float) / p
