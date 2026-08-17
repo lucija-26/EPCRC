@@ -6,6 +6,19 @@ import numpy as np
 from scipy.optimize import minimize, nnls
 
 
+def suppress_spurious_blas_flags() -> np.errstate:
+    """Mask divide/overflow/invalid flags raised by the BLAS matmul kernel.
+
+    numpy >= 2.0 reports these on essentially every `peers @ w` in this project
+    even though the inputs are finite and the result is exact to ~1e-16 -- they
+    come from unused SIMD lanes in the vectorised kernel, not from the data.
+    Left unsuppressed a single gamma sweep emits tens of MB of stderr, which
+    hides genuine warnings.  Callers must still check their own results are
+    finite; this only silences the flag, it does not make a real blow-up safe.
+    """
+    return np.errstate(over="ignore", divide="ignore", invalid="ignore")
+
+
 def _slsqp_simplex(target: np.ndarray, peers: np.ndarray) -> np.ndarray:
     """Solve min ||target - peers @ w||^2 s.t. w >= 0, sum(w) = 1 via SLSQP.
 
@@ -78,22 +91,29 @@ class DISCOSolver:
         lam = 1e4
         A = np.vstack([peers / scale, lam * np.ones((1, p))])
         b = np.concatenate([target / scale, [lam]])
-        try:
-            w, _ = nnls(A, b, maxiter=100 * p)
-        except RuntimeError:
-            # NNLS's active-set method can cycle on degenerate/underdetermined
-            # systems; fall back to SLSQP on the normalized problem (correct
-            # there, unlike on raw-scale data -- just slower).
-            w = _slsqp_simplex(target / scale, peers / scale)
 
-        weights = np.clip(w, 0.0, None)
-        s = float(weights.sum())
-        if s <= 0:
-            weights = np.ones(p, dtype=float) / p
-        else:
-            weights = weights / s
+        with suppress_spurious_blas_flags():
+            try:
+                w, _ = nnls(A, b, maxiter=100 * p)
+            except RuntimeError:
+                # NNLS's active-set method can cycle on degenerate/underdetermined
+                # systems; fall back to SLSQP on the normalized problem (correct
+                # there, unlike on raw-scale data -- just slower).
+                w = _slsqp_simplex(target / scale, peers / scale)
 
-        dist = float(np.linalg.norm(target - peers @ weights, ord=2))
+            weights = np.clip(w, 0.0, None)
+            s = float(weights.sum())
+            if s <= 0:
+                weights = np.ones(p, dtype=float) / p
+            else:
+                weights = weights / s
+
+            dist = float(np.linalg.norm(target - peers @ weights, ord=2))
+
+        if not (np.isfinite(dist) and np.isfinite(weights).all()):
+            raise FloatingPointError(
+                f"simplex projection diverged: p={p}, scale={scale:.3g}, dist={dist}"
+            )
         return dist, weights
 
     @staticmethod
@@ -110,8 +130,8 @@ class DISCOSolver:
         if peers.ndim == 1:
             peers = peers.reshape(-1, 1)
 
-        pred = peers @ w
-        residual = target - pred
+        with suppress_spurious_blas_flags():
+            residual = target - peers @ w
 
         if metric == "mean_abs":
             return float(np.mean(np.abs(residual)))

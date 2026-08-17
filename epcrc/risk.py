@@ -28,6 +28,7 @@ import numpy as np
 from scipy.stats import norm
 
 from .coverage import CoverageFunctional
+from .geometry import suppress_spurious_blas_flags
 from .pruning import PruningResult, PruningStep
 
 
@@ -50,7 +51,8 @@ def uniqueness_ucb(
         if i in kept_set:
             ucb[i] = 0.0
             continue
-        r = np.abs(cov.Y_eval[:, i] - Pe @ certs[i].weights)
+        with suppress_spurious_blas_flags():
+            r = np.abs(cov.Y_eval[:, i] - Pe @ certs[i].weights)
         ucb[i] = float(r.mean() + z * r.std(ddof=1) / np.sqrt(n))
     return ucb
 

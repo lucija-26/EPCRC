@@ -1,0 +1,542 @@
+{
+  "failures": [],
+  "summary": [
+    {
+      "gamma": 40.0,
+      "algorithm": "backward",
+      "size": 14,
+      "coverage": 39.32392910872473,
+      "set": [
+        "basel",
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 13
+    },
+    {
+      "gamma": 40.0,
+      "algorithm": "forward",
+      "size": 18,
+      "coverage": 32.42748859480455,
+      "set": [
+        "augsburg",
+        "basel",
+        "bern",
+        "bordeaux",
+        "bremen",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "speyer",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "n_droppable": 5,
+      "oracle_optimum": 13
+    },
+    {
+      "gamma": 40.0,
+      "algorithm": "forward_trim",
+      "size": 14,
+      "coverage": 39.32392910872473,
+      "set": [
+        "basel",
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 13
+    },
+    {
+      "gamma": 40.0,
+      "algorithm": "pq_kswap",
+      "size": 14,
+      "coverage": 39.32392910872473,
+      "set": [
+        "basel",
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 13
+    },
+    {
+      "gamma": 40.0,
+      "algorithm": "backward_kswap3",
+      "size": 14,
+      "coverage": 39.32392910872473,
+      "set": [
+        "basel",
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "darmstadt",
+        "essen",
+        "losangeles",
+        "madrid",
+        "marseille",
+        "strasbourg",
+        "taipeh",
+        "torino",
+        "wolfsburg",
+        "zurich"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 13
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "backward",
+      "size": 7,
+      "coverage": 58.91407764168569,
+      "set": [
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "losangeles",
+        "madrid",
+        "strasbourg",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 6
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "forward",
+      "size": 7,
+      "coverage": 58.51583624239264,
+      "set": [
+        "augsburg",
+        "bordeaux",
+        "cagliari",
+        "losangeles",
+        "madrid",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 6
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "forward_trim",
+      "size": 7,
+      "coverage": 58.51583624239264,
+      "set": [
+        "augsburg",
+        "bordeaux",
+        "cagliari",
+        "losangeles",
+        "madrid",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 6
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "pq_kswap",
+      "size": 7,
+      "coverage": 56.260499820867466,
+      "set": [
+        "bordeaux",
+        "cagliari",
+        "losangeles",
+        "madrid",
+        "taipeh",
+        "torino",
+        "zurich"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 6
+    },
+    {
+      "gamma": 60.0,
+      "algorithm": "backward_kswap3",
+      "size": 7,
+      "coverage": 58.91407764168569,
+      "set": [
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "losangeles",
+        "madrid",
+        "strasbourg",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 6
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "backward",
+      "size": 6,
+      "coverage": 73.23574894938452,
+      "set": [
+        "bordeaux",
+        "cagliari",
+        "constance",
+        "losangeles",
+        "madrid",
+        "strasbourg"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 4
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "forward",
+      "size": 7,
+      "coverage": 58.51583624239264,
+      "set": [
+        "augsburg",
+        "bordeaux",
+        "cagliari",
+        "losangeles",
+        "madrid",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 3,
+      "oracle_optimum": 4
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "forward_trim",
+      "size": 5,
+      "coverage": 73.63553940453811,
+      "set": [
+        "augsburg",
+        "bordeaux",
+        "cagliari",
+        "losangeles",
+        "madrid"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 4
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "pq_kswap",
+      "size": 4,
+      "coverage": 77.75736584532773,
+      "set": [
+        "basel",
+        "losangeles",
+        "madrid",
+        "marseille"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 4
+    },
+    {
+      "gamma": 80.0,
+      "algorithm": "backward_kswap3",
+      "size": 4,
+      "coverage": 79.80243345270614,
+      "set": [
+        "constance",
+        "losangeles",
+        "madrid",
+        "marseille"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 4
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "backward",
+      "size": 4,
+      "coverage": 84.79610844350863,
+      "set": [
+        "cagliari",
+        "constance",
+        "losangeles",
+        "madrid"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 3
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "forward",
+      "size": 4,
+      "coverage": 89.11629379602996,
+      "set": [
+        "augsburg",
+        "losangeles",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 1,
+      "oracle_optimum": 3
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "forward_trim",
+      "size": 3,
+      "coverage": 90.68223837864903,
+      "set": [
+        "augsburg",
+        "losangeles",
+        "taipeh"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 3
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "pq_kswap",
+      "size": 3,
+      "coverage": 90.68223837864903,
+      "set": [
+        "constance",
+        "losangeles",
+        "taipeh"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 3
+    },
+    {
+      "gamma": 100.0,
+      "algorithm": "backward_kswap3",
+      "size": 3,
+      "coverage": 99.79122362497597,
+      "set": [
+        "bremen",
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 3
+    },
+    {
+      "gamma": 120.0,
+      "algorithm": "backward",
+      "size": 3,
+      "coverage": 108.72238698205433,
+      "set": [
+        "cagliari",
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 120.0,
+      "algorithm": "forward",
+      "size": 4,
+      "coverage": 89.11629379602996,
+      "set": [
+        "augsburg",
+        "losangeles",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 2,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 120.0,
+      "algorithm": "forward_trim",
+      "size": 3,
+      "coverage": 90.68223837864903,
+      "set": [
+        "augsburg",
+        "losangeles",
+        "taipeh"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 120.0,
+      "algorithm": "pq_kswap",
+      "size": 2,
+      "coverage": 112.6642043026378,
+      "set": [
+        "losangeles",
+        "strasbourg"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 120.0,
+      "algorithm": "backward_kswap3",
+      "size": 2,
+      "coverage": 110.88846649566685,
+      "set": [
+        "bremen",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 140.0,
+      "algorithm": "backward",
+      "size": 2,
+      "coverage": 138.1446421863794,
+      "set": [
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 140.0,
+      "algorithm": "forward",
+      "size": 3,
+      "coverage": 136.29288524064026,
+      "set": [
+        "losangeles",
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 1,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 140.0,
+      "algorithm": "forward_trim",
+      "size": 2,
+      "coverage": 136.29288524064026,
+      "set": [
+        "losangeles",
+        "taipeh"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 140.0,
+      "algorithm": "pq_kswap",
+      "size": 2,
+      "coverage": 136.29288524064026,
+      "set": [
+        "losangeles",
+        "taipeh"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 140.0,
+      "algorithm": "backward_kswap3",
+      "size": 2,
+      "coverage": 138.1446421863794,
+      "set": [
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 160.0,
+      "algorithm": "backward",
+      "size": 2,
+      "coverage": 138.1446421863794,
+      "set": [
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 160.0,
+      "algorithm": "forward",
+      "size": 2,
+      "coverage": 157.58136742826366,
+      "set": [
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 160.0,
+      "algorithm": "forward_trim",
+      "size": 2,
+      "coverage": 157.58136742826366,
+      "set": [
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 160.0,
+      "algorithm": "pq_kswap",
+      "size": 2,
+      "coverage": 157.58136742826366,
+      "set": [
+        "taipeh",
+        "torino"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    },
+    {
+      "gamma": 160.0,
+      "algorithm": "backward_kswap3",
+      "size": 2,
+      "coverage": 138.1446421863794,
+      "set": [
+        "constance",
+        "losangeles"
+      ],
+      "n_droppable": 0,
+      "oracle_optimum": 2
+    }
+  ]
+}
