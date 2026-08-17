@@ -1,0 +1,1152 @@
+{
+  "experiment": "gamma_sweep_all",
+  "config": {
+    "n_fit_rows": 1500,
+    "n_eval_rows": 1500,
+    "n_models": 20,
+    "gammas": [
+      40.0,
+      60.0,
+      80.0,
+      100.0,
+      120.0,
+      140.0,
+      160.0
+    ],
+    "max_k": 4,
+    "metric": "mean_abs"
+  },
+  "model_names": [
+    "augsburg",
+    "basel",
+    "bern",
+    "bordeaux",
+    "bremen",
+    "cagliari",
+    "constance",
+    "darmstadt",
+    "essen",
+    "hamburg",
+    "losangeles",
+    "luzern",
+    "madrid",
+    "marseille",
+    "speyer",
+    "strasbourg",
+    "taipeh",
+    "torino",
+    "wolfsburg",
+    "zurich"
+  ],
+  "records": [
+    {
+      "gamma": 40.0,
+      "pruners": {
+        "forward": {
+          "size": 17,
+          "set": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bern",
+            "bordeaux",
+            "bremen",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "speyer",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 33.273704557116325,
+          "feasible": true,
+          "n_droppable": 3,
+          "time_s": 0.28
+        },
+        "forward_trim": {
+          "size": 14,
+          "set": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 39.32364808616798,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.33
+        },
+        "backward": {
+          "size": 14,
+          "set": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 39.32364808616798,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.1
+        },
+        "backward_kswap2": {
+          "size": 14,
+          "set": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 39.32364808616798,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.85
+        },
+        "backward_kswap3": {
+          "size": 14,
+          "set": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 39.32364808616798,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 8.42
+        },
+        "pq_kswap": {
+          "size": 14,
+          "set": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "darmstadt",
+            "essen",
+            "losangeles",
+            "madrid",
+            "marseille",
+            "strasbourg",
+            "taipeh",
+            "torino",
+            "wolfsburg",
+            "zurich"
+          ],
+          "coverage": 39.32364808616798,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.85
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 14,
+        "certified_upto_k": 4,
+        "n_subsets_tested": 6195,
+        "certify_time_s": 30.01,
+        "milp_bound": 13.0,
+        "milp_gap": 0.0,
+        "milp_time_s": 327.17,
+        "milp_status": 0,
+        "optimum": 13,
+        "optimum_set": [
+          0,
+          1,
+          3,
+          5,
+          6,
+          7,
+          10,
+          12,
+          13,
+          15,
+          16,
+          17,
+          18
+        ],
+        "optimum_names": [
+          "augsburg",
+          "basel",
+          "bordeaux",
+          "cagliari",
+          "constance",
+          "darmstadt",
+          "losangeles",
+          "madrid",
+          "marseille",
+          "strasbourg",
+          "taipeh",
+          "torino",
+          "wolfsburg"
+        ],
+        "lower_bound": 13,
+        "proof": "milp"
+      }
+    },
+    {
+      "gamma": 60.0,
+      "pruners": {
+        "forward": {
+          "size": 8,
+          "set": [
+            1,
+            3,
+            5,
+            10,
+            12,
+            16,
+            17,
+            19
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "losangeles",
+            "madrid",
+            "taipeh",
+            "torino",
+            "zurich"
+          ],
+          "coverage": 56.26049975498151,
+          "feasible": true,
+          "n_droppable": 1,
+          "time_s": 0.17
+        },
+        "forward_trim": {
+          "size": 7,
+          "set": [
+            3,
+            5,
+            10,
+            12,
+            16,
+            17,
+            19
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "losangeles",
+            "madrid",
+            "taipeh",
+            "torino",
+            "zurich"
+          ],
+          "coverage": 56.26049975498151,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.19
+        },
+        "backward": {
+          "size": 7,
+          "set": [
+            3,
+            5,
+            6,
+            10,
+            12,
+            15,
+            17
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "losangeles",
+            "madrid",
+            "strasbourg",
+            "torino"
+          ],
+          "coverage": 58.91407736529344,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.21
+        },
+        "backward_kswap2": {
+          "size": 7,
+          "set": [
+            3,
+            5,
+            6,
+            10,
+            12,
+            15,
+            17
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "losangeles",
+            "madrid",
+            "strasbourg",
+            "torino"
+          ],
+          "coverage": 58.91407736529344,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.61
+        },
+        "backward_kswap3": {
+          "size": 7,
+          "set": [
+            3,
+            5,
+            6,
+            10,
+            12,
+            15,
+            17
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "losangeles",
+            "madrid",
+            "strasbourg",
+            "torino"
+          ],
+          "coverage": 58.91407736529344,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 4.62
+        },
+        "pq_kswap": {
+          "size": 7,
+          "set": [
+            3,
+            5,
+            10,
+            12,
+            16,
+            17,
+            19
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "losangeles",
+            "madrid",
+            "taipeh",
+            "torino",
+            "zurich"
+          ],
+          "coverage": 56.26049975498151,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.53
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 6,
+        "certified_upto_k": 4,
+        "n_subsets_tested": 6195,
+        "certify_time_s": 30.77,
+        "milp_bound": 6.0,
+        "milp_gap": 0.0,
+        "milp_time_s": 210.5,
+        "milp_status": 0,
+        "optimum": 6,
+        "optimum_set": [
+          3,
+          10,
+          12,
+          13,
+          17,
+          19
+        ],
+        "optimum_names": [
+          "bordeaux",
+          "losangeles",
+          "madrid",
+          "marseille",
+          "torino",
+          "zurich"
+        ],
+        "lower_bound": 6,
+        "proof": "milp"
+      }
+    },
+    {
+      "gamma": 80.0,
+      "pruners": {
+        "forward": {
+          "size": 7,
+          "set": [
+            1,
+            3,
+            5,
+            10,
+            12,
+            16,
+            17
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "losangeles",
+            "madrid",
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 70.08212311209098,
+          "feasible": true,
+          "n_droppable": 3,
+          "time_s": 0.16
+        },
+        "forward_trim": {
+          "size": 5,
+          "set": [
+            1,
+            3,
+            5,
+            10,
+            12
+          ],
+          "names": [
+            "basel",
+            "bordeaux",
+            "cagliari",
+            "losangeles",
+            "madrid"
+          ],
+          "coverage": 74.74563389281752,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.17
+        },
+        "backward": {
+          "size": 6,
+          "set": [
+            3,
+            5,
+            6,
+            10,
+            12,
+            15
+          ],
+          "names": [
+            "bordeaux",
+            "cagliari",
+            "constance",
+            "losangeles",
+            "madrid",
+            "strasbourg"
+          ],
+          "coverage": 73.23574907513388,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.22
+        },
+        "backward_kswap2": {
+          "size": 4,
+          "set": [
+            6,
+            10,
+            12,
+            13
+          ],
+          "names": [
+            "constance",
+            "losangeles",
+            "madrid",
+            "marseille"
+          ],
+          "coverage": 79.80243351266256,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.36
+        },
+        "backward_kswap3": {
+          "size": 4,
+          "set": [
+            6,
+            10,
+            12,
+            13
+          ],
+          "names": [
+            "constance",
+            "losangeles",
+            "madrid",
+            "marseille"
+          ],
+          "coverage": 79.80243351266256,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.96
+        },
+        "pq_kswap": {
+          "size": 4,
+          "set": [
+            1,
+            10,
+            12,
+            13
+          ],
+          "names": [
+            "basel",
+            "losangeles",
+            "madrid",
+            "marseille"
+          ],
+          "coverage": 77.75736578251681,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.41
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 5,
+        "certified_upto_k": 3,
+        "n_subsets_tested": 2997,
+        "certify_time_s": 18.73,
+        "optimum": 4,
+        "optimum_set": [
+          1,
+          4,
+          10,
+          12
+        ],
+        "optimum_names": [
+          "basel",
+          "bremen",
+          "losangeles",
+          "madrid"
+        ],
+        "lower_bound": 4,
+        "proof": "enumeration"
+      }
+    },
+    {
+      "gamma": 100.0,
+      "pruners": {
+        "forward": {
+          "size": 4,
+          "set": [
+            1,
+            10,
+            16,
+            17
+          ],
+          "names": [
+            "basel",
+            "losangeles",
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 89.11629380875311,
+          "feasible": true,
+          "n_droppable": 1,
+          "time_s": 0.08
+        },
+        "forward_trim": {
+          "size": 3,
+          "set": [
+            1,
+            10,
+            16
+          ],
+          "names": [
+            "basel",
+            "losangeles",
+            "taipeh"
+          ],
+          "coverage": 90.68223833038961,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.08
+        },
+        "backward": {
+          "size": 4,
+          "set": [
+            5,
+            6,
+            10,
+            12
+          ],
+          "names": [
+            "cagliari",
+            "constance",
+            "losangeles",
+            "madrid"
+          ],
+          "coverage": 84.79610867873181,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.24
+        },
+        "backward_kswap2": {
+          "size": 3,
+          "set": [
+            4,
+            6,
+            10
+          ],
+          "names": [
+            "bremen",
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 99.7912236259362,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.34
+        },
+        "backward_kswap3": {
+          "size": 3,
+          "set": [
+            4,
+            6,
+            10
+          ],
+          "names": [
+            "bremen",
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 99.7912236259362,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.5
+        },
+        "pq_kswap": {
+          "size": 3,
+          "set": [
+            6,
+            10,
+            16
+          ],
+          "names": [
+            "constance",
+            "losangeles",
+            "taipeh"
+          ],
+          "coverage": 90.68223833038961,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.12
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 3,
+        "certified_upto_k": 2,
+        "n_subsets_tested": 210,
+        "certify_time_s": 1.15,
+        "optimum": 3,
+        "optimum_set": [
+          10,
+          17,
+          19
+        ],
+        "optimum_names": [
+          "losangeles",
+          "torino",
+          "zurich"
+        ],
+        "lower_bound": 3,
+        "proof": "enumeration"
+      }
+    },
+    {
+      "gamma": 120.0,
+      "pruners": {
+        "forward": {
+          "size": 4,
+          "set": [
+            1,
+            10,
+            16,
+            17
+          ],
+          "names": [
+            "basel",
+            "losangeles",
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 89.11629380875311,
+          "feasible": true,
+          "n_droppable": 2,
+          "time_s": 0.08
+        },
+        "forward_trim": {
+          "size": 3,
+          "set": [
+            1,
+            10,
+            16
+          ],
+          "names": [
+            "basel",
+            "losangeles",
+            "taipeh"
+          ],
+          "coverage": 90.68223833038961,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.08
+        },
+        "backward": {
+          "size": 3,
+          "set": [
+            5,
+            6,
+            10
+          ],
+          "names": [
+            "cagliari",
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 108.722386977907,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.23
+        },
+        "backward_kswap2": {
+          "size": 2,
+          "set": [
+            4,
+            10
+          ],
+          "names": [
+            "bremen",
+            "losangeles"
+          ],
+          "coverage": 110.88846649566685,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.25
+        },
+        "backward_kswap3": {
+          "size": 2,
+          "set": [
+            4,
+            10
+          ],
+          "names": [
+            "bremen",
+            "losangeles"
+          ],
+          "coverage": 110.88846649566685,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.25
+        },
+        "pq_kswap": {
+          "size": 2,
+          "set": [
+            10,
+            15
+          ],
+          "names": [
+            "losangeles",
+            "strasbourg"
+          ],
+          "coverage": 112.66420430263786,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.05
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 2,
+        "certified_upto_k": 1,
+        "n_subsets_tested": 20,
+        "certify_time_s": 0.65,
+        "optimum": 2,
+        "optimum_set": [
+          10,
+          18
+        ],
+        "optimum_names": [
+          "losangeles",
+          "wolfsburg"
+        ],
+        "lower_bound": 2,
+        "proof": "enumeration"
+      }
+    },
+    {
+      "gamma": 140.0,
+      "pruners": {
+        "forward": {
+          "size": 3,
+          "set": [
+            10,
+            16,
+            17
+          ],
+          "names": [
+            "losangeles",
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 136.29288524064026,
+          "feasible": true,
+          "n_droppable": 1,
+          "time_s": 0.06
+        },
+        "forward_trim": {
+          "size": 2,
+          "set": [
+            10,
+            16
+          ],
+          "names": [
+            "losangeles",
+            "taipeh"
+          ],
+          "coverage": 136.29288524064026,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.06
+        },
+        "backward": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.23
+        },
+        "backward_kswap2": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.25
+        },
+        "backward_kswap3": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.24
+        },
+        "pq_kswap": {
+          "size": 2,
+          "set": [
+            10,
+            16
+          ],
+          "names": [
+            "losangeles",
+            "taipeh"
+          ],
+          "coverage": 136.29288524064026,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.04
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 2,
+        "certified_upto_k": 1,
+        "n_subsets_tested": 20,
+        "certify_time_s": 0.62,
+        "optimum": 2,
+        "optimum_set": [
+          10,
+          19
+        ],
+        "optimum_names": [
+          "losangeles",
+          "zurich"
+        ],
+        "lower_bound": 2,
+        "proof": "enumeration"
+      }
+    },
+    {
+      "gamma": 160.0,
+      "pruners": {
+        "forward": {
+          "size": 2,
+          "set": [
+            16,
+            17
+          ],
+          "names": [
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 157.58136741867654,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.03
+        },
+        "forward_trim": {
+          "size": 2,
+          "set": [
+            16,
+            17
+          ],
+          "names": [
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 157.58136741867654,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.03
+        },
+        "backward": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.23
+        },
+        "backward_kswap2": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.24
+        },
+        "backward_kswap3": {
+          "size": 2,
+          "set": [
+            6,
+            10
+          ],
+          "names": [
+            "constance",
+            "losangeles"
+          ],
+          "coverage": 138.14464207880565,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.24
+        },
+        "pq_kswap": {
+          "size": 2,
+          "set": [
+            16,
+            17
+          ],
+          "names": [
+            "taipeh",
+            "torino"
+          ],
+          "coverage": 157.58136741867654,
+          "feasible": true,
+          "n_droppable": 0,
+          "time_s": 0.03
+        }
+      },
+      "oracle": {
+        "feasible": true,
+        "incumbent_size": 2,
+        "certified_upto_k": 1,
+        "n_subsets_tested": 20,
+        "certify_time_s": 0.63,
+        "optimum": 2,
+        "optimum_set": [
+          16,
+          17
+        ],
+        "optimum_names": [
+          "taipeh",
+          "torino"
+        ],
+        "lower_bound": 2,
+        "proof": "enumeration"
+      }
+    }
+  ]
+}

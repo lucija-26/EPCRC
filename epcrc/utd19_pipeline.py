@@ -1,8 +1,7 @@
 """Shared UTD19 data loading, preprocessing, and per-city model training.
 
-Both `experiment_0forward` and `experiment_0backward` call into this module.
 Trained models and response matrices (Y_fit / Y_eval) are cached on disk so
-that the second experiment reuses the first experiment's work.
+that every experiment reuses one training run.
 """
 
 from __future__ import annotations

@@ -36,15 +36,89 @@ class ForwardSelectionPruner:
 
     Start with S = empty and greedily add the model that reduces E(S) the most,
     until E(S) <= gamma.
+
+    cleanup=False is the literal paper-4.2 rule: stop at the first feasible
+    prefix.  Because E is non-monotone, a model added early can be made
+    redundant by later additions, so that prefix is typically not even locally
+    minimal -- on UTD19 it leaves up to 5 droppable models.
+
+    cleanup=True (default) additionally trims, using the same lowest-E single
+    deletion rule as BackwardEliminationPruner, so the result ends on a
+    comparable single-deletion optimum.  Note this makes it a forward/backward
+    hybrid rather than forward selection: backward elimination beats the
+    cleanup=False variant, and only the trimmed variant beats backward.  Report
+    the two separately (run_all.py calls them forward and forward_trim) instead
+    of collapsing them into one "forward" number.
     """
 
     def __init__(
         self,
         coverage_fn: CoverageFunctional,
         tolerance_gamma: float,
+        cleanup: bool = True,
     ):
         self.coverage_fn = coverage_fn
         self.gamma = float(tolerance_gamma)
+        self.cleanup = bool(cleanup)
+
+    def _finalize(
+        self,
+        S: Set[int],
+        history: list[PruningStep],
+        it: int,
+        debug: bool = False,
+    ) -> PruningResult:
+        """Trim redundant models, then package the result."""
+        if self.cleanup:
+            while len(S) > 1:
+                # Same rule as BackwardEliminationPruner: drop the removal that
+                # leaves coverage lowest, so both methods end on a comparable
+                # single-deletion optimum.
+                best_j, best_E = None, float("inf")
+                for j in sorted(S):
+                    E_cand, _ = self.coverage_fn.compute_coverage(S - {j})
+                    if E_cand <= self.gamma and E_cand < best_E:
+                        best_j, best_E = j, E_cand
+                if best_j is None:
+                    break
+                S = S - {best_j}
+                it += 1
+                if debug:
+                    print(f"[cleanup] REMOVE {self.coverage_fn.model_names[best_j]} "
+                          f"-> E(S)={best_E:.6f}  |S|={len(S)}")
+                history.append(
+                    PruningStep(
+                        iteration=it,
+                        removed_model_idx=best_j,
+                        removed_model_name=self.coverage_fn.model_names[best_j],
+                        kept_set=set(S),
+                        coverage=best_E,
+                        sum_uniqueness=self.coverage_fn.compute_sum_uniqueness(S),
+                        action="remove",
+                    )
+                )
+
+        E_now, certs_now = self.coverage_fn.compute_coverage(S, return_certificates=True)
+        sum_u = self.coverage_fn.compute_sum_uniqueness(S)
+        history.append(
+            PruningStep(
+                iteration=it + 1,
+                removed_model_idx=None,
+                removed_model_name=None,
+                kept_set=set(S),
+                coverage=E_now,
+                sum_uniqueness=sum_u,
+                action="stop",
+            )
+        )
+        assert certs_now is not None
+        return PruningResult(
+            kept_set=set(S),
+            coverage=E_now,
+            sum_uniqueness=sum_u,
+            history=history,
+            certificates=certs_now,
+        )
 
     def run(self, debug: bool = False) -> PruningResult:
         all_models = set(range(self.coverage_fn.N))
@@ -58,27 +132,7 @@ class ForwardSelectionPruner:
 
             if len(remaining) == 0:
                 # All models added, nothing left to try
-                E_now, certs_now = self.coverage_fn.compute_coverage(S, return_certificates=True)
-                sum_u = self.coverage_fn.compute_sum_uniqueness(S)
-                history.append(
-                    PruningStep(
-                        iteration=it,
-                        removed_model_idx=None,
-                        removed_model_name=None,
-                        kept_set=set(S),
-                        coverage=E_now,
-                        sum_uniqueness=sum_u,
-                        action="stop",
-                    )
-                )
-                assert certs_now is not None
-                return PruningResult(
-                    kept_set=set(S),
-                    coverage=E_now,
-                    sum_uniqueness=sum_u,
-                    history=history,
-                    certificates=certs_now,
-                )
+                return self._finalize(S, history, it, debug)
 
             # Evaluate all possible single additions
             candidates: list[tuple[int, float]] = []
@@ -114,27 +168,7 @@ class ForwardSelectionPruner:
 
             if best_coverage <= self.gamma:
                 # Coverage satisfied — done
-                E_now, certs_now = self.coverage_fn.compute_coverage(S, return_certificates=True)
-                sum_u = self.coverage_fn.compute_sum_uniqueness(S)
-                history.append(
-                    PruningStep(
-                        iteration=it + 1,
-                        removed_model_idx=None,
-                        removed_model_name=None,
-                        kept_set=set(S),
-                        coverage=E_now,
-                        sum_uniqueness=sum_u,
-                        action="stop",
-                    )
-                )
-                assert certs_now is not None
-                return PruningResult(
-                    kept_set=set(S),
-                    coverage=E_now,
-                    sum_uniqueness=sum_u,
-                    history=history,
-                    certificates=certs_now,
-                )
+                return self._finalize(S, history, it, debug)
 
 
 class WarmStartForwardWorstCoveredPruner:

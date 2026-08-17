@@ -1,5 +1,5 @@
 # EPCRC: Ecosystem Pruning via Convex Routing Coverage
-# Minimal runtime dependencies for experiment_0forward.py / experiment_0backward.py
+# Minimal runtime dependencies for experiments/run_all.py
 
 numpy
 scipy
