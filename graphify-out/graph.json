@@ -4,6 +4,66 @@
   "graph": {},
   "nodes": [
     {
+      "label": "bridge.py",
+      "file_type": "code",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge",
+      "community": 1,
+      "norm_label": "bridge.py"
+    },
+    {
+      "label": "cloud_panel()",
+      "file_type": "code",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge_cloud_panel",
+      "community": 1,
+      "norm_label": "cloud_panel()"
+    },
+    {
+      "label": "vector_strip()",
+      "file_type": "code",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge_vector_strip",
+      "community": 1,
+      "norm_label": "vector_strip()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge_main",
+      "community": 1,
+      "norm_label": "main()"
+    },
+    {
+      "label": "One figure: how EPCRC and the LLM judge panel are the same problem.  Writes docs",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge_rationale_1",
+      "community": 1,
+      "norm_label": "one figure: how epcrc and the llm judge panel are the same problem.  writes docs"
+    },
+    {
+      "label": "Draw a row of coordinate cells; group cells into blocks of `group`.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "docs_geometry_bridge_rationale_47",
+      "community": 1,
+      "norm_label": "draw a row of coordinate cells; group cells into blocks of `group`."
+    },
+    {
       "label": "build.py",
       "file_type": "code",
       "source_file": "docs/geometry/build.py",
@@ -1330,7 +1390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_init",
-      "community": 8,
+      "community": 18,
       "norm_label": "__init__.py"
     },
     {
@@ -1340,7 +1400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_init_rationale_1",
-      "community": 8,
+      "community": 18,
       "norm_label": "epcrc: ecosystem pruning via convex routing coverage.  minimal implementation fo"
     },
     {
@@ -1460,7 +1520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_coverage",
-      "community": 9,
+      "community": 3,
       "norm_label": "coverage.py"
     },
     {
@@ -1470,7 +1530,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "epcrc_coverage_substitutioncertificate",
-      "community": 25,
+      "community": 12,
       "norm_label": "substitutioncertificate"
     },
     {
@@ -1510,7 +1570,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_certificate",
-      "community": 25,
+      "community": 12,
       "norm_label": ".compute_certificate()"
     },
     {
@@ -1520,7 +1580,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_coverage",
-      "community": 25,
+      "community": 12,
       "norm_label": ".compute_coverage()"
     },
     {
@@ -1530,7 +1590,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_sum_uniqueness",
-      "community": 25,
+      "community": 12,
       "norm_label": ".compute_sum_uniqueness()"
     },
     {
@@ -1540,7 +1600,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_find_bottleneck",
-      "community": 25,
+      "community": 12,
       "norm_label": ".find_bottleneck()"
     },
     {
@@ -1550,7 +1610,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "epcrc_coverage_rationale_13",
-      "community": 25,
+      "community": 12,
       "norm_label": "certificate for substituting one model using kept set s."
     },
     {
@@ -1570,7 +1630,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "epcrc_coverage_rationale_115",
-      "community": 25,
+      "community": 12,
       "norm_label": "sum of u(i|s) over all models i."
     },
     {
@@ -1650,7 +1710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_geometry",
-      "community": 9,
+      "community": 3,
       "norm_label": "geometry.py"
     },
     {
@@ -1660,7 +1720,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "epcrc_geometry_suppress_spurious_blas_flags",
-      "community": 9,
+      "community": 3,
       "norm_label": "suppress_spurious_blas_flags()"
     },
     {
@@ -1670,7 +1730,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "errstate",
-      "community": 9,
+      "community": 3,
       "norm_label": "errstate"
     },
     {
@@ -1730,7 +1790,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "epcrc_geometry_rationale_10",
-      "community": 9,
+      "community": 3,
       "norm_label": "mask divide/overflow/invalid flags raised by the blas matmul kernel.      numpy"
     },
     {
@@ -1752,6 +1812,216 @@
       "id": "epcrc_geometry_rationale_46",
       "community": 9,
       "norm_label": "simplex-constrained projection utilities.      for target vector y and peer matr"
+    },
+    {
+      "label": "judge.py",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "epcrc_judge",
+      "community": 18,
+      "norm_label": "judge.py"
+    },
+    {
+      "label": "JudgeResponses",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgeresponses",
+      "community": 18,
+      "norm_label": "judgeresponses"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgeresponses_init",
+      "community": 18,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "epcrc_judge_py_ndarray",
+      "community": 18,
+      "norm_label": "ndarray"
+    },
+    {
+      "label": ".n_contexts()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgeresponses_n_contexts",
+      "community": 18,
+      "norm_label": ".n_contexts()"
+    },
+    {
+      "label": ".n_items()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgeresponses_n_items",
+      "community": 18,
+      "norm_label": ".n_items()"
+    },
+    {
+      "label": ".subset()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgeresponses_subset",
+      "community": 18,
+      "norm_label": ".subset()"
+    },
+    {
+      "label": "total_variation()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "epcrc_judge_total_variation",
+      "community": 18,
+      "norm_label": "total_variation()"
+    },
+    {
+      "label": "context_errors()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "epcrc_judge_context_errors",
+      "community": 18,
+      "norm_label": "context_errors()"
+    },
+    {
+      "label": "worst_context_error()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "epcrc_judge_worst_context_error",
+      "community": 18,
+      "norm_label": "worst_context_error()"
+    },
+    {
+      "label": "solve_minimax_weights()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "epcrc_judge_solve_minimax_weights",
+      "community": 18,
+      "norm_label": "solve_minimax_weights()"
+    },
+    {
+      "label": "JudgeCoverageFunctional",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L257",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgecoveragefunctional",
+      "community": 18,
+      "norm_label": "judgecoveragefunctional"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L266",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgecoveragefunctional_init",
+      "community": 18,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".compute_certificate()",
+      "file_type": "code",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L284",
+      "_origin": "ast",
+      "id": "epcrc_judge_judgecoveragefunctional_compute_certificate",
+      "community": 18,
+      "norm_label": ".compute_certificate()"
+    },
+    {
+      "label": "Three-class judge outputs: total-variation loss and worst-context fitting.  An L",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_1",
+      "community": 18,
+      "norm_label": "three-class judge outputs: total-variation loss and worst-context fitting.  an l"
+    },
+    {
+      "label": "Three-class judge probabilities grouped by evaluation context.      ``blocks[c]`",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_38",
+      "community": 18,
+      "norm_label": "three-class judge probabilities grouped by evaluation context.      ``blocks[c]`"
+    },
+    {
+      "label": "Total number of items across all contexts.",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_92",
+      "community": 18,
+      "norm_label": "total number of items across all contexts."
+    },
+    {
+      "label": "Total variation between three-class rows, along the last axis.",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_101",
+      "community": 18,
+      "norm_label": "total variation between three-class rows, along the last axis."
+    },
+    {
+      "label": "Mean TV error of the reconstruction of `target_idx`, one value per context.",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_111",
+      "community": 18,
+      "norm_label": "mean tv error of the reconstruction of `target_idx`, one value per context."
+    },
+    {
+      "label": "Fit one simplex weight vector that minimises the worst context's mean TV.      S",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_136",
+      "community": 18,
+      "norm_label": "fit one simplex weight vector that minimises the worst context's mean tv.      s"
+    },
+    {
+      "label": "Coverage functional for three-class judge panels under worst-context TV.      De",
+      "file_type": "rationale",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L258",
+      "_origin": "ast",
+      "id": "epcrc_judge_rationale_258",
+      "community": 18,
+      "norm_label": "coverage functional for three-class judge panels under worst-context tv.      de"
     },
     {
       "label": "metrics.py",
@@ -1970,7 +2240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_pruning",
-      "community": 6,
+      "community": 3,
       "norm_label": "pruning.py"
     },
     {
@@ -2060,7 +2330,7 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "epcrc_pruning_warmstartforwardworstcoveredpruner_run",
-      "community": 10,
+      "community": 15,
       "norm_label": ".run()"
     },
     {
@@ -2180,7 +2450,7 @@
       "source_location": "L891",
       "_origin": "ast",
       "id": "epcrc_pruning_forwardkswappruner",
-      "community": 6,
+      "community": 12,
       "norm_label": "forwardkswappruner"
     },
     {
@@ -2290,7 +2560,7 @@
       "source_location": "L892",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_892",
-      "community": 6,
+      "community": 12,
       "norm_label": "forward selection seed + the k-swap reduction escape (no backward cleanup)."
     },
     {
@@ -2392,6 +2662,176 @@
       "id": "epcrc_risk_rationale_70",
       "community": 10,
       "norm_label": "backward elimination that accepts a removal only when e_ucb <= gamma.      stric"
+    },
+    {
+      "label": "synthetic_judges.py",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges",
+      "community": 18,
+      "norm_label": "synthetic_judges.py"
+    },
+    {
+      "label": "to_simplex()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_to_simplex",
+      "community": 18,
+      "norm_label": "to_simplex()"
+    },
+    {
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_py_ndarray",
+      "community": 18,
+      "norm_label": "ndarray"
+    },
+    {
+      "label": "_random_interior()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_random_interior",
+      "community": 18,
+      "norm_label": "_random_interior()"
+    },
+    {
+      "label": "_render()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_render",
+      "community": 18,
+      "norm_label": "_render()"
+    },
+    {
+      "label": "_panel()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_panel",
+      "community": 18,
+      "norm_label": "_panel()"
+    },
+    {
+      "label": "duplicated_extremes()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_duplicated_extremes",
+      "community": 18,
+      "norm_label": "duplicated_extremes()"
+    },
+    {
+      "label": "curved_arc()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_curved_arc",
+      "community": 18,
+      "norm_label": "curved_arc()"
+    },
+    {
+      "label": "sagitta()",
+      "file_type": "code",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L144",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_sagitta",
+      "community": 18,
+      "norm_label": "sagitta()"
+    },
+    {
+      "label": "Controlled judge panels whose correct answer is known before running anything.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_1",
+      "community": 18,
+      "norm_label": "controlled judge panels whose correct answer is known before running anything."
+    },
+    {
+      "label": "Barycentric coordinates of planar points, i.e. their distributions.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_39",
+      "community": 18,
+      "norm_label": "barycentric coordinates of planar points, i.e. their distributions."
+    },
+    {
+      "label": "Uniform points inside the triangle, via Dirichlet barycentric weights.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_48",
+      "community": 18,
+      "norm_label": "uniform points inside the triangle, via dirichlet barycentric weights."
+    },
+    {
+      "label": "Turn planar judge positions into an (n_items, n_judges, 3) block.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_58",
+      "community": 18,
+      "norm_label": "turn planar judge positions into an (n_items, n_judges, 3) block."
+    },
+    {
+      "label": "Independent fit and eval draws of the same planar configuration.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_74",
+      "community": 18,
+      "norm_label": "independent fit and eval draws of the same planar configuration."
+    },
+    {
+      "label": "Three extremes, each present twice: individually redundant, jointly not.      Wi",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_96",
+      "community": 18,
+      "norm_label": "three extremes, each present twice: individually redundant, jointly not.      wi"
+    },
+    {
+      "label": "Judges evenly spaced on a circular arc around the centre of the simplex.      In",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_121",
+      "community": 18,
+      "norm_label": "judges evenly spaced on a circular arc around the centre of the simplex.      in"
+    },
+    {
+      "label": "Planar gap between an interior arc judge and the chord of its neighbours.",
+      "file_type": "rationale",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "epcrc_synthetic_judges_rationale_145",
+      "community": 18,
+      "norm_label": "planar gap between an interior arc judge and the chord of its neighbours."
     },
     {
       "label": "task_error.py",
@@ -2520,7 +2960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline",
-      "community": 18,
+      "community": 15,
       "norm_label": "utd19_pipeline.py"
     },
     {
@@ -2530,7 +2970,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_set_global_seed",
-      "community": 18,
+      "community": 15,
       "norm_label": "set_global_seed()"
     },
     {
@@ -2540,7 +2980,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "randomstate",
-      "community": 18,
+      "community": 15,
       "norm_label": "randomstate"
     },
     {
@@ -2550,7 +2990,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_prepare_utd19",
-      "community": 18,
+      "community": 15,
       "norm_label": "prepare_utd19()"
     },
     {
@@ -2560,7 +3000,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "dataframe",
-      "community": 18,
+      "community": 15,
       "norm_label": "dataframe"
     },
     {
@@ -2570,7 +3010,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_build_xy",
-      "community": 18,
+      "community": 15,
       "norm_label": "build_xy()"
     },
     {
@@ -2580,7 +3020,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_py_ndarray",
-      "community": 18,
+      "community": 15,
       "norm_label": "ndarray"
     },
     {
@@ -2590,7 +3030,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_utd19bundle",
-      "community": 18,
+      "community": 15,
       "norm_label": "utd19bundle"
     },
     {
@@ -2600,7 +3040,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_load_raw_csv",
-      "community": 18,
+      "community": 15,
       "norm_label": "_load_raw_csv()"
     },
     {
@@ -2610,7 +3050,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_build_or_load_bundle",
-      "community": 18,
+      "community": 15,
       "norm_label": "build_or_load_bundle()"
     },
     {
@@ -2620,7 +3060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_rationale_1",
-      "community": 18,
+      "community": 15,
       "norm_label": "shared utd19 data loading, preprocessing, and per-city model training.  trained"
     },
     {
@@ -2630,7 +3070,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_rationale_186",
-      "community": 18,
+      "community": 15,
       "norm_label": "load data, train per-city models, build y_fit/y_eval. cache everything."
     },
     {
@@ -2862,6 +3302,116 @@
       "id": "experiments_experiment_compare_separators_rationale_1",
       "community": 0,
       "norm_label": "re-run backward and k-swap on separator instances found by experiments/experimen"
+    },
+    {
+      "label": "experiment_e0_noncomposability.py",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability",
+      "community": 18,
+      "norm_label": "experiment_e0_noncomposability.py"
+    },
+    {
+      "label": "leave_one_out()",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "community": 18,
+      "norm_label": "leave_one_out()"
+    },
+    {
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_py_ndarray",
+      "community": 18,
+      "norm_label": "ndarray"
+    },
+    {
+      "label": "min_feasible_panel()",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_min_feasible_panel",
+      "community": 18,
+      "norm_label": "min_feasible_panel()"
+    },
+    {
+      "label": "dependency_cycles()",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L87",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_dependency_cycles",
+      "community": 18,
+      "norm_label": "dependency_cycles()"
+    },
+    {
+      "label": "run_instance()",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L123",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_run_instance",
+      "community": 18,
+      "norm_label": "run_instance()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_main",
+      "community": 18,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Experiment E0 -- individual redundancy certificates do not compose (claim C1).",
+      "file_type": "rationale",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_rationale_1",
+      "community": 18,
+      "norm_label": "experiment e0 -- individual redundancy certificates do not compose (claim c1)."
+    },
+    {
+      "label": "Per-judge LOO error and the weight matrix of the LOO certificates.",
+      "file_type": "rationale",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_rationale_55",
+      "community": 18,
+      "norm_label": "per-judge loo error and the weight matrix of the loo certificates."
+    },
+    {
+      "label": "Smallest panel meeting the tolerance, by exhaustive search.      The controlled",
+      "file_type": "rationale",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_rationale_73",
+      "community": 18,
+      "norm_label": "smallest panel meeting the tolerance, by exhaustive search.      the controlled"
+    },
+    {
+      "label": "Strongly connected components of the 'i leans on j' graph.      Judges in a comm",
+      "file_type": "rationale",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "experiments_experiment_e0_noncomposability_rationale_88",
+      "community": 18,
+      "norm_label": "strongly connected components of the 'i leans on j' graph.      judges in a comm"
     },
     {
       "label": "experiment_exact_optimum.py",
@@ -3140,7 +3690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness",
-      "community": 6,
+      "community": 12,
       "norm_label": "experiment_subset_robustness.py"
     },
     {
@@ -3150,7 +3700,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness_main",
-      "community": 6,
+      "community": 12,
       "norm_label": "main()"
     },
     {
@@ -3160,7 +3710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness_rationale_1",
-      "community": 6,
+      "community": 12,
       "norm_label": "subset-robustness sweep: compare 6 pruning configs over random model subsets.  t"
     },
     {
@@ -3334,13 +3884,253 @@
       "norm_label": "independent re-check of the certified optima in results/sweep.json.  re-derives"
     },
     {
+      "label": "test_judge_coverage.py",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage",
+      "community": 18,
+      "norm_label": "test_judge_coverage.py"
+    },
+    {
+      "label": "_block()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_block",
+      "community": 18,
+      "norm_label": "_block()"
+    },
+    {
+      "label": "test_tv_equals_max_abs_difference_for_three_outcomes()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_tv_equals_max_abs_difference_for_three_outcomes",
+      "community": 18,
+      "norm_label": "test_tv_equals_max_abs_difference_for_three_outcomes()"
+    },
+    {
+      "label": "test_responses_reject_non_distributions()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_responses_reject_non_distributions",
+      "community": 18,
+      "norm_label": "test_responses_reject_non_distributions()"
+    },
+    {
+      "label": "test_synthetic_panels_are_valid_distributions()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_synthetic_panels_are_valid_distributions",
+      "community": 18,
+      "norm_label": "test_synthetic_panels_are_valid_distributions()"
+    },
+    {
+      "label": "test_exact_convex_combination_is_reconstructed()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_exact_convex_combination_is_reconstructed",
+      "community": 18,
+      "norm_label": "test_exact_convex_combination_is_reconstructed()"
+    },
+    {
+      "label": "test_minimax_beats_fitting_a_single_context()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "community": 18,
+      "norm_label": "test_minimax_beats_fitting_a_single_context()"
+    },
+    {
+      "label": "test_fitting_coverage_is_monotone_in_the_retained_set()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_fitting_coverage_is_monotone_in_the_retained_set",
+      "community": 18,
+      "norm_label": "test_fitting_coverage_is_monotone_in_the_retained_set()"
+    },
+    {
+      "label": "test_retained_judge_reconstructs_itself_exactly()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_retained_judge_reconstructs_itself_exactly",
+      "community": 18,
+      "norm_label": "test_retained_judge_reconstructs_itself_exactly()"
+    },
+    {
+      "label": "test_empty_panel_covers_nothing()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_empty_panel_covers_nothing",
+      "community": 18,
+      "norm_label": "test_empty_panel_covers_nothing()"
+    },
+    {
+      "label": "test_duplicated_extremes_is_individually_redundant_but_jointly_not()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_duplicated_extremes_is_individually_redundant_but_jointly_not",
+      "community": 18,
+      "norm_label": "test_duplicated_extremes_is_individually_redundant_but_jointly_not()"
+    },
+    {
+      "label": "test_arc_curvature_follows_the_inverse_square_law()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "community": 18,
+      "norm_label": "test_arc_curvature_follows_the_inverse_square_law()"
+    },
+    {
+      "label": "test_pruners_run_unchanged_on_a_judge_panel()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
+      "community": 18,
+      "norm_label": "test_pruners_run_unchanged_on_a_judge_panel()"
+    },
+    {
+      "label": "test_barycentric_map_sends_the_corners_to_the_pure_outcomes()",
+      "file_type": "code",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_test_barycentric_map_sends_the_corners_to_the_pure_outcomes",
+      "community": 18,
+      "norm_label": "test_barycentric_map_sends_the_corners_to_the_pure_outcomes()"
+    },
+    {
+      "label": "Tests for three-class judge coverage under worst-context total variation.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_1",
+      "community": 18,
+      "norm_label": "tests for three-class judge coverage under worst-context total variation."
+    },
+    {
+      "label": "(n_items, n_judges, 3) block from a nested list of probability rows.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_25",
+      "community": 18,
+      "norm_label": "(n_items, n_judges, 3) block from a nested list of probability rows."
+    },
+    {
+      "label": "The identity the LP relies on: for distributions, TV = max_k |p_k - q_k|.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_30",
+      "community": 18,
+      "norm_label": "the identity the lp relies on: for distributions, tv = max_k |p_k - q_k|."
+    },
+    {
+      "label": "The contraction construction must never need clipping.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_53",
+      "community": 18,
+      "norm_label": "the contraction construction must never need clipping."
+    },
+    {
+      "label": "A judge sitting inside the hull is recovered with the right weights.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_62",
+      "community": 18,
+      "norm_label": "a judge sitting inside the hull is recovered with the right weights."
+    },
+    {
+      "label": "Balancing two conflicting contexts must lower the worst-context error.      Cont",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_78",
+      "community": 18,
+      "norm_label": "balancing two conflicting contexts must lower the worst-context error.      cont"
+    },
+    {
+      "label": "S subset of T implies E_fit(T) <= E_fit(S), on the same fitting data.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_101",
+      "community": 18,
+      "norm_label": "s subset of t implies e_fit(t) <= e_fit(s), on the same fitting data."
+    },
+    {
+      "label": "The controlled C1 construction: everyone removable, three must stay.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_132",
+      "community": 18,
+      "norm_label": "the controlled c1 construction: everyone removable, three must stay."
+    },
+    {
+      "label": "Neighbour reconstruction error on an arc scales like k^-2.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_150",
+      "community": 18,
+      "norm_label": "neighbour reconstruction error on an arc scales like k^-2."
+    },
+    {
+      "label": "The point of matching CoverageFunctional's interface.",
+      "file_type": "rationale",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L167",
+      "_origin": "ast",
+      "id": "tests_test_judge_coverage_rationale_167",
+      "community": 18,
+      "norm_label": "the point of matching coveragefunctional's interface."
+    },
+    {
       "label": "test_milp_and_kswap.py",
       "file_type": "code",
       "source_file": "tests/test_milp_and_kswap.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap",
-      "community": 12,
+      "community": 2,
       "norm_label": "test_milp_and_kswap.py"
     },
     {
@@ -3370,7 +4160,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_milp_matches_bruteforce_on_random_instance",
-      "community": 12,
+      "community": 2,
       "norm_label": "test_milp_matches_bruteforce_on_random_instance()"
     },
     {
@@ -3380,7 +4170,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_backward_kswap_never_worse_than_backward",
-      "community": 12,
+      "community": 6,
       "norm_label": "test_backward_kswap_never_worse_than_backward()"
     },
     {
@@ -3390,7 +4180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_1",
-      "community": 12,
+      "community": 2,
       "norm_label": "sanity checks for the milp oracle optimum and the k-swap reduction escape.  reus"
     },
     {
@@ -3410,7 +4200,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_51",
-      "community": 12,
+      "community": 2,
       "norm_label": "milp size == brute-force protocol optimum on a small fit==eval instance.      wi"
     },
     {
@@ -3420,7 +4210,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_83",
-      "community": 12,
+      "community": 6,
       "norm_label": "backwardkswappruner output is feasible and no larger than backward's."
     },
     {
@@ -3430,7 +4220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic",
-      "community": 20,
+      "community": 0,
       "norm_label": "test_pruning_synthetic.py"
     },
     {
@@ -3440,7 +4230,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_build_cloud",
-      "community": 20,
+      "community": 0,
       "norm_label": "_build_cloud()"
     },
     {
@@ -3450,7 +4240,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_coverage",
-      "community": 20,
+      "community": 0,
       "norm_label": "_coverage()"
     },
     {
@@ -3460,7 +4250,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_backward_returns_exact_hull_vertices",
-      "community": 20,
+      "community": 0,
       "norm_label": "test_backward_returns_exact_hull_vertices()"
     },
     {
@@ -3470,7 +4260,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_forward_output_contains_hull_vertices",
-      "community": 20,
+      "community": 0,
       "norm_label": "test_forward_output_contains_hull_vertices()"
     },
     {
@@ -3480,7 +4270,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_both_return_feasible_sets",
-      "community": 20,
+      "community": 0,
       "norm_label": "test_both_return_feasible_sets()"
     },
     {
@@ -3490,7 +4280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_1",
-      "community": 20,
+      "community": 0,
       "norm_label": "task-1 sanity checks on a tiny synthetic cloud with a known answer.  constructio"
     },
     {
@@ -3500,7 +4290,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_43",
-      "community": 20,
+      "community": 0,
       "norm_label": "3 triangle vertices + 5 strictly-interior points -> y of shape (2, 8)."
     },
     {
@@ -3510,7 +4300,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_75",
-      "community": 20,
+      "community": 0,
       "norm_label": "backward must return exactly the 3 hull vertices, with e <= gamma and no     fur"
     },
     {
@@ -3520,7 +4310,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_96",
-      "community": 20,
+      "community": 0,
       "norm_label": "forward's first feasible prefix must contain all 3 hull vertices, and be     fea"
     },
     {
@@ -3530,7 +4320,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_109",
-      "community": 20,
+      "community": 0,
       "norm_label": "every returned set must satisfy e(s) <= gamma."
     },
     {
@@ -4255,6 +5045,177 @@
     }
   ],
   "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge",
+      "target": "docs_geometry_doclib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge",
+      "target": "docs_geometry_bridge_cloud_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge",
+      "target": "docs_geometry_bridge_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge",
+      "target": "docs_geometry_bridge_vector_strip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge",
+      "target": "docs_geometry_figs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_rationale_1",
+      "target": "docs_geometry_bridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_cloud_panel",
+      "target": "docs_geometry_figs_hull_poly"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_cloud_panel",
+      "target": "docs_geometry_figs_poly"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_bridge_cloud_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_bridge_vector_strip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_rationale_47",
+      "target": "docs_geometry_bridge_vector_strip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_figs_dot"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_figs_hull_poly"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_figs_poly"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_figs_simplex_ax"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/bridge.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "docs_geometry_bridge_main",
+      "target": "docs_geometry_figs_to_xy"
+    },
     {
       "relation": "imports_from",
       "context": "import",
@@ -7821,7 +8782,7 @@
       "source_location": "L9",
       "weight": 1.0,
       "source": "epcrc_init",
-      "target": "epcrc_milp",
+      "target": "epcrc_judge",
       "confidence_score": 1.0
     },
     {
@@ -7830,6 +8791,83 @@
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
       "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_context_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_milp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_milp_milp_min_representative_set",
@@ -7840,7 +8878,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L9",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_milp_milpresult",
@@ -7851,7 +8889,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning",
@@ -7862,7 +8900,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_backwardeliminationpruner",
@@ -7873,7 +8911,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_backwardkswappruner",
@@ -7884,7 +8922,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_forwardkswappruner",
@@ -7895,7 +8933,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_forwardselectionpruner",
@@ -7906,7 +8944,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_priorityqueuepruner",
@@ -7917,7 +8955,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_pruningresult",
@@ -7928,7 +8966,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_pruningstep",
@@ -7939,7 +8977,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_pruning_warmstartforwardworstcoveredpruner",
@@ -7950,7 +8988,7 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L10",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_risk",
@@ -7961,7 +8999,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L10",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_risk_coverage_ucb",
@@ -7972,7 +9010,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L10",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_risk_riskcontrolledbackwardpruner",
@@ -7983,7 +9021,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L10",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_risk_uniqueness_ucb",
@@ -7994,7 +9032,62 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L11",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_synthetic_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_synthetic_judges_sagitta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "epcrc_init",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/__init__.py",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_task_error",
@@ -8005,7 +9098,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_task_error_beta_coverage",
@@ -8016,7 +9109,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_task_error_joint_feasible",
@@ -8027,7 +9120,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_task_error_quality_eligible_set",
@@ -8038,7 +9131,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "epcrc/__init__.py",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "epcrc_init",
       "target": "epcrc_task_error_substitution_task_errors",
@@ -8384,6 +9477,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "epcrc/metrics.py",
       "source_location": "L13",
       "weight": 1.0,
@@ -8624,6 +9728,48 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_coverage_substitutioncertificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 0.8,
+      "source": "epcrc_judge_judgecoveragefunctional",
+      "target": "epcrc_coverage_substitutioncertificate",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional_compute_certificate",
+      "target": "epcrc_coverage_substitutioncertificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 0.8,
+      "source": "epcrc_judge_judgeresponses",
+      "target": "epcrc_coverage_substitutioncertificate",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "epcrc/pruning.py",
       "source_location": "L9",
       "weight": 1.0,
@@ -8780,6 +9926,37 @@
       "source": "epcrc_coverage_rationale_23",
       "target": "epcrc_coverage_coveragefunctional",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_coverage_coveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 0.8,
+      "source": "epcrc_judge_judgecoveragefunctional",
+      "target": "epcrc_coverage_coveragefunctional",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L29",
+      "weight": 0.8,
+      "source": "epcrc_judge_judgeresponses",
+      "target": "epcrc_coverage_coveragefunctional",
+      "confidence_score": 0.5
     },
     {
       "relation": "imports",
@@ -9849,6 +11026,670 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_context_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "epcrc_judge",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_1",
+      "target": "epcrc_judge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_judge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "epcrc_judge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "epcrc_judge_context_errors",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L266",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional_init",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgeresponses",
+      "target": "epcrc_judge_judgeresponses_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgeresponses",
+      "target": "epcrc_judge_judgeresponses_n_contexts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgeresponses",
+      "target": "epcrc_judge_judgeresponses_n_items",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "context": "call",
+      "source": "epcrc_judge_judgeresponses_subset",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_38",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "epcrc_judge_solve_minimax_weights",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "epcrc_judge_worst_context_error",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_curved_arc",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_duplicated_extremes",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_panel",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_exact_convex_combination_is_reconstructed",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_responses_reject_non_distributions",
+      "target": "epcrc_judge_judgeresponses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgeresponses_init",
+      "target": "epcrc_judge_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "epcrc_judge_context_errors",
+      "target": "epcrc_judge_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "epcrc_judge_solve_minimax_weights",
+      "target": "epcrc_judge_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "epcrc_judge_total_variation",
+      "target": "epcrc_judge_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "epcrc_judge_worst_context_error",
+      "target": "epcrc_judge_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_92",
+      "target": "epcrc_judge_judgeresponses_n_items",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "epcrc_judge_context_errors",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_101",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_tv_equals_max_abs_difference_for_three_outcomes",
+      "target": "epcrc_judge_total_variation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_111",
+      "target": "epcrc_judge_context_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "epcrc_judge_worst_context_error",
+      "target": "epcrc_judge_context_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L311",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional_compute_certificate",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "epcrc_judge_solve_minimax_weights",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "target": "epcrc_judge_worst_context_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional_compute_certificate",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_136",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_exact_convex_combination_is_reconstructed",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "target": "epcrc_judge_solve_minimax_weights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional",
+      "target": "epcrc_judge_judgecoveragefunctional_compute_certificate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L266",
+      "weight": 1.0,
+      "source": "epcrc_judge_judgecoveragefunctional",
+      "target": "epcrc_judge_judgecoveragefunctional_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/judge.py",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "epcrc_judge_rationale_258",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_min_feasible_panel",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_run_instance",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "target": "epcrc_judge_judgecoveragefunctional"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_duplicated_extremes_is_individually_redundant_but_jointly_not",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_empty_panel_covers_nothing",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_fitting_coverage_is_monotone_in_the_retained_set",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_retained_judge_reconstructs_itself_exactly",
+      "target": "epcrc_judge_judgecoveragefunctional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "epcrc/metrics.py",
       "source_location": "L16",
       "weight": 1.0,
@@ -10565,6 +12406,17 @@
       "source_location": "L43",
       "weight": 1.0,
       "source": "experiments_run_all",
+      "target": "epcrc_pruning",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
       "target": "epcrc_pruning",
       "confidence_score": 1.0
     },
@@ -11349,6 +13201,28 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_pruning_backwardeliminationpruner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
+      "target": "epcrc_pruning_backwardeliminationpruner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/test_milp_and_kswap.py",
       "source_location": "L84",
       "weight": 1.0,
@@ -12055,6 +13929,453 @@
       "source": "tests_test_sparse_and_risk_test_risk_controlled_is_more_conservative",
       "target": "epcrc_risk_riskcontrolledbackwardpruner",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_random_interior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_sagitta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_1",
+      "target": "epcrc_synthetic_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "epcrc_synthetic_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_synthetic_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_39",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_render",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_to_simplex",
+      "target": "epcrc_synthetic_judges_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_barycentric_map_sends_the_corners_to_the_pure_outcomes",
+      "target": "epcrc_synthetic_judges_to_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_panel",
+      "target": "epcrc_synthetic_judges_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_random_interior",
+      "target": "epcrc_synthetic_judges_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_render",
+      "target": "epcrc_synthetic_judges_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_48",
+      "target": "epcrc_synthetic_judges_random_interior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_render",
+      "target": "epcrc_synthetic_judges_random_interior",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_panel",
+      "target": "epcrc_synthetic_judges_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_58",
+      "target": "epcrc_synthetic_judges_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_curved_arc",
+      "target": "epcrc_synthetic_judges_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_duplicated_extremes",
+      "target": "epcrc_synthetic_judges_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_74",
+      "target": "epcrc_synthetic_judges_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_96",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_duplicated_extremes_is_individually_redundant_but_jointly_not",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_synthetic_panels_are_valid_distributions",
+      "target": "epcrc_synthetic_judges_duplicated_extremes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_121",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "target": "epcrc_synthetic_judges_curved_arc"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_empty_panel_covers_nothing",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_fitting_coverage_is_monotone_in_the_retained_set",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_retained_judge_reconstructs_itself_exactly",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_synthetic_panels_are_valid_distributions",
+      "target": "epcrc_synthetic_judges_curved_arc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "epcrc/synthetic_judges.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "epcrc_synthetic_judges_rationale_145",
+      "target": "epcrc_synthetic_judges_sagitta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "epcrc_synthetic_judges_sagitta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "target": "epcrc_synthetic_judges_sagitta"
     },
     {
       "relation": "contains",
@@ -12894,6 +15215,162 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "experiments_experiment_e0_noncomposability_dependency_cycles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "experiments_experiment_e0_noncomposability_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "experiments_experiment_e0_noncomposability_min_feasible_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability",
+      "target": "experiments_experiment_e0_noncomposability_run_instance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_rationale_1",
+      "target": "experiments_experiment_e0_noncomposability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "target": "experiments_experiment_e0_noncomposability_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_rationale_55",
+      "target": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_run_instance",
+      "target": "experiments_experiment_e0_noncomposability_leave_one_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_dependency_cycles",
+      "target": "experiments_experiment_e0_noncomposability_py_ndarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_rationale_73",
+      "target": "experiments_experiment_e0_noncomposability_min_feasible_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_run_instance",
+      "target": "experiments_experiment_e0_noncomposability_min_feasible_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_rationale_88",
+      "target": "experiments_experiment_e0_noncomposability_dependency_cycles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_run_instance",
+      "target": "experiments_experiment_e0_noncomposability_dependency_cycles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/experiment_e0_noncomposability.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "experiments_experiment_e0_noncomposability_main",
+      "target": "experiments_experiment_e0_noncomposability_run_instance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "experiments/experiment_exact_optimum.py",
       "source_location": "L69",
       "weight": 1.0,
@@ -13447,6 +15924,258 @@
       "weight": 1.0,
       "source": "experiments_verify_sweep_rationale_1",
       "target": "experiments_verify_sweep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_barycentric_map_sends_the_corners_to_the_pure_outcomes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_duplicated_extremes_is_individually_redundant_but_jointly_not",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_empty_panel_covers_nothing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_exact_convex_combination_is_reconstructed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_fitting_coverage_is_monotone_in_the_retained_set",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_responses_reject_non_distributions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_retained_judge_reconstructs_itself_exactly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_synthetic_panels_are_valid_distributions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage",
+      "target": "tests_test_judge_coverage_test_tv_equals_max_abs_difference_for_three_outcomes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_1",
+      "target": "tests_test_judge_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_25",
+      "target": "tests_test_judge_coverage_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "target": "tests_test_judge_coverage_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_test_responses_reject_non_distributions",
+      "target": "tests_test_judge_coverage_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_30",
+      "target": "tests_test_judge_coverage_test_tv_equals_max_abs_difference_for_three_outcomes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_53",
+      "target": "tests_test_judge_coverage_test_synthetic_panels_are_valid_distributions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_62",
+      "target": "tests_test_judge_coverage_test_exact_convex_combination_is_reconstructed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_78",
+      "target": "tests_test_judge_coverage_test_minimax_beats_fitting_a_single_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_101",
+      "target": "tests_test_judge_coverage_test_fitting_coverage_is_monotone_in_the_retained_set",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_132",
+      "target": "tests_test_judge_coverage_test_duplicated_extremes_is_individually_redundant_but_jointly_not",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_150",
+      "target": "tests_test_judge_coverage_test_arc_curvature_follows_the_inverse_square_law",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_judge_coverage.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "tests_test_judge_coverage_rationale_167",
+      "target": "tests_test_judge_coverage_test_pruners_run_unchanged_on_a_judge_panel",
       "confidence_score": 1.0
     },
     {
@@ -14402,5 +17131,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c081b788aba478356d81ade1418d872f1eb38cab"
+  "built_at_commit": "51a43e6c4e9ee10e5d11760f71421d8818986ef3"
 }

@@ -1,7 +1,7 @@
 {
   "epcrc/__init__.py": {
-    "mtime": 1783022181.8542182,
-    "ast_hash": "7dad73acf9a54d9113e198dbf8028fa6",
+    "mtime": 1788785352.0882459,
+    "ast_hash": "7c103e5041de9c8a120144cab4afe2b5",
     "semantic_hash": ""
   },
   "epcrc/core.py": {
@@ -292,6 +292,41 @@
   "docs/geometry/_png/fig_weight_simplex.png": {
     "mtime": 1788029115.662017,
     "ast_hash": "1000b86671729f845dca7608ecaf1f11",
+    "semantic_hash": ""
+  },
+  "docs/geometry/bridge.py": {
+    "mtime": 1788784015.0843303,
+    "ast_hash": "27274113922688daf5fb1e231c52f573",
+    "semantic_hash": ""
+  },
+  "epcrc/judge.py": {
+    "mtime": 1788785075.101078,
+    "ast_hash": "5c053bcbe6b7aced5234f13747345394",
+    "semantic_hash": ""
+  },
+  "epcrc/synthetic_judges.py": {
+    "mtime": 1788785102.994853,
+    "ast_hash": "65ea5349c8549d37b9e1988cd431d3a6",
+    "semantic_hash": ""
+  },
+  "experiments/experiment_e0_noncomposability.py": {
+    "mtime": 1788785189.9214294,
+    "ast_hash": "9ba29b68cff61ccdc4e216738b841e1a",
+    "semantic_hash": ""
+  },
+  "results/e0_noncomposability.json": {
+    "mtime": 1788785252.384636,
+    "ast_hash": "711c749ed8a2b71b26eb71756ff24b6e",
+    "semantic_hash": ""
+  },
+  "tests/test_judge_coverage.py": {
+    "mtime": 1788785308.65589,
+    "ast_hash": "2fdfb67367e49d8f2837d6e59cb0872d",
+    "semantic_hash": ""
+  },
+  "docs/EPCRC_TO_JUDGES.png": {
+    "mtime": 1788784029.520263,
+    "ast_hash": "42783c95b0fc627f2b788ba2a4472336",
     "semantic_hash": ""
   }
 }
