@@ -4,6 +4,1326 @@
   "graph": {},
   "nodes": [
     {
+      "label": "build.py",
+      "file_type": "code",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_build",
+      "community": 26,
+      "norm_label": "build.py"
+    },
+    {
+      "label": "cover()",
+      "file_type": "code",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "docs_geometry_build_cover",
+      "community": 26,
+      "norm_label": "cover()"
+    },
+    {
+      "label": "make_toc()",
+      "file_type": "code",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L83",
+      "_origin": "ast",
+      "id": "docs_geometry_build_make_toc",
+      "community": 26,
+      "norm_label": "make_toc()"
+    },
+    {
+      "label": "build()",
+      "file_type": "code",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "docs_geometry_build_build",
+      "community": 26,
+      "norm_label": "build()"
+    },
+    {
+      "label": "Build JUDGE_PANEL_GEOMETRY.pdf -- a visual math companion to the LLM judge-panel",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_build_rationale_1",
+      "community": 26,
+      "norm_label": "build judge_panel_geometry.pdf -- a visual math companion to the llm judge-panel"
+    },
+    {
+      "label": "doclib.py",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib",
+      "community": 21,
+      "norm_label": "doclib.py"
+    },
+    {
+      "label": "measure()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_measure",
+      "community": 23,
+      "norm_label": "measure()"
+    },
+    {
+      "label": "tokenize()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_tokenize",
+      "community": 21,
+      "norm_label": "tokenize()"
+    },
+    {
+      "label": "_emit_span()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_emit_span",
+      "community": 21,
+      "norm_label": "_emit_span()"
+    },
+    {
+      "label": "_emit_words()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_emit_words",
+      "community": 21,
+      "norm_label": "_emit_words()"
+    },
+    {
+      "label": "Block",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_block",
+      "community": 24,
+      "norm_label": "block"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_block_height",
+      "community": 24,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_block_draw",
+      "community": 24,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Para",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para",
+      "community": 19,
+      "norm_label": "para"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_init",
+      "community": 21,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._wrap()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L140",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_wrap",
+      "community": 19,
+      "norm_label": "._wrap()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_height",
+      "community": 19,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".split()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_split",
+      "community": 19,
+      "norm_label": ".split()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L182",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_draw",
+      "community": 19,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "._draw_lines()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_para_draw_lines",
+      "community": 19,
+      "norm_label": "._draw_lines()"
+    },
+    {
+      "label": "_PreWrapped",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L201",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_prewrapped",
+      "community": 19,
+      "norm_label": "_prewrapped"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L204",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_prewrapped_init",
+      "community": 19,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_prewrapped_height",
+      "community": 19,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L213",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_prewrapped_draw",
+      "community": 19,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Heading",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L218",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_heading",
+      "community": 17,
+      "norm_label": "heading"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L219",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_heading_init",
+      "community": 17,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".label()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L229",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_heading_label",
+      "community": 17,
+      "norm_label": ".label()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_heading_height",
+      "community": 23,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L236",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_heading_draw",
+      "community": 23,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Eq",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L250",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_eq",
+      "community": 23,
+      "norm_label": "eq"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L251",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_eq_init",
+      "community": 23,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L257",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_eq_height",
+      "community": 23,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L260",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_eq_draw",
+      "community": 23,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Bullet",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L272",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_bullet",
+      "community": 28,
+      "norm_label": "bullet"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L275",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_bullet_init",
+      "community": 28,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L283",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_bullet_height",
+      "community": 16,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L286",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_bullet_draw",
+      "community": 28,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Space",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L294",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_space",
+      "community": 27,
+      "norm_label": "space"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L295",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_space_init",
+      "community": 27,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L298",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_space_height",
+      "community": 27,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L301",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_space_draw",
+      "community": 27,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Rule",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L305",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rule",
+      "community": 24,
+      "norm_label": "rule"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L306",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rule_init",
+      "community": 24,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L309",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rule_height",
+      "community": 24,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L312",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rule_draw",
+      "community": 24,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Callout",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L320",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_callout",
+      "community": 16,
+      "norm_label": "callout"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L321",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_callout_init",
+      "community": 16,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L328",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_callout_height",
+      "community": 16,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L334",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_callout_draw",
+      "community": 16,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "FigBlock",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L356",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_figblock",
+      "community": 16,
+      "norm_label": "figblock"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L357",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_figblock_init",
+      "community": 16,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L367",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_figblock_height",
+      "community": 16,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L373",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_figblock_draw",
+      "community": 16,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "PageBreak",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L381",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_pagebreak",
+      "community": 16,
+      "norm_label": "pagebreak"
+    },
+    {
+      "label": ".height()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L382",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_pagebreak_height",
+      "community": 16,
+      "norm_label": ".height()"
+    },
+    {
+      "label": ".draw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L385",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_pagebreak_draw",
+      "community": 16,
+      "norm_label": ".draw()"
+    },
+    {
+      "label": "Doc",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L392",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc",
+      "community": 17,
+      "norm_label": "doc"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L393",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_init",
+      "community": 17,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".h1()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L402",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_h1",
+      "community": 17,
+      "norm_label": ".h1()"
+    },
+    {
+      "label": ".h2()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L405",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_h2",
+      "community": 17,
+      "norm_label": ".h2()"
+    },
+    {
+      "label": ".h3()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L408",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_h3",
+      "community": 17,
+      "norm_label": ".h3()"
+    },
+    {
+      "label": ".p()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L411",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_p",
+      "community": 19,
+      "norm_label": ".p()"
+    },
+    {
+      "label": ".eq()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L414",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_eq",
+      "community": 23,
+      "norm_label": ".eq()"
+    },
+    {
+      "label": ".li()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L417",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_li",
+      "community": 28,
+      "norm_label": ".li()"
+    },
+    {
+      "label": ".box()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L420",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_box",
+      "community": 16,
+      "norm_label": ".box()"
+    },
+    {
+      "label": ".fig()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L423",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_fig",
+      "community": 16,
+      "norm_label": ".fig()"
+    },
+    {
+      "label": ".space()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L426",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_space",
+      "community": 27,
+      "norm_label": ".space()"
+    },
+    {
+      "label": ".rule()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L429",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_rule",
+      "community": 24,
+      "norm_label": ".rule()"
+    },
+    {
+      "label": ".newpage()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L432",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_newpage",
+      "community": 16,
+      "norm_label": ".newpage()"
+    },
+    {
+      "label": ".text_width()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L437",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_text_width",
+      "community": 17,
+      "norm_label": ".text_width()"
+    },
+    {
+      "label": "._new_page()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L440",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_new_page",
+      "community": 17,
+      "norm_label": "._new_page()"
+    },
+    {
+      "label": "._finish_page()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L445",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_finish_page",
+      "community": 17,
+      "norm_label": "._finish_page()"
+    },
+    {
+      "label": ".render()",
+      "file_type": "code",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L459",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_doc_render",
+      "community": 17,
+      "norm_label": ".render()"
+    },
+    {
+      "label": "Minimal flowing-document engine on top of matplotlib's PDF backend.  Produces a",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_1",
+      "community": 21,
+      "norm_label": "minimal flowing-document engine on top of matplotlib's pdf backend.  produces a"
+    },
+    {
+      "label": "Width and height of a rendered string, in inches.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_57",
+      "community": 23,
+      "norm_label": "width and height of a rendered string, in inches."
+    },
+    {
+      "label": "Split into (text, weight, style) tokens.      ``**bold**`` and ``__italic__`` ar",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_79",
+      "community": 21,
+      "norm_label": "split into (text, weight, style) tokens.      ``**bold**`` and ``__italic__`` ar"
+    },
+    {
+      "label": "Emit words from ``chunk``, keeping ``$...$`` spans as single tokens.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_98",
+      "community": 21,
+      "norm_label": "emit words from ``chunk``, keeping ``$...$`` spans as single tokens."
+    },
+    {
+      "label": "Return (head, tail) blocks so that head fits in ``avail`` inches.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L167",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_167",
+      "community": 19,
+      "norm_label": "return (head, tail) blocks so that head fits in ``avail`` inches."
+    },
+    {
+      "label": "Flow blocks onto pages. Returns {heading label: page number}.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L460",
+      "_origin": "ast",
+      "id": "docs_geometry_doclib_rationale_460",
+      "community": 17,
+      "norm_label": "flow blocks onto pages. returns {heading label: page number}."
+    },
+    {
+      "label": "figs.py",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_figs",
+      "community": 1,
+      "norm_label": "figs.py"
+    },
+    {
+      "label": "to_xy()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_to_xy",
+      "community": 1,
+      "norm_label": "to_xy()"
+    },
+    {
+      "label": "to_bary()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_to_bary",
+      "community": 1,
+      "norm_label": "to_bary()"
+    },
+    {
+      "label": "tv()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_tv",
+      "community": 1,
+      "norm_label": "tv()"
+    },
+    {
+      "label": "dist_to_hull()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_dist_to_hull",
+      "community": 1,
+      "norm_label": "dist_to_hull()"
+    },
+    {
+      "label": "coverage()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_coverage",
+      "community": 1,
+      "norm_label": "coverage()"
+    },
+    {
+      "label": "frontier()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_frontier",
+      "community": 1,
+      "norm_label": "frontier()"
+    },
+    {
+      "label": "poly_intersect()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_poly_intersect",
+      "community": 1,
+      "norm_label": "poly_intersect()"
+    },
+    {
+      "label": "_ccw()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_ccw",
+      "community": 1,
+      "norm_label": "_ccw()"
+    },
+    {
+      "label": "clip_poly()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_clip_poly",
+      "community": 1,
+      "norm_label": "clip_poly()"
+    },
+    {
+      "label": "tv_ball()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_tv_ball",
+      "community": 1,
+      "norm_label": "tv_ball()"
+    },
+    {
+      "label": "hull_poly()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L144",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_hull_poly",
+      "community": 1,
+      "norm_label": "hull_poly()"
+    },
+    {
+      "label": "panels()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_panels",
+      "community": 1,
+      "norm_label": "panels()"
+    },
+    {
+      "label": "simplex_ax()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L174",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_simplex_ax",
+      "community": 1,
+      "norm_label": "simplex_ax()"
+    },
+    {
+      "label": "_poly()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_poly",
+      "community": 1,
+      "norm_label": "_poly()"
+    },
+    {
+      "label": "dot()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_dot",
+      "community": 1,
+      "norm_label": "dot()"
+    },
+    {
+      "label": "bare_ax()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_bare_ax",
+      "community": 1,
+      "norm_label": "bare_ax()"
+    },
+    {
+      "label": "fig_simplex_intro()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L227",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_simplex_intro",
+      "community": 1,
+      "norm_label": "fig_simplex_intro()"
+    },
+    {
+      "label": "fig_landmarks()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L280",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_landmarks",
+      "community": 1,
+      "norm_label": "fig_landmarks()"
+    },
+    {
+      "label": "fig_tv_ball()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L333",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_tv_ball",
+      "community": 1,
+      "norm_label": "fig_tv_ball()"
+    },
+    {
+      "label": "fig_hull()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L378",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_hull",
+      "community": 1,
+      "norm_label": "fig_hull()"
+    },
+    {
+      "label": "fig_one_weight()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L421",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_one_weight",
+      "community": 1,
+      "norm_label": "fig_one_weight()"
+    },
+    {
+      "label": "fig_weight_simplex()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L464",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_weight_simplex",
+      "community": 1,
+      "norm_label": "fig_weight_simplex()"
+    },
+    {
+      "label": "fig_epigraph()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L537",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_epigraph",
+      "community": 1,
+      "norm_label": "fig_epigraph()"
+    },
+    {
+      "label": "fig_nested()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L585",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_nested",
+      "community": 1,
+      "norm_label": "fig_nested()"
+    },
+    {
+      "label": "fig_noncomp_dup()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L629",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_noncomp_dup",
+      "community": 1,
+      "norm_label": "fig_noncomp_dup()"
+    },
+    {
+      "label": "_circle_judges()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L671",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_circle_judges",
+      "community": 1,
+      "norm_label": "_circle_judges()"
+    },
+    {
+      "label": "fig_noncomp_circle()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L685",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_noncomp_circle",
+      "community": 1,
+      "norm_label": "fig_noncomp_circle()"
+    },
+    {
+      "label": "fig_frontier_shapes()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L752",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_frontier_shapes",
+      "community": 1,
+      "norm_label": "fig_frontier_shapes()"
+    },
+    {
+      "label": "fig_forward_backward()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L785",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_forward_backward",
+      "community": 1,
+      "norm_label": "fig_forward_backward()"
+    },
+    {
+      "label": "fig_swap_landscape()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L833",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_swap_landscape",
+      "community": 1,
+      "norm_label": "fig_swap_landscape()"
+    },
+    {
+      "label": "fig_separating()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L883",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_separating",
+      "community": 1,
+      "norm_label": "fig_separating()"
+    },
+    {
+      "label": "fig_milp()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L929",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_milp",
+      "community": 1,
+      "norm_label": "fig_milp()"
+    },
+    {
+      "label": "fig_backbone()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L969",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_backbone",
+      "community": 1,
+      "norm_label": "fig_backbone()"
+    },
+    {
+      "label": "_eb_slack()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1011",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_eb_slack",
+      "community": 1,
+      "norm_label": "_eb_slack()"
+    },
+    {
+      "label": "_hoef_slack()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1016",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_hoef_slack",
+      "community": 1,
+      "norm_label": "_hoef_slack()"
+    },
+    {
+      "label": "fig_certification()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1020",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_certification",
+      "community": 1,
+      "norm_label": "fig_certification()"
+    },
+    {
+      "label": "fig_downstream()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1077",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_downstream",
+      "community": 1,
+      "norm_label": "fig_downstream()"
+    },
+    {
+      "label": "_helly_radii()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1118",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_helly_radii",
+      "community": 1,
+      "norm_label": "_helly_radii()"
+    },
+    {
+      "label": "fig_helly()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1135",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_helly",
+      "community": 1,
+      "norm_label": "fig_helly()"
+    },
+    {
+      "label": "fig_caratheodory()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1169",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_caratheodory",
+      "community": 1,
+      "norm_label": "fig_caratheodory()"
+    },
+    {
+      "label": "fig_cheatsheet()",
+      "file_type": "code",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1203",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_fig_cheatsheet",
+      "community": 1,
+      "norm_label": "fig_cheatsheet()"
+    },
+    {
+      "label": "Figures for the judge-panel geometry companion.  Everything is drawn in the 2-si",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_1",
+      "community": 1,
+      "norm_label": "figures for the judge-panel geometry companion.  everything is drawn in the 2-si"
+    },
+    {
+      "label": "Total variation on the 3-simplex == max coordinate deviation.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_39",
+      "community": 1,
+      "norm_label": "total variation on the 3-simplex == max coordinate deviation."
+    },
+    {
+      "label": "min_{w in simplex} TV(p, sum_j w_j Q_j); returns (value, w).",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_44",
+      "community": 1,
+      "norm_label": "min_{w in simplex} tv(p, sum_j w_j q_j); returns (value, w)."
+    },
+    {
+      "label": "Worst-target reconstruction error of retained set S (indices).",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_67",
+      "community": 1,
+      "norm_label": "worst-target reconstruction error of retained set s (indices)."
+    },
+    {
+      "label": "Exact best-subset coverage for each k in ks, cached on disk.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_80",
+      "community": 1,
+      "norm_label": "exact best-subset coverage for each k in ks, cached on disk."
+    },
+    {
+      "label": "Intersection of two convex polygons (any vertex order).",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_93",
+      "community": 1,
+      "norm_label": "intersection of two convex polygons (any vertex order)."
+    },
+    {
+      "label": "Sutherland-Hodgman clip of polygon to {fn(xy) <= 0}.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_113",
+      "community": 1,
+      "norm_label": "sutherland-hodgman clip of polygon to {fn(xy) <= 0}."
+    },
+    {
+      "label": "Polygon {q in simplex : |q_k - p_k| <= eps} in xy coordinates.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_131",
+      "community": 1,
+      "norm_label": "polygon {q in simplex : |q_k - p_k| <= eps} in xy coordinates."
+    },
+    {
+      "label": "Radii where (a) all pairs meet but not all three, (b) all three meet.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1119",
+      "_origin": "ast",
+      "id": "docs_geometry_figs_rationale_1119",
+      "community": 1,
+      "norm_label": "radii where (a) all pairs meet but not all three, (b) all three meet."
+    },
+    {
+      "label": "render_figs.py",
+      "file_type": "code",
+      "source_file": "docs/geometry/render_figs.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_render_figs",
+      "community": 21,
+      "norm_label": "render_figs.py"
+    },
+    {
+      "label": "Contact-sheet renderer: draws every figure in figs.py to _png/ for review.",
+      "file_type": "rationale",
+      "source_file": "docs/geometry/render_figs.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_geometry_render_figs_rationale_1",
+      "community": 21,
+      "norm_label": "contact-sheet renderer: draws every figure in figs.py to _png/ for review."
+    },
+    {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "epcrc/__init__.py",
@@ -150,7 +1470,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "epcrc_coverage_substitutioncertificate",
-      "community": 9,
+      "community": 25,
       "norm_label": "substitutioncertificate"
     },
     {
@@ -160,7 +1480,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional",
-      "community": 7,
+      "community": 12,
       "norm_label": "coveragefunctional"
     },
     {
@@ -170,7 +1490,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_init",
-      "community": 7,
+      "community": 12,
       "norm_label": ".__init__()"
     },
     {
@@ -180,7 +1500,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_coverage_py_ndarray",
-      "community": 7,
+      "community": 12,
       "norm_label": "ndarray"
     },
     {
@@ -190,7 +1510,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_certificate",
-      "community": 9,
+      "community": 25,
       "norm_label": ".compute_certificate()"
     },
     {
@@ -200,7 +1520,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_coverage",
-      "community": 9,
+      "community": 25,
       "norm_label": ".compute_coverage()"
     },
     {
@@ -210,7 +1530,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_compute_sum_uniqueness",
-      "community": 9,
+      "community": 25,
       "norm_label": ".compute_sum_uniqueness()"
     },
     {
@@ -220,7 +1540,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "epcrc_coverage_coveragefunctional_find_bottleneck",
-      "community": 9,
+      "community": 25,
       "norm_label": ".find_bottleneck()"
     },
     {
@@ -230,7 +1550,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "epcrc_coverage_rationale_13",
-      "community": 9,
+      "community": 25,
       "norm_label": "certificate for substituting one model using kept set s."
     },
     {
@@ -240,7 +1560,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "epcrc_coverage_rationale_23",
-      "community": 7,
+      "community": 12,
       "norm_label": "compute per-model substitution errors u(i|s) and coverage e(s)."
     },
     {
@@ -250,7 +1570,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "epcrc_coverage_rationale_115",
-      "community": 9,
+      "community": 25,
       "norm_label": "sum of u(i|s) over all models i."
     },
     {
@@ -440,7 +1760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_metrics",
-      "community": 7,
+      "community": 12,
       "norm_label": "metrics.py"
     },
     {
@@ -450,7 +1770,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "epcrc_metrics_step_metrics",
-      "community": 7,
+      "community": 12,
       "norm_label": "step_metrics()"
     },
     {
@@ -460,7 +1780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_metrics_rationale_1",
-      "community": 7,
+      "community": 12,
       "norm_label": "detailed per-step metrics for coverage-based pruning.  given a coveragefunctiona"
     },
     {
@@ -470,7 +1790,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "epcrc_metrics_rationale_21",
-      "community": 7,
+      "community": 12,
       "norm_label": "compute a rich per-step metrics dict for a kept set s.      returns a json-seria"
     },
     {
@@ -650,7 +1970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_pruning",
-      "community": 10,
+      "community": 6,
       "norm_label": "pruning.py"
     },
     {
@@ -780,7 +2100,7 @@
       "source_location": "L369",
       "_origin": "ast",
       "id": "epcrc_pruning_priorityqueuepruner",
-      "community": 10,
+      "community": 6,
       "norm_label": "priorityqueuepruner"
     },
     {
@@ -790,7 +2110,7 @@
       "source_location": "L388",
       "_origin": "ast",
       "id": "epcrc_pruning_priorityqueuepruner_init",
-      "community": 10,
+      "community": 6,
       "norm_label": ".__init__()"
     },
     {
@@ -830,7 +2150,7 @@
       "source_location": "L810",
       "_origin": "ast",
       "id": "epcrc_pruning_backwardkswappruner",
-      "community": 10,
+      "community": 6,
       "norm_label": "backwardkswappruner"
     },
     {
@@ -840,7 +2160,7 @@
       "source_location": "L826",
       "_origin": "ast",
       "id": "epcrc_pruning_backwardkswappruner_init",
-      "community": 10,
+      "community": 12,
       "norm_label": ".__init__()"
     },
     {
@@ -860,7 +2180,7 @@
       "source_location": "L891",
       "_origin": "ast",
       "id": "epcrc_pruning_forwardkswappruner",
-      "community": 10,
+      "community": 6,
       "norm_label": "forwardkswappruner"
     },
     {
@@ -870,7 +2190,7 @@
       "source_location": "L901",
       "_origin": "ast",
       "id": "epcrc_pruning_forwardkswappruner_init",
-      "community": 10,
+      "community": 12,
       "norm_label": ".__init__()"
     },
     {
@@ -930,7 +2250,7 @@
       "source_location": "L370",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_370",
-      "community": 10,
+      "community": 6,
       "norm_label": "lazy greedy forward + backward cleanup, with optional k-swap escape.      phase"
     },
     {
@@ -960,7 +2280,7 @@
       "source_location": "L811",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_811",
-      "community": 10,
+      "community": 6,
       "norm_label": "backward elimination seed + the k-swap reduction escape.      backward eliminati"
     },
     {
@@ -970,7 +2290,7 @@
       "source_location": "L892",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_892",
-      "community": 10,
+      "community": 6,
       "norm_label": "forward selection seed + the k-swap reduction escape (no backward cleanup)."
     },
     {
@@ -1010,7 +2330,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "epcrc_risk_riskcontrolledbackwardpruner",
-      "community": 3,
+      "community": 10,
       "norm_label": "riskcontrolledbackwardpruner"
     },
     {
@@ -1020,7 +2340,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "epcrc_risk_riskcontrolledbackwardpruner_init",
-      "community": 3,
+      "community": 10,
       "norm_label": ".__init__()"
     },
     {
@@ -1030,7 +2350,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "epcrc_risk_riskcontrolledbackwardpruner_run",
-      "community": 3,
+      "community": 10,
       "norm_label": ".run()"
     },
     {
@@ -1070,7 +2390,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "epcrc_risk_rationale_70",
-      "community": 3,
+      "community": 10,
       "norm_label": "backward elimination that accepts a removal only when e_ucb <= gamma.      stric"
     },
     {
@@ -1200,7 +2520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline",
-      "community": 15,
+      "community": 18,
       "norm_label": "utd19_pipeline.py"
     },
     {
@@ -1210,7 +2530,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_set_global_seed",
-      "community": 15,
+      "community": 18,
       "norm_label": "set_global_seed()"
     },
     {
@@ -1220,7 +2540,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "randomstate",
-      "community": 15,
+      "community": 18,
       "norm_label": "randomstate"
     },
     {
@@ -1230,7 +2550,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_prepare_utd19",
-      "community": 15,
+      "community": 18,
       "norm_label": "prepare_utd19()"
     },
     {
@@ -1240,7 +2560,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "dataframe",
-      "community": 15,
+      "community": 18,
       "norm_label": "dataframe"
     },
     {
@@ -1250,7 +2570,7 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_build_xy",
-      "community": 15,
+      "community": 18,
       "norm_label": "build_xy()"
     },
     {
@@ -1260,7 +2580,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_py_ndarray",
-      "community": 15,
+      "community": 18,
       "norm_label": "ndarray"
     },
     {
@@ -1270,7 +2590,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_utd19bundle",
-      "community": 15,
+      "community": 18,
       "norm_label": "utd19bundle"
     },
     {
@@ -1280,7 +2600,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_load_raw_csv",
-      "community": 15,
+      "community": 18,
       "norm_label": "_load_raw_csv()"
     },
     {
@@ -1290,7 +2610,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_build_or_load_bundle",
-      "community": 15,
+      "community": 18,
       "norm_label": "build_or_load_bundle()"
     },
     {
@@ -1300,7 +2620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_rationale_1",
-      "community": 15,
+      "community": 18,
       "norm_label": "shared utd19 data loading, preprocessing, and per-city model training.  trained"
     },
     {
@@ -1310,7 +2630,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "epcrc_utd19_pipeline_rationale_186",
-      "community": 15,
+      "community": 18,
       "norm_label": "load data, train per-city models, build y_fit/y_eval. cache everything."
     },
     {
@@ -1660,7 +2980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward",
-      "community": 0,
+      "community": 22,
       "norm_label": "experiment_forward_beats_backward.py"
     },
     {
@@ -1670,7 +2990,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_mean_pairwise_dist",
-      "community": 0,
+      "community": 22,
       "norm_label": "mean_pairwise_dist()"
     },
     {
@@ -1680,7 +3000,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_py_ndarray",
-      "community": 0,
+      "community": 22,
       "norm_label": "ndarray"
     },
     {
@@ -1690,7 +3010,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_search",
-      "community": 0,
+      "community": 22,
       "norm_label": "search()"
     },
     {
@@ -1700,7 +3020,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_pick_smallest",
-      "community": 0,
+      "community": 22,
       "norm_label": "pick_smallest()"
     },
     {
@@ -1710,7 +3030,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_plot_instance",
-      "community": 0,
+      "community": 22,
       "norm_label": "plot_instance()"
     },
     {
@@ -1720,7 +3040,7 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_main",
-      "community": 0,
+      "community": 22,
       "norm_label": "main()"
     },
     {
@@ -1730,7 +3050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_rationale_1",
-      "community": 0,
+      "community": 22,
       "norm_label": "task 2: find a separating instance where forward < backward.  the headline findi"
     },
     {
@@ -1740,7 +3060,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_rationale_49",
-      "community": 0,
+      "community": 22,
       "norm_label": "pts: (n, d). mean euclidean distance between distinct points."
     },
     {
@@ -1750,7 +3070,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "experiments_experiment_forward_beats_backward_rationale_106",
-      "community": 0,
+      "community": 22,
       "norm_label": "smallest = fewest models n, then largest gap, then dim=2 (plottable)."
     },
     {
@@ -1820,7 +3140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness",
-      "community": 10,
+      "community": 6,
       "norm_label": "experiment_subset_robustness.py"
     },
     {
@@ -1830,7 +3150,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness_main",
-      "community": 10,
+      "community": 6,
       "norm_label": "main()"
     },
     {
@@ -1840,7 +3160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness_rationale_1",
-      "community": 10,
+      "community": 6,
       "norm_label": "subset-robustness sweep: compare 6 pruning configs over random model subsets.  t"
     },
     {
@@ -1850,7 +3170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum",
-      "community": 10,
+      "community": 2,
       "norm_label": "experiment_synthetic_optimum.py"
     },
     {
@@ -1860,7 +3180,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum_gen_instances",
-      "community": 10,
+      "community": 2,
       "norm_label": "gen_instances()"
     },
     {
@@ -1870,7 +3190,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum_exact_opt",
-      "community": 10,
+      "community": 2,
       "norm_label": "exact_opt()"
     },
     {
@@ -1880,7 +3200,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum_main",
-      "community": 10,
+      "community": 2,
       "norm_label": "main()"
     },
     {
@@ -1890,7 +3210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum_rationale_1",
-      "community": 10,
+      "community": 2,
       "norm_label": "exact optimum vs greedy/k-swap/milp on the synthetic replay instances.  regenera"
     },
     {
@@ -1900,7 +3220,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "experiments_experiment_synthetic_optimum_rationale_55",
-      "community": 10,
+      "community": 2,
       "norm_label": "identical rng protocol to experiment_replay_forward_seeds.py."
     },
     {
@@ -2020,7 +3340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap",
-      "community": 2,
+      "community": 12,
       "norm_label": "test_milp_and_kswap.py"
     },
     {
@@ -2050,7 +3370,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_milp_matches_bruteforce_on_random_instance",
-      "community": 2,
+      "community": 12,
       "norm_label": "test_milp_matches_bruteforce_on_random_instance()"
     },
     {
@@ -2060,7 +3380,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_backward_kswap_never_worse_than_backward",
-      "community": 2,
+      "community": 12,
       "norm_label": "test_backward_kswap_never_worse_than_backward()"
     },
     {
@@ -2070,7 +3390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_1",
-      "community": 2,
+      "community": 12,
       "norm_label": "sanity checks for the milp oracle optimum and the k-swap reduction escape.  reus"
     },
     {
@@ -2090,7 +3410,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_51",
-      "community": 2,
+      "community": 12,
       "norm_label": "milp size == brute-force protocol optimum on a small fit==eval instance.      wi"
     },
     {
@@ -2100,7 +3420,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_83",
-      "community": 2,
+      "community": 12,
       "norm_label": "backwardkswappruner output is feasible and no larger than backward's."
     },
     {
@@ -2110,7 +3430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic",
-      "community": 0,
+      "community": 20,
       "norm_label": "test_pruning_synthetic.py"
     },
     {
@@ -2120,7 +3440,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_build_cloud",
-      "community": 0,
+      "community": 20,
       "norm_label": "_build_cloud()"
     },
     {
@@ -2130,7 +3450,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_coverage",
-      "community": 0,
+      "community": 20,
       "norm_label": "_coverage()"
     },
     {
@@ -2140,7 +3460,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_backward_returns_exact_hull_vertices",
-      "community": 0,
+      "community": 20,
       "norm_label": "test_backward_returns_exact_hull_vertices()"
     },
     {
@@ -2150,7 +3470,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_forward_output_contains_hull_vertices",
-      "community": 0,
+      "community": 20,
       "norm_label": "test_forward_output_contains_hull_vertices()"
     },
     {
@@ -2160,7 +3480,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_both_return_feasible_sets",
-      "community": 0,
+      "community": 20,
       "norm_label": "test_both_return_feasible_sets()"
     },
     {
@@ -2170,7 +3490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_1",
-      "community": 0,
+      "community": 20,
       "norm_label": "task-1 sanity checks on a tiny synthetic cloud with a known answer.  constructio"
     },
     {
@@ -2180,7 +3500,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_43",
-      "community": 0,
+      "community": 20,
       "norm_label": "3 triangle vertices + 5 strictly-interior points -> y of shape (2, 8)."
     },
     {
@@ -2190,7 +3510,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_75",
-      "community": 0,
+      "community": 20,
       "norm_label": "backward must return exactly the 3 hull vertices, with e <= gamma and no     fur"
     },
     {
@@ -2200,7 +3520,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_96",
-      "community": 0,
+      "community": 20,
       "norm_label": "forward's first feasible prefix must contain all 3 hull vertices, and be     fea"
     },
     {
@@ -2210,7 +3530,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_109",
-      "community": 0,
+      "community": 20,
       "norm_label": "every returned set must satisfy e(s) <= gamma."
     },
     {
@@ -2230,7 +3550,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_triangle_y",
-      "community": 3,
+      "community": 2,
       "norm_label": "_triangle_y()"
     },
     {
@@ -2240,7 +3560,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_test_sparse_milp_r1_forces_keep_everything",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_sparse_milp_r1_forces_keep_everything()"
     },
     {
@@ -2250,7 +3570,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_test_sparse_milp_r3_matches_unconstrained",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_sparse_milp_r3_matches_unconstrained()"
     },
     {
@@ -2300,7 +3620,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_rationale_33",
-      "community": 3,
+      "community": 2,
       "norm_label": "r=1 at gamma~0: no single model reproduces another exactly, so every     model m"
     },
     {
@@ -2310,7 +3630,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_rationale_42",
-      "community": 3,
+      "community": 2,
       "norm_label": "certificates here mix at most 3 vertices, so r=3 costs nothing."
     },
     {
@@ -2452,6 +3772,186 @@
       "id": "readme_epcrc",
       "community": 14,
       "norm_label": "epcrc"
+    },
+    {
+      "label": "ALGORITHMS.md",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_algorithms",
+      "community": 4,
+      "norm_label": "algorithms.md"
+    },
+    {
+      "label": "Algorithms and MILP formulation",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_algorithms_algorithms_and_milp_formulation",
+      "community": 4,
+      "norm_label": "algorithms and milp formulation"
+    },
+    {
+      "label": "1. Problem statement",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "docs_algorithms_1_problem_statement",
+      "community": 4,
+      "norm_label": "1. problem statement"
+    },
+    {
+      "label": "Routing semantics",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "docs_algorithms_routing_semantics",
+      "community": 4,
+      "norm_label": "routing semantics"
+    },
+    {
+      "label": "2. Algorithms",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_algorithms",
+      "community": 4,
+      "norm_label": "2. algorithms"
+    },
+    {
+      "label": "2.1 Forward selection (`forward`)",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_1_forward_selection_forward",
+      "community": 4,
+      "norm_label": "2.1 forward selection (`forward`)"
+    },
+    {
+      "label": "2.2 Forward selection with trimming (`forward_trim`)",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_2_forward_selection_with_trimming_forward_trim",
+      "community": 4,
+      "norm_label": "2.2 forward selection with trimming (`forward_trim`)"
+    },
+    {
+      "label": "2.3 Backward elimination (`backward`)",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_3_backward_elimination_backward",
+      "community": 4,
+      "norm_label": "2.3 backward elimination (`backward`)"
+    },
+    {
+      "label": "2.4 $k$-swap (`backward_kswap2`, `backward_kswap3`)",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_4_k_swap_backward_kswap2_backward_kswap3",
+      "community": 4,
+      "norm_label": "2.4 $k$-swap (`backward_kswap2`, `backward_kswap3`)"
+    },
+    {
+      "label": "2.5 Priority-queue $k$-swap (`pq_kswap`)",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_5_priority_queue_k_swap_pq_kswap",
+      "community": 4,
+      "norm_label": "2.5 priority-queue $k$-swap (`pq_kswap`)"
+    },
+    {
+      "label": "2.6 Complexity",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "docs_algorithms_2_6_complexity",
+      "community": 4,
+      "norm_label": "2.6 complexity"
+    },
+    {
+      "label": "3. MILP formulation",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "docs_algorithms_3_milp_formulation",
+      "community": 4,
+      "norm_label": "3. milp formulation"
+    },
+    {
+      "label": "Variables",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "docs_algorithms_variables",
+      "community": 4,
+      "norm_label": "variables"
+    },
+    {
+      "label": "Program",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "docs_algorithms_program",
+      "community": 4,
+      "norm_label": "program"
+    },
+    {
+      "label": "Strength of the relaxation",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "docs_algorithms_strength_of_the_relaxation",
+      "community": 4,
+      "norm_label": "strength of the relaxation"
+    },
+    {
+      "label": "Combinatorial certification",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L216",
+      "_origin": "ast",
+      "id": "docs_algorithms_combinatorial_certification",
+      "community": 4,
+      "norm_label": "combinatorial certification"
+    },
+    {
+      "label": "4. Results",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L242",
+      "_origin": "ast",
+      "id": "docs_algorithms_4_results",
+      "community": 4,
+      "norm_label": "4. results"
+    },
+    {
+      "label": "5. Code map",
+      "file_type": "document",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L270",
+      "_origin": "ast",
+      "id": "docs_algorithms_5_code_map",
+      "community": 4,
+      "norm_label": "5. code map"
     },
     {
       "label": "MATH_COMPANION.md",
@@ -2755,6 +4255,3465 @@
     }
   ],
   "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "docs_geometry_build",
+      "target": "docs_geometry_doclib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "docs_geometry_build",
+      "target": "docs_geometry_build_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "docs_geometry_build",
+      "target": "docs_geometry_build_cover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "docs_geometry_build",
+      "target": "docs_geometry_build_make_toc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "docs_geometry_build",
+      "target": "docs_geometry_figs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_geometry_build_rationale_1",
+      "target": "docs_geometry_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "assignment",
+      "confidence": "INFERRED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "docs_geometry_build_build",
+      "target": "docs_geometry_build_cover",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "docs_geometry_build_cover",
+      "target": "docs_geometry_doclib_para"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "docs_geometry_build_build",
+      "target": "docs_geometry_build_make_toc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/geometry/build.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "docs_geometry_build_build",
+      "target": "docs_geometry_doclib_doc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L272",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_bullet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_callout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L392",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_doc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_emit_span",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_emit_words",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L250",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_eq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L356",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_figblock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_heading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L381",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_pagebreak",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_prewrapped",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_rule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L294",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_space",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib",
+      "target": "docs_geometry_doclib_tokenize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_1",
+      "target": "docs_geometry_doclib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_doclib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/render_figs.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "docs_geometry_render_figs",
+      "target": "docs_geometry_doclib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L344",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_draw",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L330",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_height",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq_draw",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq_height",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading_draw",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading_height",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_wrap",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_57",
+      "target": "docs_geometry_doclib_measure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_init",
+      "target": "docs_geometry_doclib_tokenize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_79",
+      "target": "docs_geometry_doclib_tokenize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_tokenize",
+      "target": "docs_geometry_doclib_emit_span",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_emit_span",
+      "target": "docs_geometry_doclib_emit_words",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_98",
+      "target": "docs_geometry_doclib_emit_span",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_emit_words",
+      "target": "docs_geometry_doclib_para_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_block",
+      "target": "docs_geometry_doclib_block_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_block",
+      "target": "docs_geometry_doclib_block_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L272",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L250",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L356",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L381",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_pagebreak",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_prewrapped",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rule",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L294",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_space",
+      "target": "docs_geometry_doclib_block",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet_init",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L324",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_init",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L412",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_p",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L489",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L364",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock_init",
+      "target": "docs_geometry_doclib_para",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_draw_lines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para",
+      "target": "docs_geometry_doclib_para_wrap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_draw",
+      "target": "docs_geometry_doclib_para_wrap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_height",
+      "target": "docs_geometry_doclib_para_wrap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_split",
+      "target": "docs_geometry_doclib_para_wrap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L490",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_para_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_split",
+      "target": "docs_geometry_doclib_prewrapped",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_167",
+      "target": "docs_geometry_doclib_para_split",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_para_draw",
+      "target": "docs_geometry_doclib_para_draw_lines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_prewrapped_draw",
+      "target": "docs_geometry_doclib_para_draw_lines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_prewrapped",
+      "target": "docs_geometry_doclib_prewrapped_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_prewrapped",
+      "target": "docs_geometry_doclib_prewrapped_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L204",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_prewrapped",
+      "target": "docs_geometry_doclib_prewrapped_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L403",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_h1",
+      "target": "docs_geometry_doclib_heading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L406",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_h2",
+      "target": "docs_geometry_doclib_heading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L409",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_h3",
+      "target": "docs_geometry_doclib_heading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L484",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_heading",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L236",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading",
+      "target": "docs_geometry_doclib_heading_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading",
+      "target": "docs_geometry_doclib_heading_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading",
+      "target": "docs_geometry_doclib_heading_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_heading",
+      "target": "docs_geometry_doclib_heading_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L415",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_eq",
+      "target": "docs_geometry_doclib_eq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq",
+      "target": "docs_geometry_doclib_eq_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq",
+      "target": "docs_geometry_doclib_eq_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_eq",
+      "target": "docs_geometry_doclib_eq_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L286",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet",
+      "target": "docs_geometry_doclib_bullet_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet",
+      "target": "docs_geometry_doclib_bullet_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L275",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet",
+      "target": "docs_geometry_doclib_bullet_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L418",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_li",
+      "target": "docs_geometry_doclib_bullet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet_height",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L291",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_bullet_draw",
+      "target": "docs_geometry_doclib_pagebreak_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L427",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_space",
+      "target": "docs_geometry_doclib_space",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L301",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_space",
+      "target": "docs_geometry_doclib_space_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L298",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_space",
+      "target": "docs_geometry_doclib_space_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L295",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_space",
+      "target": "docs_geometry_doclib_space_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L430",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_rule",
+      "target": "docs_geometry_doclib_rule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L312",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rule",
+      "target": "docs_geometry_doclib_rule_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L309",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rule",
+      "target": "docs_geometry_doclib_rule_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L306",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rule",
+      "target": "docs_geometry_doclib_rule_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout",
+      "target": "docs_geometry_doclib_callout_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L328",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout",
+      "target": "docs_geometry_doclib_callout_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout",
+      "target": "docs_geometry_doclib_callout_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L421",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_box",
+      "target": "docs_geometry_doclib_callout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L331",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_height",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L352",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_draw",
+      "target": "docs_geometry_doclib_pagebreak_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_callout_draw",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L424",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_fig",
+      "target": "docs_geometry_doclib_figblock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock",
+      "target": "docs_geometry_doclib_figblock_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L367",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock",
+      "target": "docs_geometry_doclib_figblock_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock",
+      "target": "docs_geometry_doclib_figblock_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L370",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock_height",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L378",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_figblock_draw",
+      "target": "docs_geometry_doclib_pagebreak_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L433",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_newpage",
+      "target": "docs_geometry_doclib_pagebreak",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L478",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_pagebreak",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L385",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_pagebreak",
+      "target": "docs_geometry_doclib_pagebreak_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L382",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_pagebreak",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L487",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_pagebreak_height",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L493",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_pagebreak_draw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L420",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_box",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L414",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_eq",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L423",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_fig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L445",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_finish_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_h1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L405",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_h2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L408",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_h3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L417",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_li",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L440",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_new_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L432",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_newpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L411",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_p",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L459",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L429",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_rule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L426",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_space",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L437",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc",
+      "target": "docs_geometry_doclib_doc_text_width",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L471",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_doc_new_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L479",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_doc_render",
+      "target": "docs_geometry_doclib_doc_finish_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/doclib.py",
+      "source_location": "L460",
+      "weight": 1.0,
+      "source": "docs_geometry_doclib_rationale_460",
+      "target": "docs_geometry_doclib_doc_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_ccw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L671",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_circle_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1011",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_eb_slack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L969",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_backbone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1169",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_caratheodory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1020",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_certification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1203",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_cheatsheet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1077",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_downstream",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L537",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_epigraph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L785",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_forward_backward",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L752",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_frontier_shapes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1135",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_helly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L378",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L280",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_landmarks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L929",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_milp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L585",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_nested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L685",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_noncomp_circle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L629",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_noncomp_dup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L421",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_one_weight",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L883",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_separating",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_simplex_intro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L833",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_swap_landscape",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L333",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L464",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_fig_weight_simplex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_frontier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1118",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_helly_radii",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1016",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_hoef_slack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_poly_intersect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_to_bary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_tv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "docs_geometry_figs",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_1",
+      "target": "docs_geometry_figs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/render_figs.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "docs_geometry_render_figs",
+      "target": "docs_geometry_figs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_dot",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L974",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1175",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1230",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L797",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1149",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L382",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L593",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L692",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L633",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L432",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L888",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L493",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_weight_simplex",
+      "target": "docs_geometry_figs_to_xy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L313",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_to_bary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L898",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_to_bary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_to_bary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L437",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_tv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_39",
+      "target": "docs_geometry_figs_tv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_coverage",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L597",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L689",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L645",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_44",
+      "target": "docs_geometry_figs_dist_to_hull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L793",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L770",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_frontier_shapes",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L735",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_frontier",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_67",
+      "target": "docs_geometry_figs_coverage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_80",
+      "target": "docs_geometry_figs_frontier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1152",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_poly_intersect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1123",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_helly_radii",
+      "target": "docs_geometry_figs_poly_intersect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_poly_intersect",
+      "target": "docs_geometry_figs_ccw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_poly_intersect",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_93",
+      "target": "docs_geometry_figs_poly_intersect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L313",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L898",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_113",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_tv_ball",
+      "target": "docs_geometry_figs_clip_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1225",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1145",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L408",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L598",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L706",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L338",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1122",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_helly_radii",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_131",
+      "target": "docs_geometry_figs_tv_ball",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L974",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1175",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1230",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L797",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L383",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L593",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L692",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L633",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L888",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L524",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_weight_simplex",
+      "target": "docs_geometry_figs_hull_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L970",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1170",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1021",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_certification",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1078",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_downstream",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L538",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_epigraph",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L786",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L753",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_frontier_shapes",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1136",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L379",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L930",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_milp",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L586",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L686",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L630",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L422",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L884",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L834",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_swap_landscape",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L465",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_weight_simplex",
+      "target": "docs_geometry_figs_panels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L971",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1174",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1220",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L796",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1142",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L385",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L592",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L691",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L632",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L430",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L887",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L498",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_weight_simplex",
+      "target": "docs_geometry_figs_simplex_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_simplex_ax",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L974",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1175",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1225",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L797",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1147",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L386",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L292",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L594",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L693",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L634",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L888",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L339",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L525",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_weight_simplex",
+      "target": "docs_geometry_figs_poly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1178",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1221",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L800",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L388",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_hull",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L303",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_landmarks",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L596",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L695",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L636",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_dup",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L434",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L891",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L265",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_simplex_intro",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L344",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_dot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L993",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_backbone",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1188",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_caratheodory",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1024",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_certification",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1079",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_downstream",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L550",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_epigraph",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L819",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_forward_backward",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L768",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_frontier_shapes",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L931",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_milp",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L604",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_nested",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L729",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L445",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_one_weight",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L910",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_separating",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L835",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_swap_landscape",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L357",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_tv_ball",
+      "target": "docs_geometry_figs_bare_ax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1250",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_cheatsheet",
+      "target": "docs_geometry_figs_circle_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L760",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_frontier_shapes",
+      "target": "docs_geometry_figs_circle_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L688",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_noncomp_circle",
+      "target": "docs_geometry_figs_circle_judges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1027",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_certification",
+      "target": "docs_geometry_figs_eb_slack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1045",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_certification",
+      "target": "docs_geometry_figs_hoef_slack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1137",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_fig_helly",
+      "target": "docs_geometry_figs_helly_radii",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/figs.py",
+      "source_location": "L1119",
+      "weight": 1.0,
+      "source": "docs_geometry_figs_rationale_1119",
+      "target": "docs_geometry_figs_helly_radii",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/geometry/render_figs.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_geometry_render_figs_rationale_1",
+      "target": "docs_geometry_render_figs",
+      "confidence_score": 1.0
+    },
     {
       "relation": "re_exports",
       "context": "export",
@@ -8994,6 +13953,176 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_algorithms",
+      "target": "docs_algorithms_algorithms_and_milp_formulation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "docs_algorithms_algorithms_and_milp_formulation",
+      "target": "docs_algorithms_1_problem_statement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "docs_algorithms_algorithms_and_milp_formulation",
+      "target": "docs_algorithms_2_algorithms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "docs_algorithms_algorithms_and_milp_formulation",
+      "target": "docs_algorithms_3_milp_formulation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "docs_algorithms_algorithms_and_milp_formulation",
+      "target": "docs_algorithms_4_results",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L270",
+      "weight": 1.0,
+      "source": "docs_algorithms_algorithms_and_milp_formulation",
+      "target": "docs_algorithms_5_code_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "docs_algorithms_1_problem_statement",
+      "target": "docs_algorithms_routing_semantics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_1_forward_selection_forward",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_2_forward_selection_with_trimming_forward_trim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_3_backward_elimination_backward",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_4_k_swap_backward_kswap2_backward_kswap3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_5_priority_queue_k_swap_pq_kswap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "docs_algorithms_2_algorithms",
+      "target": "docs_algorithms_2_6_complexity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "docs_algorithms_3_milp_formulation",
+      "target": "docs_algorithms_combinatorial_certification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "docs_algorithms_3_milp_formulation",
+      "target": "docs_algorithms_program",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "docs_algorithms_3_milp_formulation",
+      "target": "docs_algorithms_strength_of_the_relaxation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ALGORITHMS.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "docs_algorithms_3_milp_formulation",
+      "target": "docs_algorithms_variables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/MATH_COMPANION.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -9273,5 +14402,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5ce01510ecbeeea64ee5ffc09afe3c4e03d3ba3c"
+  "built_at_commit": "c081b788aba478356d81ade1418d872f1eb38cab"
 }
