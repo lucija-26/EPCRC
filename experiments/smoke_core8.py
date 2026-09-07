@@ -72,7 +72,10 @@ CORE8 = {
 G1_MODEL = "Qwen/Qwen2.5-7B-Instruct"
 G1_ITEMS = 20
 G2_ITEMS = 100
-G2_GAMMAS = [0.02, 0.05, 0.10]
+# Real judges disagree far more than the synthetic panels do, so the sweep has
+# to reach tolerances where anything is removable at all; stopping at 0.10 shows
+# a flat line and says nothing about which method compresses better.
+G2_GAMMAS = [0.02, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
 # Core-8 is ~145 GB of bf16 weights in total, which does not fit on a shared
 # box.  Judges are therefore scored strictly one at a time and, under --evict,
 # each model's snapshot is deleted once all of its blocks are cached, so the
@@ -267,25 +270,38 @@ def gate_g0(seed: int, check_access: bool) -> Dict[str, object]:
 
 
 def _check_model_access() -> Dict[str, object]:
-    """Confirm every Core-8 repo is reachable, without downloading weights."""
+    """Confirm every Core-8 repo is *downloadable*, without fetching weights.
+
+    ``model_info`` is not enough: the hub serves metadata for gated repos to
+    anonymous callers, so it returns happily for a model whose weights will
+    later 401.  ``auth_check`` is the call that tests the actual permission,
+    which is what turns a seven-hour failure into a five-second one.
+    """
     try:
-        from huggingface_hub import HfApi
+        from huggingface_hub import HfApi, auth_check
     except ImportError:
         return {"model_access": "huggingface_hub not installed"}
 
     api = HfApi()
-    reachable, failures = {}, {}
+    reachable, gated, failures = {}, {}, {}
     for judge_id, model_id in CORE8.items():
         try:
+            auth_check(model_id)
             info = api.model_info(model_id)
             reachable[judge_id] = info.sha[:12] if info.sha else "unknown"
         except Exception as exc:  # noqa: BLE001 - report whatever the hub says
-            failures[judge_id] = f"{type(exc).__name__}: {exc}"
+            name = type(exc).__name__
+            if "Gated" in name:
+                gated[judge_id] = f"{CORE8[judge_id]}: accept the licence and set HF_TOKEN"
+            else:
+                failures[judge_id] = f"{name}: {str(exc)[:200]}"
 
     out: Dict[str, object] = {
-        "ok_model_access": not failures,
+        "ok_model_access": not failures and not gated,
         "model_revisions": reachable,
     }
+    if gated:
+        out["gated_without_access"] = gated
     if failures:
         out["model_access_failures"] = failures
     return out
