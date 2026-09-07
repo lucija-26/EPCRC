@@ -117,6 +117,10 @@ htmlcov/
 .env.local
 secrets.yaml
 
+# Per-figure PNG previews rebuilt by docs/geometry/render_figs.py; the PDF and
+# the figure sources are the artefacts that matter.
+docs/geometry/_png/
+
 # Pre-cleanup snapshot of the old results tree (2026-08-16), kept locally as a
 # safety net for the rerun; not part of the project history.
 .backup_results_*/
