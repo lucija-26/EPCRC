@@ -163,5 +163,135 @@
     "mtime": 1786947925.924638,
     "ast_hash": "46d002597621d2f9e80490cdda9b3eee",
     "semantic_hash": ""
+  },
+  "docs/geometry/build.py": {
+    "mtime": 1787322237.3629227,
+    "ast_hash": "92b12a259fd4ace5920ecdf0bbcabf37",
+    "semantic_hash": ""
+  },
+  "docs/geometry/doclib.py": {
+    "mtime": 1788029537.8554692,
+    "ast_hash": "bb0dfcf60956e1941066b3035a376fd9",
+    "semantic_hash": ""
+  },
+  "docs/geometry/figs.py": {
+    "mtime": 1788031217.2633488,
+    "ast_hash": "d0c3bc726d54ea7fc52043d3a18f3489",
+    "semantic_hash": ""
+  },
+  "docs/geometry/render_figs.py": {
+    "mtime": 1787320959.370574,
+    "ast_hash": "f0d9c004f52049c9f644e222b38c20e0",
+    "semantic_hash": ""
+  },
+  "docs/ALGORITHMS.md": {
+    "mtime": 1787303269.5827668,
+    "ast_hash": "60bc6a58c0edf5ef0295312bb0ab8023",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_backbone.png": {
+    "mtime": 1788029068.4491892,
+    "ast_hash": "c529cc90d5a9cc3eecca7d9410a664a8",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_caratheodory.png": {
+    "mtime": 1788029068.4956605,
+    "ast_hash": "a59f530d451a6139f85208cbccce3e42",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_certification.png": {
+    "mtime": 1788029068.5720167,
+    "ast_hash": "bd2422e159c0849f870c9b3b17d465db",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_cheatsheet.png": {
+    "mtime": 1788029068.6549563,
+    "ast_hash": "4a832a5adac3b49442d3f17e79e2837c",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_downstream.png": {
+    "mtime": 1788029068.6924503,
+    "ast_hash": "ea4ead49177f974bc328c9f77abecdec",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_epigraph.png": {
+    "mtime": 1788029068.766588,
+    "ast_hash": "17464f0d42eb917c28d4196b18575063",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_forward_backward.png": {
+    "mtime": 1788029068.8281906,
+    "ast_hash": "92540dba26fab27115070cf79fa6e5b7",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_frontier_shapes.png": {
+    "mtime": 1788029078.8882017,
+    "ast_hash": "4f107229ca858166504a3a6b2addf9b3",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_helly.png": {
+    "mtime": 1788029078.9698684,
+    "ast_hash": "3d1ad034b00d74dea646adc54a26d0e6",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_hull.png": {
+    "mtime": 1788029079.018057,
+    "ast_hash": "ac9bb56157cf93ac338a3e88019b798f",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_landmarks.png": {
+    "mtime": 1788029079.0595448,
+    "ast_hash": "48890d851f172b5b5c35b7bc3c59548f",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_milp.png": {
+    "mtime": 1788029079.1124086,
+    "ast_hash": "d6b01399896ac34a26e5e14d84039c71",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_nested.png": {
+    "mtime": 1788029079.1876605,
+    "ast_hash": "a90d10ade0ac76e0a171aea46b0799f0",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_noncomp_circle.png": {
+    "mtime": 1788029114.1802707,
+    "ast_hash": "a534de160c6934a4ce3912533a7c3da1",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_noncomp_dup.png": {
+    "mtime": 1788029114.2543042,
+    "ast_hash": "cecc8f929b730619134eb62409e56e18",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_one_weight.png": {
+    "mtime": 1788029114.3605738,
+    "ast_hash": "98e37ad6099df38d6de41e5117e3a64c",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_separating.png": {
+    "mtime": 1788029114.3979638,
+    "ast_hash": "8be2f2f744983ebf9fdcf4557b78fa62",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_simplex_intro.png": {
+    "mtime": 1788029114.4397297,
+    "ast_hash": "6caa83b3a0822bd4e670d2e14402c86a",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_swap_landscape.png": {
+    "mtime": 1788029114.5536957,
+    "ast_hash": "c88af12719ee2c9dfdd1da8eaece0d9a",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_tv_ball.png": {
+    "mtime": 1788029114.6066058,
+    "ast_hash": "af649ab179546d1cf99a83c996d618af",
+    "semantic_hash": ""
+  },
+  "docs/geometry/_png/fig_weight_simplex.png": {
+    "mtime": 1788029115.662017,
+    "ast_hash": "1000b86671729f845dca7608ecaf1f11",
+    "semantic_hash": ""
   }
 }
