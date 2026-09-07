@@ -114,6 +114,9 @@ class LabelScorer:
         )
         if self._tokenizer.pad_token is None:
             self._tokenizer.pad_token = self._tokenizer.eos_token
+        # Left padding puts the token we score after at position -1 for every
+        # row, which lets the model return logits for that position alone.
+        self._tokenizer.padding_side = "left"
 
         self._model = AutoModelForCausalLM.from_pretrained(
             self.model_id,
@@ -201,11 +204,16 @@ class LabelScorer:
                     add_special_tokens=False,
                 ).to(self.model.device)
 
-                logits = self.model(**batch).logits
-                # Left padding would move the final position; index the true
-                # last token of each sequence instead of assuming -1.
-                last = batch["attention_mask"].sum(dim=1) - 1
-                final = logits[torch.arange(logits.shape[0]), last, :]
+                # Only the last position matters, and asking for the whole
+                # sequence costs (batch x tokens x vocab) -- gigabytes for a
+                # 14B model with a 100k vocabulary, which is what pushes a
+                # 28 GB checkpoint off a 32 GB card.  The tokenizer pads on
+                # the left, so that position is -1 for every row.
+                try:
+                    logits = self.model(**batch, logits_to_keep=1).logits
+                except TypeError:
+                    logits = self.model(**batch).logits
+                final = logits[:, -1, :]
                 log_probs = torch.log_softmax(final.float(), dim=-1)
 
                 columns = [encodings[label][0] for label in LABELS]

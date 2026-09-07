@@ -122,6 +122,7 @@ def score_block(
     batch_size: int,
     revision: Optional[str] = None,
     scorer: Optional[LabelScorer] = None,
+    device: str = "cuda",
 ) -> Dict[str, object]:
     """Score one (judge, context) block, reusing the cache when it is complete.
 
@@ -140,7 +141,7 @@ def score_block(
         print(f"  cache for {judge_id}/{context.name} does not match; rescoring")
 
     if scorer is None:
-        scorer = LabelScorer(model_id, revision=revision)
+        scorer = LabelScorer(model_id, revision=revision, device=device)
 
     started = time.time()
     probabilities, hashes = score_pairs(
@@ -376,6 +377,7 @@ def gate_g2(
     batch_size: int,
     models: Dict[str, str],
     evict: bool = False,
+    device: str = "cuda",
 ) -> Dict[str, object]:
     checks: Dict[str, object] = {"n_items": G2_ITEMS, "judges": list(models)}
 
@@ -397,7 +399,7 @@ def gate_g2(
     n_rows = 0
 
     for judge_id, model_id in models.items():
-        scorer = LabelScorer(model_id)
+        scorer = LabelScorer(model_id, device=device)
         loaded = False
         for context in contexts:
             print(f"[{judge_id} {context.name}]", flush=True)
@@ -406,7 +408,8 @@ def gate_g2(
                     scorer.load()
                     loaded = True
                 block = score_block(
-                    judge_id, model_id, pairs, context, batch_size, scorer=scorer
+                    judge_id, model_id, pairs, context, batch_size,
+                    scorer=scorer, device=device,
                 )
                 blocks[(judge_id, context.name)] = block
                 n_rows += len(pairs)
@@ -580,6 +583,11 @@ def main() -> None:
         action="store_true",
         help="delete each model's weights once its blocks are cached",
     )
+    parser.add_argument(
+        "--device",
+        default="cuda",
+        help="device_map; use 'auto' to shard a 14B model across several GPUs",
+    )
     args = parser.parse_args()
 
     os.makedirs(SCORES, exist_ok=True)
@@ -592,7 +600,10 @@ def main() -> None:
         models = (
             {j: CORE8[j] for j in args.judges} if args.judges else dict(CORE8)
         )
-        payload = gate_g2(args.seed, args.batch_size, models, evict=args.evict)
+        payload = gate_g2(
+            args.seed, args.batch_size, models,
+            evict=args.evict, device=args.device,
+        )
 
     path = os.path.join(OUT, f"{args.gate}.json")
     with open(path, "w") as handle:
