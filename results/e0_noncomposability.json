@@ -1,0 +1,3579 @@
+{
+  "gammas": [
+    0.002,
+    0.005,
+    0.01,
+    0.02,
+    0.04,
+    0.08
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "records": [
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.002,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.005,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.01,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.02,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.04,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 0,
+      "gamma": 0.08,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.002,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.005,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.01,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.02,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.04,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 1,
+      "gamma": 0.08,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.002,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.005,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.01,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.02,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.04,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 2,
+      "gamma": 0.08,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.002,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.005,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.01,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.02,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.04,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 3,
+      "gamma": 0.08,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.002,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.005,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.01,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.02,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.04,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "duplicated_extremes",
+      "seed": 4,
+      "gamma": 0.08,
+      "n_judges": 6,
+      "loo_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "individually_removable": [
+        "A_1",
+        "A_2",
+        "B_1",
+        "B_2",
+        "tie_1",
+        "tie_2"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "A_1",
+        "B_1",
+        "tie_1"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 6,
+        "cycles": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "n_cycles": 3,
+        "largest_cycle": 2
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.002,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "naive_retained_size": 9,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 9,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.005,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054613269375396,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.049613269375396,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_4",
+        "arc_6",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0032786495368427016,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.01,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054613269375396,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.044613269375395996,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_5",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.006785643180767825,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.02,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054613269375396,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.034613269375395994,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_3",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.01877855989514099,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.04,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_7"
+      ],
+      "min_feasible_coverage": 0.03937203304884311,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 0,
+      "gamma": 0.08,
+      "n_judges": 9,
+      "loo_errors": [
+        0.0353955699553685,
+        0.0031175729494832003,
+        0.003132374168303001,
+        0.0032786495368427883,
+        0.0035893618074653495,
+        0.0032786495368427064,
+        0.0031323741683029873,
+        0.003117572949483219,
+        0.03539556995536845
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_6"
+      ],
+      "min_feasible_coverage": 0.07133906976346524,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.002,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "naive_retained_size": 9,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 9,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.005,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055168592896804945,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.05016859289680495,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_4",
+        "arc_6",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0033119877937734512,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.01,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055168592896804945,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.04516859289680494,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_5",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.006854641563565006,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.02,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055168592896804945,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.03516859289680495,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_3",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.018969505724373066,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.04,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_7"
+      ],
+      "min_feasible_coverage": 0.03977237927033421,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 1,
+      "gamma": 0.08,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035755482349823106,
+        0.0031492733330778463,
+        0.0031642250549722166,
+        0.0033119877937734603,
+        0.003625859476645916,
+        0.003311987793773445,
+        0.003164225054972241,
+        0.0031492733330778567,
+        0.03575548234982305
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_6"
+      ],
+      "min_feasible_coverage": 0.07206446606162084,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.002,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "naive_retained_size": 9,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 9,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.005,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055106670461149476,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.05010667046114948,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_4",
+        "arc_6",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.003308270346213496,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.01,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055106670461149476,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.045106670461149474,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_5",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.006846947763907018,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.02,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055106670461149476,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.03510667046114947,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_3",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.018948213936129867,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.04,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_7"
+      ],
+      "min_feasible_coverage": 0.039727737881694106,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 2,
+      "gamma": 0.08,
+      "n_judges": 9,
+      "loo_errors": [
+        0.03571534961416899,
+        0.003145738519788409,
+        0.0031606734595430543,
+        0.0033082703462134822,
+        0.003621789732642139,
+        0.0033082703462134627,
+        0.003160673459543066,
+        0.0031457385197884574,
+        0.035715349614168945
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_6"
+      ],
+      "min_feasible_coverage": 0.07198357932827433,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.002,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "naive_retained_size": 9,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 9,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.005,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055960352779176235,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.05096035277917624,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_4",
+        "arc_6",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0033595202561459993,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.01,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055960352779176235,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.04596035277917623,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_5",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.006953016923767102,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.02,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.055960352779176235,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.03596035277917624,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_3",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.01924174927513869,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.04,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_1",
+        "arc_7"
+      ],
+      "min_feasible_coverage": 0.036268632223925915,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 3,
+      "gamma": 0.08,
+      "n_judges": 9,
+      "loo_errors": [
+        0.036268632223925915,
+        0.00319447057579917,
+        0.003209636879450091,
+        0.00335952025614602,
+        0.0036778965129737424,
+        0.003359520256145989,
+        0.0032096368794501027,
+        0.0031944705757991953,
+        0.03626863222392586
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_6"
+      ],
+      "min_feasible_coverage": 0.07309870946309431,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.002,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "naive_retained_size": 9,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 9,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.005,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054771350767954995,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.049771350767955,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_4",
+        "arc_6",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.003288139785099674,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.01,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054771350767954995,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.04477135076795499,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_2",
+        "arc_5",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.006805284633031941,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.02,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.7777777777777778,
+      "naive_retained": [
+        "arc_0",
+        "arc_8"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.054771350767954995,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.034771350767955,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_3",
+        "arc_8"
+      ],
+      "min_feasible_coverage": 0.0188329155660691,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.04,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_7"
+      ],
+      "min_feasible_coverage": 0.03948599776627221,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    },
+    {
+      "instance": "curved_arc_9",
+      "seed": 4,
+      "gamma": 0.08,
+      "n_judges": 9,
+      "loo_errors": [
+        0.035498024561235506,
+        0.0031265969518711628,
+        0.003141441013708934,
+        0.003288139785099674,
+        0.0035997514310753425,
+        0.00328813978509966,
+        0.0031414410137089537,
+        0.0031265969518711966,
+        0.03549802456123548
+      ],
+      "individually_removable": [
+        "arc_0",
+        "arc_1",
+        "arc_2",
+        "arc_3",
+        "arc_4",
+        "arc_5",
+        "arc_6",
+        "arc_7",
+        "arc_8"
+      ],
+      "n_individually_removable": 9,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "arc_0",
+        "arc_6"
+      ],
+      "min_feasible_coverage": 0.07154556499110958,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 16,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 9
+      }
+    }
+  ]
+}
