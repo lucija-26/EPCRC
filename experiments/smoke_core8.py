@@ -73,9 +73,11 @@ G1_MODEL = "Qwen/Qwen2.5-7B-Instruct"
 G1_ITEMS = 20
 G2_ITEMS = 100
 G2_GAMMAS = [0.02, 0.05, 0.10]
-# ~3 GB of weights per billion parameters in bf16, times the largest model,
-# plus room for the cached tensors.
-MIN_FREE_GB = 200.0
+# Core-8 is ~145 GB of bf16 weights in total, which does not fit on a shared
+# box.  Judges are therefore scored strictly one at a time and, under --evict,
+# each model's snapshot is deleted once all of its blocks are cached, so the
+# peak requirement is the largest single model (phi-4, ~28 GB) plus headroom.
+MIN_FREE_GB = 35.0
 
 
 # --------------------------------------------------------------------------
@@ -353,7 +355,12 @@ def gate_g1(seed: int, model_id: str, batch_size: int) -> Dict[str, object]:
 # G2 -- Core-8 end-to-end
 # --------------------------------------------------------------------------
 
-def gate_g2(seed: int, batch_size: int, models: Dict[str, str]) -> Dict[str, object]:
+def gate_g2(
+    seed: int,
+    batch_size: int,
+    models: Dict[str, str],
+    evict: bool = False,
+) -> Dict[str, object]:
     checks: Dict[str, object] = {"n_items": G2_ITEMS, "judges": list(models)}
 
     all_pairs = read_pairs(_pairs_path(seed))
@@ -398,6 +405,10 @@ def gate_g2(seed: int, batch_size: int, models: Dict[str, str]) -> Dict[str, obj
         # Free the weights before the next model is loaded.
         scorer._model = None
         _empty_cache()
+        if evict:
+            freed = _evict_snapshot(model_id)
+            print(f"  evicted {model_id}: {freed:.1f} GB, "
+                  f"{shutil.disk_usage(OUT).free / 1e9:.1f} GB now free", flush=True)
 
     expected = len(models) * len(contexts) * len(pairs)
     checks["n_rows"] = n_rows
@@ -495,6 +506,34 @@ def _exhaustive_minimum(
     return cov.N, list(range(cov.N))
 
 
+def _evict_snapshot(model_id: str) -> float:
+    """Delete one model's weights from the local Hugging Face cache.
+
+    The shared box does not have room for all eight judges at once.  Only the
+    cache entry for this exact repo is removed, and only after its blocks are
+    on disk, so the worst case is that the weights are downloaded again.
+    """
+    try:
+        from huggingface_hub.constants import HF_HUB_CACHE
+    except ImportError:
+        return 0.0
+
+    folder = os.path.join(
+        HF_HUB_CACHE, "models--" + model_id.replace("/", "--")
+    )
+    if not os.path.isdir(folder):
+        return 0.0
+
+    size = sum(
+        os.path.getsize(os.path.join(root, f))
+        for root, _, files in os.walk(folder)
+        for f in files
+        if not os.path.islink(os.path.join(root, f))
+    )
+    shutil.rmtree(folder, ignore_errors=True)
+    return size / 1e9
+
+
 def _empty_cache() -> None:
     try:
         import gc
@@ -520,6 +559,11 @@ def main() -> None:
         "--judges", nargs="*", default=None, help="subset of Core-8 ids for G2"
     )
     parser.add_argument("--no-access-check", action="store_true")
+    parser.add_argument(
+        "--evict",
+        action="store_true",
+        help="delete each model's weights once its blocks are cached",
+    )
     args = parser.parse_args()
 
     os.makedirs(SCORES, exist_ok=True)
@@ -532,7 +576,7 @@ def main() -> None:
         models = (
             {j: CORE8[j] for j in args.judges} if args.judges else dict(CORE8)
         )
-        payload = gate_g2(args.seed, args.batch_size, models)
+        payload = gate_g2(args.seed, args.batch_size, models, evict=args.evict)
 
     path = os.path.join(OUT, f"{args.gate}.json")
     with open(path, "w") as handle:
