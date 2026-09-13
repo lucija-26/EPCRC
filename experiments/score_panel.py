@@ -1,20 +1,27 @@
-"""Quality gates G0, G1 and G2 (execution plan sections 46-48).
+"""Score a judge panel, behind quality gates G0, G1 and G2 (plan sections 46-48).
 
 G0 is static: it must pass before any GPU time is spent.  G1 scores 20 items
 with one small model and checks that the numbers coming out of the scorer mean
-what the pipeline assumes.  G2 runs the Core-8 panel over 100 stratified items
-and every registered context, builds the response tensor and drives the pruners
-through it.
+what the pipeline assumes.  G2 runs the whole selected panel over the stratified
+item set and every registered context, builds the response tensor and drives the
+pruners through it.
 
-Every (judge, context) block is cached under
-``results/smoke_core8/scores/``, so an interrupted run resumes without
-rescoring and without duplicating rows.  Core-20 does not start until G2 passes.
+``--panel`` chooses between the section 10.3 smoke panel and the section 10
+formal panel.  They write to different directories, so a Core-20 run can never
+overwrite the Core-8 evidence that licensed it:
+
+    core8    ->  results/smoke_core8/scores/    8 judges,  ~145 GB of weights
+    core20   ->  results/core20/scores/        20 judges,  ~320 GB of weights
+
+Every (judge, context) block is cached, so an interrupted run resumes without
+rescoring and without duplicating rows.  Core-20 does not start until Core-8
+has passed G2.
 
 Usage on the GPU box:
 
-    python -u experiments/smoke_core8.py --gate g0
-    python -u experiments/smoke_core8.py --gate g1
-    python -u experiments/smoke_core8.py --gate g2
+    python -u experiments/score_panel.py --gate g0 --panel core20
+    python -u experiments/score_panel.py --gate g1
+    python -u experiments/score_panel.py --gate g2 --panel core20 --items 100
 """
 
 from __future__ import annotations
@@ -48,26 +55,12 @@ from epcrc.pruning import (
     BackwardKSwapPruner,
     ForwardSelectionPruner,
 )
+from epcrc.panel import CORE8, PANELS, panel_weight_gb, scores_dir
 from epcrc.rewardbench import ALL_SEEDS, PRIMARY_SEED, read_pairs, stratified_subset
 from epcrc.scoring import LabelScorer, accuracy_report, score_pairs
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
-OUT = os.path.join(ROOT, "results", "smoke_core8")
-SCORES = os.path.join(OUT, "scores")
-
-# Section 10.3.  Core-20 formal inference starts only after these eight pass.
-CORE8 = {
-    "J02": "Qwen/Qwen2.5-7B-Instruct",
-    "J05": "Qwen/Qwen3-8B",
-    "J08": "meta-llama/Llama-3.1-8B-Instruct",
-    "J10": "google/gemma-3-12b-it",
-    "J12": "microsoft/phi-4",
-    "J14": "mistralai/Mistral-7B-Instruct-v0.3",
-    "J16": "ibm-granite/granite-3.3-8b-instruct",
-    "J20": "allenai/OLMo-2-1124-7B-Instruct",
-}
-
 # The cheapest model on the panel, used for the one-model G1 smoke test.
 G1_MODEL = "Qwen/Qwen2.5-7B-Instruct"
 G1_ITEMS = 20
@@ -76,11 +69,36 @@ G2_ITEMS = 100
 # to reach tolerances where anything is removable at all; stopping at 0.10 shows
 # a flat line and says nothing about which method compresses better.
 G2_GAMMAS = [0.02, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
-# Core-8 is ~145 GB of bf16 weights in total, which does not fit on a shared
-# box.  Judges are therefore scored strictly one at a time and, under --evict,
-# each model's snapshot is deleted once all of its blocks are cached, so the
-# peak requirement is the largest single model (phi-4, ~28 GB) plus headroom.
+DISK_HEADROOM_GB = 20.0
+
+# Defaults for the Core-8 smoke panel; `configure` overwrites all of them.
+PANEL_NAME = "core8"
+PANEL: Dict[str, str] = dict(CORE8)
+SCORES = scores_dir("core8")
+OUT = os.path.dirname(SCORES)
 MIN_FREE_GB = 35.0
+
+
+def configure(panel_name: str, evict: bool) -> None:
+    """Point the runner at one of the registered panels.
+
+    The disk budget depends on both choices.  Scoring with ``--evict`` deletes
+    each snapshot once its blocks are cached, so the peak requirement is the
+    single largest model; without it the whole panel has to fit at once, which
+    for Core-20 is roughly 320 GB.
+    """
+    global PANEL_NAME, PANEL, OUT, SCORES, MIN_FREE_GB
+
+    PANEL_NAME = panel_name
+    PANEL = dict(PANELS[panel_name])
+    SCORES = scores_dir(panel_name)
+    OUT = os.path.dirname(SCORES)
+
+    if evict:
+        peak = max(panel_weight_gb([j]) for j in PANEL)
+    else:
+        peak = panel_weight_gb(list(PANEL))
+    MIN_FREE_GB = peak + DISK_HEADROOM_GB
 
 
 # --------------------------------------------------------------------------
@@ -259,7 +277,9 @@ def gate_g0(seed: int, check_access: bool) -> Dict[str, object]:
     # Formal prompt count.
     n_contexts = len(REGISTERED_CONTEXTS)
     checks["formal_prompts_core20"] = 20 * n_contexts * len(pairs)
-    checks["smoke_prompts_core8"] = len(CORE8) * n_contexts * G2_ITEMS
+    checks["panel"] = PANEL_NAME
+    checks["panel_prompts"] = len(PANEL) * n_contexts * G2_ITEMS
+    checks["panel_weights_gb"] = round(panel_weight_gb(list(PANEL)), 1)
 
     # Model access.
     if check_access:
@@ -271,7 +291,7 @@ def gate_g0(seed: int, check_access: bool) -> Dict[str, object]:
 
 
 def _check_model_access() -> Dict[str, object]:
-    """Confirm every Core-8 repo is *downloadable*, without fetching weights.
+    """Confirm every repo on the panel is *downloadable*, without fetching weights.
 
     ``model_info`` is not enough: the hub serves metadata for gated repos to
     anonymous callers, so it returns happily for a model whose weights will
@@ -285,7 +305,7 @@ def _check_model_access() -> Dict[str, object]:
 
     api = HfApi()
     reachable, gated, failures = {}, {}, {}
-    for judge_id, model_id in CORE8.items():
+    for judge_id, model_id in PANEL.items():
         try:
             auth_check(model_id)
             info = api.model_info(model_id)
@@ -293,7 +313,7 @@ def _check_model_access() -> Dict[str, object]:
         except Exception as exc:  # noqa: BLE001 - report whatever the hub says
             name = type(exc).__name__
             if "Gated" in name:
-                gated[judge_id] = f"{CORE8[judge_id]}: accept the licence and set HF_TOKEN"
+                gated[judge_id] = f"{model_id}: accept the licence and set HF_TOKEN"
             else:
                 failures[judge_id] = f"{name}: {str(exc)[:200]}"
 
@@ -369,7 +389,7 @@ def gate_g1(seed: int, model_id: str, batch_size: int) -> Dict[str, object]:
 
 
 # --------------------------------------------------------------------------
-# G2 -- Core-8 end-to-end
+# G2 -- whole-panel end-to-end
 # --------------------------------------------------------------------------
 
 def gate_g2(
@@ -569,14 +589,21 @@ def _empty_cache() -> None:
 # --------------------------------------------------------------------------
 
 def main() -> None:
+    global G2_ITEMS
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gate", choices=["g0", "g1", "g2"], default="g0")
+    parser.add_argument("--panel", choices=sorted(PANELS), default="core8",
+                        help="which registered panel to score")
     parser.add_argument("--seed", type=int, default=PRIMARY_SEED)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--model", default=G1_MODEL, help="the G1 model")
     parser.add_argument(
-        "--judges", nargs="*", default=None, help="subset of Core-8 ids for G2"
+        "--judges", nargs="*", default=None,
+        help="subset of the panel's judge ids for G2",
     )
+    parser.add_argument("--items", type=int, default=G2_ITEMS,
+                        help="stratified items to score in G2")
     parser.add_argument("--no-access-check", action="store_true")
     parser.add_argument(
         "--evict",
@@ -590,20 +617,29 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    G2_ITEMS = args.items
+    configure(args.panel, evict=args.evict)
     os.makedirs(SCORES, exist_ok=True)
+    print(f"panel {PANEL_NAME}: {len(PANEL)} judges, "
+          f"~{panel_weight_gb(list(PANEL)):.0f} GB of weights, "
+          f"needs {MIN_FREE_GB:.0f} GB free -> {SCORES}")
 
     if args.gate == "g0":
         payload = gate_g0(args.seed, check_access=not args.no_access_check)
     elif args.gate == "g1":
         payload = gate_g1(args.seed, args.model, args.batch_size)
     else:
+        unknown = set(args.judges or []) - set(PANEL)
+        if unknown:
+            parser.error(f"{sorted(unknown)} are not in panel {args.panel}")
         models = (
-            {j: CORE8[j] for j in args.judges} if args.judges else dict(CORE8)
+            {j: PANEL[j] for j in args.judges} if args.judges else dict(PANEL)
         )
         payload = gate_g2(
             args.seed, args.batch_size, models,
             evict=args.evict, device=args.device,
         )
+    payload["panel"] = PANEL_NAME
 
     path = os.path.join(OUT, f"{args.gate}.json")
     with open(path, "w") as handle:
