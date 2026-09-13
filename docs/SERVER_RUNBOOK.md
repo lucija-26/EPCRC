@@ -188,15 +188,20 @@ All CPU, all fast — no GPU needed once scoring is done.
 ```bash
 .venv/bin/python -u experiments/experiment_e0_noncomposability.py --real --panel core20
 .venv/bin/python -u experiments/experiment_e1_compression_frontier.py --panel core20 --max-exhaustive 0
-.venv/bin/python -u experiments/experiment_c3_baselines.py --panel core20
+.venv/bin/python -u experiments/experiment_c3_baselines.py --panel core20 --max-exhaustive 0
 ```
 
 Notes:
 
-- `--max-exhaustive 0` is **required** at N=20. Enumerating every subset is
-  2^20 evaluations per budget; it finishes on Core-8 and never finishes here.
-  The exhaustive row simply will not appear in the Core-20 tables, which is
-  expected and is stated in the summary.
+- Enumerating every subset to find the true optimum is 2^20 evaluations per
+  budget: instant on Core-8, never finishing here. E0 and C3 are already safe
+  by default, because `select_exhaustive` returns nothing once the panel
+  exceeds `--max-exhaustive`, which defaults to 10. Passing `0` only makes the
+  intent explicit. Either way the exhaustive row is absent from the Core-20
+  tables, which is expected and is stated in the summary.
+- The one place this was *not* guarded was `score_panel.py`, where G2 finished
+  all its GPU work and then enumerated forever — hence `--max-exhaustive` there
+  too, and the `exhaustive_enumerated` flag in `g2.json`.
 - E0 also sweeps the leave-one-out breakpoints, which is where C1 gets its
   evidence when the predeclared gamma grid is too tight for the panel.
 - C3 parallelises over subsets; it deduplicates to the unique subsets first,
