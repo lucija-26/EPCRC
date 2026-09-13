@@ -154,9 +154,16 @@ because `--gate` defaults to `g0`.
 ```bash
 tmux new -s score
 .venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20 \
-    --items 4000 --scores-only 2>&1 | tee score.log
+    --items 4000 --scores-only --batch-size 64 2>&1 | tee score.log
 # detach with ctrl-b d, reattach with: tmux attach -t score
 ```
+
+`--batch-size 64` is not optional at this scale. The default of 8 leaves a B200
+mostly idle — measured on 256 pairs, Phi-3.5-mini goes 1.7 → 17.0 pairs/s from
+bs=8 to bs=32, and Qwen2.5-14B goes 5.1 → 8.2 at bs=64 before regressing at 128.
+Small judges saturate at 32 and the 14B peaks at 64, so 64 is the single best
+choice for a mixed panel. It turns a ~18–27 hour pass, which would not fit in
+the job, into ~6–7 hours at a sustained ~21 pairs/s.
 
 `--scores-only` stops once every block is written. Without it the run ends by
 driving the pruners over all 3724 pairs, which costs many hours and re-tests the
@@ -200,10 +207,14 @@ Notes:
 ## 7. Build the package
 
 ```bash
-.venv/bin/python -m nbconvert --to notebook --execute --inplace \
-    notebooks/04_results_package.ipynb        # set PANEL = "core20" first
+EPCRC_PANEL=core20 .venv/bin/python -m nbconvert --to notebook --execute \
+    --inplace notebooks/04_results_package.ipynb
 .venv/bin/python -u experiments/export_results.py --panel core20
 ```
+
+The notebook reads `EPCRC_PANEL` and defaults to `core8`, so nothing has to be
+edited by hand — and the server's working tree stays clean apart from the
+executed outputs.
 
 Produces `results/export/epcrc_results_core20_<date>.zip` containing
 `tables/`, `figures/`, `raw/`, `notebooks/`, `SUMMARY.md` and a `manifest.json`
