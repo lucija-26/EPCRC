@@ -399,6 +399,7 @@ def gate_g2(
     evict: bool = False,
     device: str = "cuda",
     max_exhaustive: int = 10,
+    scores_only: bool = False,
 ) -> Dict[str, object]:
     checks: Dict[str, object] = {"n_items": G2_ITEMS, "judges": list(models)}
 
@@ -472,6 +473,15 @@ def gate_g2(
     checks["ok_no_split_leakage"] = all(
         len({membership[p.base_item_id]}) == 1 for p in pairs
     )
+
+    if scores_only:
+        # The production run scores every pair, and the checks below cost
+        # O(rows * |S|^2) NNLS work per pruner per gamma -- minutes at 100 items,
+        # far longer over all 3724.  They are a gate on the pipeline, not on the
+        # data, so they are validated once on the stratified sample and skipped
+        # here; the scored blocks are what the experiments actually consume.
+        checks["scores_only"] = True
+        return _report("G2", checks)
 
     # Response tensor.
     tensor_blocks = []
@@ -623,6 +633,12 @@ def main() -> None:
              "exact optimum; above this the check is skipped, since Core-20 "
              "never finishes. Same meaning as in experiment_e1.",
     )
+    parser.add_argument(
+        "--scores-only", action="store_true",
+        help="stop after every (judge, context) block is written, skipping the "
+             "tensor and pruner checks. Use for the production run over all "
+             "pairs; the checks are already gated on the stratified sample.",
+    )
     parser.add_argument("--no-access-check", action="store_true")
     parser.add_argument(
         "--evict",
@@ -658,6 +674,7 @@ def main() -> None:
             args.seed, args.batch_size, models,
             evict=args.evict, device=args.device,
             max_exhaustive=args.max_exhaustive,
+            scores_only=args.scores_only,
         )
     payload["panel"] = PANEL_NAME
 

@@ -146,11 +146,21 @@ nothing. `--judges J07` scores a single judge once its licence comes through.
 
 The long step. Run it detached so a dropped SSH connection does not kill it:
 
+There is no separate "score" subcommand: G2 *is* the scoring pass, and `--items`
+sets how much of the pair file it covers. `--items` above the pair count means
+all of it. Bare `score_panel.py --panel core20` would silently re-run G0,
+because `--gate` defaults to `g0`.
+
 ```bash
 tmux new -s score
-.venv/bin/python -u experiments/score_panel.py --panel core20 2>&1 | tee score.log
+.venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20 \
+    --items 4000 --scores-only 2>&1 | tee score.log
 # detach with ctrl-b d, reattach with: tmux attach -t score
 ```
+
+`--scores-only` stops once every block is written. Without it the run ends by
+driving the pruners over all 3724 pairs, which costs many hours and re-tests the
+pipeline rather than the data — G2 on the 100-item sample already did that.
 
 Writes one JSON per (judge, context) into `results/core20/scores/`. The run is
 resumable: an existing block is skipped, so an interruption costs only the
