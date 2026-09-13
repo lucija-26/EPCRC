@@ -1,0 +1,49 @@
+{
+  "gate": "G0",
+  "passed": false,
+  "checks": {
+    "ok_pair_files_exist": true,
+    "ok_split_files_exist": true,
+    "n_pairs": 3724,
+    "ok_pair_ids_unique": true,
+    "ok_labels_are_legal": true,
+    "ok_weights_positive": true,
+    "ok_no_empty_text": true,
+    "ok_responses_differ": true,
+    "ok_splits_disjoint": true,
+    "ok_splits_cover_pairs": true,
+    "ok_no_task_straddles_splits": true,
+    "split_sizes": {
+      "FIT": 935,
+      "CERT": 467,
+      "TEST": 463
+    },
+    "ok_protocol_hashes_match": true,
+    "protocol_sha256": {
+      "P1": "c57b9eedd651",
+      "P2": "3657f597168c",
+      "P3": "b2490b5dd7e7"
+    },
+    "ok_contexts_unique": true,
+    "contexts": [
+      "I0_clean",
+      "I1_order_swap",
+      "I2_correctness_rubric",
+      "I3_bias_resistant_rubric",
+      "I4_verbosity_pad_a",
+      "I5_source_tags",
+      "I6_reference_hidden"
+    ],
+    "ok_all_prompts_end_at_verdict": true,
+    "ok_swap_reorders": true,
+    "ok_output_writable": true,
+    "free_disk_gb": 99.3,
+    "ok_enough_disk": false,
+    "formal_prompts_core20": 521360,
+    "panel": "core20",
+    "panel_prompts": 14000,
+    "panel_weights_gb": 316.0,
+    "model_access": "skipped (--no-access-check)"
+  },
+  "panel": "core20"
+}
