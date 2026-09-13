@@ -55,9 +55,21 @@ git clone <repo> EPCRC        # or: cd EPCRC && git pull
 cd EPCRC
 git checkout judges
 
-python -m venv .venv
-.venv/bin/pip install -U pip
+python3 -m venv .venv
+.venv/bin/pip install -U pip wheel
 .venv/bin/pip install -r requirements.txt
+
+# The B200 is sm_100, which the default PyPI torch wheel does not build for.
+.venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cu128
+.venv/bin/pip install -r requirements-scoring.txt
+.venv/bin/pip install pytest nbconvert nbformat ipykernel   # tests and step 7
+```
+
+Confirm the GPU is actually visible to torch before going any further:
+
+```bash
+.venv/bin/python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_capability())"
+# expect: True (10, 0)
 ```
 
 Put the model cache on the mounted drive too, or downloads are lost on restart
