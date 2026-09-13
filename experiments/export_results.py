@@ -677,7 +677,11 @@ def export(panel: str, out_dir: Optional[str] = None,
         return out_dir
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
-    zip_path = os.path.join(RESULTS, "export", f"epcrc_results_{panel}_{stamp}.zip")
+    zip_dir = os.path.join(RESULTS, "export")
+    # results/export/ is gitignored, so on a fresh clone -- the server -- it does
+    # not exist until something creates it.
+    os.makedirs(zip_dir, exist_ok=True)
+    zip_path = os.path.join(zip_dir, f"epcrc_results_{panel}_{stamp}.zip")
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as archive:
         for folder, _, names in os.walk(out_dir):
             for name in sorted(names):

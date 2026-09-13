@@ -49,9 +49,13 @@ The port is shown on the running job's page.
 
 ## 2. Set up the environment
 
+`/work` itself is rewritten per job — the job scripts and logs at its top level
+belong to the current job only. The *persistent* member-files drive is the
+folder inside it, `/work/Lucija`. Everything expensive goes there.
+
 ```bash
-cd /work                      # the mounted drive, NOT the container filesystem
-git clone <repo> EPCRC        # or: cd EPCRC && git pull
+cd /work/Lucija               # persistent; /work alone is not
+git clone https://github.com/lucija-26/EPCRC.git EPCRC   # or: cd EPCRC && git pull
 cd EPCRC
 git checkout judges
 
@@ -72,12 +76,29 @@ Confirm the GPU is actually visible to torch before going any further:
 # expect: True (10, 0)
 ```
 
-Put the model cache on the mounted drive too, or downloads are lost on restart
-and the disk check measures the wrong filesystem:
+Put the model cache on the persistent drive too, or the 316 GB of weights is
+lost every time the job restarts and the disk check measures the wrong
+filesystem:
 
 ```bash
-export HF_HOME=/work/hf
-export HF_TOKEN=<your token>        # needed for the gated Llama and Gemma repos
+export HF_HOME=/work/Lucija/hf
+```
+
+Five of the twenty repos are gated (J07, J08 Llama; J09, J10 Gemma; J19 Aya).
+Log in once — the token is written into `$HF_HOME/token`, so it survives job
+restarts along with the cache and does not have to be re-exported:
+
+```bash
+.venv/bin/hf auth login          # paste a read token from hf.co/settings/tokens
+```
+
+The licence for each gated repo must also be accepted in a browser, with the
+same account the token belongs to. G0 names any repo still missing access.
+
+Then build the pair files, which are derived data and deliberately not in git:
+
+```bash
+.venv/bin/python -u experiments/build_rewardbench_pairs.py --all-seeds
 ```
 
 ---
