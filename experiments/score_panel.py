@@ -398,6 +398,7 @@ def gate_g2(
     models: Dict[str, str],
     evict: bool = False,
     device: str = "cuda",
+    max_exhaustive: int = 10,
 ) -> Dict[str, object]:
     checks: Dict[str, object] = {"n_items": G2_ITEMS, "judges": list(models)}
 
@@ -508,27 +509,33 @@ def gate_g2(
     checks["monotonicity_violations"] = violations
     checks["ok_fitting_monotone"] = violations == 0
 
-    # Pruners and the exhaustive optimum.
+    # Pruners and, only where it is tractable, the exhaustive optimum.
+    exhaustive_ok = cov.N <= max_exhaustive
+    checks["exhaustive_enumerated"] = exhaustive_ok
     runs = {}
     for gamma in G2_GAMMAS:
         backward = BackwardEliminationPruner(cov, gamma).run()
         forward = ForwardSelectionPruner(cov, gamma).run()
         kswap = BackwardKSwapPruner(cov, gamma, max_swap_k=2).run()
-        exact_size, exact_set = _exhaustive_minimum(cov, gamma)
-        runs[str(gamma)] = {
+        entry = {
             "backward": sorted(judge_ids[i] for i in backward.kept_set),
             "forward": sorted(judge_ids[i] for i in forward.kept_set),
             "kswap2": sorted(judge_ids[i] for i in kswap.kept_set),
-            "exhaustive_size": exact_size,
-            "exhaustive_set": [judge_ids[i] for i in exact_set],
             "backward_coverage": float(backward.coverage),
         }
+        if exhaustive_ok:
+            exact_size, exact_set = _exhaustive_minimum(cov, gamma)
+            entry["exhaustive_size"] = exact_size
+            entry["exhaustive_set"] = [judge_ids[i] for i in exact_set]
+        runs[str(gamma)] = entry
     checks["pruning"] = runs
     checks["ok_pruners_run"] = True
     # The greedy routes can only ever be at least as large as the true optimum.
+    # With no optimum to compare against there is nothing to violate, so this
+    # is vacuously true rather than a failure.
     checks["ok_exhaustive_lower_bounds_greedy"] = all(
         r["exhaustive_size"] <= min(len(r["backward"]), len(r["kswap2"]))
-        for r in runs.values()
+        for r in runs.values() if "exhaustive_size" in r
     )
 
     return _report("G2", checks)
@@ -537,7 +544,13 @@ def gate_g2(
 def _exhaustive_minimum(
     cov: JudgeCoverageFunctional, gamma: float
 ) -> Tuple[int, List[int]]:
-    """Brute-force smallest feasible panel; Core-8 is small enough to enumerate."""
+    """Brute-force smallest feasible panel.
+
+    Only tractable for a small ecosystem: the cost is sum_k C(N, k) coverage
+    evaluations up to the first feasible size, and each evaluation is a batch of
+    NNLS solves. Core-8 finishes instantly, Core-20 does not finish at all, so
+    callers must gate this on `max_exhaustive`.
+    """
     for k in range(1, cov.N + 1):
         for combo in combinations(range(cov.N), k):
             if cov.compute_coverage(set(combo))[0] <= gamma:
@@ -604,6 +617,12 @@ def main() -> None:
     )
     parser.add_argument("--items", type=int, default=G2_ITEMS,
                         help="stratified items to score in G2")
+    parser.add_argument(
+        "--max-exhaustive", type=int, default=10,
+        help="largest panel for which G2 enumerates every subset to find the "
+             "exact optimum; above this the check is skipped, since Core-20 "
+             "never finishes. Same meaning as in experiment_e1.",
+    )
     parser.add_argument("--no-access-check", action="store_true")
     parser.add_argument(
         "--evict",
@@ -638,6 +657,7 @@ def main() -> None:
         payload = gate_g2(
             args.seed, args.batch_size, models,
             evict=args.evict, device=args.device,
+            max_exhaustive=args.max_exhaustive,
         )
     payload["panel"] = PANEL_NAME
 

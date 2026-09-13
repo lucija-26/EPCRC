@@ -124,11 +124,21 @@ hours; found now it costs a browser click.
 
 ```bash
 .venv/bin/python -u experiments/score_panel.py --gate g1 --panel core20
-.venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20
+.venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20 --max-exhaustive 0
 ```
 
 G1 is a single judge on a handful of items — it proves the parsing and scoring
 path works end to end. G2 sweeps decoding settings on a small sample.
+
+`--max-exhaustive 0` matters for the same reason it does in E1: G2 finishes by
+enumerating every subset to confirm the greedy pruners never beat the true
+optimum. That is instant at N=8 and never finishes at N=20, and the scoring
+itself will already have completed by the time it stalls. The exact-optimum
+rows are then absent from `g2.json`, which `exhaustive_enumerated: false`
+records.
+
+G2 is resumable per (judge, context) block, so a rerun after a fix re-scores
+nothing. `--judges J07` scores a single judge once its licence comes through.
 
 ---
 
