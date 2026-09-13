@@ -80,6 +80,11 @@ data/exp000_models/
 # small and carry the checksums, so those stay in git.
 data/pairs_seed*.jsonl
 
+# The delivery package, rebuilt in one command by experiments/export_results.py
+# from the result JSON beside it.  Committing it would version a 16 MB zip of
+# pure derived output, and a stale copy in git is worse than none.
+results/export/
+
 # Keep directory structure
 !results/.gitkeep
 !data/.gitkeep
