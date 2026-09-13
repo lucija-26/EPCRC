@@ -48,7 +48,13 @@ RESULTS = os.path.join(ROOT, "results")
 # --------------------------------------------------------------------------
 
 def input_paths(panel: str) -> Dict[str, str]:
-    """Result files for a panel, falling back to the unsuffixed Core-8 names."""
+    """Result files for a panel.
+
+    The experiments wrote unsuffixed names before the panel registry existed,
+    and those files are Core-8. So the fallback is only correct for Core-8: on
+    any other panel a missing result must stay missing, or the export would
+    quietly ship Core-8 numbers under the other panel's label.
+    """
     def pick(*candidates: str) -> str:
         for name in candidates:
             path = os.path.join(RESULTS, name)
@@ -56,11 +62,12 @@ def input_paths(panel: str) -> Dict[str, str]:
                 return path
         return os.path.join(RESULTS, candidates[-1])
 
+    legacy = panel == "core8"
     return {
         "e0_synthetic": pick("e0_noncomposability.json"),
         "e0_real": pick(f"e0_real_{panel}.json"),
-        "e1": pick(f"e1_frontier_{panel}.json", "e1_frontier.json"),
-        "c3": pick(f"c3_baselines_{panel}.json", "c3_baselines.json"),
+        "e1": pick(f"e1_frontier_{panel}.json", *(["e1_frontier.json"] if legacy else [])),
+        "c3": pick(f"c3_baselines_{panel}.json", *(["c3_baselines.json"] if legacy else [])),
     }
 
 
