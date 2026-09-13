@@ -1,8 +1,10 @@
 # EPCRC: Ecosystem Pruning via Convex Routing Coverage
-# Minimal runtime dependencies for experiments/run_all.py
+# CPU dependencies: every experiment, the report tables and the figures.
+# Running the judges themselves additionally needs requirements-scoring.txt.
 
 numpy
 scipy
 pandas
 scikit-learn
 joblib
+matplotlib

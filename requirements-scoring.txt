@@ -1,0 +1,19 @@
+# Extra dependencies for the GPU scoring pipeline (experiments/score_panel.py).
+#
+# requirements.txt alone is enough for every CPU analysis and for the export,
+# so the laptop does not need any of this.  Install it only where judges are
+# actually run.
+#
+# On Blackwell (B200, sm_100) torch must come from the CUDA 12.8 index, since
+# the default PyPI wheel does not carry sm_100 kernels:
+#
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   pip install -r requirements-scoring.txt
+
+torch
+transformers
+accelerate
+datasets
+huggingface_hub
+sentencepiece
+protobuf
