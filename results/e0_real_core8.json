@@ -1,0 +1,5050 @@
+{
+  "experiment": "E0",
+  "claim": "C1",
+  "panel": "core8",
+  "pairs_seed": 20260818,
+  "gammas": [
+    0.02,
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.12,
+    0.15,
+    0.2
+  ],
+  "loo_breakpoints_included": true,
+  "split_seeds": [
+    20260818,
+    20260819,
+    20260820,
+    20260821,
+    20260822
+  ],
+  "records": [
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.02,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.04,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.06,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.08,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.1,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.12,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.15,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.2,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.28911813551414856,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J20"
+      ],
+      "n_individually_removable": 1,
+      "frac_individually_removable": 0.125,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 7,
+      "naive_coverage": 0.2891181355141485,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.2891181355141485,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.291963177711581,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J08",
+        "J20"
+      ],
+      "n_individually_removable": 2,
+      "frac_individually_removable": 0.25,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 6,
+      "naive_coverage": 0.2975821789427772,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.005619001231196241,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.2891181355141485,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.31018771456972893,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 3,
+      "frac_individually_removable": 0.375,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 5,
+      "naive_coverage": 0.3161554685955857,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.005967754025856753,
+      "min_feasible_size": 6,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3101877145697289,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.3405267783156454,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 4,
+      "frac_individually_removable": 0.5,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 4,
+      "naive_coverage": 0.4331537099226394,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.09262693160699403,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3161554685955857,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.3466831013682275,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 5,
+      "frac_individually_removable": 0.625,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 3,
+      "naive_coverage": 0.4331537099226394,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.08647060855441191,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3161554685955857,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.4303744986084598,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 0.75,
+      "naive_retained": [
+        "J02",
+        "J14"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.7453668146877602,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.31499231607930045,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "J02",
+        "J08",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.42888230840007807,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.6291353740251324,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.875,
+      "naive_retained": [
+        "J02"
+      ],
+      "naive_retained_size": 1,
+      "naive_coverage": 0.8052390167087724,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.17610364268363998,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4456181650448734,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260818,
+      "gamma": 0.6328225971920572,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.6328225971920571,
+        0.34668310136822744,
+        0.2919631777115809,
+        0.4303744986084597,
+        0.3405267783156453,
+        0.6291353740251323,
+        0.3101877145697289,
+        0.2891181355141485
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 8,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4456181650448734,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.02,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.04,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.06,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.08,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.1,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.12,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.15,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.2,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.2470568567950179,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J08"
+      ],
+      "n_individually_removable": 1,
+      "frac_individually_removable": 0.125,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 7,
+      "naive_coverage": 0.24705685679501788,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.24705685679501788,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.28424755111343064,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J08",
+        "J20"
+      ],
+      "n_individually_removable": 2,
+      "frac_individually_removable": 0.25,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 6,
+      "naive_coverage": 0.3495648160834424,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.06531726497001178,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.2842475511134306,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.33280413627567745,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 3,
+      "frac_individually_removable": 0.375,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 5,
+      "naive_coverage": 0.3665735768042284,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.033769440528550965,
+      "min_feasible_size": 6,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3328041362756774,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.378775564794758,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 4,
+      "frac_individually_removable": 0.5,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 4,
+      "naive_coverage": 0.4480488461440826,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.06927328134932459,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3665735768042284,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.4082856322433308,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 5,
+      "frac_individually_removable": 0.625,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 3,
+      "naive_coverage": 0.4480488461440826,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.03976321390075177,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3665735768042284,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.4896153285701705,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 0.75,
+      "naive_retained": [
+        "J02",
+        "J14"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.7256891831309314,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.23607385456076097,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.46442702980650513,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.5834570416396626,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.875,
+      "naive_retained": [
+        "J02"
+      ],
+      "naive_retained_size": 1,
+      "naive_coverage": 0.7847962584479492,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.2013392168082866,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.46442702980650513,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260819,
+      "gamma": 0.6094113202262541,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.609411320226254,
+        0.40828563224333075,
+        0.24705685679501788,
+        0.4896153285701704,
+        0.37877556479475794,
+        0.5834570416396625,
+        0.3328041362756774,
+        0.2842475511134306
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 8,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "J05",
+        "J12"
+      ],
+      "min_feasible_coverage": 0.5856939720732948,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.02,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.04,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.06,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.08,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.1,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.12,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.15,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.2,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.254853022268839,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J08"
+      ],
+      "n_individually_removable": 1,
+      "frac_individually_removable": 0.125,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 7,
+      "naive_coverage": 0.25485302226883894,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.25485302226883894,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.2853363101027574,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J08",
+        "J20"
+      ],
+      "n_individually_removable": 2,
+      "frac_individually_removable": 0.25,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 6,
+      "naive_coverage": 0.328302405991095,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.04296609588833761,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.28533631010275734,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.3503305748746215,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 3,
+      "frac_individually_removable": 0.375,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 5,
+      "naive_coverage": 0.36303557838346506,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.012705003508843571,
+      "min_feasible_size": 6,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.35033057487462144,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.38876325994270744,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 4,
+      "frac_individually_removable": 0.5,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 4,
+      "naive_coverage": 0.3937267841211356,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.004963524178428158,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.36303557838346506,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.3969365818088206,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 5,
+      "frac_individually_removable": 0.625,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 3,
+      "naive_coverage": 0.49164825075007773,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.09471166894125715,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "J02",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3937267841211356,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.41652876414468754,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 0.75,
+      "naive_retained": [
+        "J02",
+        "J14"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.7870554414027487,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.3705266772580612,
+      "min_feasible_size": 4,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4013858344768257,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.5538322168683977,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.875,
+      "naive_retained": [
+        "J02"
+      ],
+      "naive_retained_size": 1,
+      "naive_coverage": 0.7798857117736057,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.22605349490520799,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4803182683781485,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260820,
+      "gamma": 0.5861861833409447,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5861861833409446,
+        0.3887632599427074,
+        0.25485302226883894,
+        0.4165287641446875,
+        0.3969365818088205,
+        0.5538322168683976,
+        0.35033057487462144,
+        0.28533631010275734
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 8,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4803182683781485,
+      "composition_gap": 3,
+      "dependency_graph": {
+        "n_edges": 23,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.02,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.04,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.06,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.08,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.1,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.12,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.15,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.2,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.24200991284541173,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J20"
+      ],
+      "n_individually_removable": 1,
+      "frac_individually_removable": 0.125,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 7,
+      "naive_coverage": 0.2420099128454117,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.2420099128454117,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.24441603478686777,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J08",
+        "J20"
+      ],
+      "n_individually_removable": 2,
+      "frac_individually_removable": 0.25,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 6,
+      "naive_coverage": 0.26085685662941377,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.016440821842546,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.2420099128454117,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.32139730739817957,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 3,
+      "frac_individually_removable": 0.375,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 5,
+      "naive_coverage": 0.3240766153032277,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.0026793079050481117,
+      "min_feasible_size": 6,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3213973073981795,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.407405434064999,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 4,
+      "frac_individually_removable": 0.5,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 4,
+      "naive_coverage": 0.4139754263877692,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.006569992322770168,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J14",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.4040530159363142,
+      "composition_gap": -1,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.44611934683920124,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 5,
+      "frac_individually_removable": 0.625,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 3,
+      "naive_coverage": 0.4776839953517599,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.03156464851255869,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J08",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4370859875335441,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.5119573870669135,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 0.75,
+      "naive_retained": [
+        "J02",
+        "J14"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.8400498087072304,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.32809242164031693,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J08",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.4370859875335441,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.5647513411752147,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.875,
+      "naive_retained": [
+        "J02"
+      ],
+      "naive_retained_size": 1,
+      "naive_coverage": 0.9218443677700483,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.35709302659483355,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.512080150269529,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260821,
+      "gamma": 0.718492750450273,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.7184927504502729,
+        0.4461193468392012,
+        0.24441603478686774,
+        0.5119573870669134,
+        0.40740543406499896,
+        0.5647513411752146,
+        0.3213973073981795,
+        0.2420099128454117
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 8,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "J05",
+        "J12"
+      ],
+      "min_feasible_coverage": 0.7182433112124134,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 22,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.02,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.04,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.06,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.08,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.1,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.12,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.15,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.2,
+      "gamma_source": "declared",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [],
+      "n_individually_removable": 0,
+      "frac_individually_removable": 0.0,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 8,
+      "naive_coverage": 0.0,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 8,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.0,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.24098511931277014,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J08"
+      ],
+      "n_individually_removable": 1,
+      "frac_individually_removable": 0.125,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "naive_retained_size": 7,
+      "naive_coverage": 0.2409851193127701,
+      "naive_violates_gamma": false,
+      "naive_violation_amount": 0.0,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "min_feasible_coverage": 0.2409851193127701,
+      "composition_gap": 0,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.2623444366333457,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J08",
+        "J20"
+      ],
+      "n_individually_removable": 2,
+      "frac_individually_removable": 0.25,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "naive_retained_size": 6,
+      "naive_coverage": 0.36142947106987383,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.09908503443652811,
+      "min_feasible_size": 7,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.26234443663334567,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.33315320970069795,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J08",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 3,
+      "frac_individually_removable": 0.375,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "naive_retained_size": 5,
+      "naive_coverage": 0.3685129370984978,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.035359727397799856,
+      "min_feasible_size": 6,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3331532097006979,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.3607982514910898,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 4,
+      "frac_individually_removable": 0.5,
+      "naive_retained": [
+        "J02",
+        "J05",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 4,
+      "naive_coverage": 0.43802129057690214,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.07722303908581235,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J14",
+        "J16"
+      ],
+      "min_feasible_coverage": 0.36079825149108974,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.40892020631830844,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 5,
+      "frac_individually_removable": 0.625,
+      "naive_retained": [
+        "J02",
+        "J10",
+        "J14"
+      ],
+      "naive_retained_size": 3,
+      "naive_coverage": 0.441637125284349,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.032716918966040565,
+      "min_feasible_size": 5,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J10",
+        "J12",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.3685129370984978,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.4467402322524688,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 6,
+      "frac_individually_removable": 0.75,
+      "naive_retained": [
+        "J02",
+        "J14"
+      ],
+      "naive_retained_size": 2,
+      "naive_coverage": 0.7828571554913307,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.33611692323886194,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J08",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.44218995986677323,
+      "composition_gap": 1,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.5714225439222858,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 7,
+      "frac_individually_removable": 0.875,
+      "naive_retained": [
+        "J14"
+      ],
+      "naive_retained_size": 1,
+      "naive_coverage": 0.866857138237933,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": 0.2954345943156472,
+      "min_feasible_size": 3,
+      "min_feasible_set": [
+        "J02",
+        "J05",
+        "J14"
+      ],
+      "min_feasible_coverage": 0.44683448684480864,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    },
+    {
+      "instance": "core8_real",
+      "seed": 20260822,
+      "gamma": 0.6088221315763364,
+      "gamma_source": "loo_breakpoint",
+      "n_judges": 8,
+      "loo_errors": [
+        0.5714225439222856,
+        0.4089202063183084,
+        0.2409851193127701,
+        0.4467402322524687,
+        0.36079825149108974,
+        0.6088221315763362,
+        0.3331532097006979,
+        0.26234443663334567
+      ],
+      "individually_removable": [
+        "J02",
+        "J05",
+        "J08",
+        "J10",
+        "J12",
+        "J14",
+        "J16",
+        "J20"
+      ],
+      "n_individually_removable": 8,
+      "frac_individually_removable": 1.0,
+      "naive_retained": [],
+      "naive_retained_size": 0,
+      "naive_coverage": Infinity,
+      "naive_violates_gamma": true,
+      "naive_violation_amount": Infinity,
+      "min_feasible_size": 2,
+      "min_feasible_set": [
+        "J05",
+        "J12"
+      ],
+      "min_feasible_coverage": 0.60661450699993,
+      "composition_gap": 2,
+      "dependency_graph": {
+        "n_edges": 21,
+        "cycles": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "n_cycles": 1,
+        "largest_cycle": 8
+      }
+    }
+  ]
+}

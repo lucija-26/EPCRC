@@ -1,0 +1,318 @@
+{
+  "gate": "G2",
+  "passed": true,
+  "checks": {
+    "n_items": 100,
+    "judges": [
+      "J02",
+      "J05",
+      "J08",
+      "J10",
+      "J12",
+      "J14",
+      "J16",
+      "J20"
+    ],
+    "contexts": [
+      "I0_clean",
+      "I1_order_swap",
+      "I2_correctness_rubric",
+      "I3_bias_resistant_rubric",
+      "I4_verbosity_pad_a",
+      "I5_source_tags",
+      "I6_reference_hidden"
+    ],
+    "n_prompts": 5600,
+    "n_rows": 5600,
+    "success_rate": 1.0,
+    "ok_success_rate": true,
+    "ok_failures_have_error_codes": true,
+    "judges_with_complete_blocks": [
+      "J02",
+      "J05",
+      "J08",
+      "J10",
+      "J12",
+      "J14",
+      "J16",
+      "J20"
+    ],
+    "scored_splits": [
+      "CERT",
+      "FIT",
+      "TEST"
+    ],
+    "ok_no_split_leakage": true,
+    "ok_tensor_builds": true,
+    "tensor_shape": [
+      7,
+      100,
+      8,
+      3
+    ],
+    "max_self_reconstruction": 0.0,
+    "ok_self_reconstruction_zero": true,
+    "monotonicity_violations": 0,
+    "ok_fitting_monotone": true,
+    "pruning": {
+      "0.02": {
+        "backward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "forward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "kswap2": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "exhaustive_size": 8,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "backward_coverage": 0.0
+      },
+      "0.05": {
+        "backward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "forward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "kswap2": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "exhaustive_size": 8,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "backward_coverage": 0.0
+      },
+      "0.1": {
+        "backward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "forward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "kswap2": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "exhaustive_size": 8,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "backward_coverage": 0.0
+      },
+      "0.2": {
+        "backward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "forward": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "kswap2": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "exhaustive_size": 8,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J08",
+          "J10",
+          "J12",
+          "J14",
+          "J16",
+          "J20"
+        ],
+        "backward_coverage": 0.0
+      },
+      "0.3": {
+        "backward": [
+          "J02",
+          "J05",
+          "J10",
+          "J12",
+          "J14"
+        ],
+        "forward": [
+          "J02",
+          "J05",
+          "J10",
+          "J12",
+          "J14"
+        ],
+        "kswap2": [
+          "J02",
+          "J05",
+          "J10",
+          "J12",
+          "J14"
+        ],
+        "exhaustive_size": 5,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J10",
+          "J12",
+          "J14"
+        ],
+        "backward_coverage": 0.2922109530803473
+      },
+      "0.4": {
+        "backward": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "forward": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "kswap2": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "exhaustive_size": 3,
+        "exhaustive_set": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "backward_coverage": 0.3897987243290701
+      },
+      "0.5": {
+        "backward": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "forward": [
+          "J02",
+          "J08",
+          "J14"
+        ],
+        "kswap2": [
+          "J02",
+          "J10",
+          "J14"
+        ],
+        "exhaustive_size": 3,
+        "exhaustive_set": [
+          "J02",
+          "J05",
+          "J14"
+        ],
+        "backward_coverage": 0.3897987243290701
+      }
+    },
+    "ok_pruners_run": true,
+    "ok_exhaustive_lower_bounds_greedy": true
+  }
+}
