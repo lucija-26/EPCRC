@@ -464,7 +464,20 @@ def gate_g2(
     judge_ids = [j for j in models if all((j, c.name) in blocks for c in contexts)]
     checks["judges_with_complete_blocks"] = judge_ids
     if len(judge_ids) < 2:
-        checks["ok_tensor_builds"] = False
+        # Two cases that must not be conflated. A top-up run (`--judges J07`,
+        # after a licence comes through) was only ever asked for one judge, so
+        # there is no judge axis to stack and the check does not apply -- and
+        # reporting FAIL there invites a re-score of a judge that in fact
+        # succeeded.  Being asked for a panel and ending up with fewer than two
+        # complete judges is a real failure.
+        if len(models) < 2:
+            checks["tensor_check_skipped"] = (
+                f"only {len(models)} judge(s) requested; a response tensor needs "
+                f"at least 2. Scoring itself is unaffected -- build the panel with "
+                f"epcrc.panel.load_panel once every judge has all its contexts."
+            )
+        else:
+            checks["ok_tensor_builds"] = False
         return _report("G2", checks)
 
     # Split leakage in the scored subset itself.
