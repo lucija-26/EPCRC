@@ -262,6 +262,27 @@ def test_c2_worst_judge_is_never_below_the_mean_judge():
     assert (df["worst_judge_tv"] >= df["mean_judge_tv"] - 1e-12).all()
 
 
+@needs_e1
+def test_c2_section_quotes_the_one_judge_floor_that_makes_the_target_unreachable():
+    """Missing the declared band and being unable to reach it are different.
+
+    Dropping one judge is the smallest possible compression, so its error
+    bounds every smaller panel from below.  Reporting that floor turns "we did
+    not hit 0.08-0.10" into "no panel size on this panel can", which is a
+    statement about judge redundancy rather than about our pruner -- and it
+    stops a reader concluding the frontier was simply under-tuned.
+    """
+    df = R.c2_table(E1, "TEST")
+    cov = df[df["method"] == "coverage_backward"].sort_values("k")
+    full = int(cov["k"].max())
+    floor = float(cov[cov["k"] == full - 1].iloc[0]["worst_judge_tv"])
+
+    text = "\n".join(E._c2_section({"e1": E1}))
+    assert f"{floor:.3f}" in text
+    assert "0.08-0.10" in text
+    assert (cov[cov["k"] < full]["worst_judge_tv"] >= floor - 1e-12).all()
+
+
 # --------------------------------------------------------------------------
 # C3
 # --------------------------------------------------------------------------
