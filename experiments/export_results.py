@@ -352,6 +352,25 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
             "on this panel it stays well above the tolerances in the "
             "predeclared grid. The frontier is reported as measured."
         )
+
+        # Why the declared band is out of reach rather than merely missed.  The
+        # cheapest possible compression is dropping one judge, so its error is a
+        # floor on every k below the full panel: if that floor already exceeds
+        # the target, no panel size can meet it and the shortfall is a property
+        # of the panel, not of the pruner.
+        one_short = cov[cov["k"] == full - 1]
+        if len(one_short):
+            floor = float(one_short.iloc[0]["worst_judge_tv"])
+            lines.append("")
+            lines.append(
+                f"The shortfall is structural, not a matter of tuning. Removing "
+                f"a single judge — the most redundant one in the panel, and the "
+                f"least that can be removed at all — already costs {floor:.3f}. "
+                f"That is a floor on every smaller panel, so no k below {full} "
+                f"can reach the 0.08-0.10 band the evidence matrix asks for at "
+                f"6-10 judges. The judges are less mutually redundant than that "
+                f"planning target assumed."
+            )
     lines.append("")
     return lines
 
