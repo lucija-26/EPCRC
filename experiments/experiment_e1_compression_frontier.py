@@ -193,8 +193,14 @@ def select_exhaustive(panel: Panel, max_n: int = 10) -> Dict[int, List[int]]:
     return chain
 
 
-def select_top_accuracy(panel: Panel, scores_dir: str = SCORES) -> Dict[int, List[int]]:
-    """Baseline: keep the judges that agree with the human label most often."""
+def select_top_accuracy(panel: Panel, scores_dir: str) -> Dict[int, List[int]]:
+    """Baseline: keep the judges that agree with the human label most often.
+
+    `scores_dir` is required rather than defaulted: it must be the directory the
+    panel itself was loaded from.  A default here would let a Core-20 panel read
+    Core-8 accuracies whenever the judge ids happened to overlap, and rank the
+    baseline on numbers belonging to a different run.
+    """
     means = []
     for j in panel.judge_ids:
         accs = [
@@ -259,11 +265,13 @@ def tolerance_frontier(
 # driver
 # --------------------------------------------------------------------------
 
-def run(panel: Panel, max_exhaustive: int = 10) -> Dict[str, object]:
+def run(
+    panel: Panel, max_exhaustive: int = 10, scores_dir: str = SCORES
+) -> Dict[str, object]:
     methods: Dict[str, Dict[int, List[int]]] = {
         "coverage_backward": select_backward(panel),
         "coverage_forward": select_forward(panel),
-        "top_accuracy": select_top_accuracy(panel),
+        "top_accuracy": select_top_accuracy(panel, scores_dir),
         "one_per_family": select_one_per_family(panel),
     }
     exhaustive = select_exhaustive(panel, max_exhaustive)
@@ -324,7 +332,7 @@ def main() -> None:
     print(f"panel: {panel.judge_ids}")
     print(f"items per split: {panel.n_items}")
 
-    payload = run(panel, args.max_exhaustive)
+    payload = run(panel, args.max_exhaustive, args.scores)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w") as handle:
         json.dump(payload, handle, indent=2)

@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import inspect
+import json
+import os
+
 import numpy as np
 import pytest
 
@@ -10,11 +14,13 @@ from experiments.experiment_e1_compression_frontier import (
     E1_GAMMAS,
     Panel,
     evaluate_subset,
+    run,
     select_backward,
     select_exhaustive,
     select_forward,
     select_one_per_family,
     select_random,
+    select_top_accuracy,
     tolerance_frontier,
 )
 
@@ -130,3 +136,49 @@ def test_tolerance_frontier_reports_none_when_no_budget_qualifies():
 
     frontier = tolerance_frontier(panel, chain, rows)
     assert frontier["0.02"] == {"min_k": None, "kept": None}
+
+
+# --------------------------------------------------------------------------
+# the top-accuracy baseline reads a second file, and it has to be the right one
+# --------------------------------------------------------------------------
+
+def _write_accuracy_blocks(directory, panel, accuracies):
+    """Minimal score files carrying just the field `select_top_accuracy` reads."""
+    os.makedirs(directory, exist_ok=True)
+    for judge_id, accuracy in zip(panel.judge_ids, accuracies):
+        for context in panel.context_names:
+            path = os.path.join(directory, f"{judge_id}__{context}.json")
+            with open(path, "w") as handle:
+                json.dump({"accuracy": {"three_class_accuracy": accuracy}}, handle)
+
+
+def test_top_accuracy_ranks_judges_by_their_cached_accuracy(tmp_path):
+    panel = _panel(n_judges=4)
+    _write_accuracy_blocks(tmp_path, panel, [0.1, 0.9, 0.4, 0.7])
+    chain = select_top_accuracy(panel, str(tmp_path))
+
+    assert chain[1] == [1]
+    assert chain[2] == [1, 3]
+    assert chain[4] == [0, 1, 2, 3]
+
+
+def test_top_accuracy_has_no_default_scores_directory():
+    """The bug this guards let a Core-20 panel rank itself on Core-8 accuracies.
+
+    `run` used to call `select_top_accuracy(panel)` and get the module-level
+    Core-8 default, silently ignoring the directory the panel came from.  It only
+    surfaced because Core-20 contains judges Core-8 does not; had the ids
+    overlapped it would have produced a plausible wrong baseline instead of an
+    error.  Requiring the argument is what makes the mismatch impossible.
+    """
+    parameter = inspect.signature(select_top_accuracy).parameters["scores_dir"]
+    assert parameter.default is inspect.Parameter.empty
+
+
+def test_run_ranks_top_accuracy_from_the_directory_it_was_given(tmp_path):
+    """End to end: `run` must thread its scores directory through, not default it."""
+    panel = _panel(n_judges=3, n_contexts=1)
+    _write_accuracy_blocks(tmp_path, panel, [0.2, 0.3, 0.99])
+    payload = run(panel, max_exhaustive=0, scores_dir=str(tmp_path))
+
+    assert payload["methods"]["top_accuracy"]["chain"]["1"] == ["J02"]

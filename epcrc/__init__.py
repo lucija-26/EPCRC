@@ -11,6 +11,8 @@ from .judge import (
     JudgeResponses,
     context_errors,
     solve_minimax_weights,
+    solve_minimax_weights_cuts,
+    solve_minimax_weights_lp,
     total_variation,
     worst_context_error,
 )
@@ -72,6 +74,8 @@ __all__ = [
     "JudgeResponses",
     "context_errors",
     "solve_minimax_weights",
+    "solve_minimax_weights_cuts",
+    "solve_minimax_weights_lp",
     "total_variation",
     "worst_context_error",
     "curved_arc",

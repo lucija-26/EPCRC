@@ -181,15 +181,23 @@ ls results/core20/scores/*.json | wc -l     # target: 20 judges x 7 contexts = 1
 
 ---
 
-## 6. Run the three claims
+## 6. Run the four claims
 
-All CPU, all fast — no GPU needed once scoring is done.
+All CPU — no GPU needed once scoring is done. Run detached; C3 alone took
+6090 s (1 h 41 m) on the 19-judge panel and is the long pole.
 
 ```bash
+nohup sh -c '
 .venv/bin/python -u experiments/experiment_e0_noncomposability.py --real --panel core20
 .venv/bin/python -u experiments/experiment_e1_compression_frontier.py --panel core20 --max-exhaustive 0
+.venv/bin/python -u experiments/experiment_c4_stress_specialists.py --panel core20
 .venv/bin/python -u experiments/experiment_c3_baselines.py --panel core20 --max-exhaustive 0
+' > claims.log 2>&1 &
 ```
+
+C3 runs last deliberately: it is the slowest, and the three before it are the
+ones whose output the notebooks read first, so a failure surfaces early rather
+than after the long wait.
 
 Notes:
 

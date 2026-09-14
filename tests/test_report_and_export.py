@@ -94,6 +94,126 @@ def test_c1_violation_is_consistent_with_the_reported_coverage():
     assert (recomputed == df["naive_violates_gamma"]).all()
 
 
+def _e0_payload(tmp_path, declared_rows):
+    """A minimal E0 file. `declared_rows` are (gamma, removable, coverage) triples."""
+    records = []
+    for gamma, removable, coverage in declared_rows:
+        records.append({
+            "instance": "panel_real",
+            "gamma": gamma,
+            "gamma_source": "declared",
+            "seed": 1000,
+            "n_individually_removable": removable,
+            "naive_retained_size": 19 - removable,
+            "naive_coverage": coverage,
+            "naive_violates_gamma": coverage > gamma,
+            "min_feasible_size": 19 - removable,
+            "min_feasible_is_exact": False,
+            "min_feasible_lower_bound": 6,
+            "composition_gap": 1,
+            "dependency_graph": {"n_cycles": 1},
+            "loo_errors": [0.13, 0.19, 0.32],
+        })
+    os.makedirs(str(tmp_path), exist_ok=True)
+    path = str(tmp_path / "e0.json")
+    with open(path, "w") as handle:
+        json.dump({"experiment": "E0", "claim": "C1",
+                   "gammas": [g for g, _, _ in declared_rows],
+                   "records": records}, handle)
+    return path
+
+
+def _setup_only_c3(tmp_path, judges):
+    """A C3 file carrying only what the summary's Setup block reads."""
+    path = str(tmp_path / "c3.json")
+    with open(path, "w") as handle:
+        json.dump({
+            "split_seeds": [1, 2],
+            "n_bootstrap": 10,
+            "per_split_seed": [{
+                "judges": list(judges),
+                "contexts": ["I0_clean"],
+                "split_items": {"FIT": 10, "CERT": 5, "TEST": 5},
+                "methods": {},
+            }],
+        }, handle)
+    return path
+
+
+def _summary_setup(tmp_path, judges, panel="core20"):
+    return "\n".join(
+        E._setup_section(panel, {"c3": _setup_only_c3(tmp_path, judges)}))
+
+
+def test_summary_names_the_judges_the_panel_is_missing(tmp_path):
+    """A short panel is a deviation from the plan, not a design choice.
+
+    Every number in the package is over 19 of the 20 judges the plan's table
+    names, because J07's weights are gated on Hugging Face.  A reader given only
+    the count cannot tell a deliberate smaller panel from an unscored judge, so
+    the absent ids and the reason are stated rather than left to be inferred
+    from a gap in the numbering.
+    """
+    from epcrc.panel import PANELS
+
+    short = [j for j in PANELS["core20"] if j != "J07"]
+    text = _summary_setup(tmp_path, short)
+
+    assert "Deviation from the plan's judge table" in text
+    assert "J07" in text
+    assert "19 of 20 judges" in text
+
+
+def test_summary_calls_the_split_counts_pairs_not_items(tmp_path):
+    """The recorded counts are rows, and a row is a comparison pair.
+
+    One base item yields up to two pairs and both land in the same split, so
+    labelling these counts as items overstates the number of distinct source
+    tasks by about a factor of two.
+    """
+    from epcrc.panel import PANELS
+
+    text = _summary_setup(tmp_path, PANELS["core20"])
+
+    assert "Comparison pairs per split" in text
+    assert "Items per split" not in text
+
+
+def test_summary_claims_no_deviation_when_the_panel_is_complete(tmp_path):
+    """The notice must not fire on a full panel, or it stops meaning anything."""
+    from epcrc.panel import PANELS
+
+    text = _summary_setup(tmp_path, PANELS["core20"])
+
+    assert "Deviation from the plan's judge table" not in text
+
+
+def test_c1_reports_a_violation_at_a_predeclared_tolerance(tmp_path):
+    """The strongest form of C1 must not be dropped in favour of the weaker one.
+
+    On Core-8 the predeclared grid left the removable set empty everywhere, so
+    the section was written to fall back to leave-one-out breakpoints.  Core-19
+    does admit two removable judges at the largest predeclared gamma, and the
+    joint deletion breaks it -- the claim at a tolerance fixed before the data
+    was seen, which is strictly better evidence than any breakpoint.  Reading
+    only the breakpoint rows discarded it silently.
+    """
+    path = _e0_payload(tmp_path, [(0.15, 1, 0.134), (0.20, 2, 0.2158)])
+    text = "\n".join(E._c1_section({"e0_real": path, "e0_synthetic": "absent"}))
+
+    assert "**On the predeclared grid.**" in text
+    assert "0.216" in text                   # the measured joint error
+    assert "fixed before the data was seen" in text
+
+
+def test_c1_claims_nothing_about_the_predeclared_grid_when_it_is_vacuous(tmp_path):
+    """One removable judge is not a composition test, so it must not be claimed."""
+    path = _e0_payload(tmp_path, [(0.15, 1, 0.134), (0.20, 1, 0.140)])
+    text = "\n".join(E._c1_section({"e0_real": path, "e0_synthetic": "absent"}))
+
+    assert "**On the predeclared grid.**" not in text
+
+
 @needs_e0
 def test_c1_pooling_both_grids_returns_more_rows_than_either():
     both = R.c1_headline(E0_REAL, gamma_source=None)
@@ -462,3 +582,202 @@ def test_zip_contains_the_whole_package_under_one_folder(tmp_path):
 def test_input_paths_prefers_the_panel_specific_file():
     paths = E.input_paths("core20")
     assert paths["e0_real"].endswith("e0_real_core20.json")
+    assert paths["c4"].endswith("c4_stress_specialists_core20.json")
+
+
+# --------------------------------------------------------------------------
+# C4
+# --------------------------------------------------------------------------
+
+def _c4_payload(tmp_path, robust_tv, baseline_tv, specialist_seeds,
+                select_tv=None):
+    """A C4 result file with dictated errors, summarised by the experiment itself.
+
+    `summarise` is imported from the experiment rather than hand-rolled here, so
+    the test pins the reader against the producer's own sign convention instead
+    of against a second guess at it.  `robust_tv` and `baseline_tv` are per-seed
+    lists of worst-context errors at the single budget k = 2.
+
+    `baseline_tv` drives `clean_pipeline`; `select_tv` drives `clean_select` and
+    defaults to it.  They are separable because the two arms carry different
+    handicaps and the real panel separates them, so a fixture that forced them
+    equal could not reproduce the shape the summary has to describe.
+    """
+    from experiments.experiment_c4_stress_specialists import summarise
+
+    seeds = [str(1000 + i) for i in range(len(robust_tv))]
+    judges = ["J01", "J02", "J03"]
+    if select_tv is None:
+        select_tv = baseline_tv
+
+    def arm(tv, n_kept):
+        return {
+            "selects_on": ["I0_clean"],
+            "fits_on": ["I0_clean"],
+            "chain": {"2": judges[:2]},
+            "budgets": {"2": {
+                "kept": judges[:2],
+                "k": 2,
+                "worst_judge_worst_context_tv": tv,
+                "worst_judge_clean_tv": tv / 2,
+                "mean_judge_worst_context_tv": tv / 3,
+                "verdict_agreement": 0.9,
+                "n_specialists_kept": n_kept,
+                "n_specialists_total": 2,
+                "per_judge": {},
+            }},
+        }
+
+    per_seed = {}
+    for i, seed in enumerate(seeds):
+        per_seed[seed] = {
+            "split_items": {"FIT": 10, "CERT": 5, "TEST": 5},
+            "specialists": {
+                j: {
+                    "is_specialist": seed in specialist_seeds.get(j, []),
+                    "binding_context": "I1_swapped",
+                    "stress_gap": 0.3,
+                }
+                for j in judges
+            },
+            "arms": {
+                "robust": arm(robust_tv[i], 2),
+                "clean_select": arm(select_tv[i], 0),
+                "clean_pipeline": arm(baseline_tv[i], 0),
+            },
+        }
+
+    payload = {
+        "experiment": "C4",
+        "claim": "C4",
+        "seed": 20260817,
+        "split_seeds": [int(s) for s in seeds],
+        "judges": judges,
+        "models": [f"org/{j}" for j in judges],
+        "contexts": ["I0_clean", "I1_swapped"],
+        "clean_context": "I0_clean",
+        "specialist_margin": 0.05,
+        "budgets": [2],
+        "arms": {},
+        "per_seed": per_seed,
+        "summary": summarise(per_seed, [2]),
+    }
+    os.makedirs(str(tmp_path), exist_ok=True)
+    path = str(tmp_path / "c4.json")
+    with open(path, "w") as handle:
+        json.dump(payload, handle)
+    return path
+
+
+def test_c4_delta_is_positive_when_robust_selection_is_better(tmp_path):
+    """The sign convention is the whole claim, so it is pinned explicitly.
+
+    `delta` is baseline minus robust.  If it ever flips, every C4 sentence in
+    the summary inverts while still reading as fluent prose, which is the kind
+    of error no amount of proofreading catches.
+    """
+    path = _c4_payload(tmp_path, robust_tv=[0.2, 0.2], baseline_tv=[0.5, 0.5],
+                       specialist_seeds={})
+    head = R.c4_headline(path)
+
+    assert (head["delta_mean"] > 0).all()
+    assert head["delta_mean"].iloc[0] == pytest.approx(0.3)
+
+
+def test_c4_flags_a_split_result_rather_than_rounding_it_up(tmp_path):
+    """A positive mean delta carried by one seed must not read as a clean win."""
+    path = _c4_payload(tmp_path, robust_tv=[0.1, 0.6], baseline_tv=[0.9, 0.5],
+                       specialist_seeds={})
+    head = R.c4_headline(path)
+
+    row = head.iloc[0]
+    assert row["delta_mean"] > 0            # the mean says robust wins...
+    assert row["n_seeds_better"] == 1       # ...but only one of two seeds does
+    assert not row["robust_wins_every_seed"]
+    assert row["delta_min"] < 0
+
+
+def test_c4_table_covers_every_arm_seed_and_budget(tmp_path):
+    path = _c4_payload(tmp_path, robust_tv=[0.2, 0.3], baseline_tv=[0.5, 0.5],
+                       specialist_seeds={})
+    df = R.c4_table(path)
+
+    assert set(df["arm"]) == {"robust", "clean_select", "clean_pipeline"}
+    assert len(df) == 3 * 2          # three arms, two seeds, one budget
+    assert set(df["k"]) == {2}
+
+
+def test_c4_specialists_separates_stable_labels_from_one_off_ones(tmp_path):
+    """A judge flagged under one partition is a candidate, not a finding."""
+    path = _c4_payload(
+        tmp_path, robust_tv=[0.2, 0.2], baseline_tv=[0.5, 0.5],
+        specialist_seeds={"J01": ["1000", "1001"], "J02": ["1000"]},
+    )
+    df = R.c4_specialists(path).set_index("judge")
+
+    assert df.loc["J01", "in_every_seed"]
+    assert df.loc["J01", "n_seeds_flagged"] == 2
+    assert not df.loc["J02", "in_every_seed"]
+    assert df.loc["J02", "n_seeds_flagged"] == 1
+    assert "J03" not in df.index
+
+
+def test_c4_summary_section_states_the_verdict_it_earned(tmp_path):
+    """A split result has to say so in the prose, not just in the table."""
+    split = _c4_payload(tmp_path / "a", robust_tv=[0.1, 0.6],
+                        baseline_tv=[0.9, 0.5], specialist_seeds={})
+    clean = _c4_payload(tmp_path / "b", robust_tv=[0.2, 0.2],
+                        baseline_tv=[0.5, 0.5], specialist_seeds={})
+
+    split_text = "\n".join(E._c4_section({"c4": split}))
+    clean_text = "\n".join(E._c4_section({"c4": clean}))
+
+    assert "partially supported" in split_text
+    assert "Verdict: supported" in clean_text
+    assert "partially" not in clean_text
+
+
+def test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned(tmp_path):
+    """The real Core-19 shape: unanimous vs the pipeline, not vs selection alone.
+
+    `clean_pipeline` is handicapped at selection *and* fitting; `clean_select`
+    only at selection.  C4 as stated is a claim about selection, so a verdict that
+    pooled the two arms would report the pipeline arm's easy win as evidence for
+    it.  The section has to separate them and say what share is selection.
+    """
+    path = _c4_payload(
+        tmp_path, robust_tv=[0.20, 0.20], baseline_tv=[0.60, 0.60],
+        select_tv=[0.25, 0.15], specialist_seeds={},
+    )
+    text = "\n".join(E._c4_section({"c4": path}))
+
+    assert "supported for the deployed pipeline" in text
+    assert "weak for selection alone" in text
+    assert "of the total effect is attributable to" in text
+
+
+def test_c4_section_says_not_run_rather_than_failing(tmp_path):
+    text = "\n".join(E._c4_section({"c4": str(tmp_path / "absent.json")}))
+    assert "_Not run._" in text
+
+
+def test_c4_figure_draws_from_the_same_tables_as_the_text(tmp_path):
+    """The figure must survive the no-specialists case too, not just the happy one."""
+    from epcrc import figures as Fg
+
+    for specialists in ({}, {"J01": ["1000", "1001"]}):
+        path = _c4_payload(tmp_path / f"f{len(specialists)}",
+                           robust_tv=[0.2, 0.3], baseline_tv=[0.5, 0.5],
+                           specialist_seeds=specialists)
+        fig = Fg.fig_c4_stress(path)
+        assert fig.axes
+        Fg.plt.close(fig)
+
+
+def test_save_all_writes_the_c4_figure_when_c4_exists(tmp_path):
+    from epcrc import figures as Fg
+
+    path = _c4_payload(tmp_path / "in", robust_tv=[0.2, 0.3],
+                       baseline_tv=[0.5, 0.5], specialist_seeds={})
+    written = Fg.save_all(str(tmp_path / "out"), c4=path)
+    assert [os.path.basename(p) for p in written] == ["c4_stress.png"]
