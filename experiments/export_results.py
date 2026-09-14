@@ -38,6 +38,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from epcrc import figures as F
 from epcrc import report as R
+from epcrc.panel import PANELS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = os.path.join(ROOT, "results")
@@ -68,6 +69,8 @@ def input_paths(panel: str) -> Dict[str, str]:
         "e0_real": pick(f"e0_real_{panel}.json"),
         "e1": pick(f"e1_frontier_{panel}.json", *(["e1_frontier.json"] if legacy else [])),
         "c3": pick(f"c3_baselines_{panel}.json", *(["c3_baselines.json"] if legacy else [])),
+        "c4": pick(f"c4_stress_specialists_{panel}.json",
+                   *(["c4_stress_specialists.json"] if legacy else [])),
     }
 
 
@@ -152,6 +155,11 @@ def build_tables(inputs: Dict[str, str]) -> Dict[str, pd.DataFrame]:
         tables["c3_lowrank_floor"] = R.lowrank_floor_table(inputs["c3"])
         tables["c3_reconstruction_rules"] = R.reconstruction_table(inputs["c3"])
 
+    if os.path.exists(inputs["c4"]):
+        tables["c4_headline"] = R.c4_headline(inputs["c4"])
+        tables["c4_per_seed_per_arm"] = R.c4_table(inputs["c4"])
+        tables["c4_specialists"] = R.c4_specialists(inputs["c4"])
+
     return tables
 
 
@@ -195,6 +203,32 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
                  f"and measure what the remaining panel achieves.")
     lines.append("")
 
+    # A violation at a tolerance the plan fixed in advance is the strongest form
+    # of C1 available: no tolerance was chosen after seeing the data, and what is
+    # tested is one exact coverage evaluation rather than a bounded search.  It is
+    # reported first because the smaller Core-8 panel had an empty removable set
+    # across the whole grid, so a reader who knows that result needs to see
+    # immediately that this panel does not share it.
+    declared_multi = declared[declared["n_individually_removable"] >= 2]
+    if len(declared_multi):
+        gamma = declared_multi["gamma"].min()
+        at_gamma = declared_multi[declared_multi["gamma"] == gamma]
+        lines.append(
+            f"**On the predeclared grid.** At gamma = {gamma:g}, "
+            f"{int(at_gamma['n_individually_removable'].mean())} judges are each "
+            f"individually certified removable, yet deleting them together breaks "
+            f"the tolerance in "
+            f"{int(at_gamma['naive_violates_gamma'].sum())} of {len(at_gamma)} "
+            f"split seeds (error {at_gamma['naive_coverage'].min():.3f}–"
+            f"{at_gamma['naive_coverage'].max():.3f} against a budget of "
+            f"{gamma:g}). Across the whole grid "
+            f"{int(declared_multi['naive_violates_gamma'].sum())} of "
+            f"{len(declared_multi)} cases with two or more removable judges fail. "
+            f"This is the claim at a tolerance fixed before the data was seen, and "
+            f"each failure is a single exact coverage evaluation."
+        )
+        lines.append("")
+
     if len(declared) and loo > max_declared:
         lines.append(
             f"On the predeclared grid (up to gamma = {max_declared:g}) the "
@@ -204,6 +238,11 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
             f"reported rather than hidden."
         )
         lines.append("")
+
+    # This holds whether or not the grid was vacuous, and the result below is
+    # computed from the breakpoints either way, so the reason for using them has
+    # to be stated unconditionally rather than only when the grid says nothing.
+    if len(multi):
         lines.append(
             "The removable set only changes when gamma crosses a leave-one-out "
             "error, so the sorted leave-one-out errors are the complete set of "
@@ -215,15 +254,32 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
     if len(multi):
         n_viol = int(multi["naive_violates_gamma"].sum())
         gap = multi["composition_gap"].mean()
+        # The minimum feasible panel is only enumerated while that is affordable;
+        # past E0's budget it is backward elimination's upper bound, which makes
+        # the gap an upper bound too.  Say so rather than quoting it flat, since
+        # a reader would otherwise take the sign of a bound as evidence.
+        n_bounded = int((~multi["min_feasible_is_exact"]).sum())
+        relation = "at most " if n_bounded else ""
         lines.append(
             f"**Result.** Across {len(multi)} (split seed, tolerance) cases in "
             f"which at least two judges were individually certified removable, "
             f"the joint deletion broke the tolerance in **{n_viol} of "
             f"{len(multi)}** cases. The mean composition gap — how many more "
             f"judges the joint constraint requires than the one-at-a-time audit "
-            f"kept — is **{gap:+.2f}** judges."
+            f"kept — is {relation}**{gap:+.2f}** judges."
         )
         lines.append("")
+        if n_bounded:
+            lines.append(
+                f"_In {n_bounded} of {len(multi)} cases the panel was too large "
+                f"to enumerate within E0's evaluation budget, so the minimum "
+                f"feasible size there is backward elimination's upper bound "
+                f"(certified no lower than `min_feasible_lower_bound`) and the "
+                f"gap above is an upper bound. **The claim does not rest on it:** "
+                f"the {n_viol} violations are single coverage evaluations and are "
+                f"exact on every case._"
+            )
+            lines.append("")
         worst = multi.loc[multi["naive_coverage"].replace(np.inf, np.nan).idxmax()]
         lines.append(
             f"Worst finite case: at gamma = {worst['gamma']:.3f}, "
@@ -522,6 +578,168 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+def _c4_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## C4 — stress specialists and multi-context selection", ""]
+    lines.append("**Claim.** Selecting on clean items alone retires judges that "
+                 "are redundant on average but distinctive under position swaps, "
+                 "verbosity changes, rubric changes or a hidden reference. "
+                 "Selecting against the worst context retains those stress "
+                 "specialists and lowers worst-context error.")
+    lines.append("")
+    if not os.path.exists(inputs["c4"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["c4"])
+    head = R.c4_headline(inputs["c4"])
+    specialists = R.c4_specialists(inputs["c4"])
+
+    lines.append(
+        f"**Test.** One variable moves: which contexts the selector may see. "
+        f"Panel, greedy backward selector and locked TEST split are held fixed, "
+        f"and all three arms are scored on all {len(payload['contexts'])} "
+        f"contexts, so equal-k comparison is fair. `clean_select` is handicapped "
+        f"only at selection time and still gets robust weights, which separates "
+        f"the selection mistake from the fitting mistake; `clean_pipeline` is "
+        f"what someone who never considered contexts would deploy. Averaged over "
+        f"{len(payload['split_seeds'])} split seeds."
+    )
+    lines.append("")
+    lines.append(
+        "`delta` is baseline minus robust, so positive is the direction the "
+        "claim predicts."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        head, ["baseline", "k", "delta_mean", "delta_sd", "delta_min",
+               "delta_max", "n_seeds_better", "robust_wins_every_seed"]))
+    lines.append("")
+
+    # A positive mean delta is not the bar.  With five seeds a mean can be
+    # carried by one partition, so the verdict is stated on unanimity and the
+    # worst seed, and a split result is reported as split rather than rounded up.
+    for baseline, group in head.groupby("baseline"):
+        unanimous = int(group["robust_wins_every_seed"].sum())
+        worst = group["delta_min"].min()
+        lines.append(
+            f"Against **{baseline}**: mean delta {group['delta_mean'].mean():+.3f} "
+            f"TV, unanimous across seeds at {unanimous} of {len(group)} budgets, "
+            f"and the worst single (seed, budget) delta is {worst:+.3f}."
+        )
+    lines.append("")
+
+    stable = specialists[specialists["in_every_seed"]]
+    if len(stable):
+        lines.append(
+            f"{len(stable)} of {len(specialists)} judges flagged as stress "
+            f"specialists are flagged under *every* split seed: "
+            f"{', '.join(stable['judge'])}. Only those are findings; the rest are "
+            f"candidates that one partition produced."
+        )
+    else:
+        lines.append(
+            "_No judge was flagged as a stress specialist under every split "
+            "seed, so the specialist label is not stable on this panel._"
+        )
+    lines.append("")
+    lines.append(_md_table(
+        specialists, ["judge", "n_seeds_flagged", "in_every_seed",
+                      "binding_contexts"]))
+    lines.append("")
+
+    # The two baselines answer different questions and must be scored separately.
+    # `clean_pipeline` is handicapped at selection *and* fitting, `clean_select`
+    # only at selection, so the gap between the two advantages is how much of the
+    # effect is the fitting mistake rather than the selection mistake.  Collapsing
+    # them into one verdict would claim the selection result the weaker arm earns.
+    per_baseline = {
+        baseline: (
+            bool(group["robust_wins_every_seed"].all()),
+            float(group["delta_mean"].mean()),
+        )
+        for baseline, group in head.groupby("baseline")
+    }
+    pipeline = per_baseline.get("clean_pipeline")
+    select = per_baseline.get("clean_select")
+
+    if pipeline and select and pipeline[0] and not select[0]:
+        share = select[1] / pipeline[1] if pipeline[1] else float("nan")
+        lines.append(
+            f"**Verdict: supported for the deployed pipeline, weak for selection "
+            f"alone.** Against `clean_pipeline` — what a context-unaware user would "
+            f"actually ship — robust selection wins at every budget under every "
+            f"seed, by {pipeline[1]:+.3f} TV on average. Against `clean_select`, "
+            f"which is handicapped only at selection time and still receives "
+            f"robust weights, the advantage falls to {select[1]:+.3f} TV and is "
+            f"not unanimous at every budget. So roughly {share:.0%} of the total "
+            f"effect is attributable to *which judges were selected* and the rest "
+            f"to *which contexts the weights were fitted on*. C4 as stated is "
+            f"about selection, so this is a partial result for the claim and a "
+            f"strong result for the pipeline."
+        )
+    elif all(unanimous for unanimous, _ in per_baseline.values()):
+        lines.append(
+            "**Verdict: supported** — robust selection wins against both "
+            "baselines at every budget under every split seed."
+        )
+    else:
+        lines.append(
+            "**Verdict: partially supported** — robust selection does not win at "
+            "every budget under every seed, and the table above says where."
+        )
+    lines.append("")
+    return lines
+
+
+def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
+    """Panel, contexts, splits and bootstrap size — what every claim below shares."""
+    if not os.path.exists(inputs["c3"]):
+        return []
+
+    payload = R.load(inputs["c3"])
+    block = payload["per_split_seed"][0]
+    lines = [
+        "## Setup",
+        "",
+        f"- Judges: {len(block['judges'])} — {', '.join(block['judges'])}",
+        f"- Contexts per judge: {len(block['contexts'])}",
+        # Rows, not base items: one base item yields up to two comparison pairs
+        # and both land in the same split, so these counts are roughly twice the
+        # number of source items.
+        "- Comparison pairs per split: " + ", ".join(
+            f"{name} {count}" for name, count in block["split_items"].items()),
+        f"- Split seeds: {payload['split_seeds']}",
+        f"- Bootstrap replicates: {payload['n_bootstrap']}",
+        "",
+    ]
+
+    # A panel smaller than the registry is a deviation from the plan's judge
+    # table, not a design choice, and a reader who only sees the count cannot
+    # tell the difference.  It is named here rather than left to be inferred
+    # from a gap in the judge ids.
+    absent = [j for j in PANELS.get(panel, ()) if j not in block["judges"]]
+    if absent:
+        lines += [
+            f"**Deviation from the plan's judge table.** "
+            f"{', '.join(absent)} {'is' if len(absent) == 1 else 'are'} in the "
+            f"{panel} registry but was never scored, so every result here is "
+            f"over {len(block['judges'])} of {len(PANELS[panel])} judges. The "
+            f"weights are gated on Hugging Face and the access request was not "
+            f"granted in time. Nothing was substituted in its place.",
+            "",
+        ]
+
+    lines += [
+        "Splits are grouped by source item, so the same prompt never appears "
+        "in two splits. The pairs seed fixes what each judge saw and needs "
+        "GPU inference to change; the split seed only re-partitions those "
+        "cached responses, which is what makes across-seed bands affordable.",
+        "",
+        "---",
+        "",
+    ]
+    return lines
+
+
 def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines = [
         f"# EPCRC results — {panel}",
@@ -542,33 +760,14 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
         "",
     ]
 
-    if os.path.exists(inputs["c3"]):
-        payload = R.load(inputs["c3"])
-        block = payload["per_split_seed"][0]
-        lines += [
-            "## Setup",
-            "",
-            f"- Judges: {len(block['judges'])} — {', '.join(block['judges'])}",
-            f"- Contexts per judge: {len(block['contexts'])}",
-            "- Items per split: " + ", ".join(
-                f"{name} {count}" for name, count in block["split_items"].items()),
-            f"- Split seeds: {payload['split_seeds']}",
-            f"- Bootstrap replicates: {payload['n_bootstrap']}",
-            "",
-            "Splits are grouped by source item, so the same prompt never appears "
-            "in two splits. The pairs seed fixes what each judge saw and needs "
-            "GPU inference to change; the split seed only re-partitions those "
-            "cached responses, which is what makes across-seed bands affordable.",
-            "",
-            "---",
-            "",
-        ]
-
+    lines += _setup_section(panel, inputs)
     lines += _c1_section(inputs)
     lines += ["---", ""]
     lines += _c2_section(inputs)
     lines += ["---", ""]
     lines += _c3_section(inputs)
+    lines += ["---", ""]
+    lines += _c4_section(inputs)
     lines += [
         "---",
         "",
@@ -654,6 +853,7 @@ def export(panel: str, out_dir: Optional[str] = None,
                   if os.path.exists(inputs["e0_synthetic"]) else None),
         e1=inputs["e1"] if os.path.exists(inputs["e1"]) else None,
         c3=inputs["c3"] if os.path.exists(inputs["c3"]) else None,
+        c4=inputs["c4"] if os.path.exists(inputs["c4"]) else None,
     )
     print(f"figures: {len(figs)}")
 

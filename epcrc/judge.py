@@ -10,8 +10,10 @@ under several contexts (clean items, position swaps, verbosity perturbations,
     fit is scored by the worst one.
 
 Because the maximum over contexts cannot be minimised directly, the fit is
-written as a linear program with an epigraph variable u that upper-bounds every
-context's mean loss (see `solve_minimax_weights`).
+written with an epigraph variable u that upper-bounds every context's mean loss.
+`solve_minimax_weights_lp` states that as one linear program; `solve_minimax_weights`
+solves the same problem by cutting planes, which avoids the per-item slack
+variables and is what the experiments actually call.
 
 `JudgeCoverageFunctional` exposes exactly the interface `CoverageFunctional`
 does, so `pruning`, `milp`, `risk` and `task_error` run against judge panels
@@ -128,12 +130,12 @@ def worst_context_error(
     return float(context_errors(responses, target_idx, kept_list, weights).max())
 
 
-def solve_minimax_weights(
+def solve_minimax_weights_lp(
     responses: JudgeResponses,
     target_idx: int,
     kept_list: Sequence[int],
 ) -> Tuple[float, np.ndarray]:
-    """Fit one simplex weight vector that minimises the worst context's mean TV.
+    """Reference implementation of the minimax fit, as one monolithic LP.
 
     Solves, over w in the simplex on `kept_list`,
 
@@ -143,6 +145,13 @@ def solve_minimax_weights(
     one slack t per item.  Both p and the reconstruction are distributions on
     three outcomes, so TV equals max_k |p_k - phat_k| and `t >= |residual_k|`
     for k = 0, 1, 2 pins t to exactly the item's TV at the optimum.
+
+    Exact, but it scales badly.  The per-item slacks make the program
+    ``m + n_items + 1`` wide and ``6 * n_items + n_contexts`` tall, so at panel
+    scale one solve costs tens of seconds even though the object we actually
+    want is only ``m``-dimensional.  `solve_minimax_weights` therefore defaults
+    to the cutting-plane method, and this function stays as the ground truth
+    that method is tested against.
 
     Returns (worst-context fit error, weights).
     """
@@ -252,6 +261,173 @@ def solve_minimax_weights(
     # Report the error the returned (renormalised) weights actually achieve
     # rather than the LP's u, so the certificate is self-consistent.
     return worst_context_error(responses, target_idx, kept_list, w), w
+
+
+def _objective_and_subgradients(
+    peers: List[np.ndarray],
+    targets: List[np.ndarray],
+    w: np.ndarray,
+) -> Tuple[np.ndarray, np.ndarray]:
+    """Each context's mean TV at `w`, and a subgradient of each in w.
+
+    ``f_c(w) = (1 / n_c) sum_x 0.5 sum_k |r_xk|`` with ``r = P_c w - q_c`` is
+    convex and piecewise linear, so differentiating through the absolute value
+    gives the subgradient ``(1 / n_c) sum_x 0.5 sum_k sign(r_xk) p_j(x)[k]``.
+    Items where a residual is exactly zero contribute ``sign(0) = 0``, which is
+    a valid element of the subdifferential.
+    """
+    vals = np.empty(len(peers), dtype=float)
+    grads = np.empty((len(peers), w.size), dtype=float)
+    for c, (peer, target) in enumerate(zip(peers, targets)):
+        residual = np.tensordot(peer, w, axes=([1], [0])) - target
+        vals[c] = 0.5 * np.abs(residual).sum(axis=1).mean()
+        grads[c] = (
+            0.5 * np.einsum("xk,xjk->j", np.sign(residual), peer) / residual.shape[0]
+        )
+    return vals, grads
+
+
+# Weight on the mean-error tie-breaker.  It has to sit in a window: large enough
+# that the F-difference it induces between tied weight vectors (order
+# _TIE_BREAK * 0.1) clears the convergence tolerance, and small enough that it
+# cannot move a reported figure.  At 1e-5 against tol 1e-7 the margin is 10x, and
+# the worst-context error is held within 1e-7 of the unregularised optimum on the
+# real panel -- three orders of magnitude below the four decimals that are
+# reported.  Dropping it to 1e-6 is already too weak to break the tie.
+_TIE_BREAK = 1e-5
+
+
+def solve_minimax_weights_cuts(
+    responses: JudgeResponses,
+    target_idx: int,
+    kept_list: Sequence[int],
+    tol: float = 1e-7,
+    max_iter: int = 500,
+) -> Tuple[float, np.ndarray]:
+    """The same minimax fit by cutting planes, without the per-item slacks.
+
+    The monolithic LP in `solve_minimax_weights_lp` pays for one slack variable
+    per item in order to express a maximum over items that it never actually
+    needs to see.  Here that inner maximum is evaluated in closed form instead,
+    so the master program is `m + 2` wide rather than `m + n_items + 1`, which is
+    where the speedup comes from.  The objective minimised is
+
+        F(w) = max_c f_c(w) + _TIE_BREAK * mean_c f_c(w),
+
+    and the master keeps, over the iterates `w_i` visited so far,
+
+        min  u + _TIE_BREAK * v
+        s.t. u >= f_c(w_i) + g_ci . (w - w_i)      for every context c
+             v >= mean_c f_c(w_i) + gbar_i . (w - w_i)
+             w in the simplex.
+
+    Every cut is a supporting hyperplane of a convex function, so the master's
+    optimum bounds `F` from below while the best `F` actually evaluated bounds it
+    from above, and the loop exits once that interval closes.
+
+    The tie-breaking term is not cosmetic.  The worst-context objective alone is
+    often flat over an entire face of the simplex: as soon as one context is
+    unreachably bad it pins the maximum by itself, and the remaining contexts can
+    then vary freely without changing the objective at all.  A solver handed that
+    problem returns an arbitrary point of the face, which would leave the
+    per-context errors reported next to the fit an artefact of pivoting rather
+    than a property of the panel.  Preferring the tied weights with the lowest
+    mean error makes the fit well defined, at the cost of admitting a
+    worst-context error up to `_TIE_BREAK` above the true optimum -- two orders
+    of magnitude below anything that gets reported.
+
+    Returns (worst-context fit error, weights), matching `solve_minimax_weights_lp`.
+    """
+    kept_list = list(kept_list)
+    m = len(kept_list)
+
+    if m == 0:
+        return float("inf"), np.array([], dtype=float)
+
+    if m == 1:
+        w = np.array([1.0])
+        return worst_context_error(responses, target_idx, kept_list, w), w
+
+    peers = [block[:, kept_list, :] for block in responses.blocks]
+    targets = [block[:, target_idx, :] for block in responses.blocks]
+    n_contexts = len(peers)
+
+    # Variables are [w (m), u, v]; u carries the max and v the mean.
+    objective = np.concatenate([np.zeros(m), [1.0, _TIE_BREAK]])
+    simplex_row = np.concatenate([np.ones(m), [0.0, 0.0]])[None, :]
+    bounds = [(0.0, 1.0)] * m + [(None, None)] * 2
+
+    max_block = np.hstack([-np.ones((n_contexts, 1)), np.zeros((n_contexts, 1))])
+    mean_block = np.array([[0.0, -1.0]])
+
+    cut_A = np.empty((0, m + 2), dtype=float)
+    cut_b = np.empty(0, dtype=float)
+
+    w = np.full(m, 1.0 / m)
+    best_value, best_w = np.inf, w.copy()
+    lower = -np.inf
+
+    for _ in range(max_iter):
+        vals, grads = _objective_and_subgradients(peers, targets, w)
+        value = float(vals.max()) + _TIE_BREAK * float(vals.mean())
+        if value < best_value:
+            best_value, best_w = value, w.copy()
+
+        mean_grad = grads.mean(axis=0, keepdims=True)
+        cut_A = np.vstack([
+            cut_A,
+            np.hstack([grads, max_block]),
+            np.hstack([mean_grad, mean_block]),
+        ])
+        cut_b = np.concatenate([
+            cut_b,
+            grads @ w - vals,
+            mean_grad @ w - vals.mean(),
+        ])
+
+        if best_value - lower <= tol:
+            break
+
+        result = linprog(
+            objective,
+            A_ub=cut_A, b_ub=cut_b,
+            A_eq=simplex_row, b_eq=np.array([1.0]),
+            bounds=bounds,
+            method="highs",
+        )
+        if not result.success:
+            raise RuntimeError(
+                f"cutting-plane master LP failed for target {target_idx} "
+                f"on {m} judges: {result.message}"
+            )
+        w = result.x[:m]
+        lower = float(result.x[m] + _TIE_BREAK * result.x[m + 1])
+    else:
+        raise RuntimeError(
+            f"cutting-plane fit for target {target_idx} on {m} judges did not "
+            f"converge in {max_iter} iterations "
+            f"(gap {best_value - lower:.3e} > tol {tol:.3e})"
+        )
+
+    w = np.clip(best_w, 0.0, None)
+    total = float(w.sum())
+    w = w / total if total > 0 else np.full(m, 1.0 / m)
+
+    return worst_context_error(responses, target_idx, kept_list, w), w
+
+
+def solve_minimax_weights(
+    responses: JudgeResponses,
+    target_idx: int,
+    kept_list: Sequence[int],
+) -> Tuple[float, np.ndarray]:
+    """Fit one simplex weight vector that minimises the worst context's mean TV.
+
+    Delegates to the cutting-plane solver, which agrees with the monolithic LP
+    in `solve_minimax_weights_lp` to far beyond reporting precision and is fast
+    enough to run the panel-scale experiments.
+    """
+    return solve_minimax_weights_cuts(responses, target_idx, kept_list)
 
 
 class JudgeCoverageFunctional(CoverageFunctional):

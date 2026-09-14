@@ -31,6 +31,7 @@ __all__ = [
     "fig_c3_split_robustness",
     "fig_c3_cost",
     "fig_c3_reconstruction",
+    "fig_c4_stress",
     "save_all",
 ]
 
@@ -95,9 +96,19 @@ def fig_c1_real(e0_real_path: str) -> plt.Figure:
     gaps = df["composition_gap"].value_counts().sort_index()
     ax.bar(gaps.index, gaps.values, color=COVERAGE_COLOUR, width=0.6)
     ax.axvline(0, color="black", lw=1, ls="--")
-    ax.set_xlabel("composition gap (min feasible $-$ $|S_{naive}|$)")
+    # Past E0's exhaustive budget the minimum feasible panel is only bounded
+    # above, so the gap is bounded above too.  Drawing that as a bare number
+    # would present an upper bound as the measured gap, so the axis says which
+    # it is.  The left panel is unaffected: it is a single coverage evaluation.
+    bounded = not bool(df["min_feasible_is_exact"].all())
+    relation = "$\\leq$ " if bounded else ""
+    ax.set_xlabel(f"composition gap ({relation}min feasible $-$ $|S_{{naive}}|$)")
     ax.set_ylabel("cases")
-    ax.set_title(f"mean gap {df['composition_gap'].mean():+.2f} judges", fontsize=9)
+    title = f"mean gap {relation}{df['composition_gap'].mean():+.2f} judges"
+    if bounded:
+        n_bounded = int((~df["min_feasible_is_exact"]).sum())
+        title += f"\n({n_bounded} / {len(df)} bounded, not enumerated)"
+    ax.set_title(title, fontsize=9)
     ax.set_xticks(sorted(gaps.index))
 
     fig.suptitle("C1: individual redundancy certificates do not compose (real panel)",
@@ -352,6 +363,68 @@ def fig_c3_reconstruction(c3_path: str) -> plt.Figure:
 
 
 # --------------------------------------------------------------------------
+# C4
+# --------------------------------------------------------------------------
+
+def fig_c4_stress(c4_path: str) -> plt.Figure:
+    """What selecting on clean items alone costs, and who pays for it.
+
+    Left: the advantage of robust selection at each budget, as baseline minus
+    robust, with the full across-seed range drawn rather than a standard error.
+    A mean above zero with a range straddling it is a split result, and the band
+    is what makes that visible instead of hiding it in an error bar.
+
+    Right: how many stress specialists each arm keeps, which is the mechanism
+    the left panel is supposed to be explaining.
+    """
+    head = R.c4_headline(c4_path)
+    rows = R.c4_table(c4_path)
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.6, 3.4))
+
+    ax = axes[0]
+    colours = {"clean_select": ACCENT, "clean_pipeline": FLOOR_COLOUR}
+    for baseline, group in head.groupby("baseline"):
+        group = group.sort_values("k")
+        colour = colours.get(baseline, BASELINE_COLOUR)
+        ax.plot(group["k"], group["delta_mean"], "o-", color=colour,
+                label=f"vs {baseline}")
+        ax.fill_between(group["k"], group["delta_min"], group["delta_max"],
+                        color=colour, alpha=0.15)
+    ax.axhline(0, color="black", lw=1, ls="--")
+    ax.set_xlabel("physical panel size $k$")
+    ax.set_ylabel("baseline $-$ robust worst-context TV")
+    ax.set_title("above zero: robust selection wins\n(band = across-seed range)",
+                 fontsize=9)
+    ax.legend(fontsize=7)
+
+    ax = axes[1]
+    kept = (
+        rows.groupby(["arm", "k"])["n_specialists_kept"].mean().reset_index()
+    )
+    styles = {"robust": (COVERAGE_COLOUR, "s-"),
+              "clean_select": (ACCENT, "o-"),
+              "clean_pipeline": (FLOOR_COLOUR, "^-")}
+    for arm, group in kept.groupby("arm"):
+        group = group.sort_values("k")
+        colour, marker = styles.get(arm, (BASELINE_COLOUR, "o-"))
+        ax.plot(group["k"], group["n_specialists_kept"], marker, color=colour,
+                label=arm)
+    total = int(rows["n_specialists_total"].max())
+    ax.axhline(total, color="black", lw=1, ls=":",
+               label=f"all {total} specialists")
+    ax.set_xlabel("physical panel size $k$")
+    ax.set_ylabel("stress specialists retained")
+    ax.set_title("the mechanism: who gets kept", fontsize=9)
+    ax.legend(fontsize=7)
+
+    fig.suptitle("C4: selecting on clean items alone retires stress specialists",
+                 fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
+# --------------------------------------------------------------------------
 # driver
 # --------------------------------------------------------------------------
 
@@ -361,6 +434,7 @@ def save_all(
     e0_synth: Optional[str] = None,
     e1: Optional[str] = None,
     c3: Optional[str] = None,
+    c4: Optional[str] = None,
 ) -> list:
     """Write every figure whose inputs exist; return the paths written."""
     os.makedirs(out_dir, exist_ok=True)
@@ -373,6 +447,7 @@ def save_all(
         ("c3_split_robustness.png", fig_c3_split_robustness, (c3,)),
         ("c3_cost.png", fig_c3_cost, (c3,)),
         ("c3_reconstruction.png", fig_c3_reconstruction, (c3,)),
+        ("c4_stress.png", fig_c4_stress, (c4,)),
     ]
 
     written = []

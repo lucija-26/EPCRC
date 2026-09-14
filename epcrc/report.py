@@ -29,6 +29,9 @@ __all__ = [
     "c3_paired_table",
     "c3_split_robustness",
     "c3_cost_table",
+    "c4_table",
+    "c4_headline",
+    "c4_specialists",
     "reconstruction_table",
     "lowrank_floor_table",
     "fmt_ci",
@@ -106,6 +109,8 @@ def c1_table(path: str) -> pd.DataFrame:
             "naive_coverage": r["naive_coverage"],
             "naive_violates_gamma": r["naive_violates_gamma"],
             "min_feasible_size": r["min_feasible_size"],
+            "min_feasible_is_exact": r["min_feasible_is_exact"],
+            "min_feasible_lower_bound": r["min_feasible_lower_bound"],
             "composition_gap": r["composition_gap"],
             "n_cycles": r["dependency_graph"]["n_cycles"],
             "loo_min": float(np.min(r["loo_errors"])),
@@ -125,6 +130,13 @@ def c1_headline(path: str, gamma_source: Optional[str] = "declared") -> pd.DataF
     section 23 grid, "loo_breakpoint" is the data-driven diagnostic, and None
     pools both.  On a panel whose leave-one-out errors all sit above the
     declared grid, only the breakpoints carry any signal.
+
+    `min_feasible_exact` says whether `min_feasible` and `composition_gap` are
+    the true minimum or only backward elimination's upper bound on it, which
+    happens once the panel outgrows E0's exhaustive budget.  Where it is False
+    the gap is a bound and its sign proves nothing, so the two columns must be
+    read as ``<=``.  The claim itself never depends on this: `naive_set_fails`
+    is one coverage evaluation and is exact on every row.
     """
     df = c1_table(path)
     if gamma_source is not None:
@@ -136,6 +148,8 @@ def c1_headline(path: str, gamma_source: Optional[str] = "declared") -> pd.DataF
             naive_size=("naive_retained_size", "mean"),
             naive_coverage=("naive_coverage", "mean"),
             min_feasible=("min_feasible_size", "mean"),
+            min_feasible_exact=("min_feasible_is_exact", "all"),
+            min_feasible_floor=("min_feasible_lower_bound", "mean"),
             composition_gap=("composition_gap", "mean"),
             cycles=("n_cycles", "mean"),
             seeds=("seed", "nunique"),
@@ -424,6 +438,109 @@ def lowrank_floor_table(path: str) -> pd.DataFrame:
     )
     out["label"] = out["method"].map(lambda m: PRETTY.get(m, m))
     return out
+
+
+# --------------------------------------------------------------------------
+# C4 -- stress specialists
+# --------------------------------------------------------------------------
+
+def c4_table(path: str) -> pd.DataFrame:
+    """One row per (split seed, arm, budget) from C4, on the locked TEST split.
+
+    Every arm is scored on all seven contexts however few it was allowed to
+    select on, so `worst_context_tv` is comparable across arms at equal `k`.
+    """
+    payload = load(path)
+    rows = []
+    for seed, block in payload["per_seed"].items():
+        for arm, body in block["arms"].items():
+            for k, row in body["budgets"].items():
+                rows.append({
+                    "split_seed": int(seed),
+                    "arm": arm,
+                    "selects_on": ",".join(body["selects_on"]),
+                    "fits_on": ",".join(body["fits_on"]),
+                    "k": int(k),
+                    "worst_context_tv": row["worst_judge_worst_context_tv"],
+                    "clean_tv": row["worst_judge_clean_tv"],
+                    "mean_judge_tv": row["mean_judge_worst_context_tv"],
+                    "verdict_agreement": row["verdict_agreement"],
+                    "n_specialists_kept": row["n_specialists_kept"],
+                    "n_specialists_total": row["n_specialists_total"],
+                    "kept": ",".join(row["kept"]),
+                })
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["arm", "k", "split_seed"])
+        .reset_index(drop=True)
+    )
+
+
+def c4_headline(path: str) -> pd.DataFrame:
+    """What C4 turns on: robust selection minus each clean-only baseline.
+
+    `delta` is baseline minus robust, so a positive value is the direction the
+    claim predicts.  It is reported with the across-seed spread and with
+    `n_seeds_better` because a mean delta that rests on one favourable partition
+    is not evidence; the two have to be read together.
+    """
+    payload = load(path)
+    rows = []
+    for key, table in payload["summary"].items():
+        if not key.startswith("robust_vs_"):
+            continue
+        for k, row in table.items():
+            rows.append({
+                "baseline": key[len("robust_vs_"):],
+                "k": int(k),
+                "delta_mean": row["delta_worst_context_mean"],
+                "delta_sd": row["delta_worst_context_sd"],
+                "delta_min": row["delta_worst_context_min"],
+                "delta_max": row["delta_worst_context_max"],
+                "n_seeds_better": row["n_seeds_robust_better"],
+                "n_seeds": row["n_seeds"],
+                "specialist_advantage": row["specialists_retained_advantage_mean"],
+            })
+    out = pd.DataFrame(rows)
+    # Unanimity across seeds is the bar, not a positive mean: at five seeds a
+    # 4/5 split is a visible caveat and has to survive into the table.
+    out["robust_wins_every_seed"] = out["n_seeds_better"] == out["n_seeds"]
+    return out.sort_values(["baseline", "k"]).reset_index(drop=True)
+
+
+def c4_specialists(path: str) -> pd.DataFrame:
+    """Which judges are stress specialists, and how stable that label is.
+
+    A judge identified only under one partition is a candidate, not a finding,
+    so `in_every_seed` is what the text should quote.
+    """
+    payload = load(path)
+    stability = payload["summary"]["specialist_stability"]
+    always = set(stability["specialists_in_every_seed"])
+
+    seen: Dict[str, List[str]] = {}
+    for seed, block in payload["per_seed"].items():
+        for judge, body in block["specialists"].items():
+            if body["is_specialist"]:
+                seen.setdefault(judge, []).append(str(seed))
+
+    rows = [
+        {
+            "judge": judge,
+            "n_seeds_flagged": len(seeds),
+            "in_every_seed": judge in always,
+            "binding_contexts": ",".join(stability["binding_contexts"].get(judge, [])),
+        }
+        for judge, seeds in sorted(seen.items())
+    ]
+    # A panel with no stress specialists at all is a legitimate outcome -- it is
+    # C4 failing -- so the columns are declared rather than inferred from `rows`.
+    # Otherwise that outcome yields a frame with no columns and every consumer
+    # raises KeyError on the one result it most needs to be able to report.
+    return pd.DataFrame(
+        rows,
+        columns=["judge", "n_seeds_flagged", "in_every_seed", "binding_contexts"],
+    )
 
 
 def reconstruction_table(path: str) -> pd.DataFrame:
