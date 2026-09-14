@@ -42,6 +42,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from itertools import combinations
 from math import comb
 from typing import Dict, List, NamedTuple, Set, Tuple
@@ -69,10 +70,20 @@ REAL_GAMMAS = [0.02, 0.04, 0.06, 0.08, 0.10, 0.12, 0.15, 0.20]
 # A leave-one-out weight above this counts as "i leans on j" in the dependency graph.
 DEPENDENCY_TAU = 0.05
 # Coverage evaluations the exhaustive minimum-panel search may spend per instance.
-# The whole power set of the controlled constructions (N = 8, 9) fits well inside
-# this, so they stay exact; the real panel at N = 19 does not come close and falls
-# back to a bounded answer.  Evaluations are memoised per panel, so the cost is
-# paid once per split seed rather than once per tolerance.
+# Our engineering choice, not the plan's -- section 22 fixes no such budget.  The
+# whole power set of the controlled constructions (N = 8, 9) fits well inside it,
+# so they stay exact; the real panel does not come close and falls back to a
+# bounded answer.
+#
+# Raising it would not buy exactness on the real panel.  At N = 20 the minimum
+# sits near 15-18 judges, and certifying that by enumeration means clearing every
+# smaller layer first -- on the order of 700k subsets, C(20, 15) = 15504 in the
+# size-15 layer alone, per split seed.  So C1 is built on naive_violates_gamma,
+# which is exact everywhere, and C6 is specified on subpanels of size 12-16,
+# where the power set is small enough to enumerate outright.
+#
+# Evaluations are memoised per panel, so the cost is paid once per split seed
+# rather than once per tolerance.
 EXHAUSTIVE_EVAL_BUDGET = 20000
 
 INSTANCES = {
@@ -254,8 +265,15 @@ def analyse(
     gammas: List[float],
     add_loo_breakpoints: bool = False,
     max_evals: int = EXHAUSTIVE_EVAL_BUDGET,
+    verbose: bool = False,
 ) -> List[Dict[str, object]]:
-    """The section 22 procedure for one panel, over the tolerance grid."""
+    """The section 22 procedure for one panel, over the tolerance grid.
+
+    `verbose` traces each tolerance as it completes.  On the real panel one
+    tolerance can spend the whole exhaustive budget, so a silent run of several
+    hours is indistinguishable from a hang; the synthetic instances finish in
+    seconds and stay quiet.
+    """
     N = cov.N
 
     loo_errors, loo_weights = leave_one_out(cov)
@@ -266,12 +284,18 @@ def analyse(
         gammas = sorted(set(gammas) | set(loo_breakpoints(loo_errors)))
 
     rows: List[Dict[str, object]] = []
-    for gamma in gammas:
+    for index, gamma in enumerate(gammas, start=1):
         removable = [i for i in range(N) if loo_errors[i] <= gamma]
         naive = [i for i in range(N) if i not in set(removable)]
 
+        started = time.time()
         naive_error, _ = cov.compute_coverage(set(naive))
         opt = min_feasible_panel(cov, gamma, max_evals)
+        if verbose:
+            print(f"  [{instance} seed={seed}] gamma {gamma:.3f} "
+                  f"({index}/{len(gammas)})  min|S|={opt.size} "
+                  f"{'exact' if opt.is_exact else 'bound'}  "
+                  f"{time.time() - started:.1f}s", flush=True)
 
         rows.append({
             "instance": instance,
@@ -325,7 +349,7 @@ def run_real(
     )
     return analyse(
         cov, panel.judge_ids, f"{panel_name}_real", split_seed, REAL_GAMMAS,
-        add_loo_breakpoints=True, max_evals=max_evals,
+        add_loo_breakpoints=True, max_evals=max_evals, verbose=True,
     )
 
 

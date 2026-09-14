@@ -314,3 +314,27 @@ def test_accuracy_report_separates_tie_and_binary_behaviour():
     assert report["gold_tie_rate"] == pytest.approx(1 / 3)
     assert report["predicted_tie_rate"] == pytest.approx(1 / 3)
     assert argmax_labels(probabilities) == ["A", "B", "C"]
+
+
+def test_a_single_judge_top_up_does_not_report_a_failed_gate():
+    """Scoring one judge cannot build a tensor, and that is not a failure.
+
+    A top-up run (`--judges J07`, once a gated licence comes through) is only
+    ever asked for one judge, so there is no judge axis to stack.  Reporting
+    FAIL there invites a re-score of a judge that actually succeeded, which on
+    the real panel is GPU hours.  A genuine shortfall -- a whole panel
+    requested, fewer than two judges complete -- must still fail.
+    """
+    import experiments.score_panel as S
+
+    skipped = S._report("G2", {
+        "ok_success_rate": True,
+        "tensor_check_skipped": "only 1 judge(s) requested",
+    })
+    assert skipped["passed"] is True
+
+    genuine = S._report("G2", {
+        "ok_success_rate": True,
+        "ok_tensor_builds": False,
+    })
+    assert genuine["passed"] is False
