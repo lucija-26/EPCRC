@@ -1,6 +1,6 @@
 {
   "gate": "G0",
-  "passed": false,
+  "passed": true,
   "checks": {
     "ok_pair_files_exist": true,
     "ok_split_files_exist": true,
@@ -37,13 +37,35 @@
     "ok_all_prompts_end_at_verdict": true,
     "ok_swap_reorders": true,
     "ok_output_writable": true,
-    "free_disk_gb": 99.3,
-    "ok_enough_disk": false,
+    "free_disk_gb": 305129.8,
+    "ok_enough_disk": true,
     "formal_prompts_core20": 521360,
     "panel": "core20",
     "panel_prompts": 14000,
     "panel_weights_gb": 316.0,
-    "model_access": "skipped (--no-access-check)"
+    "ok_model_access": true,
+    "model_revisions": {
+      "J01": "aa8e72537993",
+      "J02": "a09a35458c70",
+      "J03": "cf98f3b3bbb4",
+      "J04": "1cfa9a720891",
+      "J05": "b968826d9c46",
+      "J06": "40c069824f42",
+      "J07": "0cb88a4f764b",
+      "J08": "0e9e39f249a1",
+      "J09": "093f9f388b31",
+      "J10": "96b6f1eccf38",
+      "J11": "cfbefacb9925",
+      "J12": "2db69c1c3e91",
+      "J13": "2fe192450127",
+      "J14": "c170c708c41d",
+      "J15": "04d8a90549d2",
+      "J16": "51dd4bc2ade4",
+      "J17": "1e57a0ecd176",
+      "J18": "8799bc6aec01",
+      "J19": "5062468bf9bc",
+      "J20": "470b1fba1ae0"
+    }
   },
   "panel": "core20"
 }

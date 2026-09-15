@@ -1,0 +1,48 @@
+{
+  "gate": "G1",
+  "passed": true,
+  "checks": {
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "n_items": 20,
+    "label_tokens": {
+      "A": [
+        "\u0120A"
+      ],
+      "B": [
+        "\u0120B"
+      ],
+      "C": [
+        "\u0120C"
+      ]
+    },
+    "n_continuation_tokens": {
+      "A": 1,
+      "B": 1,
+      "C": 1
+    },
+    "ok_continuation_tokens_logged": true,
+    "ok_consistent_label_boundary": true,
+    "ok_finite": true,
+    "ok_sums_to_one": true,
+    "ok_nonnegative": true,
+    "ok_no_free_text_needed": true,
+    "max_rerun_delta": 0.0,
+    "ok_deterministic_rerun": true,
+    "ok_prompt_hashes_stable": true,
+    "ok_orientation_involution": true,
+    "mean_orientation_tv": 0.6966321333560542,
+    "ok_orientation_remap_applied": true,
+    "ok_resume_hits_cache": true,
+    "ok_resume_no_duplicate_rows": true,
+    "accuracy": {
+      "n_pairs": 20,
+      "three_class_accuracy": 0.75,
+      "binary_accuracy_non_tie": 0.7647058823529411,
+      "predicted_tie_rate": 0.1,
+      "gold_tie_rate": 0.15,
+      "mean_max_probability": 0.976766657542927,
+      "position_bias_a_rate": 0.85
+    }
+  },
+  "panel": "core20"
+}
