@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "epcrc/judge.py": {
-    "mtime": 1789366559.1945562,
-    "ast_hash": "33dd66540fc5d84f9710a336c36b0f32",
+    "mtime": 1789451922.6488895,
+    "ast_hash": "7ae7686b1d24a7fe35ffb12e7c5e86ef",
     "semantic_hash": ""
   },
   "epcrc/synthetic_judges.py": {
@@ -310,13 +310,13 @@
     "semantic_hash": ""
   },
   "experiments/experiment_e0_noncomposability.py": {
-    "mtime": 1789367171.8471425,
-    "ast_hash": "11b85181f40d41b9c9f5cd5e1531d8a3",
+    "mtime": 1789422206.8384295,
+    "ast_hash": "8630f55598d80ea5b8f806c41ab194b0",
     "semantic_hash": ""
   },
   "results/e0_noncomposability.json": {
-    "mtime": 1789367878.4176433,
-    "ast_hash": "30df84ffa2f797469c6f679848dcc822",
+    "mtime": 1789460772.0,
+    "ast_hash": "61ed706ade2502b290964ad3c1101a24",
     "semantic_hash": ""
   },
   "tests/test_judge_coverage.py": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "tests/test_scoring_pipeline.py": {
-    "mtime": 1788788322.3238826,
-    "ast_hash": "6de1fe8331d6daaeca617510e0dd5ee3",
+    "mtime": 1789410726.437836,
+    "ast_hash": "26a998d64dd5c04c44c0c75f1a5c1cd2",
     "semantic_hash": ""
   },
   "experiments/experiment_e1_compression_frontier.py": {
@@ -785,13 +785,13 @@
     "semantic_hash": ""
   },
   "experiments/export_results.py": {
-    "mtime": 1789385423.8253026,
-    "ast_hash": "2c8c102929205bc0a303ba7d783b7fc5",
+    "mtime": 1789423076.4173253,
+    "ast_hash": "075a2c139543333b94cd48e348f2c69b",
     "semantic_hash": ""
   },
   "experiments/score_panel.py": {
-    "mtime": 1789320137.4464834,
-    "ast_hash": "64e68e4ed1ee6a5ae5aee35d219d56da",
+    "mtime": 1789410608.154855,
+    "ast_hash": "d8c3228bddf0cfd7fd60505342a5cf5a",
     "semantic_hash": ""
   },
   "results/c3_baselines.json": {
@@ -840,13 +840,13 @@
     "semantic_hash": ""
   },
   "tests/test_report_and_export.py": {
-    "mtime": 1789385429.7101347,
-    "ast_hash": "3dc3da9a4e6318ac3c6f11fdbf8a7027",
+    "mtime": 1789423118.3658104,
+    "ast_hash": "2ffe9653102295b73fd6a294e90e2643",
     "semantic_hash": ""
   },
   "docs/SERVER_RUNBOOK.md": {
-    "mtime": 1789321546.1153855,
-    "ast_hash": "1412512bb8fc6217e3b0cfc64dfb56a5",
+    "mtime": 1789408322.9006026,
+    "ast_hash": "0d94a685e3898cece6a5044a8eb20d52",
     "semantic_hash": ""
   },
   "results/export/core8/SUMMARY.md": {
@@ -1590,8 +1590,8 @@
     "semantic_hash": ""
   },
   "results/e1_frontier_core20.json": {
-    "mtime": 1789368489.5778866,
-    "ast_hash": "157ec9c9c9dd72788ba3fb3b113cf969",
+    "mtime": 1789420993.0,
+    "ast_hash": "0dbefe759e9d56650cfae2a62e78e20f",
     "semantic_hash": ""
   },
   "tests/test_c4_stress_specialists.py": {
@@ -1605,8 +1605,8 @@
     "semantic_hash": ""
   },
   "tests/test_minimax_solvers_agree.py": {
-    "mtime": 1789366759.2815742,
-    "ast_hash": "abc4f35289afd7b538ee88ff0f886745",
+    "mtime": 1789451936.8032062,
+    "ast_hash": "6443566b1264c0a7126b1aaba64e1973",
     "semantic_hash": ""
   },
   "requirements-scoring.txt": {
@@ -1615,18 +1615,38 @@
     "semantic_hash": ""
   },
   "results/c3_baselines_core20.json": {
-    "mtime": 1789373844.0397067,
-    "ast_hash": "f24af67a6c47fdaa01490556340da37e",
+    "mtime": 1789460410.0,
+    "ast_hash": "5c938ba8e1553f3ff5f7a62ca9604355",
     "semantic_hash": ""
   },
   "results/c4_stress_specialists_core20.json": {
-    "mtime": 1789369127.9351928,
-    "ast_hash": "479abc1ea7c171c5960faa979bc148b5",
+    "mtime": 1789424117.0,
+    "ast_hash": "597a1d447cb3e616c1894afd1e20696c",
     "semantic_hash": ""
   },
   "results/e0_real_core20.json": {
-    "mtime": 1789384301.9424279,
+    "mtime": 1789420159.0,
+    "ast_hash": "bfabe9d0ad36d8ad23ab1995f3abfa05",
+    "semantic_hash": ""
+  },
+  "results/archive_19judge/c3_baselines_core20.json": {
+    "mtime": 1789409483.428659,
+    "ast_hash": "f24af67a6c47fdaa01490556340da37e",
+    "semantic_hash": ""
+  },
+  "results/archive_19judge/c4_stress_specialists_core20.json": {
+    "mtime": 1789409483.4297957,
+    "ast_hash": "479abc1ea7c171c5960faa979bc148b5",
+    "semantic_hash": ""
+  },
+  "results/archive_19judge/e0_real_core20.json": {
+    "mtime": 1789409483.4081771,
     "ast_hash": "e36bc70f2d4eaf2038ca4891206f02d5",
+    "semantic_hash": ""
+  },
+  "results/archive_19judge/e1_frontier_core20.json": {
+    "mtime": 1789409483.412459,
+    "ast_hash": "157ec9c9c9dd72788ba3fb3b113cf969",
     "semantic_hash": ""
   }
 }
