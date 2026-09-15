@@ -20870,7 +20870,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/score_panel.py",
-      "source_location": "L672",
+      "source_location": "L678",
       "weight": 1.0,
       "source": "experiments_score_panel_main",
       "target": "epcrc_panel_panel_weight_gb",
@@ -32440,7 +32440,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/score_panel.py",
-      "source_location": "L676",
+      "source_location": "L682",
       "weight": 1.0,
       "source": "experiments_score_panel_main",
       "target": "experiments_score_panel_gate_g0",
@@ -32461,7 +32461,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/score_panel.py",
-      "source_location": "L678",
+      "source_location": "L684",
       "weight": 1.0,
       "source": "experiments_score_panel_main",
       "target": "experiments_score_panel_gate_g1",
@@ -32505,7 +32505,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/score_panel.py",
-      "source_location": "L686",
+      "source_location": "L692",
       "weight": 1.0,
       "source": "experiments_score_panel_main",
       "target": "experiments_score_panel_gate_g2",
@@ -37893,5 +37893,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "745bf9ccabaf4ce6e4a96df5487cebb06e335d36"
+  "built_at_commit": "a1f29f7ebafa8f6001e9c9b10e934efe0f85deff"
 }
