@@ -625,7 +625,7 @@ def _empty_cache() -> None:
 # --------------------------------------------------------------------------
 
 def main() -> None:
-    global G2_ITEMS
+    global G2_ITEMS, SCORES
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gate", choices=["g0", "g1", "g2"], default="g0")
@@ -667,6 +667,12 @@ def main() -> None:
 
     G2_ITEMS = args.items
     configure(args.panel, evict=args.evict)
+    if args.gate == "g2" and not args.scores_only:
+        # The gate scores a stratified sample, which is not the item set the
+        # production cache holds.  `score_block` keys its cache on (judge,
+        # context) alone, so a shared directory means the gate silently
+        # overwrites the blocks every claim is computed from.  Keep them apart.
+        SCORES = os.path.join(OUT, "scores_gate")
     os.makedirs(SCORES, exist_ok=True)
     print(f"panel {PANEL_NAME}: {len(PANEL)} judges, "
           f"~{panel_weight_gb(list(PANEL)):.0f} GB of weights, "
