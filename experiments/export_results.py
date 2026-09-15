@@ -74,6 +74,21 @@ def input_paths(panel: str) -> Dict[str, str]:
     }
 
 
+def gate_paths(panel: str) -> Dict[str, str]:
+    """The G0-G2 gate records for a panel, which sections 46-48 require.
+
+    Kept out of `input_paths` on purpose.  A missing gate record does not make
+    the claims partial the way a missing experiment does -- it means the gate
+    was run before the record was kept, or on a different machine -- so it must
+    not trigger the partial-package warning.  It is still evidence a reader is
+    entitled to, hence shipping it.
+    """
+    return {
+        f"gate_{name}": os.path.join(RESULTS, panel, f"{name}.json")
+        for name in ("g0", "g1", "g2")
+    }
+
+
 # --------------------------------------------------------------------------
 # provenance
 # --------------------------------------------------------------------------
@@ -795,6 +810,7 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
         "- `tables/` — every reported number as CSV",
         "- `figures/` — the figures, drawn from those same tables",
         "- `raw/` — the unmodified experiment output the tables are derived from",
+        "- `gates/` — the G0-G2 gate records for this panel",
         "- `notebooks/` — the analysis notebooks as HTML, readable without Jupyter",
         "- `manifest.json` — SHA-256 of every file, plus commit and versions",
         "",
@@ -858,7 +874,7 @@ def export(panel: str, out_dir: Optional[str] = None,
     for sub in ("tables", "figures", "raw"):
         os.makedirs(os.path.join(out_dir, sub), exist_ok=True)
 
-    prov = provenance(panel, inputs)
+    prov = provenance(panel, {**inputs, **gate_paths(panel)})
 
     tables = build_tables(inputs)
     for name, df in tables.items():
@@ -879,6 +895,13 @@ def export(panel: str, out_dir: Optional[str] = None,
     for key, path in inputs.items():
         if os.path.exists(path):
             shutil.copy2(path, os.path.join(out_dir, "raw", os.path.basename(path)))
+
+    gates = {k: v for k, v in gate_paths(panel).items() if os.path.exists(v)}
+    if gates:
+        os.makedirs(os.path.join(out_dir, "gates"), exist_ok=True)
+        for path in gates.values():
+            shutil.copy2(path, os.path.join(out_dir, "gates", os.path.basename(path)))
+    print(f"gates:   {len(gates)}")
 
     if with_notebooks:
         print(f"notebooks: {copy_notebooks(out_dir)}")
