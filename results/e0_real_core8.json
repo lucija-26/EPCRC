@@ -21,6 +21,8 @@
     20260821,
     20260822
   ],
+  "exhaustive_eval_budget": 20000,
+  "min_feasible_all_exact": true,
   "records": [
     {
       "instance": "core8_real",
@@ -30,13 +32,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -67,7 +69,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -94,13 +100,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -131,7 +137,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -158,13 +168,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -195,7 +205,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -222,13 +236,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -259,7 +273,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -286,13 +304,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -323,7 +341,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -350,13 +372,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -387,7 +409,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -414,13 +440,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -451,7 +477,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -478,13 +508,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -515,7 +545,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -537,18 +571,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.28911813551414856,
+      "gamma": 0.2891181355120065,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J20"
@@ -565,7 +599,7 @@
         "J16"
       ],
       "naive_retained_size": 7,
-      "naive_coverage": 0.2891181355141485,
+      "naive_coverage": 0.28911813551200644,
       "naive_violates_gamma": false,
       "naive_violation_amount": 0.0,
       "min_feasible_size": 7,
@@ -578,8 +612,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.2891181355141485,
+      "min_feasible_coverage": 0.28911813551200644,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -601,18 +639,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.291963177711581,
+      "gamma": 0.2919631777118928,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J08",
@@ -629,9 +667,9 @@
         "J16"
       ],
       "naive_retained_size": 6,
-      "naive_coverage": 0.2975821789427772,
+      "naive_coverage": 0.2975821789427771,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.005619001231196241,
+      "naive_violation_amount": 0.005619001230884324,
       "min_feasible_size": 7,
       "min_feasible_set": [
         "J02",
@@ -642,8 +680,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.2891181355141485,
+      "min_feasible_coverage": 0.28911813551200644,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -665,18 +707,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.31018771456972893,
+      "gamma": 0.31018771456972827,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J08",
@@ -693,20 +735,24 @@
         "J14"
       ],
       "naive_retained_size": 5,
-      "naive_coverage": 0.3161554685955857,
+      "naive_coverage": 0.3161554685955854,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.005967754025856753,
+      "naive_violation_amount": 0.0059677540258571415,
       "min_feasible_size": 6,
       "min_feasible_set": [
         "J02",
         "J05",
-        "J08",
         "J10",
         "J12",
-        "J14"
+        "J14",
+        "J16"
       ],
-      "min_feasible_coverage": 0.3101877145697289,
+      "min_feasible_coverage": 0.2975821789427771,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 6,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -728,18 +774,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.3405267783156454,
+      "gamma": 0.34052677831564543,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J08",
@@ -756,9 +802,9 @@
         "J14"
       ],
       "naive_retained_size": 4,
-      "naive_coverage": 0.4331537099226394,
+      "naive_coverage": 0.43315370992263963,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.09262693160699403,
+      "naive_violation_amount": 0.0926269316069942,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -767,8 +813,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3161554685955857,
+      "min_feasible_coverage": 0.3161554685955854,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -790,18 +840,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.3466831013682275,
+      "gamma": 0.3466831013668038,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J05",
@@ -818,9 +868,9 @@
         "J14"
       ],
       "naive_retained_size": 3,
-      "naive_coverage": 0.4331537099226394,
+      "naive_coverage": 0.43315370992263946,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.08647060855441191,
+      "naive_violation_amount": 0.08647060855583566,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -829,8 +879,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3161554685955857,
+      "min_feasible_coverage": 0.3161554685955854,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -852,18 +906,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.4303744986084598,
+      "gamma": 0.43037449860845967,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J05",
@@ -880,9 +934,9 @@
         "J14"
       ],
       "naive_retained_size": 2,
-      "naive_coverage": 0.7453668146877602,
+      "naive_coverage": 0.7453668146877607,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.31499231607930045,
+      "naive_violation_amount": 0.314992316079301,
       "min_feasible_size": 4,
       "min_feasible_set": [
         "J02",
@@ -891,7 +945,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.42888230840007807,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 4,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -913,18 +971,18 @@
     {
       "instance": "core8_real",
       "seed": 20260818,
-      "gamma": 0.6291353740251324,
+      "gamma": 0.6291353740251329,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J05",
@@ -943,15 +1001,19 @@
       "naive_retained_size": 1,
       "naive_coverage": 0.8052390167087724,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.17610364268363998,
+      "naive_violation_amount": 0.17610364268363954,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J05",
         "J14"
       ],
-      "min_feasible_coverage": 0.4456181650448734,
+      "min_feasible_coverage": 0.44561816504487317,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -978,13 +1040,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.6328225971920571,
-        0.34668310136822744,
-        0.2919631777115809,
-        0.4303744986084597,
-        0.3405267783156453,
-        0.6291353740251323,
-        0.3101877145697289,
-        0.2891181355141485
+        0.34668310136680375,
+        0.29196317771189273,
+        0.4303744986084596,
+        0.3405267783156454,
+        0.6291353740251328,
+        0.3101877145697282,
+        0.28911813551200644
       ],
       "individually_removable": [
         "J02",
@@ -1009,8 +1071,12 @@
         "J05",
         "J14"
       ],
-      "min_feasible_coverage": 0.4456181650448734,
+      "min_feasible_coverage": 0.44561816504487317,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 3,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1037,13 +1103,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1074,7 +1140,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1101,13 +1171,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1138,7 +1208,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1165,13 +1239,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1202,7 +1276,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1229,13 +1307,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1266,7 +1344,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1293,13 +1375,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1330,7 +1412,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1357,13 +1443,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1394,7 +1480,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1421,13 +1511,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1458,7 +1548,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1485,13 +1579,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -1522,7 +1616,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1544,18 +1642,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.2470568567950179,
+      "gamma": 0.24705685679501996,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J08"
@@ -1572,7 +1670,7 @@
         "J20"
       ],
       "naive_retained_size": 7,
-      "naive_coverage": 0.24705685679501788,
+      "naive_coverage": 0.24705685679501993,
       "naive_violates_gamma": false,
       "naive_violation_amount": 0.0,
       "min_feasible_size": 7,
@@ -1585,8 +1683,12 @@
         "J16",
         "J20"
       ],
-      "min_feasible_coverage": 0.24705685679501788,
+      "min_feasible_coverage": 0.24705685679501993,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1608,18 +1710,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.28424755111343064,
+      "gamma": 0.284247551113233,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J08",
@@ -1636,9 +1738,9 @@
         "J16"
       ],
       "naive_retained_size": 6,
-      "naive_coverage": 0.3495648160834424,
+      "naive_coverage": 0.34956481608344275,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.06531726497001178,
+      "naive_violation_amount": 0.06531726497020973,
       "min_feasible_size": 7,
       "min_feasible_set": [
         "J02",
@@ -1649,8 +1751,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.2842475511134306,
+      "min_feasible_coverage": 0.28424755111323297,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1672,18 +1778,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.33280413627567745,
+      "gamma": 0.3328041362757458,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J08",
@@ -1700,9 +1806,9 @@
         "J14"
       ],
       "naive_retained_size": 5,
-      "naive_coverage": 0.3665735768042284,
+      "naive_coverage": 0.36657357680422825,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.033769440528550965,
+      "naive_violation_amount": 0.033769440528482464,
       "min_feasible_size": 6,
       "min_feasible_set": [
         "J02",
@@ -1712,8 +1818,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3328041362756774,
+      "min_feasible_coverage": 0.3328041362757448,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 6,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1735,18 +1845,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.378775564794758,
+      "gamma": 0.3787755647948171,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J08",
@@ -1763,9 +1873,9 @@
         "J14"
       ],
       "naive_retained_size": 4,
-      "naive_coverage": 0.4480488461440826,
+      "naive_coverage": 0.44804884614408264,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.06927328134932459,
+      "naive_violation_amount": 0.06927328134926553,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -1774,8 +1884,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3665735768042284,
+      "min_feasible_coverage": 0.36657357680422825,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1797,18 +1911,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.4082856322433308,
+      "gamma": 0.4082856322433301,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J05",
@@ -1825,9 +1939,9 @@
         "J14"
       ],
       "naive_retained_size": 3,
-      "naive_coverage": 0.4480488461440826,
+      "naive_coverage": 0.44804884614408275,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.03976321390075177,
+      "naive_violation_amount": 0.03976321390075266,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -1836,8 +1950,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3665735768042284,
+      "min_feasible_coverage": 0.36657357680422825,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1859,18 +1977,18 @@
     {
       "instance": "core8_real",
       "seed": 20260819,
-      "gamma": 0.4896153285701705,
+      "gamma": 0.48961532857017176,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J05",
@@ -1887,9 +2005,9 @@
         "J14"
       ],
       "naive_retained_size": 2,
-      "naive_coverage": 0.7256891831309314,
+      "naive_coverage": 0.7256892639216804,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.23607385456076097,
+      "naive_violation_amount": 0.23607393535150867,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
@@ -1897,7 +2015,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.46442702980650513,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1924,13 +2046,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J05",
@@ -1957,7 +2079,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.46442702980650513,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -1984,13 +2110,13 @@
       "n_judges": 8,
       "loo_errors": [
         0.609411320226254,
-        0.40828563224333075,
-        0.24705685679501788,
-        0.4896153285701704,
-        0.37877556479475794,
+        0.40828563224333003,
+        0.24705685679501993,
+        0.4896153285701717,
+        0.37877556479481705,
         0.5834570416396625,
-        0.3328041362756774,
-        0.2842475511134306
+        0.33280413627574573,
+        0.28424755111323297
       ],
       "individually_removable": [
         "J02",
@@ -2014,8 +2140,12 @@
         "J05",
         "J12"
       ],
-      "min_feasible_coverage": 0.5856939720732948,
+      "min_feasible_coverage": 0.5864791238664361,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 2,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -2041,14 +2171,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2079,7 +2209,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2105,14 +2239,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2143,7 +2277,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2169,14 +2307,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2207,7 +2345,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2233,14 +2375,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2271,7 +2413,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2297,14 +2443,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2335,7 +2481,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2361,14 +2511,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2399,7 +2549,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2425,14 +2579,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2463,7 +2617,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2489,14 +2647,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -2527,7 +2685,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2549,18 +2711,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.254853022268839,
+      "gamma": 0.25485302226883866,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J08"
@@ -2577,7 +2739,7 @@
         "J20"
       ],
       "naive_retained_size": 7,
-      "naive_coverage": 0.25485302226883894,
+      "naive_coverage": 0.2548530222688386,
       "naive_violates_gamma": false,
       "naive_violation_amount": 0.0,
       "min_feasible_size": 7,
@@ -2590,8 +2752,12 @@
         "J16",
         "J20"
       ],
-      "min_feasible_coverage": 0.25485302226883894,
+      "min_feasible_coverage": 0.2548530222688386,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2613,18 +2779,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.2853363101027574,
+      "gamma": 0.28533631010275595,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J08",
@@ -2641,9 +2807,9 @@
         "J16"
       ],
       "naive_retained_size": 6,
-      "naive_coverage": 0.328302405991095,
+      "naive_coverage": 0.32830240599109517,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.04296609588833761,
+      "naive_violation_amount": 0.04296609588833922,
       "min_feasible_size": 7,
       "min_feasible_set": [
         "J02",
@@ -2654,8 +2820,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.28533631010275734,
+      "min_feasible_coverage": 0.2853363101027559,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2677,18 +2847,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.3503305748746215,
+      "gamma": 0.3503305748746207,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J08",
@@ -2705,9 +2875,9 @@
         "J14"
       ],
       "naive_retained_size": 5,
-      "naive_coverage": 0.36303557838346506,
+      "naive_coverage": 0.36303557838344763,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.012705003508843571,
+      "naive_violation_amount": 0.012705003508826918,
       "min_feasible_size": 6,
       "min_feasible_set": [
         "J02",
@@ -2717,8 +2887,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.35033057487462144,
+      "min_feasible_coverage": 0.35033057487462027,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 6,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2740,18 +2914,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.38876325994270744,
+      "gamma": 0.38876325994270716,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J05",
@@ -2768,7 +2942,7 @@
         "J14"
       ],
       "naive_retained_size": 4,
-      "naive_coverage": 0.3937267841211356,
+      "naive_coverage": 0.3937267841211353,
       "naive_violates_gamma": true,
       "naive_violation_amount": 0.004963524178428158,
       "min_feasible_size": 5,
@@ -2779,8 +2953,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.36303557838346506,
+      "min_feasible_coverage": 0.36303557838344763,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2802,18 +2980,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.3969365818088206,
+      "gamma": 0.39693658180882085,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J05",
@@ -2830,9 +3008,9 @@
         "J14"
       ],
       "naive_retained_size": 3,
-      "naive_coverage": 0.49164825075007773,
+      "naive_coverage": 0.49164825075007745,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.09471166894125715,
+      "naive_violation_amount": 0.0947116689412566,
       "min_feasible_size": 4,
       "min_feasible_set": [
         "J02",
@@ -2840,8 +3018,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3937267841211356,
+      "min_feasible_coverage": 0.3937267841211353,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 4,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2863,18 +3045,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.41652876414468754,
+      "gamma": 0.4165287641446874,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J05",
@@ -2891,9 +3073,9 @@
         "J14"
       ],
       "naive_retained_size": 2,
-      "naive_coverage": 0.7870554414027487,
+      "naive_coverage": 0.787055441402751,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.3705266772580612,
+      "naive_violation_amount": 0.37052667725806354,
       "min_feasible_size": 4,
       "min_feasible_set": [
         "J02",
@@ -2901,8 +3083,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.4013858344768257,
+      "min_feasible_coverage": 0.4013858094415682,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 4,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2924,18 +3110,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.5538322168683977,
+      "gamma": 0.5538322168683986,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J05",
@@ -2954,7 +3140,7 @@
       "naive_retained_size": 1,
       "naive_coverage": 0.7798857117736057,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.22605349490520799,
+      "naive_violation_amount": 0.2260534949052071,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
@@ -2962,7 +3148,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.4803182683781485,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -2984,18 +3174,18 @@
     {
       "instance": "core8_real",
       "seed": 20260820,
-      "gamma": 0.5861861833409447,
+      "gamma": 0.5861861833409404,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5861861833409446,
-        0.3887632599427074,
-        0.25485302226883894,
-        0.4165287641446875,
-        0.3969365818088205,
-        0.5538322168683976,
-        0.35033057487462144,
-        0.28533631010275734
+        0.5861861833409403,
+        0.3887632599427071,
+        0.2548530222688386,
+        0.41652876414468737,
+        0.3969365818088208,
+        0.5538322168683985,
+        0.35033057487462066,
+        0.2853363101027559
       ],
       "individually_removable": [
         "J02",
@@ -3021,7 +3211,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.4803182683781485,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 3,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 23,
         "cycles": [
@@ -3047,14 +3241,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3085,7 +3279,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3111,14 +3309,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3149,7 +3347,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3175,14 +3377,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3213,7 +3415,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3239,14 +3445,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3277,7 +3483,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3303,14 +3513,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3341,7 +3551,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3367,14 +3581,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3405,7 +3619,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3431,14 +3649,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3469,7 +3687,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3495,14 +3717,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -3533,7 +3755,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3555,18 +3781,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.24200991284541173,
+      "gamma": 0.24200991284574896,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J20"
@@ -3583,7 +3809,7 @@
         "J16"
       ],
       "naive_retained_size": 7,
-      "naive_coverage": 0.2420099128454117,
+      "naive_coverage": 0.24200991284574894,
       "naive_violates_gamma": false,
       "naive_violation_amount": 0.0,
       "min_feasible_size": 7,
@@ -3596,8 +3822,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.2420099128454117,
+      "min_feasible_coverage": 0.24200991284574894,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3619,18 +3849,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.24441603478686777,
+      "gamma": 0.2444160347868677,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J08",
@@ -3647,9 +3877,9 @@
         "J16"
       ],
       "naive_retained_size": 6,
-      "naive_coverage": 0.26085685662941377,
+      "naive_coverage": 0.2608568566294129,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.016440821842546,
+      "naive_violation_amount": 0.016440821842545195,
       "min_feasible_size": 7,
       "min_feasible_set": [
         "J02",
@@ -3660,8 +3890,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.2420099128454117,
+      "min_feasible_coverage": 0.24200991284574894,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3683,18 +3917,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.32139730739817957,
+      "gamma": 0.32139730739817896,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J08",
@@ -3711,9 +3945,9 @@
         "J14"
       ],
       "naive_retained_size": 5,
-      "naive_coverage": 0.3240766153032277,
+      "naive_coverage": 0.324076615303229,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.0026793079050481117,
+      "naive_violation_amount": 0.0026793079050500546,
       "min_feasible_size": 6,
       "min_feasible_set": [
         "J02",
@@ -3723,8 +3957,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3213973073981795,
+      "min_feasible_coverage": 0.32139730739817385,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 6,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3746,18 +3984,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.407405434064999,
+      "gamma": 0.4074054340649988,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J08",
@@ -3774,17 +4012,21 @@
         "J14"
       ],
       "naive_retained_size": 4,
-      "naive_coverage": 0.4139754263877692,
+      "naive_coverage": 0.41397542638776946,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.006569992322770168,
+      "naive_violation_amount": 0.006569992322770668,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J14",
         "J20"
       ],
-      "min_feasible_coverage": 0.4040530159363142,
+      "min_feasible_coverage": 0.4040530159363148,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": -1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3806,18 +4048,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.44611934683920124,
+      "gamma": 0.4461193468392003,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J05",
@@ -3836,15 +4078,19 @@
       "naive_retained_size": 3,
       "naive_coverage": 0.4776839953517599,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.03156464851255869,
+      "naive_violation_amount": 0.031564648512559634,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J08",
         "J14"
       ],
-      "min_feasible_coverage": 0.4370859875335441,
+      "min_feasible_coverage": 0.43708598753354416,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3866,18 +4112,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.5119573870669135,
+      "gamma": 0.5119573870669132,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J05",
@@ -3896,15 +4142,19 @@
       "naive_retained_size": 2,
       "naive_coverage": 0.8400498087072304,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.32809242164031693,
+      "naive_violation_amount": 0.32809242164031727,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J08",
         "J14"
       ],
-      "min_feasible_coverage": 0.4370859875335441,
+      "min_feasible_coverage": 0.43708598753354416,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3926,18 +4176,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.5647513411752147,
+      "gamma": 0.5647513411752146,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J05",
@@ -3956,15 +4206,19 @@
       "naive_retained_size": 1,
       "naive_coverage": 0.9218443677700483,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.35709302659483355,
+      "naive_violation_amount": 0.35709302659483366,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J05",
         "J14"
       ],
-      "min_feasible_coverage": 0.512080150269529,
+      "min_feasible_coverage": 0.512080102965668,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -3986,18 +4240,18 @@
     {
       "instance": "core8_real",
       "seed": 20260821,
-      "gamma": 0.718492750450273,
+      "gamma": 0.7184927504502733,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.7184927504502729,
-        0.4461193468392012,
-        0.24441603478686774,
-        0.5119573870669134,
-        0.40740543406499896,
-        0.5647513411752146,
-        0.3213973073981795,
-        0.2420099128454117
+        0.7184927504502732,
+        0.44611934683920024,
+        0.24441603478686766,
+        0.5119573870669131,
+        0.40740543406499874,
+        0.5647513411752145,
+        0.3213973073981789,
+        0.24200991284574894
       ],
       "individually_removable": [
         "J02",
@@ -4022,7 +4276,11 @@
         "J12"
       ],
       "min_feasible_coverage": 0.7182433112124134,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 2,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 22,
         "cycles": [
@@ -4048,14 +4306,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4086,7 +4344,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4112,14 +4374,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4150,7 +4412,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4176,14 +4442,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4214,7 +4480,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4240,14 +4510,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4278,7 +4548,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4304,14 +4578,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4342,7 +4616,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4368,14 +4646,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4406,7 +4684,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4432,14 +4714,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4470,7 +4752,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4496,14 +4782,14 @@
       "gamma_source": "declared",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [],
       "n_individually_removable": 0,
@@ -4534,7 +4820,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.0,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 8,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4560,14 +4850,14 @@
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J08"
@@ -4598,7 +4888,11 @@
         "J20"
       ],
       "min_feasible_coverage": 0.2409851193127701,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 0,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4620,18 +4914,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.2623444366333457,
+      "gamma": 0.2623444366333448,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J08",
@@ -4648,9 +4942,9 @@
         "J16"
       ],
       "naive_retained_size": 6,
-      "naive_coverage": 0.36142947106987383,
+      "naive_coverage": 0.3614294710698745,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.09908503443652811,
+      "naive_violation_amount": 0.09908503443652972,
       "min_feasible_size": 7,
       "min_feasible_set": [
         "J02",
@@ -4661,8 +4955,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.26234443663334567,
+      "min_feasible_coverage": 0.2623444366333447,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 7,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4684,18 +4982,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.33315320970069795,
+      "gamma": 0.33315320970076645,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J08",
@@ -4712,9 +5010,9 @@
         "J14"
       ],
       "naive_retained_size": 5,
-      "naive_coverage": 0.3685129370984978,
+      "naive_coverage": 0.36851293709849897,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.035359727397799856,
+      "naive_violation_amount": 0.03535972739773252,
       "min_feasible_size": 6,
       "min_feasible_set": [
         "J02",
@@ -4724,8 +5022,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3331532097006979,
+      "min_feasible_coverage": 0.33315320970076534,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 6,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4747,18 +5049,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.3607982514910898,
+      "gamma": 0.3607982514910935,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J08",
@@ -4777,7 +5079,7 @@
       "naive_retained_size": 4,
       "naive_coverage": 0.43802129057690214,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.07722303908581235,
+      "naive_violation_amount": 0.07722303908580863,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -4786,8 +5088,12 @@
         "J14",
         "J16"
       ],
-      "min_feasible_coverage": 0.36079825149108974,
+      "min_feasible_coverage": 0.36079825149109346,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4809,18 +5115,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.40892020631830844,
+      "gamma": 0.4089202063183083,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J05",
@@ -4837,9 +5143,9 @@
         "J14"
       ],
       "naive_retained_size": 3,
-      "naive_coverage": 0.441637125284349,
+      "naive_coverage": 0.4416371252793266,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.032716918966040565,
+      "naive_violation_amount": 0.032716918961018304,
       "min_feasible_size": 5,
       "min_feasible_set": [
         "J02",
@@ -4848,8 +5154,12 @@
         "J12",
         "J14"
       ],
-      "min_feasible_coverage": 0.3685129370984978,
+      "min_feasible_coverage": 0.36851293709849897,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 5,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4871,18 +5181,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.4467402322524688,
+      "gamma": 0.4467402322524694,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J05",
@@ -4899,9 +5209,9 @@
         "J14"
       ],
       "naive_retained_size": 2,
-      "naive_coverage": 0.7828571554913307,
+      "naive_coverage": 0.78285711365725,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.33611692323886194,
+      "naive_violation_amount": 0.3361168814047806,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
@@ -4909,7 +5219,11 @@
         "J14"
       ],
       "min_feasible_coverage": 0.44218995986677323,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 1,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4931,18 +5245,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.5714225439222858,
+      "gamma": 0.571422543922286,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J02",
@@ -4961,15 +5275,19 @@
       "naive_retained_size": 1,
       "naive_coverage": 0.866857138237933,
       "naive_violates_gamma": true,
-      "naive_violation_amount": 0.2954345943156472,
+      "naive_violation_amount": 0.295434594315647,
       "min_feasible_size": 3,
       "min_feasible_set": [
         "J02",
         "J05",
         "J14"
       ],
-      "min_feasible_coverage": 0.44683448684480864,
+      "min_feasible_coverage": 0.4468344868448088,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 3,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
@@ -4991,18 +5309,18 @@
     {
       "instance": "core8_real",
       "seed": 20260822,
-      "gamma": 0.6088221315763364,
+      "gamma": 0.6088221315763362,
       "gamma_source": "loo_breakpoint",
       "n_judges": 8,
       "loo_errors": [
-        0.5714225439222856,
-        0.4089202063183084,
+        0.5714225439222859,
+        0.4089202063183082,
         0.2409851193127701,
-        0.4467402322524687,
-        0.36079825149108974,
-        0.6088221315763362,
-        0.3331532097006979,
-        0.26234443663334567
+        0.44674023225246934,
+        0.36079825149109346,
+        0.6088221315763361,
+        0.3331532097007664,
+        0.2623444366333447
       ],
       "individually_removable": [
         "J02",
@@ -5026,8 +5344,12 @@
         "J05",
         "J12"
       ],
-      "min_feasible_coverage": 0.60661450699993,
+      "min_feasible_coverage": 0.6066145069999304,
+      "min_feasible_is_exact": true,
+      "min_feasible_lower_bound": 2,
+      "min_feasible_method": "exhaustive",
       "composition_gap": 2,
+      "composition_gap_is_exact": true,
       "dependency_graph": {
         "n_edges": 21,
         "cycles": [
