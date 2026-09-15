@@ -22,6 +22,7 @@ without modification.
 
 from __future__ import annotations
 
+import warnings
 from typing import List, Optional, Sequence, Set, Tuple
 
 import numpy as np
@@ -296,6 +297,23 @@ def _objective_and_subgradients(
 # reported.  Dropping it to 1e-6 is already too weak to break the tie.
 _TIE_BREAK = 1e-5
 
+# A residual gap no larger than this is accepted after `max_iter` instead of
+# raising.  The master program is solved by HiGHS at its default feasibility
+# tolerance of about 1e-7, so `lower` is itself only accurate to roughly `tol`,
+# and the loop can then spend every iteration chasing a gap that has already
+# stalled at that floor.  That is not hypothetical: it aborted a Core-20 C3 run
+# at the fourth split seed, three hours in, with "gap 1.000e-07 > tol 1.000e-07"
+# -- a gap and a tolerance that print identically.
+#
+# Accepting is safe here in a way it would not be for a certified bound.  The
+# value returned is `worst_context_error` evaluated at the best iterate, so it is
+# an error the returned weights actually achieve, not an LP estimate; the gap
+# only bounds how far that achievable error sits above the optimal one.  At 1e-5
+# that slack is the same order as `_TIE_BREAK`, which the fit already admits, and
+# two orders below the four decimals anything reported carries.  A genuinely
+# unconverged fit has a gap orders of magnitude larger and still raises.
+_STALL_TOL = 1e-5
+
 
 def solve_minimax_weights_cuts(
     responses: JudgeResponses,
@@ -323,7 +341,10 @@ def solve_minimax_weights_cuts(
 
     Every cut is a supporting hyperplane of a convex function, so the master's
     optimum bounds `F` from below while the best `F` actually evaluated bounds it
-    from above, and the loop exits once that interval closes.
+    from above, and the loop exits once that interval closes.  If `max_iter` runs
+    out with the interval still open, a gap up to `_STALL_TOL` is accepted with a
+    warning and anything larger raises; see that constant for why the distinction
+    is needed and why accepting is sound.
 
     The tie-breaking term is not cosmetic.  The worst-context objective alone is
     often flat over an entire face of the simplex: as soon as one context is
@@ -403,10 +424,20 @@ def solve_minimax_weights_cuts(
         w = result.x[:m]
         lower = float(result.x[m] + _TIE_BREAK * result.x[m + 1])
     else:
-        raise RuntimeError(
-            f"cutting-plane fit for target {target_idx} on {m} judges did not "
-            f"converge in {max_iter} iterations "
-            f"(gap {best_value - lower:.3e} > tol {tol:.3e})"
+        gap = best_value - lower
+        if gap > _STALL_TOL:
+            raise RuntimeError(
+                f"cutting-plane fit for target {target_idx} on {m} judges did not "
+                f"converge in {max_iter} iterations "
+                f"(gap {gap:.3e} > tol {tol:.3e})"
+            )
+        warnings.warn(
+            f"cutting-plane fit for target {target_idx} on {m} judges stalled at "
+            f"gap {gap:.3e} after {max_iter} iterations, short of tol {tol:.3e}. "
+            f"Accepting the best iterate: the error returned is one the weights "
+            f"achieve, and it is within {gap:.3e} of optimal.",
+            RuntimeWarning,
+            stacklevel=2,
         )
 
     w = np.clip(best_w, 0.0, None)
