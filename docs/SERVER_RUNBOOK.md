@@ -140,6 +140,11 @@ records.
 G2 is resumable per (judge, context) block, so a rerun after a fix re-scores
 nothing. `--judges J07` scores a single judge once its licence comes through.
 
+The gate writes its sample to `results/core20/scores_gate/`, separate from the
+production blocks in section 5. They must not share a directory: the cache is
+keyed on (judge, context) alone, so a gate run landing in `scores/` would find
+the 3724-pair blocks "not matching" its 100 items and overwrite all of them.
+
 ---
 
 ## 5. Score the panel
@@ -250,6 +255,7 @@ early is the whole saving.
 | Symptom | Cause | Fix |
 |---|---|---|
 | G0 says a repo is gated | Licence not accepted for that model | Accept it on the model's HF page with the same account as `HF_TOKEN` |
+| A repo that worked before returns 401 | The command ran in a shell that never got `HF_HOME` — `nohup sh -c ...`, `ssh host "..."` and cron do not read your profile | Export `HF_HOME=/work/Lucija/hf` inside the command itself, not before it |
 | Out of memory on a 14B judge | Another judge's weights still resident | Add `--evict` to drop weights between judges |
 | Scoring restarted from zero | `HF_HOME` was not on `/work` | Re-export it; already-written score blocks are still skipped |
 | E1 appears to hang | `--max-exhaustive` left at its default | Rerun with `--max-exhaustive 0` |
