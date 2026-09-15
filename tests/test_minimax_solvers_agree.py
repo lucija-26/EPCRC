@@ -277,6 +277,51 @@ def test_running_out_of_iterations_raises_rather_than_returning_a_guess():
         solve_minimax_weights_cuts(panel, 0, [1, 2, 3, 4, 5], tol=1e-14, max_iter=2)
 
 
+def test_a_gap_stalled_at_the_lp_noise_floor_is_accepted_not_raised():
+    """Exhausting `max_iter` at a negligible gap must not abort the run.
+
+    HiGHS solves the master at roughly 1e-7 feasibility, so the lower bound is
+    only accurate to about `tol` and the gap can stall there for good.  Treating
+    that as a failure cost a Core-20 C3 run three hours at the fourth split seed.
+    The branch is exercised by moving `_STALL_TOL` rather than by contriving a
+    real stall, so what is pinned is the decision, and the accepted answer must
+    still be a self-consistent certificate: the error returned is the one the
+    returned weights achieve.
+    """
+    rng = np.random.default_rng(23)
+    panel = _random_panel(rng, 6, 3, [21, 13, 8])
+    kept = [1, 2, 3, 4, 5]
+
+    original = judge._STALL_TOL
+    try:
+        judge._STALL_TOL = 1.0
+        with pytest.warns(RuntimeWarning, match="stalled at gap"):
+            error, w = solve_minimax_weights_cuts(
+                panel, 0, kept, tol=1e-14, max_iter=2
+            )
+    finally:
+        judge._STALL_TOL = original
+
+    assert w.min() >= 0.0
+    assert w.sum() == pytest.approx(1.0, abs=1e-9)
+    assert error == pytest.approx(worst_context_error(panel, 0, kept, w), abs=1e-12)
+
+
+def test_the_stall_tolerance_cannot_move_a_reported_figure():
+    """It has to clear the master LP's own accuracy but stay invisible.
+
+    Below `tol` the constant would never fire and the crash would be back; above
+    the reporting precision it would let an unconverged fit into a table.  The
+    experiments report four decimals, so the ceiling is 1e-4.
+    """
+    default_tol = inspect.signature(
+        solve_minimax_weights_cuts
+    ).parameters["tol"].default
+
+    assert judge._STALL_TOL > default_tol
+    assert judge._STALL_TOL < 1e-4
+
+
 def test_the_public_entry_point_uses_the_cutting_plane_solver():
     rng = np.random.default_rng(29)
     panel = _random_panel(rng, 5, 2, [12, 7])
