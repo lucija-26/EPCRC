@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "experiments/export_results.py": {
-    "mtime": 1789423076.4173253,
-    "ast_hash": "075a2c139543333b94cd48e348f2c69b",
+    "mtime": 1789462696.5475683,
+    "ast_hash": "7d6cf86eb603e9f735e99627df931403",
     "semantic_hash": ""
   },
   "experiments/score_panel.py": {
@@ -1647,6 +1647,46 @@
   "results/archive_19judge/e1_frontier_core20.json": {
     "mtime": 1789409483.412459,
     "ast_hash": "157ec9c9c9dd72788ba3fb3b113cf969",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I0_clean.json": {
+    "mtime": 1789407567.0,
+    "ast_hash": "06c403f944cb824e0387655c8c9c9c8c",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I1_order_swap.json": {
+    "mtime": 1789407679.0,
+    "ast_hash": "888e6031f1c1b9ea13c89e2e73d7886c",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I2_correctness_rubric.json": {
+    "mtime": 1789407792.0,
+    "ast_hash": "deb82a7948c25561a2d7141df65d94a0",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I3_bias_resistant_rubric.json": {
+    "mtime": 1789407963.0,
+    "ast_hash": "4af3afcdc3ecd2e0c2c180774f7d8737",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I4_verbosity_pad_a.json": {
+    "mtime": 1789408130.0,
+    "ast_hash": "2d07f1a76d17a288794ccec08721528c",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I5_source_tags.json": {
+    "mtime": 1789408288.0,
+    "ast_hash": "29ed70487877f55889ffaf00b6f1f489",
+    "semantic_hash": ""
+  },
+  "results/core20/scores/J07__I6_reference_hidden.json": {
+    "mtime": 1789408400.0,
+    "ast_hash": "ca6361f9559daafc184d31141ce99683",
+    "semantic_hash": ""
+  },
+  "docs/PANEL_19_VS_20.md": {
+    "mtime": 1789462440.789115,
+    "ast_hash": "1a8b35908141700462e728f48b5fce4a",
     "semantic_hash": ""
   }
 }
