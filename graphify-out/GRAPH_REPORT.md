@@ -1,16 +1,16 @@
 # Graph Report - EPCRC  (2026-09-15)
 
 ## Corpus Check
-- 276 files · ~5,575,820 words
+- 284 files · ~5,710,373 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1117 nodes · 2504 edges · 72 communities (49 shown, 23 thin omitted)
+- 1129 nodes · 2516 edges · 73 communities (50 shown, 23 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 79 edges (avg confidence: 0.57)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `db7b5024`
+- Built from commit: `745bf9cc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,6 +87,7 @@
 - [[_COMMUNITY__verdicts|_verdicts]]
 - [[_COMMUNITY_test_top_accuracy_has_no_default_scores_directory|test_top_accuracy_has_no_default_scores_directory]]
 - [[_COMMUNITY_test_c2_section_quotes_the_one_judge_floor_that_makes_the_target_unreachable|test_c2_section_quotes_the_one_judge_floor_that_makes_the_target_unreachable]]
+- [[_COMMUNITY_MinFeasible|MinFeasible]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CoverageFunctional` - 72 edges
@@ -103,19 +104,19 @@
 ## Surprising Connections (you probably didn't know these)
 - `ExactSearcher` --uses--> `CoverageFunctional`  [INFERRED]
   experiments/experiment_exact_optimum.py → epcrc/coverage.py
+- `MinFeasible` --uses--> `JudgeCoverageFunctional`  [INFERRED]
+  experiments/experiment_e0_noncomposability.py → epcrc/judge.py
 - `test_panel_weight_is_the_bf16_total()` --calls--> `panel_weight_gb()`  [EXTRACTED]
   tests/test_panel_registry.py → epcrc/panel.py
 - `_panel()` --calls--> `Panel`  [INFERRED]
   tests/test_e1_frontier.py → epcrc/panel.py
 - `ExactSearcher` --uses--> `ForwardSelectionPruner`  [INFERRED]
   experiments/experiment_exact_optimum.py → epcrc/pruning.py
-- `ExactSearcher` --uses--> `BackwardEliminationPruner`  [INFERRED]
-  experiments/experiment_exact_optimum.py → epcrc/pruning.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (72 total, 23 thin omitted)
+## Communities (73 total, 23 thin omitted)
 
 ### Community 0 - "BackwardEliminationPruner"
 Cohesion: 0.14
@@ -126,12 +127,12 @@ Cohesion: 0.12
 Nodes (55): cloud_panel(), main(), One figure: how EPCRC and the LLM judge panel are the same problem.  Writes docs, Draw a row of coordinate cells; group cells into blocks of `group`., vector_strip(), bare_ax(), _ccw(), _circle_judges() (+47 more)
 
 ### Community 2 - "CoverageFunctional"
-Cohesion: 0.33
-Nodes (6): Render one prompt under a context.      Interventions are applied to the *conten, render(), test_interventions_change_only_their_own_target(), test_render_rejects_an_unknown_protocol(), test_rendering_places_the_responses_in_order(), test_swap_context_reverses_the_rendered_order()
+Cohesion: 0.12
+Nodes (9): Where a panel's cached (judge, context) blocks live., scores_dir(), The panel registry must match plan section 10 exactly.  A typo in a judge id or, A Core-20 run must not overwrite the Core-8 blocks that licensed it., C1 needs judges that could plausibly be redundant given a sibling.      Core-8 d, test_core20_has_within_family_pairs(), test_panel_weight_is_the_bf16_total(), test_panels_write_to_separate_directories() (+1 more)
 
 ### Community 3 - "test_sparse_and_risk.py"
-Cohesion: 0.11
-Nodes (32): base_item_id(), build_pairs(), grouped_split(), is_tie_row(), Turn base tasks into at most `max_pairs` judged pairs each.      Non-tie tasks p, Assign base tasks to FIT / CERT / TEST, stratified and grouped.      Splitting h, Grouping key. Plain `id` collides across subsets, so qualify it., normalize_label_scores() (+24 more)
+Cohesion: 0.12
+Nodes (30): base_item_id(), build_pairs(), grouped_split(), is_tie_row(), Turn base tasks into at most `max_pairs` judged pairs each.      Non-tie tasks p, Assign base tasks to FIT / CERT / TEST, stratified and grouped.      Splitting h, Grouping key. Plain `id` collides across subsets, so qualify it., normalize_label_scores() (+22 more)
 
 ### Community 4 - "2. Algorithms"
 Cohesion: 0.11
@@ -150,8 +151,8 @@ Cohesion: 0.19
 Nodes (19): beta_coverage(), joint_feasible(), ndarray, quality_eligible_set(), Task-error preservation (the "beta" constraint).  The gamma constraint bounds *b, Models whose OWN task error on the shared eval sample is <= beta.      The quali, Feasibility under BOTH constraints: E(S) <= gamma and B(S) <= beta.      Drop-in, Per-model (err_orig, err_sub, delta) on the eval sample.      Models inside S su (+11 more)
 
 ### Community 8 - "__init__.py"
-Cohesion: 0.23
-Nodes (12): _objective_and_subgradients(), ndarray, Three-class judge outputs: total-variation loss and worst-context fitting.  An L, Each context's mean TV at `w`, and a subgradient of each in w.      ``f_c(w) = (, The same minimax fit by cutting planes, without the per-item slacks.      The mo, Fit one simplex weight vector that minimises the worst context's mean TV.      D, solve_minimax_weights(), solve_minimax_weights_cuts() (+4 more)
+Cohesion: 0.13
+Nodes (15): context_errors(), _objective_and_subgradients(), ndarray, Three-class judge outputs: total-variation loss and worst-context fitting.  An L, Mean TV error of the reconstruction of `target_idx`, one value per context., Each context's mean TV at `w`, and a subgradient of each in w.      ``f_c(w) = (, Fit one simplex weight vector that minimises the worst context's mean TV.      D, solve_minimax_weights() (+7 more)
 
 ### Community 9 - "coverage.py"
 Cohesion: 0.14
@@ -182,16 +183,16 @@ Cohesion: 0.22
 Nodes (3): Doc, Heading, Flow blocks onto pages. Returns {heading label: page number}.
 
 ### Community 18 - "build_or_load_bundle"
-Cohesion: 0.14
-Nodes (20): curved_arc(), Judges evenly spaced on a circular arc around the centre of the simplex.      In, Planar gap between an interior arc judge and the chord of its neighbours., sagitta(), _block(), Tests for three-class judge coverage under worst-context total variation., S subset of T implies E_fit(T) <= E_fit(S), on the same fitting data., Neighbour reconstruction error on an arc scales like k^-2. (+12 more)
+Cohesion: 0.12
+Nodes (24): JudgeCoverageFunctional, Coverage functional for three-class judge panels under worst-context TV.      De, curved_arc(), Judges evenly spaced on a circular arc around the centre of the simplex.      In, Planar gap between an interior arc judge and the chord of its neighbours., sagitta(), _block(), Tests for three-class judge coverage under worst-context total variation. (+16 more)
 
 ### Community 19 - "Para"
 Cohesion: 0.24
 Nodes (3): Para, _PreWrapped, Return (head, tail) blocks so that head fits in ``avail`` inches.
 
 ### Community 20 - "__init__.py"
-Cohesion: 0.06
-Nodes (60): context_errors(), Mean TV error of the reconstruction of `target_idx`, one value per context., Where a panel's cached (judge, context) blocks live., scores_dir(), backward_chain(), evaluate(), find_specialists(), loo_redundancy() (+52 more)
+Cohesion: 0.09
+Nodes (49): backward_chain(), evaluate(), find_specialists(), loo_redundancy(), main(), only_contexts(), per_context_loo(), Experiment C4 -- stress specialists and multi-context robust selection.  Claim C (+41 more)
 
 ### Community 21 - "doclib.py"
 Cohesion: 0.24
@@ -206,56 +207,56 @@ Cohesion: 0.25
 Nodes (3): Eq, measure(), Width and height of a rendered string, in inches.
 
 ### Community 25 - "smoke_core8.py"
-Cohesion: 0.14
-Nodes (30): panel_weight_gb(), Approximate bf16 download size of a set of judges, in GB., canonicalize(), Context, One registered evaluation condition.      `swap` exchanges the two responses, wh, Map probabilities back to canonical response identity.      Under an order swap, read_pairs(), Canonical three-class probabilities for every pair under one context.      Retur (+22 more)
+Cohesion: 0.15
+Nodes (27): panel_weight_gb(), Rebuild the scored judge panel from the cached (judge, context) blocks.  Two see, Approximate bf16 download size of a set of judges, in GB., A deterministic domain-balanced subset, for smoke runs and audits., read_pairs(), stratified_subset(), _cache_path(), _check_model_access() (+19 more)
 
 ### Community 26 - "build.py"
 Cohesion: 0.60
 Nodes (4): build(), cover(), make_toc(), Build JUDGE_PANEL_GEOMETRY.pdf -- a visual math companion to the LLM judge-panel
 
 ### Community 29 - "Context"
-Cohesion: 0.27
-Nodes (8): Rebuild the scored judge panel from the cached (judge, context) blocks.  Two see, _digest(), RewardBench 2 -> judged pairs, and the grouped stratified split.  Verified again, A deterministic domain-balanced subset, for smoke runs and audits., Stable 64-bit integer from the string form of `parts`., Indices of the `k` candidates whose (seed, key, content) hash is smallest., _select_deterministically(), stratified_subset()
+Cohesion: 0.20
+Nodes (16): analyse(), dependency_cycles(), leave_one_out(), loo_breakpoints(), main(), main_real(), ndarray, Experiment E0 -- individual redundancy certificates do not compose (claim C1). (+8 more)
 
 ### Community 30 - "rewardbench.py"
 Cohesion: 0.25
 Nodes (10): _build_cloud(), _coverage(), Task-1 sanity checks on a tiny synthetic cloud with a KNOWN answer.  Constructio, Every returned set must satisfy E(S) <= gamma., 3 triangle vertices + 5 strictly-interior points -> Y of shape (2, 8)., Backward must return EXACTLY the 3 hull vertices, with E <= gamma and no     fur, Forward's first feasible prefix must CONTAIN all 3 hull vertices, and be     fea, test_backward_returns_exact_hull_vertices() (+2 more)
 
 ### Community 31 - "LabelScorer"
-Cohesion: 0.19
-Nodes (8): LabelScorer, ndarray, Record how each label encodes, and whether the labels are comparable., Wrap the prompt in the model's official chat template.          Qwen 3 exposes a, Three-class probabilities for one rendered prompt., Three-class probabilities for a batch of rendered prompts., Exact sequence log-likelihood of a multi-token label., Scores rendered prompts against the labels A, B and C.      Loading is lazy so i
+Cohesion: 0.17
+Nodes (10): LabelScorer, ndarray, Record how each label encodes, and whether the labels are comparable., Wrap the prompt in the model's official chat template.          Qwen 3 exposes a, Three-class probabilities for one rendered prompt., Three-class probabilities for a batch of rendered prompts., Exact sequence log-likelihood of a multi-token label., Canonical three-class probabilities for every pair under one context.      Retur (+2 more)
 
 ### Community 32 - "BackwardEliminationPruner"
-Cohesion: 0.08
-Nodes (45): JudgeCoverageFunctional, Coverage functional for three-class judge panels under worst-context TV.      De, analyse(), dependency_cycles(), greedy_feasible_panel(), leave_one_out(), loo_breakpoints(), main() (+37 more)
+Cohesion: 0.16
+Nodes (24): greedy_feasible_panel(), min_feasible_panel(), Backward elimination down to the tolerance: an upper bound on the minimum., Smallest panel meeting the tolerance, exhaustively while that is affordable., _cov(), Tests for E0's minimum-feasible-panel search and its evaluation budget.  The exh, `is_exact` tracks whether the size is pinned down, not how it was found.      If, E0's synthetic instances must not silently degrade to bounds. (+16 more)
 
 ### Community 33 - "build_or_load_bundle"
 Cohesion: 0.27
 Nodes (11): build_or_load_bundle(), build_xy(), _load_raw_csv(), prepare_utd19(), DataFrame, ndarray, Shared UTD19 data loading, preprocessing, and per-city model training.  Trained, Load data, train per-city models, build Y_fit/Y_eval. Cache everything. (+3 more)
 
 ### Community 34 - "SubstitutionCertificate"
-Cohesion: 0.18
-Nodes (7): JudgeResponses, Three-class judge probabilities grouped by evaluation context.      ``blocks[c]`, Total number of items across all contexts., A judge sitting inside the hull is recovered with the right weights., test_exact_convex_combination_is_reconstructed(), Per-context averaging under the cut method, mirroring the LP's rows., test_a_context_with_a_single_item_is_not_drowned_out()
+Cohesion: 0.11
+Nodes (27): JudgeResponses, Total variation between three-class rows, along the last axis., Three-class judge probabilities grouped by evaluation context.      ``blocks[c]`, Total number of items across all contexts., total_variation(), _chain_from_labels(), judge_matrix(), _medoid() (+19 more)
 
 ### Community 36 - "render"
 Cohesion: 0.29
 Nodes (5): PruningResult, PruningStep, Greedy backward sweep: remove any model whose removal keeps E(S) <= gamma., Remove-k-add-(k-1) local search to shrink |S| past the phase-2 local minimum., Trim redundant models, then package the result.
 
 ### Community 37 - "synthetic_judges.py"
-Cohesion: 0.06
-Nodes (59): Total variation between three-class rows, along the last axis., total_variation(), _design(), fit_weights(), ndarray, Reconstruction baselines (plan section 21.3).  Selection decides *which* judges, Error of a fitted weight vector on a held-out split.      ``off_simplex_frac`` i, Flatten to a plain least-squares problem ``A w ~= b``.      A row is one (contex (+51 more)
+Cohesion: 0.13
+Nodes (30): fit_weights(), ndarray, Error of a fitted weight vector on a held-out split.      ``off_simplex_frac`` i, Fit one weight vector over `kept` that reconstructs `target` on FIT., score_weights(), lowrank_floor(), Rank-k reconstruction error using any subspace, not just real judges.      This, Properties the C3 comparison depends on.  C3 is an equal-k, equal-cost head-to-h (+22 more)
 
 ### Community 38 - "load_panel"
-Cohesion: 0.13
-Nodes (24): Reference implementation of the minimax fit, as one monolithic LP.      Solves,, solve_minimax_weights_lp(), _random_panel(), The cutting-plane minimax fit must agree with the monolithic LP.  `solve_minimax, The case the minimax formulation exists for; both must split the weight., The refinement is constrained by the stage-one optimum, not a re-solve., Certificates are only meaningful if the error and the weights match., A silently unconverged fit would corrupt every downstream claim. (+16 more)
+Cohesion: 0.11
+Nodes (38): Reference implementation of the minimax fit, as one monolithic LP.      Solves,, The same minimax fit by cutting planes, without the per-item slacks.      The mo, solve_minimax_weights_cuts(), solve_minimax_weights_lp(), worst_context_error(), _pinned_panel(), _random_panel(), The cutting-plane minimax fit must agree with the monolithic LP.  `solve_minimax (+30 more)
 
 ### Community 39 - "experiment_replay_forward_seeds.py"
 Cohesion: 0.11
 Nodes (33): c1_headline(), c1_table(), c2_table(), c3_cost_table(), c3_headline(), c3_paired_table(), c3_split_robustness(), c3_table() (+25 more)
 
 ### Community 40 - "export_results.py"
-Cohesion: 0.14
-Nodes (26): build_summary(), build_tables(), _c1_section(), _c2_section(), _c3_paired_section(), _c3_robustness_section(), _c3_section(), _c4_section() (+18 more)
+Cohesion: 0.13
+Nodes (28): build_summary(), build_tables(), _c1_section(), _c2_section(), _c3_paired_section(), _c3_robustness_section(), _c3_section(), _c4_section() (+20 more)
 
 ### Community 41 - "manifest.json"
 Cohesion: 0.14
@@ -282,8 +283,8 @@ Cohesion: 0.27
 Nodes (10): load_panel(), Rebuild the response tensor, optionally re-splitting it under another seed., The split seeds must re-partition one fixed item universe.  E1 needs confidence, Otherwise the 'bands' would be five copies of one number., _splits(), test_every_split_seed_covers_the_same_item_universe(), test_resplitting_keeps_the_judges_and_the_item_total(), test_split_seed_defaults_to_the_pairs_seed() (+2 more)
 
 ### Community 47 - "test_duplicate_judges_are_not_both_selected_early"
-Cohesion: 0.20
-Nodes (12): EPCRC: Ecosystem Pruning via Convex Routing Coverage.  Minimal implementation fo, JudgedPair, One JSON object per line, so the scorer can stream it., One A-versus-B comparison put to a judge.      `gold_label` is "A", "B" or "C";, write_pairs(), accuracy_report(), argmax_labels(), Deterministic three-label probability extraction from an open-weight judge.  The (+4 more)
+Cohesion: 0.10
+Nodes (30): EPCRC: Ecosystem Pruning via Convex Routing Coverage.  Minimal implementation fo, canonical_gold_label(), canonicalize(), Context, prompt_sha256(), protocol_hashes(), Frozen judge prompt protocols, interventions, and prompt rendering.  The retaine, One registered evaluation condition.      `swap` exchanges the two responses, wh (+22 more)
 
 ### Community 62 - "synthetic_judges.py"
 Cohesion: 0.14
@@ -294,39 +295,43 @@ Cohesion: 0.12
 Nodes (16): _c4_payload(), A C4 result file with dictated errors, summarised by the experiment itself., The sign convention is the whole claim, so it is pinned explicitly.      `delta`, A positive mean delta carried by one seed must not read as a clean win., A judge flagged under one partition is a candidate, not a finding., A split result has to say so in the prose, not just in the table., The real Core-19 shape: unanimous vs the pipeline, not vs selection alone., The figure must survive the no-specialists case too, not just the happy one. (+8 more)
 
 ### Community 64 - "synthetic_judges.py"
-Cohesion: 0.18
-Nodes (15): duplicated_extremes(), _panel(), ndarray, _random_interior(), Controlled judge panels whose correct answer is known before running anything., Barycentric coordinates of planar points, i.e. their distributions., Uniform points inside the triangle, via Dirichlet barycentric weights., Turn planar judge positions into an (n_items, n_judges, 3) block. (+7 more)
+Cohesion: 0.22
+Nodes (13): duplicated_extremes(), _panel(), ndarray, _random_interior(), Controlled judge panels whose correct answer is known before running anything., Barycentric coordinates of planar points, i.e. their distributions., Uniform points inside the triangle, via Dirichlet barycentric weights., Turn planar judge positions into an (n_items, n_judges, 3) block. (+5 more)
 
 ### Community 65 - "total_variation"
 Cohesion: 0.22
 Nodes (9): A C3 file carrying only what the summary's Setup block reads., A short panel is a deviation from the plan, not a design choice.      Every numb, The recorded counts are rows, and a row is a comparison pair.      One base item, The notice must not fire on a full panel, or it stops meaning anything., _setup_only_c3(), _summary_setup(), test_summary_calls_the_split_counts_pairs_not_items(), test_summary_claims_no_deviation_when_the_panel_is_complete() (+1 more)
 
 ### Community 66 - "audit_algorithms.py"
-Cohesion: 0.17
-Nodes (14): canonical_gold_label(), prompt_sha256(), protocol_hashes(), Frozen judge prompt protocols, interventions, and prompt rendering.  The retaine, Hashes of the frozen templates, recorded once per run., The gold label as the judge sees it under a context., load_reward_bench_2(), Checksummed record of one split, so results can be traced to their data. (+6 more)
+Cohesion: 0.20
+Nodes (13): _digest(), load_reward_bench_2(), RewardBench 2 -> judged pairs, and the grouped stratified split.  Verified again, Checksummed record of one split, so results can be traced to their data., One JSON object per line, so the scorer can stream it., Stable 64-bit integer from the string form of `parts`., Load the raw dataset. Pin `revision` before formal inference., Indices of the `k` candidates whose (seed, key, content) hash is smallest. (+5 more)
 
 ### Community 67 - "test_the_free_contexts_are_still_fitted_when_others_pin_the_maximum"
 Cohesion: 0.33
 Nodes (6): _e0_payload(), The strongest form of C1 must not be dropped in favour of the weaker one.      O, One removable judge is not a composition test, so it must not be claimed., A minimal E0 file. `declared_rows` are (gamma, removable, coverage) triples., test_c1_claims_nothing_about_the_predeclared_grid_when_it_is_vacuous(), test_c1_reports_a_violation_at_a_predeclared_tolerance()
 
 ### Community 68 - "test_the_free_contexts_are_still_fitted_when_others_pin_the_maximum"
-Cohesion: 0.33
-Nodes (6): _pinned_panel(), A panel where `n_pinned` contexts pin the maximum and `n_free` are slack.      A, The regression the tie-break exists to prevent, at every mix of contexts.      W, `_TIE_BREAK` has to clear the convergence tolerance to do anything.      Tied we, test_the_free_contexts_are_still_fitted_when_others_pin_the_maximum(), test_the_tie_break_weight_is_strong_enough_to_be_seen()
+Cohesion: 0.20
+Nodes (9): 1. J07 is the second-most redundant judge in the panel, 2. The errors are identical to four decimals up to k = 17, 3. Claim by claim, C1 — non-composability: confirmed in both, stronger at twenty, C2 — compression frontier: fails as declared in both, C3 — coverage selection beats the baselines: same ranking, lower errors, C4 — stress specialists: identical finding, larger effect, Practical consequence (+1 more)
+
+### Community 72 - "MinFeasible"
+Cohesion: 0.67
+Nodes (3): MinFeasible, Smallest panel meeting a tolerance, with how well that size is pinned down., NamedTuple
 
 ## Knowledge Gaps
-- **50 isolated node(s):** `graphify`, `EPCRC`, `Routing semantics`, `2.1 Forward selection (`forward`)`, `2.2 Forward selection with trimming (`forward_trim`)` (+45 more)
+- **57 isolated node(s):** `graphify`, `EPCRC`, `Routing semantics`, `2.1 Forward selection (`forward`)`, `2.2 Forward selection with trimming (`forward_trim`)` (+52 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `JudgeResponses` connect `SubstitutionCertificate` to `BackwardEliminationPruner`, `synthetic_judges.py`, `test_the_free_contexts_are_still_fitted_when_others_pin_the_maximum`, `synthetic_judges.py`, `load_panel`, `milp_min_representative_set`, `__init__.py`, `manifest.json`, `CoverageFunctional`, `C3 — coverage-based selection beats the baselines`, `test_duplicate_judges_are_not_both_selected_early`, `build_or_load_bundle`, `__init__.py`, `smoke_core8.py`, `Context`, `synthetic_judges.py`?**
-  _High betweenness centrality (0.221) - this node is a cross-community bridge._
-- **Why does `CoverageFunctional` connect `CoverageFunctional` to `BackwardEliminationPruner`, `BackwardEliminationPruner`, `SubstitutionCertificate`, `render`, `test_task_error.py`, `__init__.py`, `coverage.py`, `PriorityQueuePruner`, `test_sparse_and_risk.py`, `test_duplicate_judges_are_not_both_selected_early`, `experiment_0_warm_forward.py`, `experiment_forward_beats_backward.py`, `rewardbench.py`?**
-  _High betweenness centrality (0.116) - this node is a cross-community bridge._
+- **Why does `JudgeResponses` connect `SubstitutionCertificate` to `synthetic_judges.py`, `BackwardEliminationPruner`, `synthetic_judges.py`, `load_panel`, `milp_min_representative_set`, `__init__.py`, `manifest.json`, `CoverageFunctional`, `C3 — coverage-based selection beats the baselines`, `test_duplicate_judges_are_not_both_selected_early`, `build_or_load_bundle`, `__init__.py`, `smoke_core8.py`, `synthetic_judges.py`?**
+  _High betweenness centrality (0.216) - this node is a cross-community bridge._
+- **Why does `CoverageFunctional` connect `CoverageFunctional` to `BackwardEliminationPruner`, `SubstitutionCertificate`, `render`, `test_task_error.py`, `__init__.py`, `coverage.py`, `PriorityQueuePruner`, `test_sparse_and_risk.py`, `test_duplicate_judges_are_not_both_selected_early`, `experiment_0_warm_forward.py`, `build_or_load_bundle`, `experiment_forward_beats_backward.py`, `rewardbench.py`?**
+  _High betweenness centrality (0.114) - this node is a cross-community bridge._
 - **Why does `summarise()` connect `__init__.py` to `run_all.py`, `_c4_payload`?**
-  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
 - **Are the 13 inferred relationships involving `CoverageFunctional` (e.g. with `DISCOSolver` and `JudgeCoverageFunctional`) actually correct?**
   _`CoverageFunctional` has 13 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 3 inferred relationships involving `JudgeResponses` (e.g. with `CoverageFunctional` and `SubstitutionCertificate`) actually correct?**
