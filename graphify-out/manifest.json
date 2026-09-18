@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "experiments/export_results.py": {
-    "mtime": 1789762112.543713,
-    "ast_hash": "6e881eb043faba0b0cd17a47a8b2b569",
+    "mtime": 1789762802.5324137,
+    "ast_hash": "ef9c804fc347279cc71b024ff64471f5",
     "semantic_hash": ""
   },
   "experiments/score_panel.py": {
@@ -815,8 +815,8 @@
     "semantic_hash": ""
   },
   "tests/test_report_and_export.py": {
-    "mtime": 1789762136.533388,
-    "ast_hash": "8ee604e793f672627146348e570d2576",
+    "mtime": 1789762822.3413298,
+    "ast_hash": "96c4e02dbd7069feb5fd88a0909805f6",
     "semantic_hash": ""
   },
   "docs/SERVER_RUNBOOK.md": {
@@ -1737,6 +1737,11 @@
   "results/e6_sparse_cost_core20.json": {
     "mtime": 1789758132.7856114,
     "ast_hash": "e6b7cd151fcfb5435134a1e2cd3d5a90",
+    "semantic_hash": ""
+  },
+  "DECISIONS.md": {
+    "mtime": 1789762777.682784,
+    "ast_hash": "a5be8ef3201bca2004aed42e9d25a408",
     "semantic_hash": ""
   }
 }
