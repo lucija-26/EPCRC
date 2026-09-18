@@ -2016,6 +2016,10 @@ def _deviations_section(panel: str, inputs: Dict[str, str]) -> List[str]:
         "cover partition variance only and not sampling variance in the "
         "judges' own outputs.",
         "",
+        "This list is the short form. `DECISIONS.md`, in this package, is the "
+        "full record section 1 asks for: every scientific choice, what the plan "
+        "said, why the choice was made, and what it costs the result.",
+        "",
     ]
     return lines
 
@@ -2216,6 +2220,13 @@ def export(panel: str, out_dir: Optional[str] = None,
 
     with open(os.path.join(out_dir, "RESULT_INDEX.json"), "w") as handle:
         json.dump(build_result_index(panel, inputs, prov), handle, indent=2)
+
+    # Section 1 makes DECISIONS.md the record of every scientific choice, and
+    # the report's deviations section is only its short form.  It travels with
+    # the package so the deviations a reader is shown can be checked against
+    # the full list rather than taken on trust.
+    shutil.copy2(os.path.join(ROOT, "DECISIONS.md"),
+                 os.path.join(out_dir, "DECISIONS.md"))
 
     files = []
     for folder, _, names in os.walk(out_dir):

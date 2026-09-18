@@ -1053,6 +1053,18 @@ def test_every_script_the_report_tells_a_reader_to_run_exists():
         assert os.path.exists(os.path.join(E.ROOT, "experiments", name)), name
 
 
+def test_the_deviations_section_points_at_a_file_the_package_carries():
+    """Section 13 is the short list; DECISIONS.md is the record it defers to.
+
+    Both halves are asserted together, because a pointer to a document the
+    export does not copy sends the reader looking for a file that is not there.
+    """
+    text = "\n".join(E._deviations_section("core20", E.input_paths("core20")))
+
+    assert "DECISIONS.md" in text
+    assert os.path.exists(os.path.join(E.ROOT, "DECISIONS.md"))
+
+
 def test_a_null_result_is_dropped_when_its_claim_comes_back_supported():
     verdicts = {claim: "SUPPORTED" for claim, _, _ in E._FINAL_SECTIONS}
     text = "\n".join(
