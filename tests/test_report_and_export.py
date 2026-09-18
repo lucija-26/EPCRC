@@ -792,9 +792,8 @@ def test_c4_summary_section_states_the_verdict_it_earned(tmp_path):
     split_text = "\n".join(E._c4_section({"c4": split}))
     clean_text = "\n".join(E._c4_section({"c4": clean}))
 
-    assert "partially supported" in split_text
-    assert "Verdict: supported" in clean_text
-    assert "partially" not in clean_text
+    assert E.section_verdict(split_text.split("\n")) == "PARTIALLY SUPPORTED"
+    assert E.section_verdict(clean_text.split("\n")) == "SUPPORTED"
 
 
 def test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned(tmp_path):
@@ -811,8 +810,8 @@ def test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned(tmp_path
     )
     text = "\n".join(E._c4_section({"c4": path}))
 
-    assert "supported for the deployed pipeline" in text
-    assert "weak for selection alone" in text
+    assert E.section_verdict(text.split("\n")) == "PARTIALLY SUPPORTED"
+    assert "Strong for the deployed pipeline, weak for selection alone" in text
     assert "of the total effect is attributable to" in text
 
 
@@ -984,3 +983,80 @@ def test_the_c8_figure_draws_a_line_per_budget():
     # One line per budget plus the dashed uncapped reference.
     assert len(fig.axes[0].lines) == budgets + 1
     Fg.plt.close(fig)
+
+
+# --------------------------------------------------------------------------
+# FINAL_REPORT.md
+# --------------------------------------------------------------------------
+
+_FAKE_PROV = {"generated_utc": "x", "git_commit": "0" * 40, "git_branch": "t"}
+
+
+def test_the_final_report_has_the_section_66_headings_in_order():
+    """Section 66 fixes the structure, so it is checked rather than trusted."""
+    text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
+    headings = [l for l in text.split("\n") if l.startswith("## ")]
+
+    assert headings == [
+        "## 1. Executive Findings",
+        "## 2. Frozen Experimental Setting",
+        "## 3. Data and Panel Completeness",
+        "## 4. C1: Non-Composability",
+        "## 5. C2: Physical-to-Virtual Compression",
+        "## 6. C3: Baseline Comparison",
+        "## 7. C4: Robust Contexts and Specialists",
+        "## 8. C5: Downstream Preservation",
+        "## 9. C6: Exact Optimality and Exchange Structure",
+        "## 10. C7: Certification Reliability",
+        "## 11. Optional C8 Results",
+        "## 12. Negative and Null Results",
+        "## 13. Deviations from the Plan",
+        "## 14. Figure and Table Index",
+        "## 15. Reproduction Commands",
+        "## 16. Package Verification",
+    ]
+
+
+def test_every_claim_section_opens_with_one_of_the_four_allowed_words():
+    text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
+    allowed = {"SUPPORTED", "PARTIALLY SUPPORTED", "UNSUPPORTED",
+               "CONTRADICTED", "NOT RUN"}
+
+    for claim, heading, _ in E._FINAL_SECTIONS:
+        block = text.split(f"## {heading}\n\n")[1]
+        assert block.split("\n")[0].strip("* ") in allowed, claim
+
+
+def test_the_headline_verdict_comes_from_the_section_that_argues_it():
+    """A verdict stated twice can be changed in one place and not the other."""
+    for token in ("SUPPORTED", "PARTIALLY SUPPORTED", "UNSUPPORTED",
+                  "CONTRADICTED"):
+        assert E.section_verdict(
+            ["## X", "", f"**Verdict: {token}.** because"]) == token
+
+    assert E.section_verdict(["## X", "", "_Not run._"]) == "NOT RUN"
+    assert E.section_verdict(["## X", "", "no opinion"]) == "NO VERDICT"
+
+
+def test_the_section_66_heading_list_is_not_duplicated_inside_a_claim():
+    """A builder shipping its own `## C4 - ...` would add a heading section 66
+    does not have, so claim bodies are demoted to subheads."""
+    text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
+    body = text.split("## 7. C4")[1].split("\n## ")[0]
+
+    assert "### Backbone" in body
+
+
+def test_every_script_the_report_tells_a_reader_to_run_exists():
+    """A reproduction section naming a renamed script is worse than none."""
+    for name, _ in E.REPRODUCTION_SCRIPTS:
+        assert os.path.exists(os.path.join(E.ROOT, "experiments", name)), name
+
+
+def test_a_null_result_is_dropped_when_its_claim_comes_back_supported():
+    verdicts = {claim: "SUPPORTED" for claim, _, _ in E._FINAL_SECTIONS}
+    text = "\n".join(
+        E._negative_results_section(E.input_paths("core20"), verdicts))
+
+    assert "0 of 8 claims" in text
+    assert "- " not in text

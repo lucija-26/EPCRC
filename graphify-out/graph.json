@@ -2670,7 +2670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judge",
-      "community": 8,
+      "community": 38,
       "norm_label": "judge.py"
     },
     {
@@ -2690,7 +2690,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "epcrc_judge_judgeresponses_init",
-      "community": 8,
+      "community": 62,
       "norm_label": ".__init__()"
     },
     {
@@ -2700,7 +2700,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_judge_py_ndarray",
-      "community": 8,
+      "community": 38,
       "norm_label": "ndarray"
     },
     {
@@ -2740,7 +2740,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "epcrc_judge_total_variation",
-      "community": 62,
+      "community": 37,
       "norm_label": "total_variation()"
     },
     {
@@ -2750,7 +2750,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "epcrc_judge_context_errors",
-      "community": 8,
+      "community": 37,
       "norm_label": "context_errors()"
     },
     {
@@ -2760,7 +2760,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "epcrc_judge_worst_context_error",
-      "community": 8,
+      "community": 38,
       "norm_label": "worst_context_error()"
     },
     {
@@ -2780,7 +2780,7 @@
       "source_location": "L267",
       "_origin": "ast",
       "id": "epcrc_judge_objective_and_subgradients",
-      "community": 8,
+      "community": 38,
       "norm_label": "_objective_and_subgradients()"
     },
     {
@@ -2840,7 +2840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_1",
-      "community": 8,
+      "community": 38,
       "norm_label": "three-class judge outputs: total-variation loss and worst-context fitting.  an l"
     },
     {
@@ -2870,7 +2870,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_104",
-      "community": 62,
+      "community": 37,
       "norm_label": "total variation between three-class rows, along the last axis."
     },
     {
@@ -2880,7 +2880,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_114",
-      "community": 8,
+      "community": 37,
       "norm_label": "mean tv error of the reconstruction of `target_idx`, one value per context."
     },
     {
@@ -2900,7 +2900,7 @@
       "source_location": "L272",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_272",
-      "community": 8,
+      "community": 38,
       "norm_label": "each context's mean tv at `w`, and a subgradient of each in w.      ``f_c(w) = ("
     },
     {
@@ -2940,7 +2940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judgebench",
-      "community": 70,
+      "community": 66,
       "norm_label": "judgebench.py"
     },
     {
@@ -2980,7 +2980,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "epcrc_judgebench_coverage_summary",
-      "community": 70,
+      "community": 66,
       "norm_label": "coverage_summary()"
     },
     {
@@ -2990,7 +2990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judgebench_rationale_1",
-      "community": 70,
+      "community": 66,
       "norm_label": "judgebench -> judged pairs, for the cross-benchmark transfer experiment (e7).  `"
     },
     {
@@ -3030,7 +3030,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "epcrc_judgebench_rationale_93",
-      "community": 70,
+      "community": 66,
       "norm_label": "counts a reader needs to see before trusting an e7 transfer number."
     },
     {
@@ -3250,7 +3250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_panel",
-      "community": 29,
+      "community": 25,
       "norm_label": "panel.py"
     },
     {
@@ -3270,7 +3270,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "epcrc_panel_scores_dir",
-      "community": 64,
+      "community": 75,
       "norm_label": "scores_dir()"
     },
     {
@@ -3280,7 +3280,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "epcrc_panel_pairs_path",
-      "community": 29,
+      "community": 25,
       "norm_label": "pairs_path()"
     },
     {
@@ -3290,7 +3290,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "epcrc_panel_split_path",
-      "community": 29,
+      "community": 25,
       "norm_label": "split_path()"
     },
     {
@@ -3300,7 +3300,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "epcrc_panel_panel",
-      "community": 47,
+      "community": 20,
       "norm_label": "panel"
     },
     {
@@ -3310,7 +3310,7 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "epcrc_panel_panel_init",
-      "community": 47,
+      "community": 25,
       "norm_label": ".__init__()"
     },
     {
@@ -3320,7 +3320,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_panel_py_ndarray",
-      "community": 47,
+      "community": 25,
       "norm_label": "ndarray"
     },
     {
@@ -3330,7 +3330,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "epcrc_panel_panel_n",
-      "community": 47,
+      "community": 20,
       "norm_label": ".n()"
     },
     {
@@ -3340,7 +3340,7 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "epcrc_panel_rawpanel",
-      "community": 29,
+      "community": 25,
       "norm_label": "rawpanel"
     },
     {
@@ -3350,7 +3350,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "epcrc_panel_rawpanel_init",
-      "community": 47,
+      "community": 25,
       "norm_label": ".__init__()"
     },
     {
@@ -3360,7 +3360,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "epcrc_panel_load_raw_panel",
-      "community": 29,
+      "community": 25,
       "norm_label": "load_raw_panel()"
     },
     {
@@ -3380,7 +3380,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "epcrc_panel_load_panel",
-      "community": 46,
+      "community": 20,
       "norm_label": "load_panel()"
     },
     {
@@ -3390,7 +3390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_1",
-      "community": 29,
+      "community": 25,
       "norm_label": "rebuild the scored judge panel from the cached (judge, context) blocks.  two see"
     },
     {
@@ -3410,7 +3410,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_95",
-      "community": 64,
+      "community": 75,
       "norm_label": "where a panel's cached (judge, context) blocks live."
     },
     {
@@ -3420,7 +3420,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_115",
-      "community": 47,
+      "community": 20,
       "norm_label": "the scored panel, split into fit / cert / test along the item axis.      ``split"
     },
     {
@@ -3430,7 +3430,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_155",
-      "community": 29,
+      "community": 25,
       "norm_label": "the scored tensor before any fit / cert / test partition is applied.      loadin"
     },
     {
@@ -3440,7 +3440,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_184",
-      "community": 29,
+      "community": 25,
       "norm_label": "read the cached blocks into one unsplit tensor."
     },
     {
@@ -3460,7 +3460,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_266",
-      "community": 46,
+      "community": 20,
       "norm_label": "rebuild the response tensor, optionally re-splitting it under another seed."
     },
     {
@@ -3470,7 +3470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_prompts",
-      "community": 25,
+      "community": 66,
       "norm_label": "prompts.py"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "epcrc_prompts_context",
-      "community": 25,
+      "community": 29,
       "norm_label": "context"
     },
     {
@@ -3490,7 +3490,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "epcrc_prompts_render",
-      "community": 25,
+      "community": 29,
       "norm_label": "render()"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "epcrc_prompts_prompt_sha256",
-      "community": 25,
+      "community": 66,
       "norm_label": "prompt_sha256()"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "epcrc_prompts_protocol_hashes",
-      "community": 25,
+      "community": 66,
       "norm_label": "protocol_hashes()"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "epcrc_prompts_canonicalize",
-      "community": 25,
+      "community": 29,
       "norm_label": "canonicalize()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "epcrc_prompts_canonical_gold_label",
-      "community": 25,
+      "community": 3,
       "norm_label": "canonical_gold_label()"
     },
     {
@@ -3540,7 +3540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_1",
-      "community": 25,
+      "community": 66,
       "norm_label": "frozen judge prompt protocols, interventions, and prompt rendering.  the retaine"
     },
     {
@@ -3550,7 +3550,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_128",
-      "community": 25,
+      "community": 29,
       "norm_label": "one registered evaluation condition.      `swap` exchanges the two responses, wh"
     },
     {
@@ -3560,7 +3560,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_174",
-      "community": 25,
+      "community": 29,
       "norm_label": "render one prompt under a context.      interventions are applied to the *conten"
     },
     {
@@ -3570,7 +3570,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_216",
-      "community": 25,
+      "community": 66,
       "norm_label": "hashes of the frozen templates, recorded once per run."
     },
     {
@@ -3580,7 +3580,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_221",
-      "community": 25,
+      "community": 29,
       "norm_label": "map probabilities back to canonical response identity.      under an order swap"
     },
     {
@@ -3590,7 +3590,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_234",
-      "community": 25,
+      "community": 3,
       "norm_label": "the gold label as the judge sees it under a context."
     },
     {
@@ -4630,7 +4630,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "epcrc_rewardbench_judgedpair",
-      "community": 79,
+      "community": 66,
       "norm_label": "judgedpair"
     },
     {
@@ -4640,7 +4640,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "epcrc_rewardbench_digest",
-      "community": 66,
+      "community": 3,
       "norm_label": "_digest()"
     },
     {
@@ -4680,7 +4680,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "epcrc_rewardbench_select_deterministically",
-      "community": 66,
+      "community": 3,
       "norm_label": "_select_deterministically()"
     },
     {
@@ -4700,7 +4700,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "epcrc_rewardbench_grouped_split",
-      "community": 66,
+      "community": 3,
       "norm_label": "grouped_split()"
     },
     {
@@ -4740,7 +4740,7 @@
       "source_location": "L241",
       "_origin": "ast",
       "id": "epcrc_rewardbench_stratified_subset",
-      "community": 29,
+      "community": 25,
       "norm_label": "stratified_subset()"
     },
     {
@@ -4760,7 +4760,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_47",
-      "community": 79,
+      "community": 66,
       "norm_label": "one a-versus-b comparison put to a judge.      `gold_label` is \"a\", \"b\" or \"c\";"
     },
     {
@@ -4770,7 +4770,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_68",
-      "community": 66,
+      "community": 3,
       "norm_label": "stable 64-bit integer from the string form of `parts`."
     },
     {
@@ -4800,7 +4800,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_92",
-      "community": 66,
+      "community": 3,
       "norm_label": "indices of the `k` candidates whose (seed, key, content) hash is smallest."
     },
     {
@@ -4820,7 +4820,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_170",
-      "community": 66,
+      "community": 3,
       "norm_label": "assign base tasks to fit / cert / test, stratified and grouped.      splitting h"
     },
     {
@@ -4850,7 +4850,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_244",
-      "community": 29,
+      "community": 25,
       "norm_label": "a deterministic domain-balanced subset, for smoke runs and audits."
     },
     {
@@ -4990,7 +4990,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "epcrc_scoring_normalize_label_scores",
-      "community": 3,
+      "community": 79,
       "norm_label": "normalize_label_scores()"
     },
     {
@@ -5000,7 +5000,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_scoring_py_ndarray",
-      "community": 34,
+      "community": 79,
       "norm_label": "ndarray"
     },
     {
@@ -5120,7 +5120,7 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "epcrc_scoring_score_pairs",
-      "community": 34,
+      "community": 29,
       "norm_label": "score_pairs()"
     },
     {
@@ -5180,7 +5180,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_64",
-      "community": 3,
+      "community": 79,
       "norm_label": "softmax over the three candidate log-likelihoods.      shifted by the maximum be"
     },
     {
@@ -5250,7 +5250,7 @@
       "source_location": "L264",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_264",
-      "community": 34,
+      "community": 29,
       "norm_label": "canonical three-class probabilities for every pair under one context.      retur"
     },
     {
@@ -6310,7 +6310,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_judge_seconds",
-      "community": 64,
+      "community": 6,
       "norm_label": "judge_seconds()"
     },
     {
@@ -6320,7 +6320,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_select_cost_ascending",
-      "community": 47,
+      "community": 6,
       "norm_label": "select_cost_ascending()"
     },
     {
@@ -6330,7 +6330,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_select_cost_descending",
-      "community": 47,
+      "community": 6,
       "norm_label": "select_cost_descending()"
     },
     {
@@ -6420,7 +6420,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_build_selectors",
-      "community": 41,
+      "community": 6,
       "norm_label": "build_selectors()"
     },
     {
@@ -6500,7 +6500,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_rationale_71",
-      "community": 64,
+      "community": 6,
       "norm_label": "measured inference seconds per judge, summed over its context blocks.      cache"
     },
     {
@@ -6510,7 +6510,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_rationale_88",
-      "community": 47,
+      "community": 6,
       "norm_label": "section 21.1 'cheapest models first'."
     },
     {
@@ -6520,7 +6520,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_rationale_94",
-      "community": 47,
+      "community": 6,
       "norm_label": "section 21.1 'largest models first', using measured cost as the size proxy."
     },
     {
@@ -6590,7 +6590,7 @@
       "source_location": "L298",
       "_origin": "ast",
       "id": "experiments_experiment_c3_baselines_rationale_298",
-      "community": 41,
+      "community": 6,
       "norm_label": "every competitor in the c3 comparison, keyed by name."
     },
     {
@@ -7000,7 +7000,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_exactsearch_feasible",
-      "community": 8,
+      "community": 2,
       "norm_label": "._feasible()"
     },
     {
@@ -7670,7 +7670,7 @@
       "source_location": "L315",
       "_origin": "ast",
       "id": "experiments_experiment_e1_compression_frontier_main",
-      "community": 64,
+      "community": 41,
       "norm_label": "main()"
     },
     {
@@ -7780,7 +7780,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "experiments_experiment_e6_sparse_cost_best_support",
-      "community": 8,
+      "community": 64,
       "norm_label": "_best_support()"
     },
     {
@@ -7790,7 +7790,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "experiments_experiment_e6_sparse_cost_sparse_certificates",
-      "community": 8,
+      "community": 64,
       "norm_label": "sparse_certificates()"
     },
     {
@@ -7850,7 +7850,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "experiments_experiment_e6_sparse_cost_rationale_112",
-      "community": 8,
+      "community": 64,
       "norm_label": "best support of size r for one target, by enumeration.      weights are fitted o"
     },
     {
@@ -7860,7 +7860,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "experiments_experiment_e6_sparse_cost_rationale_137",
-      "community": 8,
+      "community": 64,
       "norm_label": "coverage as a function of the support cap, at one panel."
     },
     {
@@ -8577,7 +8577,7 @@
       "label": "_c5_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L873",
+      "source_location": "L874",
       "_origin": "ast",
       "id": "experiments_export_results_c5_section",
       "community": 40,
@@ -8587,7 +8587,7 @@
       "label": "_c6_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1018",
+      "source_location": "L1019",
       "_origin": "ast",
       "id": "experiments_export_results_c6_section",
       "community": 40,
@@ -8597,7 +8597,7 @@
       "label": "_c7_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1134",
+      "source_location": "L1135",
       "_origin": "ast",
       "id": "experiments_export_results_c7_section",
       "community": 40,
@@ -8607,7 +8607,7 @@
       "label": "_c8_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1277",
+      "source_location": "L1278",
       "_origin": "ast",
       "id": "experiments_export_results_c8_section",
       "community": 40,
@@ -8617,7 +8617,7 @@
       "label": "_backbone_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1412",
+      "source_location": "L1415",
       "_origin": "ast",
       "id": "experiments_export_results_backbone_section",
       "community": 40,
@@ -8627,7 +8627,7 @@
       "label": "_setup_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1491",
+      "source_location": "L1494",
       "_origin": "ast",
       "id": "experiments_export_results_setup_section",
       "community": 40,
@@ -8637,7 +8637,7 @@
       "label": "_compliance_section()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1581",
+      "source_location": "L1584",
       "_origin": "ast",
       "id": "experiments_export_results_compliance_section",
       "community": 40,
@@ -8647,17 +8647,107 @@
       "label": "build_summary()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1661",
+      "source_location": "L1664",
       "_origin": "ast",
       "id": "experiments_export_results_build_summary",
       "community": 40,
       "norm_label": "build_summary()"
     },
     {
+      "label": "section_verdict()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1753",
+      "_origin": "ast",
+      "id": "experiments_export_results_section_verdict",
+      "community": 40,
+      "norm_label": "section_verdict()"
+    },
+    {
+      "label": "_claim_body()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1769",
+      "_origin": "ast",
+      "id": "experiments_export_results_claim_body",
+      "community": 40,
+      "norm_label": "_claim_body()"
+    },
+    {
+      "label": "build_final_report()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1785",
+      "_origin": "ast",
+      "id": "experiments_export_results_build_final_report",
+      "community": 40,
+      "norm_label": "build_final_report()"
+    },
+    {
+      "label": "_completeness_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1833",
+      "_origin": "ast",
+      "id": "experiments_export_results_completeness_section",
+      "community": 40,
+      "norm_label": "_completeness_section()"
+    },
+    {
+      "label": "_negative_results_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1888",
+      "_origin": "ast",
+      "id": "experiments_export_results_negative_results_section",
+      "community": 40,
+      "norm_label": "_negative_results_section()"
+    },
+    {
+      "label": "_deviations_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1943",
+      "_origin": "ast",
+      "id": "experiments_export_results_deviations_section",
+      "community": 40,
+      "norm_label": "_deviations_section()"
+    },
+    {
+      "label": "_index_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1980",
+      "_origin": "ast",
+      "id": "experiments_export_results_index_section",
+      "community": 40,
+      "norm_label": "_index_section()"
+    },
+    {
+      "label": "_reproduction_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2015",
+      "_origin": "ast",
+      "id": "experiments_export_results_reproduction_section",
+      "community": 40,
+      "norm_label": "_reproduction_section()"
+    },
+    {
+      "label": "_verification_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2045",
+      "_origin": "ast",
+      "id": "experiments_export_results_verification_section",
+      "community": 40,
+      "norm_label": "_verification_section()"
+    },
+    {
       "label": "copy_notebooks()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1726",
+      "source_location": "L2076",
       "_origin": "ast",
       "id": "experiments_export_results_copy_notebooks",
       "community": 40,
@@ -8667,7 +8757,7 @@
       "label": "export()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1760",
+      "source_location": "L2110",
       "_origin": "ast",
       "id": "experiments_export_results_export",
       "community": 40,
@@ -8677,7 +8767,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1848",
+      "source_location": "L2204",
       "_origin": "ast",
       "id": "experiments_export_results_main",
       "community": 40,
@@ -8757,9 +8847,9 @@
       "label": "Panel, contexts, splits and bootstrap size \u2014 what every claim below shares.",
       "file_type": "rationale",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1492",
+      "source_location": "L1495",
       "_origin": "ast",
-      "id": "experiments_export_results_rationale_1492",
+      "id": "experiments_export_results_rationale_1495",
       "community": 40,
       "norm_label": "panel, contexts, splits and bootstrap size \u2014 what every claim below shares."
     },
@@ -8767,19 +8857,109 @@
       "label": "Hand the plan's own evidence matrix back with the evidence filled in.      The p",
       "file_type": "rationale",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1582",
+      "source_location": "L1585",
       "_origin": "ast",
-      "id": "experiments_export_results_rationale_1582",
+      "id": "experiments_export_results_rationale_1585",
       "community": 40,
       "norm_label": "hand the plan's own evidence matrix back with the evidence filled in.      the p"
+    },
+    {
+      "label": "Read the plan's verdict token back out of a section's own prose.      Deliberate",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1754",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1754",
+      "community": 40,
+      "norm_label": "read the plan's verdict token back out of a section's own prose.      deliberate"
+    },
+    {
+      "label": "One claim's prose, with each builder's own heading demoted to a subhead.      Se",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1770",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1770",
+      "community": 40,
+      "norm_label": "one claim's prose, with each builder's own heading demoted to a subhead.      se"
+    },
+    {
+      "label": "The section 66 document, assembled from the sections SUMMARY.md uses.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1786",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1786",
+      "community": 40,
+      "norm_label": "the section 66 document, assembled from the sections summary.md uses."
+    },
+    {
+      "label": "Section 3. Which cells of the judge-by-context-by-item grid actually exist.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1834",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1834",
+      "community": 40,
+      "norm_label": "section 3. which cells of the judge-by-context-by-item grid actually exist."
+    },
+    {
+      "label": "Section 12. What did not work, kept as a section rather than a footnote.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1890",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1890",
+      "community": 40,
+      "norm_label": "section 12. what did not work, kept as a section rather than a footnote."
+    },
+    {
+      "label": "Section 13. Every place this run departs from the plan, named.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1944",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1944",
+      "community": 40,
+      "norm_label": "section 13. every place this run departs from the plan, named."
+    },
+    {
+      "label": "Section 14. Which file carries which number.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1981",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1981",
+      "community": 40,
+      "norm_label": "section 14. which file carries which number."
+    },
+    {
+      "label": "Section 15. The commands, in the order they must be run.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2016",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_2016",
+      "community": 40,
+      "norm_label": "section 15. the commands, in the order they must be run."
+    },
+    {
+      "label": "Section 16. How to check this package was not edited after the fact.",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2046",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_2046",
+      "community": 40,
+      "norm_label": "section 16. how to check this package was not edited after the fact."
     },
     {
       "label": "Render already-executed notebooks to HTML so they read without Jupyter.      Not",
       "file_type": "rationale",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1727",
+      "source_location": "L2077",
       "_origin": "ast",
-      "id": "experiments_export_results_rationale_1727",
+      "id": "experiments_export_results_rationale_2077",
       "community": 40,
       "norm_label": "render already-executed notebooks to html so they read without jupyter.      not"
     },
@@ -11310,7 +11490,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "tests_test_judgebench_test_judgebench_never_shares_a_cache_with_the_in_domain_run",
-      "community": 29,
+      "community": 25,
       "norm_label": "test_judgebench_never_shares_a_cache_with_the_in_domain_run()"
     },
     {
@@ -11320,7 +11500,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "tests_test_judgebench_test_unknown_dataset_names_are_refused",
-      "community": 64,
+      "community": 75,
       "norm_label": "test_unknown_dataset_names_are_refused()"
     },
     {
@@ -11350,7 +11530,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "tests_test_judgebench_rationale_79",
-      "community": 29,
+      "community": 25,
       "norm_label": "the block cache is keyed on (judge, context) only, so the paths must differ."
     },
     {
@@ -11790,7 +11970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_oracle_properties",
-      "community": 69,
+      "community": 8,
       "norm_label": "test_oracle_properties.py"
     },
     {
@@ -11800,7 +11980,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_permute",
-      "community": 69,
+      "community": 8,
       "norm_label": "_permute()"
     },
     {
@@ -11810,7 +11990,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_py_ndarray",
-      "community": 69,
+      "community": 8,
       "norm_label": "ndarray"
     },
     {
@@ -11820,7 +12000,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_test_permuting_judge_columns_changes_no_scalar_result",
-      "community": 69,
+      "community": 18,
       "norm_label": "test_permuting_judge_columns_changes_no_scalar_result()"
     },
     {
@@ -11870,7 +12050,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_simplex_grid",
-      "community": 69,
+      "community": 8,
       "norm_label": "_simplex_grid()"
     },
     {
@@ -11920,7 +12100,7 @@
       "source_location": "L277",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_test_the_extreme_judge_is_the_reported_bottleneck",
-      "community": 69,
+      "community": 8,
       "norm_label": "test_the_extreme_judge_is_the_reported_bottleneck()"
     },
     {
@@ -11930,7 +12110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_rationale_1",
-      "community": 69,
+      "community": 8,
       "norm_label": "the oracle tests plan section 17.3 requires of the coverage solver.  section 17."
     },
     {
@@ -11940,7 +12120,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_rationale_40",
-      "community": 69,
+      "community": 8,
       "norm_label": "reorder the judge axis; `order[new] = old`."
     },
     {
@@ -11950,7 +12130,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_rationale_48",
-      "community": 69,
+      "community": 18,
       "norm_label": "judge index is a label, so no reported number may depend on it.      the check i"
     },
     {
@@ -12000,7 +12180,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_rationale_170",
-      "community": 69,
+      "community": 8,
       "norm_label": "every weight vector on the m-simplex whose entries are multiples of 1/steps."
     },
     {
@@ -12040,7 +12220,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "tests_test_oracle_properties_rationale_278",
-      "community": 69,
+      "community": 8,
       "norm_label": "detecting the error is not enough; it must be attributed to the judge     that c"
     },
     {
@@ -12210,7 +12390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_panel_split_seeds.py"
     },
     {
@@ -12220,7 +12400,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_splits",
-      "community": 46,
+      "community": 20,
       "norm_label": "_splits()"
     },
     {
@@ -12230,7 +12410,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_test_every_split_seed_covers_the_same_item_universe",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_every_split_seed_covers_the_same_item_universe()"
     },
     {
@@ -12240,7 +12420,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_test_split_seeds_actually_disagree_about_membership",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_split_seeds_actually_disagree_about_membership()"
     },
     {
@@ -12250,7 +12430,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_test_splits_are_disjoint",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_splits_are_disjoint()"
     },
     {
@@ -12260,7 +12440,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_test_split_seed_defaults_to_the_pairs_seed",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_split_seed_defaults_to_the_pairs_seed()"
     },
     {
@@ -12270,7 +12450,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_test_resplitting_keeps_the_judges_and_the_item_total",
-      "community": 46,
+      "community": 20,
       "norm_label": "test_resplitting_keeps_the_judges_and_the_item_total()"
     },
     {
@@ -12280,7 +12460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_rationale_1",
-      "community": 46,
+      "community": 20,
       "norm_label": "the split seeds must re-partition one fixed item universe.  e1 needs confidence"
     },
     {
@@ -12290,7 +12470,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "tests_test_panel_split_seeds_rationale_45",
-      "community": 46,
+      "community": 20,
       "norm_label": "otherwise the 'bands' would be five copies of one number."
     },
     {
@@ -13007,7 +13187,7 @@
       "label": "test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L800",
+      "source_location": "L799",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned",
       "community": 63,
@@ -13017,7 +13197,7 @@
       "label": "test_c4_section_says_not_run_rather_than_failing()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L819",
+      "source_location": "L818",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c4_section_says_not_run_rather_than_failing",
       "community": 35,
@@ -13027,7 +13207,7 @@
       "label": "test_c4_figure_draws_from_the_same_tables_as_the_text()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L824",
+      "source_location": "L823",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c4_figure_draws_from_the_same_tables_as_the_text",
       "community": 63,
@@ -13037,7 +13217,7 @@
       "label": "test_save_all_writes_the_c4_figure_when_c4_exists()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L837",
+      "source_location": "L836",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_save_all_writes_the_c4_figure_when_c4_exists",
       "community": 63,
@@ -13047,7 +13227,7 @@
       "label": "test_c7_verdict_does_not_report_violations_the_data_does_not_contain()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L852",
+      "source_location": "L851",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c7_verdict_does_not_report_violations_the_data_does_not_contain",
       "community": 0,
@@ -13057,7 +13237,7 @@
       "label": "test_sections_say_not_run_rather_than_inventing_numbers()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L880",
+      "source_location": "L879",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_sections_say_not_run_rather_than_inventing_numbers",
       "community": 35,
@@ -13067,7 +13247,7 @@
       "label": "test_c8_prose_reads_the_cap_column_and_not_its_rendering()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L887",
+      "source_location": "L886",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c8_prose_reads_the_cap_column_and_not_its_rendering",
       "community": 82,
@@ -13077,7 +13257,7 @@
       "label": "test_c8_verdict_names_the_objectives_that_actually_disagreed()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L902",
+      "source_location": "L901",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_c8_verdict_names_the_objectives_that_actually_disagreed",
       "community": 83,
@@ -13087,7 +13267,7 @@
       "label": "test_backbone_section_only_claims_certification_it_has()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L918",
+      "source_location": "L917",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_backbone_section_only_claims_certification_it_has",
       "community": 35,
@@ -13097,7 +13277,7 @@
       "label": "test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L929",
+      "source_location": "L928",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding",
       "community": 84,
@@ -13107,7 +13287,7 @@
       "label": "test_build_tables_ships_the_c8_and_backbone_csvs()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L944",
+      "source_location": "L943",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_build_tables_ships_the_c8_and_backbone_csvs",
       "community": 35,
@@ -13117,7 +13297,7 @@
       "label": "test_the_backbone_figure_accounts_for_every_judge()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L958",
+      "source_location": "L957",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_the_backbone_figure_accounts_for_every_judge",
       "community": 85,
@@ -13127,11 +13307,71 @@
       "label": "test_the_c8_figure_draws_a_line_per_budget()",
       "file_type": "code",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L979",
+      "source_location": "L978",
       "_origin": "ast",
       "id": "tests_test_report_and_export_test_the_c8_figure_draws_a_line_per_budget",
       "community": 35,
       "norm_label": "test_the_c8_figure_draws_a_line_per_budget()"
+    },
+    {
+      "label": "test_the_final_report_has_the_section_66_headings_in_order()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L995",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_the_final_report_has_the_section_66_headings_in_order",
+      "community": 88,
+      "norm_label": "test_the_final_report_has_the_section_66_headings_in_order()"
+    },
+    {
+      "label": "test_every_claim_section_opens_with_one_of_the_four_allowed_words()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1020",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_every_claim_section_opens_with_one_of_the_four_allowed_words",
+      "community": 35,
+      "norm_label": "test_every_claim_section_opens_with_one_of_the_four_allowed_words()"
+    },
+    {
+      "label": "test_the_headline_verdict_comes_from_the_section_that_argues_it()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1030",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_the_headline_verdict_comes_from_the_section_that_argues_it",
+      "community": 46,
+      "norm_label": "test_the_headline_verdict_comes_from_the_section_that_argues_it()"
+    },
+    {
+      "label": "test_the_section_66_heading_list_is_not_duplicated_inside_a_claim()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1041",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_the_section_66_heading_list_is_not_duplicated_inside_a_claim",
+      "community": 86,
+      "norm_label": "test_the_section_66_heading_list_is_not_duplicated_inside_a_claim()"
+    },
+    {
+      "label": "test_every_script_the_report_tells_a_reader_to_run_exists()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1050",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_every_script_the_report_tells_a_reader_to_run_exists",
+      "community": 87,
+      "norm_label": "test_every_script_the_report_tells_a_reader_to_run_exists()"
+    },
+    {
+      "label": "test_a_null_result_is_dropped_when_its_claim_comes_back_supported()",
+      "file_type": "code",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1056",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_test_a_null_result_is_dropped_when_its_claim_comes_back_supported",
+      "community": 35,
+      "norm_label": "test_a_null_result_is_dropped_when_its_claim_comes_back_supported()"
     },
     {
       "label": "Tests for the reporting and packaging layer.  These are the numbers the professo",
@@ -13437,9 +13677,9 @@
       "label": "The real Core-19 shape: unanimous vs the pipeline, not vs selection alone.",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L801",
+      "source_location": "L800",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_801",
+      "id": "tests_test_report_and_export_rationale_800",
       "community": 63,
       "norm_label": "the real core-19 shape: unanimous vs the pipeline, not vs selection alone."
     },
@@ -13447,9 +13687,9 @@
       "label": "The figure must survive the no-specialists case too, not just the happy one.",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L825",
+      "source_location": "L824",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_825",
+      "id": "tests_test_report_and_export_rationale_824",
       "community": 63,
       "norm_label": "the figure must survive the no-specialists case too, not just the happy one."
     },
@@ -13457,9 +13697,9 @@
       "label": "A wide interval and a broken bound are not the same failure.      `within_nomina",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L853",
+      "source_location": "L852",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_853",
+      "id": "tests_test_report_and_export_rationale_852",
       "community": 0,
       "norm_label": "a wide interval and a broken bound are not the same failure.      `within_nomina"
     },
@@ -13467,9 +13707,9 @@
       "label": "`support_cap` mixes ints with the string \"none\".      Comparing it against \"3\" s",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L888",
+      "source_location": "L887",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_888",
+      "id": "tests_test_report_and_export_rationale_887",
       "community": 82,
       "norm_label": "`support_cap` mixes ints with the string \"none\".      comparing it against \"3\" s"
     },
@@ -13477,9 +13717,9 @@
       "label": "The cost half is a negative result, so it must not read as a positive one.",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L903",
+      "source_location": "L902",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_903",
+      "id": "tests_test_report_and_export_rationale_902",
       "community": 83,
       "norm_label": "the cost half is a negative result, so it must not read as a positive one."
     },
@@ -13487,9 +13727,9 @@
       "label": "A judge whose category changes with the partition is not a result.",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L930",
+      "source_location": "L929",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_930",
+      "id": "tests_test_report_and_export_rationale_929",
       "community": 84,
       "norm_label": "a judge whose category changes with the partition is not a result."
     },
@@ -13497,11 +13737,51 @@
       "label": "The four bands are a partition, so they must add up to the panel.      The headl",
       "file_type": "rationale",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L959",
+      "source_location": "L958",
       "_origin": "ast",
-      "id": "tests_test_report_and_export_rationale_959",
+      "id": "tests_test_report_and_export_rationale_958",
       "community": 85,
       "norm_label": "the four bands are a partition, so they must add up to the panel.      the headl"
+    },
+    {
+      "label": "Section 66 fixes the structure, so it is checked rather than trusted.",
+      "file_type": "rationale",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L996",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_rationale_996",
+      "community": 88,
+      "norm_label": "section 66 fixes the structure, so it is checked rather than trusted."
+    },
+    {
+      "label": "A verdict stated twice can be changed in one place and not the other.",
+      "file_type": "rationale",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1031",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_rationale_1031",
+      "community": 46,
+      "norm_label": "a verdict stated twice can be changed in one place and not the other."
+    },
+    {
+      "label": "A builder shipping its own `## C4 - ...` would add a heading section 66     does",
+      "file_type": "rationale",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1042",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_rationale_1042",
+      "community": 86,
+      "norm_label": "a builder shipping its own `## c4 - ...` would add a heading section 66     does"
+    },
+    {
+      "label": "A reproduction section naming a renamed script is worse than none.",
+      "file_type": "rationale",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1051",
+      "_origin": "ast",
+      "id": "tests_test_report_and_export_rationale_1051",
+      "community": 87,
+      "norm_label": "a reproduction section naming a renamed script is worse than none."
     },
     {
       "label": "test_scoring_pipeline.py",
@@ -13650,7 +13930,7 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_rendering_places_the_responses_in_order",
-      "community": 25,
+      "community": 3,
       "norm_label": "test_rendering_places_the_responses_in_order()"
     },
     {
@@ -13660,7 +13940,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_swap_context_reverses_the_rendered_order",
-      "community": 25,
+      "community": 3,
       "norm_label": "test_swap_context_reverses_the_rendered_order()"
     },
     {
@@ -13670,7 +13950,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_orientation_correction_restores_canonical_identity",
-      "community": 25,
+      "community": 3,
       "norm_label": "test_orientation_correction_restores_canonical_identity()"
     },
     {
@@ -13680,7 +13960,7 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_gold_label_follows_the_swap_but_ties_do_not",
-      "community": 25,
+      "community": 3,
       "norm_label": "test_gold_label_follows_the_swap_but_ties_do_not()"
     },
     {
@@ -13690,7 +13970,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_interventions_change_only_their_own_target",
-      "community": 25,
+      "community": 3,
       "norm_label": "test_interventions_change_only_their_own_target()"
     },
     {
@@ -13700,7 +13980,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_registered_contexts_are_uniquely_named_and_hashes_are_stable",
-      "community": 25,
+      "community": 66,
       "norm_label": "test_registered_contexts_are_uniquely_named_and_hashes_are_stable()"
     },
     {
@@ -13710,7 +13990,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_render_rejects_an_unknown_protocol",
-      "community": 25,
+      "community": 29,
       "norm_label": "test_render_rejects_an_unknown_protocol()"
     },
     {
@@ -13720,7 +14000,7 @@
       "source_location": "L275",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_normalization_is_a_softmax_over_the_three_labels",
-      "community": 3,
+      "community": 79,
       "norm_label": "test_normalization_is_a_softmax_over_the_three_labels()"
     },
     {
@@ -13730,7 +14010,7 @@
       "source_location": "L284",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_normalization_survives_the_large_negative_logprobs_it_will_see",
-      "community": 3,
+      "community": 79,
       "norm_label": "test_normalization_survives_the_large_negative_logprobs_it_will_see()"
     },
     {
@@ -13740,7 +14020,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_normalization_rejects_malformed_scores",
-      "community": 3,
+      "community": 79,
       "norm_label": "test_normalization_rejects_malformed_scores()"
     },
     {
@@ -13810,7 +14090,7 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_rationale_224",
-      "community": 25,
+      "community": 3,
       "norm_label": "the judge saw b first, so its 'a' mass belongs to canonical b."
     },
     {
@@ -23298,7 +23578,7 @@
       "context": "submodule_import",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L826",
+      "source_location": "L825",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "epcrc_figures",
@@ -42604,20 +42884,31 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1742",
+      "weight": 1.0,
+      "context": "collection",
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_backbone_section",
+      "confidence_score": 0.5
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1412",
+      "source_location": "L1785",
       "weight": 1.0,
       "source": "experiments_export_results",
-      "target": "experiments_export_results_backbone_section",
+      "target": "experiments_export_results_build_final_report",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1661",
+      "source_location": "L1664",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_build_summary",
@@ -42634,24 +42925,26 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L243",
+      "source_location": "L1738",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c1_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L374",
+      "source_location": "L1739",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c2_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
       "relation": "contains",
@@ -42674,70 +42967,96 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L594",
+      "source_location": "L1740",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c3_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L761",
+      "source_location": "L1742",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c4_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L873",
+      "source_location": "L1743",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c5_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1018",
+      "source_location": "L1744",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c6_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1134",
+      "source_location": "L1745",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c7_section",
-      "confidence_score": 1.0
+      "confidence_score": 0.5
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1277",
+      "source_location": "L1746",
       "weight": 1.0,
+      "context": "collection",
       "source": "experiments_export_results",
       "target": "experiments_export_results_c8_section",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1769",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_claim_body",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1581",
+      "source_location": "L1833",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_completeness_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1584",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_compliance_section",
@@ -42747,7 +43066,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1726",
+      "source_location": "L2076",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_copy_notebooks",
@@ -42757,7 +43076,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1760",
+      "source_location": "L1943",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_deviations_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2110",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_export",
@@ -42787,6 +43116,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
+      "source_location": "L1980",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_index_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
       "source_location": "L57",
       "weight": 1.0,
       "source": "experiments_export_results",
@@ -42797,7 +43136,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1848",
+      "source_location": "L2204",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_main",
@@ -42817,6 +43156,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
+      "source_location": "L1888",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_negative_results_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
       "source_location": "L122",
       "weight": 1.0,
       "source": "experiments_export_results",
@@ -42827,7 +43176,27 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1491",
+      "source_location": "L2015",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_reproduction_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1753",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_section_verdict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1494",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_setup_section",
@@ -42841,6 +43210,16 @@
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_sha256",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2045",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_verification_section",
       "confidence_score": 1.0
     },
     {
@@ -42858,7 +43237,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1762",
+      "source_location": "L2112",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_input_paths",
@@ -42879,7 +43258,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1773",
+      "source_location": "L2123",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_gate_paths",
@@ -42911,7 +43290,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1773",
+      "source_location": "L2123",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_provenance",
@@ -42932,7 +43311,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1821",
+      "source_location": "L2177",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_sha256",
@@ -42954,9 +43333,20 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1775",
+      "source_location": "L2125",
       "weight": 1.0,
       "source": "experiments_export_results_export",
+      "target": "experiments_export_results_build_tables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1982",
+      "weight": 1.0,
+      "source": "experiments_export_results_index_section",
       "target": "experiments_export_results_build_tables",
       "confidence_score": 1.0
     },
@@ -42975,7 +43365,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1616",
+      "source_location": "L1805",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_py_dataframe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1619",
       "weight": 1.0,
       "source": "experiments_export_results_compliance_section",
       "target": "experiments_export_results_py_dataframe",
@@ -42997,9 +43398,20 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1439",
+      "source_location": "L1442",
       "weight": 1.0,
       "source": "experiments_export_results_backbone_section",
+      "target": "experiments_export_results_md_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1804",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
       "target": "experiments_export_results_md_table",
       "confidence_score": 1.0
     },
@@ -43074,7 +43486,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L914",
+      "source_location": "L915",
       "weight": 1.0,
       "source": "experiments_export_results_c5_section",
       "target": "experiments_export_results_md_table",
@@ -43085,7 +43497,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1047",
+      "source_location": "L1048",
       "weight": 1.0,
       "source": "experiments_export_results_c6_section",
       "target": "experiments_export_results_md_table",
@@ -43096,7 +43508,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1182",
+      "source_location": "L1183",
       "weight": 1.0,
       "source": "experiments_export_results_c7_section",
       "target": "experiments_export_results_md_table",
@@ -43107,7 +43519,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1302",
+      "source_location": "L1303",
       "weight": 1.0,
       "source": "experiments_export_results_c8_section",
       "target": "experiments_export_results_md_table",
@@ -43118,7 +43530,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1615",
+      "source_location": "L1618",
       "weight": 1.0,
       "source": "experiments_export_results_compliance_section",
       "target": "experiments_export_results_md_table",
@@ -43129,7 +43541,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1682",
+      "source_location": "L1685",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c1_section",
@@ -43140,7 +43552,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1684",
+      "source_location": "L1687",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c2_section",
@@ -43193,7 +43605,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1686",
+      "source_location": "L1689",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c3_section",
@@ -43204,7 +43616,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1688",
+      "source_location": "L1691",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c4_section",
@@ -43215,7 +43627,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1690",
+      "source_location": "L1693",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c5_section",
@@ -43226,7 +43638,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1692",
+      "source_location": "L1695",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c6_section",
@@ -43237,7 +43649,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1694",
+      "source_location": "L1697",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c7_section",
@@ -43248,7 +43660,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1696",
+      "source_location": "L1699",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c8_section",
@@ -43259,7 +43671,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1698",
+      "source_location": "L1701",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_backbone_section",
@@ -43270,7 +43682,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1681",
+      "source_location": "L1811",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_setup_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1684",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_setup_section",
@@ -43280,9 +43703,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1492",
+      "source_location": "L1495",
       "weight": 1.0,
-      "source": "experiments_export_results_rationale_1492",
+      "source": "experiments_export_results_rationale_1495",
       "target": "experiments_export_results_setup_section",
       "confidence_score": 1.0
     },
@@ -43291,7 +43714,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1700",
+      "source_location": "L1703",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_compliance_section",
@@ -43301,9 +43724,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1582",
+      "source_location": "L1585",
       "weight": 1.0,
-      "source": "experiments_export_results_rationale_1582",
+      "source": "experiments_export_results_rationale_1585",
       "target": "experiments_export_results_compliance_section",
       "confidence_score": 1.0
     },
@@ -43312,7 +43735,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1812",
+      "source_location": "L2162",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_build_summary",
@@ -43323,7 +43746,196 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1809",
+      "source_location": "L1789",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_section_verdict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1754",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1754",
+      "target": "experiments_export_results_section_verdict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1787",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_claim_body",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1770",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1770",
+      "target": "experiments_export_results_claim_body",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1813",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_completeness_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1823",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_deviations_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1825",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_index_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1821",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_negative_results_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1827",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_reproduction_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1829",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_final_report",
+      "target": "experiments_export_results_verification_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2168",
+      "weight": 1.0,
+      "source": "experiments_export_results_export",
+      "target": "experiments_export_results_build_final_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1786",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1786",
+      "target": "experiments_export_results_build_final_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1834",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1834",
+      "target": "experiments_export_results_completeness_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1890",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1890",
+      "target": "experiments_export_results_negative_results_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1944",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1944",
+      "target": "experiments_export_results_deviations_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1981",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1981",
+      "target": "experiments_export_results_index_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2016",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_2016",
+      "target": "experiments_export_results_reproduction_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2046",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_2046",
+      "target": "experiments_export_results_verification_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L2159",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_copy_notebooks",
@@ -43333,9 +43945,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1727",
+      "source_location": "L2077",
       "weight": 1.0,
-      "source": "experiments_export_results_rationale_1727",
+      "source": "experiments_export_results_rationale_2077",
       "target": "experiments_export_results_copy_notebooks",
       "confidence_score": 1.0
     },
@@ -43344,7 +43956,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1861",
+      "source_location": "L2217",
       "weight": 1.0,
       "source": "experiments_export_results_main",
       "target": "experiments_export_results_export",
@@ -48500,7 +49112,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L929",
+      "source_location": "L1056",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_a_null_result_is_dropped_when_its_claim_comes_back_supported",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L928",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding",
@@ -48510,7 +49132,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L918",
+      "source_location": "L917",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_backbone_section_only_claims_certification_it_has",
@@ -48520,7 +49142,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L944",
+      "source_location": "L943",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_build_tables_ships_the_c8_and_backbone_csvs",
@@ -48780,7 +49402,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L800",
+      "source_location": "L799",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned",
@@ -48790,7 +49412,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L824",
+      "source_location": "L823",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c4_figure_draws_from_the_same_tables_as_the_text",
@@ -48810,7 +49432,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L819",
+      "source_location": "L818",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c4_section_says_not_run_rather_than_failing",
@@ -48850,7 +49472,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L852",
+      "source_location": "L851",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c7_verdict_does_not_report_violations_the_data_does_not_contain",
@@ -48860,7 +49482,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L887",
+      "source_location": "L886",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c8_prose_reads_the_cap_column_and_not_its_rendering",
@@ -48870,10 +49492,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L902",
+      "source_location": "L901",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_c8_verdict_names_the_objectives_that_actually_disagreed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1020",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_every_claim_section_opens_with_one_of_the_four_allowed_words",
       "confidence_score": 1.0
     },
     {
@@ -48894,6 +49526,16 @@
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_every_reported_method_has_a_display_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1050",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_every_script_the_report_tells_a_reader_to_run_exists",
       "confidence_score": 1.0
     },
     {
@@ -49040,7 +49682,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L837",
+      "source_location": "L836",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_save_all_writes_the_c4_figure_when_c4_exists",
@@ -49050,7 +49692,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L880",
+      "source_location": "L879",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_sections_say_not_run_rather_than_inventing_numbers",
@@ -49140,7 +49782,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L958",
+      "source_location": "L957",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_the_backbone_figure_accounts_for_every_judge",
@@ -49150,10 +49792,40 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L979",
+      "source_location": "L978",
       "weight": 1.0,
       "source": "tests_test_report_and_export",
       "target": "tests_test_report_and_export_test_the_c8_figure_draws_a_line_per_budget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L995",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_the_final_report_has_the_section_66_headings_in_order",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1030",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_the_headline_verdict_comes_from_the_section_that_argues_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1041",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export",
+      "target": "tests_test_report_and_export_test_the_section_66_heading_list_is_not_duplicated_inside_a_claim",
       "confidence_score": 1.0
     },
     {
@@ -49518,7 +50190,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L808",
+      "source_location": "L807",
       "weight": 1.0,
       "source": "tests_test_report_and_export_test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned",
       "target": "tests_test_report_and_export_c4_payload",
@@ -49529,7 +50201,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L829",
+      "source_location": "L828",
       "weight": 1.0,
       "source": "tests_test_report_and_export_test_c4_figure_draws_from_the_same_tables_as_the_text",
       "target": "tests_test_report_and_export_c4_payload",
@@ -49584,7 +50256,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L840",
+      "source_location": "L839",
       "weight": 1.0,
       "source": "tests_test_report_and_export_test_save_all_writes_the_c4_figure_when_c4_exists",
       "target": "tests_test_report_and_export_c4_payload",
@@ -49634,9 +50306,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L801",
+      "source_location": "L800",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_801",
+      "source": "tests_test_report_and_export_rationale_800",
       "target": "tests_test_report_and_export_test_c4_does_not_claim_the_selection_result_the_pipeline_arm_earned",
       "confidence_score": 1.0
     },
@@ -49644,9 +50316,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L825",
+      "source_location": "L824",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_825",
+      "source": "tests_test_report_and_export_rationale_824",
       "target": "tests_test_report_and_export_test_c4_figure_draws_from_the_same_tables_as_the_text",
       "confidence_score": 1.0
     },
@@ -49654,9 +50326,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L853",
+      "source_location": "L852",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_853",
+      "source": "tests_test_report_and_export_rationale_852",
       "target": "tests_test_report_and_export_test_c7_verdict_does_not_report_violations_the_data_does_not_contain",
       "confidence_score": 1.0
     },
@@ -49664,9 +50336,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L888",
+      "source_location": "L887",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_888",
+      "source": "tests_test_report_and_export_rationale_887",
       "target": "tests_test_report_and_export_test_c8_prose_reads_the_cap_column_and_not_its_rendering",
       "confidence_score": 1.0
     },
@@ -49674,9 +50346,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L903",
+      "source_location": "L902",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_903",
+      "source": "tests_test_report_and_export_rationale_902",
       "target": "tests_test_report_and_export_test_c8_verdict_names_the_objectives_that_actually_disagreed",
       "confidence_score": 1.0
     },
@@ -49684,9 +50356,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L930",
+      "source_location": "L929",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_930",
+      "source": "tests_test_report_and_export_rationale_929",
       "target": "tests_test_report_and_export_test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding",
       "confidence_score": 1.0
     },
@@ -49694,10 +50366,50 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_report_and_export.py",
-      "source_location": "L959",
+      "source_location": "L958",
       "weight": 1.0,
-      "source": "tests_test_report_and_export_rationale_959",
+      "source": "tests_test_report_and_export_rationale_958",
       "target": "tests_test_report_and_export_test_the_backbone_figure_accounts_for_every_judge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L996",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export_rationale_996",
+      "target": "tests_test_report_and_export_test_the_final_report_has_the_section_66_headings_in_order",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1031",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export_rationale_1031",
+      "target": "tests_test_report_and_export_test_the_headline_verdict_comes_from_the_section_that_argues_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1042",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export_rationale_1042",
+      "target": "tests_test_report_and_export_test_the_section_66_heading_list_is_not_duplicated_inside_a_claim",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_report_and_export.py",
+      "source_location": "L1051",
+      "weight": 1.0,
+      "source": "tests_test_report_and_export_rationale_1051",
+      "target": "tests_test_report_and_export_test_every_script_the_report_tells_a_reader_to_run_exists",
       "confidence_score": 1.0
     },
     {
@@ -51069,5 +51781,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "142373c78809a1c9e4453e6486b301d8d1972a46"
+  "built_at_commit": "4dd02cd8bb6e7a17fd217ffe4df93058b5d67a6a"
 }
