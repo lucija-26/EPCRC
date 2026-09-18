@@ -31,10 +31,12 @@ C3 = os.path.join(RESULTS, "c3_baselines.json")
 E1 = os.path.join(RESULTS, "e1_frontier.json")
 E0_REAL = os.path.join(RESULTS, "e0_real_core8.json")
 E0_SYNTH = os.path.join(RESULTS, "e0_noncomposability.json")
+C7 = os.path.join(RESULTS, "c7_certification_core20.json")
 
 needs_c3 = pytest.mark.skipif(not os.path.exists(C3), reason="C3 not run")
 needs_e1 = pytest.mark.skipif(not os.path.exists(E1), reason="E1 not run")
 needs_e0 = pytest.mark.skipif(not os.path.exists(E0_REAL), reason="E0 real not run")
+needs_c7 = pytest.mark.skipif(not os.path.exists(C7), reason="C7 not run")
 
 
 # --------------------------------------------------------------------------
@@ -802,3 +804,32 @@ def test_save_all_writes_the_c4_figure_when_c4_exists(tmp_path):
                        baseline_tv=[0.5, 0.5], specialist_seeds={})
     written = Fg.save_all(str(tmp_path / "out"), c4=path)
     assert [os.path.basename(p) for p in written] == ["c4_stress.png"]
+
+
+# --------------------------------------------------------------------------
+# C7
+# --------------------------------------------------------------------------
+
+
+@needs_c7
+def test_c7_verdict_does_not_report_violations_the_data_does_not_contain():
+    """A wide interval and a broken bound are not the same failure.
+
+    `within_nominal` folds two situations into one flag: the rule was violated
+    too often, or the rule certified so few cases that the Wilson upper bound
+    cannot fall below delta no matter how well it behaved.  On this panel the
+    primary rule has zero violations and still fails the flag, purely because
+    the tightest tolerance certifies a handful of cases.  Writing "violated
+    more often than its nominal rate" there would state the opposite of what
+    the run measured, so the wording has to follow `n_violated`.
+    """
+    head = R.c7_headline(C7, 0.05)
+    primary = head[head["is_primary"]].iloc[0]
+
+    text = "\n".join(E._c7_section({"c7": C7}))
+
+    if int(primary["n_violated"]) == 0:
+        assert "violated more often than its nominal rate" not in text
+        assert f"not violated once in {int(primary['n_certified'])}" in text
+    else:
+        assert "not violated once" not in text
