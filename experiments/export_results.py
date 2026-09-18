@@ -1309,6 +1309,117 @@ def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+# The section 31 matrix, transcribed from the plan.  Each entry is the claim's
+# required experiments, the minimum supporting result and the strong one, kept
+# in the plan's own words so the reader can check the transcription rather than
+# take a paraphrase on trust.  `experiments` names the keys in `inputs` that
+# carry that evidence, which is what decides whether a row was run at all.
+_EVIDENCE_MATRIX = [
+    ("C1", ["e0_real"], "E0",
+     "at least one stable non-composability regime",
+     "broad tolerance range with many individually removable judges but clear "
+     "joint failure, plus dependency cycles"),
+    ("C2", ["e1"], "E1",
+     "meaningful reduction with bounded held-out error",
+     "Core-20 reduced to 6-10 judges with worst-context TV <= 0.08-0.10"),
+    ("C3", ["c3", "c5"], "E1 + E2",
+     "coverage beats at least random and top-accuracy at equal k",
+     "consistent superiority over accuracy, family, clustering and pairwise "
+     "geometry baselines on reconstruction and downstream metrics"),
+    ("C4", ["c4"], "E3",
+     "clean-only failure on at least one registered stress context",
+     "robust selection cuts worst stress error by 30% or more with at most two "
+     "additional judges and identifies interpretable specialists"),
+    ("C5", ["c5", "e7"], "E2 + E7",
+     "virtual panel closely matches full-panel aggregate",
+     "< 1 percentage point accuracy loss, small NLL/Brier change, and ranking "
+     "tau >= 0.95"),
+    ("C6", ["c6"], "E4",
+     "swap methods improve greedy gap",
+     "2-swap exact on >= 70% of solved cases, mean gap <= 0.5, little 3-swap "
+     "benefit"),
+    ("C7", ["c7"], "E5",
+     "certified method violates less often than empirical-only",
+     "nominal 95% certificate achieves about 5% or lower TEST violations over "
+     "repeated splits"),
+    ("C8", ["e6"], "E6 (optional)",
+     "sparse/cost-aware compression remains nontrivial",
+     "most certificates use <= 4 judges and cost-aware panel improves real "
+     "cost at similar coverage"),
+]
+
+
+def _compliance_section(inputs: Dict[str, str]) -> List[str]:
+    """Hand the plan's own evidence matrix back with the evidence filled in.
+
+    The professor set the acceptance criteria in section 31 before any judge
+    was scored.  Reporting against them in his wording is what makes a verdict
+    checkable: a reader can disagree with a call without first having to work
+    out which bar was being aimed at.  `evidence` says only whether the
+    required experiment is in this package, which is a fact about the files;
+    whether the bar was cleared is argued in each claim's own section.
+    """
+    lines = ["## Compliance with the section 31 evidence matrix", ""]
+    lines.append(
+        "The criteria below are quoted from the plan and were fixed before "
+        "any judge was scored. `evidence` reports whether the experiment that "
+        "section 31 requires is present in this package. It does not restate "
+        "the verdicts, which are argued where the numbers are."
+    )
+    lines.append("")
+
+    rows = []
+    missing = []
+    for claim, keys, experiments, minimum, strong in _EVIDENCE_MATRIX:
+        have = [k for k in keys if os.path.exists(inputs.get(k, ""))]
+        absent = [k for k in keys if k not in have]
+        if absent:
+            missing.append((claim, experiments, absent))
+        rows.append({
+            "claim": claim,
+            "required": experiments,
+            "evidence": ("complete" if not absent
+                         else "absent" if not have else "partial"),
+            "minimum result": minimum,
+            "strong result": strong,
+        })
+    lines.append(_md_table(
+        pd.DataFrame(rows),
+        ["claim", "required", "evidence", "minimum result", "strong result"]))
+    lines.append("")
+
+    if missing:
+        named = "; ".join(
+            f"{claim} ({experiments})" for claim, experiments, _ in missing)
+        lines.append(
+            f"**Not run.** {named}. E6 is marked optional in the plan and was "
+            f"deferred so that E0-E5 could be completed first, as section 28 "
+            f"directs. E7 is the cross-benchmark transfer to JudgeBench and "
+            f"JuStRank; section 29 describes it as strengthening C2, C4 and "
+            f"C5, but section 31 lists it in C5's required column, so C5's row "
+            f"is answered on E2 alone and that is a real gap rather than a "
+            f"judgement call. Every C5 number here is in-domain on "
+            f"RewardBench 2."
+        )
+        lines.append("")
+
+    lines.append(
+        "Section 32 sets outcome tiers on the reduction achieved at an "
+        "acceptable error. Tier B asks for 30-50% reduction at worst-context "
+        "TV <= 0.12, and this panel does not reach that error at any panel "
+        "size, so on the reduction axis the result sits at Tier C. Section 32 "
+        "says that in Tier C the response is to diagnose the cause rather than "
+        "manufacture a strong application claim, and the C2 section does that: "
+        "the panel is less mutually redundant than the target assumed, and the "
+        "floor at k = 19 says so directly. The other Tier C symptoms do not "
+        "hold here — reconstruction does beat the physical subset downstream, "
+        "the non-composability and exchange results are clear, and the "
+        "selected sets are stable across all five split seeds."
+    )
+    lines.append("")
+    return lines
+
+
 def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines = [
         f"# EPCRC results — {panel}",
@@ -1343,6 +1454,8 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += _c6_section(inputs)
     lines += ["---", ""]
     lines += _c7_section(inputs)
+    lines += ["---", ""]
+    lines += _compliance_section(inputs)
     lines += [
         "---",
         "",

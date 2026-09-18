@@ -1390,7 +1390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_init",
-      "community": 79,
+      "community": 25,
       "norm_label": "__init__.py"
     },
     {
@@ -1400,7 +1400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_init_rationale_1",
-      "community": 79,
+      "community": 25,
       "norm_label": "epcrc: ecosystem pruning via convex routing coverage.  minimal implementation fo"
     },
     {
@@ -2630,7 +2630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judge",
-      "community": 69,
+      "community": 37,
       "norm_label": "judge.py"
     },
     {
@@ -2640,7 +2640,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "epcrc_judge_judgeresponses",
-      "community": 34,
+      "community": 8,
       "norm_label": "judgeresponses"
     },
     {
@@ -2670,7 +2670,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "epcrc_judge_judgeresponses_n_contexts",
-      "community": 34,
+      "community": 8,
       "norm_label": ".n_contexts()"
     },
     {
@@ -2680,7 +2680,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "epcrc_judge_judgeresponses_n_items",
-      "community": 34,
+      "community": 8,
       "norm_label": ".n_items()"
     },
     {
@@ -2690,7 +2690,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "epcrc_judge_judgeresponses_subset",
-      "community": 34,
+      "community": 8,
       "norm_label": ".subset()"
     },
     {
@@ -2700,7 +2700,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "epcrc_judge_total_variation",
-      "community": 34,
+      "community": 37,
       "norm_label": "total_variation()"
     },
     {
@@ -2710,7 +2710,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "epcrc_judge_context_errors",
-      "community": 69,
+      "community": 37,
       "norm_label": "context_errors()"
     },
     {
@@ -2770,7 +2770,7 @@
       "source_location": "L464",
       "_origin": "ast",
       "id": "epcrc_judge_judgecoveragefunctional",
-      "community": 18,
+      "community": 32,
       "norm_label": "judgecoveragefunctional"
     },
     {
@@ -2780,7 +2780,7 @@
       "source_location": "L473",
       "_origin": "ast",
       "id": "epcrc_judge_judgecoveragefunctional_init",
-      "community": 18,
+      "community": 32,
       "norm_label": ".__init__()"
     },
     {
@@ -2800,7 +2800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_1",
-      "community": 69,
+      "community": 37,
       "norm_label": "three-class judge outputs: total-variation loss and worst-context fitting.  an l"
     },
     {
@@ -2810,7 +2810,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_41",
-      "community": 34,
+      "community": 8,
       "norm_label": "three-class judge probabilities grouped by evaluation context.      ``blocks[c]`"
     },
     {
@@ -2820,7 +2820,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_95",
-      "community": 34,
+      "community": 8,
       "norm_label": "total number of items across all contexts."
     },
     {
@@ -2830,7 +2830,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_104",
-      "community": 34,
+      "community": 37,
       "norm_label": "total variation between three-class rows, along the last axis."
     },
     {
@@ -2840,7 +2840,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_114",
-      "community": 69,
+      "community": 37,
       "norm_label": "mean tv error of the reconstruction of `target_idx`, one value per context."
     },
     {
@@ -2890,7 +2890,7 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "epcrc_judge_rationale_465",
-      "community": 18,
+      "community": 32,
       "norm_label": "coverage functional for three-class judge panels under worst-context tv.      de"
     },
     {
@@ -2900,7 +2900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_metrics",
-      "community": 12,
+      "community": 9,
       "norm_label": "metrics.py"
     },
     {
@@ -2910,7 +2910,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "epcrc_metrics_step_metrics",
-      "community": 12,
+      "community": 9,
       "norm_label": "step_metrics()"
     },
     {
@@ -2920,7 +2920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_metrics_rationale_1",
-      "community": 12,
+      "community": 9,
       "norm_label": "detailed per-step metrics for coverage-based pruning.  given a coveragefunctiona"
     },
     {
@@ -2930,7 +2930,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "epcrc_metrics_rationale_21",
-      "community": 12,
+      "community": 9,
       "norm_label": "compute a rich per-step metrics dict for a kept set s.      returns a json-seria"
     },
     {
@@ -2950,7 +2950,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "epcrc_milp_milpresult",
-      "community": 10,
+      "community": 43,
       "norm_label": "milpresult"
     },
     {
@@ -2960,7 +2960,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "epcrc_milp_milp_min_representative_set",
-      "community": 10,
+      "community": 43,
       "norm_label": "milp_min_representative_set()"
     },
     {
@@ -2980,7 +2980,7 @@
       "source_location": "L229",
       "_origin": "ast",
       "id": "epcrc_milp_solve_gurobi",
-      "community": 10,
+      "community": 43,
       "norm_label": "_solve_gurobi()"
     },
     {
@@ -3060,7 +3060,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "epcrc_milp_rationale_70",
-      "community": 10,
+      "community": 43,
       "norm_label": "exact oracle-routing minimum representative set via milp.      variable layout ("
     },
     {
@@ -3070,7 +3070,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "epcrc_milp_rationale_234",
-      "community": 10,
+      "community": 43,
       "norm_label": "solve the already-built matrices with gurobi's matrix api.      two-sided rows a"
     },
     {
@@ -3110,7 +3110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_panel",
-      "community": 75,
+      "community": 46,
       "norm_label": "panel.py"
     },
     {
@@ -3130,7 +3130,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "epcrc_panel_scores_dir",
-      "community": 75,
+      "community": 66,
       "norm_label": "scores_dir()"
     },
     {
@@ -3150,7 +3150,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "epcrc_panel_panel_init",
-      "community": 75,
+      "community": 29,
       "norm_label": ".__init__()"
     },
     {
@@ -3160,7 +3160,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_panel_py_ndarray",
-      "community": 75,
+      "community": 29,
       "norm_label": "ndarray"
     },
     {
@@ -3180,7 +3180,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "epcrc_panel_rawpanel",
-      "community": 75,
+      "community": 29,
       "norm_label": "rawpanel"
     },
     {
@@ -3190,7 +3190,7 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "epcrc_panel_rawpanel_init",
-      "community": 75,
+      "community": 29,
       "norm_label": ".__init__()"
     },
     {
@@ -3200,7 +3200,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "epcrc_panel_load_raw_panel",
-      "community": 75,
+      "community": 62,
       "norm_label": "load_raw_panel()"
     },
     {
@@ -3210,7 +3210,7 @@
       "source_location": "L210",
       "_origin": "ast",
       "id": "epcrc_panel_split_panel",
-      "community": 62,
+      "community": 66,
       "norm_label": "split_panel()"
     },
     {
@@ -3230,7 +3230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_1",
-      "community": 75,
+      "community": 46,
       "norm_label": "rebuild the scored judge panel from the cached (judge, context) blocks.  two see"
     },
     {
@@ -3250,7 +3250,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_89",
-      "community": 75,
+      "community": 66,
       "norm_label": "where a panel's cached (judge, context) blocks live."
     },
     {
@@ -3270,7 +3270,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_137",
-      "community": 75,
+      "community": 29,
       "norm_label": "the scored tensor before any fit / cert / test partition is applied.      loadin"
     },
     {
@@ -3280,7 +3280,7 @@
       "source_location": "L165",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_165",
-      "community": 75,
+      "community": 62,
       "norm_label": "read the cached blocks into one unsplit tensor."
     },
     {
@@ -3290,7 +3290,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "epcrc_panel_rationale_211",
-      "community": 62,
+      "community": 66,
       "norm_label": "partition a `rawpanel` by base item into fit / cert / test."
     },
     {
@@ -3310,7 +3310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_prompts",
-      "community": 47,
+      "community": 25,
       "norm_label": "prompts.py"
     },
     {
@@ -3320,7 +3320,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "epcrc_prompts_context",
-      "community": 47,
+      "community": 25,
       "norm_label": "context"
     },
     {
@@ -3330,7 +3330,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "epcrc_prompts_render",
-      "community": 47,
+      "community": 25,
       "norm_label": "render()"
     },
     {
@@ -3340,7 +3340,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "epcrc_prompts_prompt_sha256",
-      "community": 47,
+      "community": 25,
       "norm_label": "prompt_sha256()"
     },
     {
@@ -3350,7 +3350,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "epcrc_prompts_protocol_hashes",
-      "community": 47,
+      "community": 25,
       "norm_label": "protocol_hashes()"
     },
     {
@@ -3360,7 +3360,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "epcrc_prompts_canonicalize",
-      "community": 47,
+      "community": 25,
       "norm_label": "canonicalize()"
     },
     {
@@ -3370,7 +3370,7 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "epcrc_prompts_canonical_gold_label",
-      "community": 47,
+      "community": 25,
       "norm_label": "canonical_gold_label()"
     },
     {
@@ -3380,7 +3380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_1",
-      "community": 47,
+      "community": 25,
       "norm_label": "frozen judge prompt protocols, interventions, and prompt rendering.  the retaine"
     },
     {
@@ -3390,7 +3390,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_128",
-      "community": 47,
+      "community": 25,
       "norm_label": "one registered evaluation condition.      `swap` exchanges the two responses, wh"
     },
     {
@@ -3400,7 +3400,7 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_174",
-      "community": 47,
+      "community": 25,
       "norm_label": "render one prompt under a context.      interventions are applied to the *conten"
     },
     {
@@ -3410,7 +3410,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_216",
-      "community": 47,
+      "community": 25,
       "norm_label": "hashes of the frozen templates, recorded once per run."
     },
     {
@@ -3420,7 +3420,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_221",
-      "community": 47,
+      "community": 25,
       "norm_label": "map probabilities back to canonical response identity.      under an order swap"
     },
     {
@@ -3430,7 +3430,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "epcrc_prompts_rationale_234",
-      "community": 47,
+      "community": 25,
       "norm_label": "the gold label as the judge sees it under a context."
     },
     {
@@ -3440,7 +3440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_pruning",
-      "community": 30,
+      "community": 12,
       "norm_label": "pruning.py"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "epcrc_pruning_forwardselectionpruner_init",
-      "community": 12,
+      "community": 30,
       "norm_label": ".__init__()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "epcrc_pruning_warmstartforwardworstcoveredpruner_run",
-      "community": 15,
+      "community": 36,
       "norm_label": ".run()"
     },
     {
@@ -3550,7 +3550,7 @@
       "source_location": "L287",
       "_origin": "ast",
       "id": "epcrc_pruning_backwardeliminationpruner_init",
-      "community": 12,
+      "community": 30,
       "norm_label": ".__init__()"
     },
     {
@@ -3570,7 +3570,7 @@
       "source_location": "L369",
       "_origin": "ast",
       "id": "epcrc_pruning_priorityqueuepruner",
-      "community": 30,
+      "community": 12,
       "norm_label": "priorityqueuepruner"
     },
     {
@@ -3650,7 +3650,7 @@
       "source_location": "L891",
       "_origin": "ast",
       "id": "epcrc_pruning_forwardkswappruner",
-      "community": 30,
+      "community": 12,
       "norm_label": "forwardkswappruner"
     },
     {
@@ -3720,7 +3720,7 @@
       "source_location": "L370",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_370",
-      "community": 30,
+      "community": 12,
       "norm_label": "lazy greedy forward + backward cleanup, with optional k-swap escape.      phase"
     },
     {
@@ -3760,7 +3760,7 @@
       "source_location": "L892",
       "_origin": "ast",
       "id": "epcrc_pruning_rationale_892",
-      "community": 30,
+      "community": 12,
       "norm_label": "forward selection seed + the k-swap reduction escape (no backward cleanup)."
     },
     {
@@ -3780,7 +3780,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "epcrc_reconstruction_design",
-      "community": 37,
+      "community": 8,
       "norm_label": "_design()"
     },
     {
@@ -3830,7 +3830,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "epcrc_reconstruction_rationale_47",
-      "community": 37,
+      "community": 8,
       "norm_label": "flatten to a plain least-squares problem ``a w ~= b``.      a row is one (contex"
     },
     {
@@ -4340,7 +4340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_rewardbench",
-      "community": 66,
+      "community": 46,
       "norm_label": "rewardbench.py"
     },
     {
@@ -4350,7 +4350,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "epcrc_rewardbench_judgedpair",
-      "community": 79,
+      "community": 25,
       "norm_label": "judgedpair"
     },
     {
@@ -4360,7 +4360,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "epcrc_rewardbench_digest",
-      "community": 66,
+      "community": 46,
       "norm_label": "_digest()"
     },
     {
@@ -4390,7 +4390,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "epcrc_rewardbench_load_reward_bench_2",
-      "community": 66,
+      "community": 3,
       "norm_label": "load_reward_bench_2()"
     },
     {
@@ -4400,7 +4400,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "epcrc_rewardbench_select_deterministically",
-      "community": 66,
+      "community": 46,
       "norm_label": "_select_deterministically()"
     },
     {
@@ -4430,7 +4430,7 @@
       "source_location": "L198",
       "_origin": "ast",
       "id": "epcrc_rewardbench_split_manifest",
-      "community": 66,
+      "community": 3,
       "norm_label": "split_manifest()"
     },
     {
@@ -4440,7 +4440,7 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "epcrc_rewardbench_write_pairs",
-      "community": 66,
+      "community": 3,
       "norm_label": "write_pairs()"
     },
     {
@@ -4470,7 +4470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_1",
-      "community": 66,
+      "community": 46,
       "norm_label": "rewardbench 2 -> judged pairs, and the grouped stratified split.  verified again"
     },
     {
@@ -4480,7 +4480,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_47",
-      "community": 79,
+      "community": 25,
       "norm_label": "one a-versus-b comparison put to a judge.      `gold_label` is \"a\", \"b\" or \"c\";"
     },
     {
@@ -4490,7 +4490,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_68",
-      "community": 66,
+      "community": 46,
       "norm_label": "stable 64-bit integer from the string form of `parts`."
     },
     {
@@ -4510,7 +4510,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_83",
-      "community": 66,
+      "community": 3,
       "norm_label": "load the raw dataset. pin `revision` before formal inference."
     },
     {
@@ -4520,7 +4520,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_92",
-      "community": 66,
+      "community": 46,
       "norm_label": "indices of the `k` candidates whose (seed, key, content) hash is smallest."
     },
     {
@@ -4550,7 +4550,7 @@
       "source_location": "L203",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_203",
-      "community": 66,
+      "community": 3,
       "norm_label": "checksummed record of one split, so results can be traced to their data."
     },
     {
@@ -4560,7 +4560,7 @@
       "source_location": "L229",
       "_origin": "ast",
       "id": "epcrc_rewardbench_rationale_229",
-      "community": 66,
+      "community": 3,
       "norm_label": "one json object per line, so the scorer can stream it."
     },
     {
@@ -4580,7 +4580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_risk",
-      "community": 43,
+      "community": 36,
       "norm_label": "risk.py"
     },
     {
@@ -4590,7 +4590,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "epcrc_risk_uniqueness_ucb",
-      "community": 43,
+      "community": 36,
       "norm_label": "uniqueness_ucb()"
     },
     {
@@ -4600,7 +4600,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "epcrc_risk_coverage_ucb",
-      "community": 43,
+      "community": 36,
       "norm_label": "coverage_ucb()"
     },
     {
@@ -4610,7 +4610,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "epcrc_risk_riskcontrolledbackwardpruner",
-      "community": 43,
+      "community": 36,
       "norm_label": "riskcontrolledbackwardpruner"
     },
     {
@@ -4630,7 +4630,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "epcrc_risk_riskcontrolledbackwardpruner_run",
-      "community": 43,
+      "community": 36,
       "norm_label": ".run()"
     },
     {
@@ -4640,7 +4640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_risk_rationale_1",
-      "community": 43,
+      "community": 36,
       "norm_label": "risk-controlled pruning (paper open problem 1 / section 4.3, experiment 4).  poi"
     },
     {
@@ -4650,7 +4650,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "epcrc_risk_rationale_40",
-      "community": 43,
+      "community": 36,
       "norm_label": "per-model ucb on u(i|s), union-bounded over the n models."
     },
     {
@@ -4660,7 +4660,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "epcrc_risk_rationale_65",
-      "community": 43,
+      "community": 36,
       "norm_label": "e_ucb(s) = max_i ucb(i|s)."
     },
     {
@@ -4670,7 +4670,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "epcrc_risk_rationale_70",
-      "community": 43,
+      "community": 36,
       "norm_label": "backward elimination that accepts a removal only when e_ucb <= gamma.      stric"
     },
     {
@@ -4680,7 +4680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_scoring",
-      "community": 79,
+      "community": 25,
       "norm_label": "scoring.py"
     },
     {
@@ -4690,7 +4690,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "epcrc_scoring_tokenizationreport",
-      "community": 79,
+      "community": 25,
       "norm_label": "tokenizationreport"
     },
     {
@@ -4700,7 +4700,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "epcrc_scoring_tokenizationreport_to_dict",
-      "community": 79,
+      "community": 25,
       "norm_label": ".to_dict()"
     },
     {
@@ -4720,7 +4720,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_scoring_py_ndarray",
-      "community": 31,
+      "community": 25,
       "norm_label": "ndarray"
     },
     {
@@ -4730,7 +4730,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer",
-      "community": 31,
+      "community": 25,
       "norm_label": "labelscorer"
     },
     {
@@ -4740,7 +4740,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_init",
-      "community": 31,
+      "community": 25,
       "norm_label": ".__init__()"
     },
     {
@@ -4750,7 +4750,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_load",
-      "community": 31,
+      "community": 25,
       "norm_label": ".load()"
     },
     {
@@ -4760,7 +4760,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_tokenizer",
-      "community": 31,
+      "community": 25,
       "norm_label": ".tokenizer()"
     },
     {
@@ -4770,7 +4770,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_model",
-      "community": 31,
+      "community": 25,
       "norm_label": ".model()"
     },
     {
@@ -4780,7 +4780,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_label_encodings",
-      "community": 31,
+      "community": 25,
       "norm_label": ".label_encodings()"
     },
     {
@@ -4790,7 +4790,7 @@
       "source_location": "L149",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_audit_tokenization",
-      "community": 31,
+      "community": 25,
       "norm_label": ".audit_tokenization()"
     },
     {
@@ -4800,7 +4800,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_apply_chat_template",
-      "community": 31,
+      "community": 25,
       "norm_label": ".apply_chat_template()"
     },
     {
@@ -4810,7 +4810,7 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_score_prompt",
-      "community": 31,
+      "community": 25,
       "norm_label": ".score_prompt()"
     },
     {
@@ -4820,7 +4820,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_score_prompts",
-      "community": 31,
+      "community": 25,
       "norm_label": ".score_prompts()"
     },
     {
@@ -4830,7 +4830,7 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "epcrc_scoring_labelscorer_continuation_logprob",
-      "community": 31,
+      "community": 25,
       "norm_label": "._continuation_logprob()"
     },
     {
@@ -4840,7 +4840,7 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "epcrc_scoring_score_pairs",
-      "community": 31,
+      "community": 25,
       "norm_label": "score_pairs()"
     },
     {
@@ -4850,7 +4850,7 @@
       "source_location": "L287",
       "_origin": "ast",
       "id": "epcrc_scoring_argmax_labels",
-      "community": 79,
+      "community": 25,
       "norm_label": "argmax_labels()"
     },
     {
@@ -4860,7 +4860,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "epcrc_scoring_accuracy_report",
-      "community": 79,
+      "community": 25,
       "norm_label": "accuracy_report()"
     },
     {
@@ -4870,7 +4870,7 @@
       "source_location": "L327",
       "_origin": "ast",
       "id": "epcrc_scoring_write_scores",
-      "community": 79,
+      "community": 25,
       "norm_label": "write_scores()"
     },
     {
@@ -4880,7 +4880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_1",
-      "community": 79,
+      "community": 25,
       "norm_label": "deterministic three-label probability extraction from an open-weight judge.  the"
     },
     {
@@ -4890,7 +4890,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_43",
-      "community": 79,
+      "community": 25,
       "norm_label": "per-model record of how the three labels encode."
     },
     {
@@ -4910,7 +4910,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_81",
-      "community": 31,
+      "community": 25,
       "norm_label": "scores rendered prompts against the labels a, b and c.      loading is lazy so i"
     },
     {
@@ -4920,7 +4920,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_150",
-      "community": 31,
+      "community": 25,
       "norm_label": "record how each label encodes, and whether the labels are comparable."
     },
     {
@@ -4930,7 +4930,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_167",
-      "community": 31,
+      "community": 25,
       "norm_label": "wrap the prompt in the model's official chat template.          qwen 3 exposes a"
     },
     {
@@ -4940,7 +4940,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_183",
-      "community": 31,
+      "community": 25,
       "norm_label": "three-class probabilities for one rendered prompt."
     },
     {
@@ -4950,7 +4950,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_187",
-      "community": 31,
+      "community": 25,
       "norm_label": "three-class probabilities for a batch of rendered prompts."
     },
     {
@@ -4960,7 +4960,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_234",
-      "community": 31,
+      "community": 25,
       "norm_label": "exact sequence log-likelihood of a multi-token label."
     },
     {
@@ -4970,7 +4970,7 @@
       "source_location": "L264",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_264",
-      "community": 31,
+      "community": 25,
       "norm_label": "canonical three-class probabilities for every pair under one context.      retur"
     },
     {
@@ -4980,7 +4980,7 @@
       "source_location": "L295",
       "_origin": "ast",
       "id": "epcrc_scoring_rationale_295",
-      "community": 79,
+      "community": 25,
       "norm_label": "sanity statistics for one judge under one context.      a judge whose prediction"
     },
     {
@@ -4990,7 +4990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_selection_baselines",
-      "community": 34,
+      "community": 37,
       "norm_label": "selection_baselines.py"
     },
     {
@@ -5000,7 +5000,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_judge_matrix",
-      "community": 34,
+      "community": 37,
       "norm_label": "judge_matrix()"
     },
     {
@@ -5050,7 +5050,7 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_select_correlation_medoid",
-      "community": 34,
+      "community": 37,
       "norm_label": "select_correlation_medoid()"
     },
     {
@@ -5090,7 +5090,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_select_pivoted_qr",
-      "community": 34,
+      "community": 37,
       "norm_label": "select_pivoted_qr()"
     },
     {
@@ -5100,7 +5100,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_select_leverage",
-      "community": 34,
+      "community": 37,
       "norm_label": "select_leverage()"
     },
     {
@@ -5120,7 +5120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_rationale_1",
-      "community": 34,
+      "community": 37,
       "norm_label": "pairwise-geometry selection baselines (plan section 21.2).  these are the rules"
     },
     {
@@ -5130,7 +5130,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_rationale_51",
-      "community": 34,
+      "community": 37,
       "norm_label": "stack every judge into one long response vector.      returns shape ``(n_judges,"
     },
     {
@@ -5170,7 +5170,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_rationale_126",
-      "community": 34,
+      "community": 37,
       "norm_label": "correlation clustering followed by medoid selection.      judges are clustered b"
     },
     {
@@ -5210,7 +5210,7 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_rationale_226",
-      "community": 34,
+      "community": 37,
       "norm_label": "column-pivoted qr on the response matrix.      judges are the columns; qr with c"
     },
     {
@@ -5220,7 +5220,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "epcrc_selection_baselines_rationale_245",
-      "community": 34,
+      "community": 37,
       "norm_label": "leverage-score column selection.      scores each judge by its statistical lever"
     },
     {
@@ -5240,7 +5240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges",
-      "community": 64,
+      "community": 18,
       "norm_label": "synthetic_judges.py"
     },
     {
@@ -5250,7 +5250,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_to_simplex",
-      "community": 64,
+      "community": 18,
       "norm_label": "to_simplex()"
     },
     {
@@ -5260,7 +5260,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_py_ndarray",
-      "community": 64,
+      "community": 18,
       "norm_label": "ndarray"
     },
     {
@@ -5270,7 +5270,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_random_interior",
-      "community": 64,
+      "community": 18,
       "norm_label": "_random_interior()"
     },
     {
@@ -5280,7 +5280,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_render",
-      "community": 64,
+      "community": 18,
       "norm_label": "_render()"
     },
     {
@@ -5290,7 +5290,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_panel",
-      "community": 64,
+      "community": 18,
       "norm_label": "_panel()"
     },
     {
@@ -5330,7 +5330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_rationale_1",
-      "community": 64,
+      "community": 18,
       "norm_label": "controlled judge panels whose correct answer is known before running anything."
     },
     {
@@ -5340,7 +5340,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_rationale_39",
-      "community": 64,
+      "community": 18,
       "norm_label": "barycentric coordinates of planar points, i.e. their distributions."
     },
     {
@@ -5350,7 +5350,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_rationale_48",
-      "community": 64,
+      "community": 18,
       "norm_label": "uniform points inside the triangle, via dirichlet barycentric weights."
     },
     {
@@ -5360,7 +5360,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_rationale_58",
-      "community": 64,
+      "community": 18,
       "norm_label": "turn planar judge positions into an (n_items, n_judges, 3) block."
     },
     {
@@ -5370,7 +5370,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "epcrc_synthetic_judges_rationale_74",
-      "community": 64,
+      "community": 18,
       "norm_label": "independent fit and eval draws of the same planar configuration."
     },
     {
@@ -5650,7 +5650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_audit_algorithms",
-      "community": 30,
+      "community": 12,
       "norm_label": "audit_algorithms.py"
     },
     {
@@ -5660,7 +5660,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_check",
-      "community": 30,
+      "community": 12,
       "norm_label": "check()"
     },
     {
@@ -5670,7 +5670,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_audit_disco",
-      "community": 30,
+      "community": 12,
       "norm_label": "audit_disco()"
     },
     {
@@ -5680,7 +5680,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_py_ndarray",
-      "community": 30,
+      "community": 12,
       "norm_label": "ndarray"
     },
     {
@@ -5690,7 +5690,7 @@
       "source_location": "L94",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_audit_monotonicity",
-      "community": 30,
+      "community": 12,
       "norm_label": "audit_monotonicity()"
     },
     {
@@ -5700,7 +5700,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_main",
-      "community": 30,
+      "community": 12,
       "norm_label": "main()"
     },
     {
@@ -5710,7 +5710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_rationale_1",
-      "community": 30,
+      "community": 12,
       "norm_label": "correctness audit of every pruner + the disco solver, on real utd19 data.  check"
     },
     {
@@ -5720,7 +5720,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "experiments_audit_algorithms_rationale_63",
-      "community": 30,
+      "community": 12,
       "norm_label": "kkt check of the simplex-constrained least squares fit."
     },
     {
@@ -5730,7 +5730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_build_rewardbench_pairs",
-      "community": 66,
+      "community": 3,
       "norm_label": "build_rewardbench_pairs.py"
     },
     {
@@ -5740,7 +5740,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "experiments_build_rewardbench_pairs_main",
-      "community": 66,
+      "community": 3,
       "norm_label": "main()"
     },
     {
@@ -5750,7 +5750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_build_rewardbench_pairs_rationale_1",
-      "community": 66,
+      "community": 3,
       "norm_label": "convert rewardbench 2 into judged pairs and write the split manifests.  produces"
     },
     {
@@ -6510,7 +6510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange",
-      "community": 2,
+      "community": 66,
       "norm_label": "experiment_c6_exchange.py"
     },
     {
@@ -6580,7 +6580,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_run_subpanel",
-      "community": 2,
+      "community": 66,
       "norm_label": "run_subpanel()"
     },
     {
@@ -6590,7 +6590,7 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_init_worker",
-      "community": 2,
+      "community": 66,
       "norm_label": "_init_worker()"
     },
     {
@@ -6600,7 +6600,7 @@
       "source_location": "L235",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_one",
-      "community": 2,
+      "community": 66,
       "norm_label": "_one()"
     },
     {
@@ -6610,7 +6610,7 @@
       "source_location": "L242",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_summarise",
-      "community": 2,
+      "community": 66,
       "norm_label": "summarise()"
     },
     {
@@ -6620,7 +6620,7 @@
       "source_location": "L289",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_run",
-      "community": 2,
+      "community": 66,
       "norm_label": "run()"
     },
     {
@@ -6630,7 +6630,7 @@
       "source_location": "L338",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_main",
-      "community": 2,
+      "community": 66,
       "norm_label": "main()"
     },
     {
@@ -6640,7 +6640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_rationale_1",
-      "community": 2,
+      "community": 66,
       "norm_label": "e4 -- exact optimality and exchange structure (plan section 26, claim c6).  c6 s"
     },
     {
@@ -6680,7 +6680,7 @@
       "source_location": "L243",
       "_origin": "ast",
       "id": "experiments_experiment_c6_exchange_rationale_243",
-      "community": 2,
+      "community": 66,
       "norm_label": "per method: how often it hit the optimum, and by how much it missed."
     },
     {
@@ -6690,7 +6690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification",
-      "community": 74,
+      "community": 66,
       "norm_label": "experiment_c7_certification.py"
     },
     {
@@ -6710,7 +6710,7 @@
       "source_location": "L144",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_init_worker",
-      "community": 74,
+      "community": 66,
       "norm_label": "_init_worker()"
     },
     {
@@ -6720,7 +6720,7 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_one_repetition",
-      "community": 74,
+      "community": 66,
       "norm_label": "one_repetition()"
     },
     {
@@ -6730,7 +6730,7 @@
       "source_location": "L177",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_run",
-      "community": 74,
+      "community": 66,
       "norm_label": "run()"
     },
     {
@@ -6740,7 +6740,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_summarise",
-      "community": 74,
+      "community": 66,
       "norm_label": "summarise()"
     },
     {
@@ -6750,7 +6750,7 @@
       "source_location": "L254",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_wilson_upper",
-      "community": 74,
+      "community": 66,
       "norm_label": "_wilson_upper()"
     },
     {
@@ -6760,7 +6760,7 @@
       "source_location": "L267",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_main",
-      "community": 75,
+      "community": 66,
       "norm_label": "main()"
     },
     {
@@ -6770,7 +6770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_rationale_1",
-      "community": 74,
+      "community": 66,
       "norm_label": "e5 \u2014 certification reliability (plan section 27, claim c7).  c7 says a pruning r"
     },
     {
@@ -6790,7 +6790,7 @@
       "source_location": "L151",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_rationale_151",
-      "community": 74,
+      "community": 66,
       "norm_label": "one fit/cert/test repetition: select, certify, evaluate.      repetitions share"
     },
     {
@@ -6800,7 +6800,7 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_rationale_225",
-      "community": 74,
+      "community": 66,
       "norm_label": "conditional violation rate and certified fraction, per rule and gamma."
     },
     {
@@ -6810,7 +6810,7 @@
       "source_location": "L255",
       "_origin": "ast",
       "id": "experiments_experiment_c7_certification_rationale_255",
-      "community": 74,
+      "community": 66,
       "norm_label": "upper end of a 95% wilson interval; nan when nothing was certified."
     },
     {
@@ -6870,7 +6870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability",
-      "community": 29,
+      "community": 32,
       "norm_label": "experiment_e0_noncomposability.py"
     },
     {
@@ -6880,7 +6880,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_leave_one_out",
-      "community": 29,
+      "community": 32,
       "norm_label": "leave_one_out()"
     },
     {
@@ -6890,7 +6890,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_py_ndarray",
-      "community": 29,
+      "community": 32,
       "norm_label": "ndarray"
     },
     {
@@ -6900,7 +6900,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_minfeasible",
-      "community": 72,
+      "community": 32,
       "norm_label": "minfeasible"
     },
     {
@@ -6910,7 +6910,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "namedtuple",
-      "community": 72,
+      "community": 32,
       "norm_label": "namedtuple"
     },
     {
@@ -6940,7 +6940,7 @@
       "source_location": "L208",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_dependency_cycles",
-      "community": 29,
+      "community": 32,
       "norm_label": "dependency_cycles()"
     },
     {
@@ -6950,7 +6950,7 @@
       "source_location": "L244",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_loo_breakpoints",
-      "community": 29,
+      "community": 32,
       "norm_label": "loo_breakpoints()"
     },
     {
@@ -6960,7 +6960,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_analyse",
-      "community": 29,
+      "community": 32,
       "norm_label": "analyse()"
     },
     {
@@ -6970,7 +6970,7 @@
       "source_location": "L329",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_run_instance",
-      "community": 29,
+      "community": 32,
       "norm_label": "run_instance()"
     },
     {
@@ -6980,7 +6980,7 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_run_real",
-      "community": 29,
+      "community": 32,
       "norm_label": "run_real()"
     },
     {
@@ -6990,7 +6990,7 @@
       "source_location": "L356",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_summarise",
-      "community": 29,
+      "community": 32,
       "norm_label": "summarise()"
     },
     {
@@ -7000,7 +7000,7 @@
       "source_location": "L387",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_main_real",
-      "community": 29,
+      "community": 32,
       "norm_label": "main_real()"
     },
     {
@@ -7010,7 +7010,7 @@
       "source_location": "L450",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_main",
-      "community": 29,
+      "community": 32,
       "norm_label": "main()"
     },
     {
@@ -7020,7 +7020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_1",
-      "community": 29,
+      "community": 32,
       "norm_label": "experiment e0 -- individual redundancy certificates do not compose (claim c1)."
     },
     {
@@ -7030,7 +7030,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_100",
-      "community": 29,
+      "community": 32,
       "norm_label": "per-judge loo error and the weight matrix of the loo certificates."
     },
     {
@@ -7040,7 +7040,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_116",
-      "community": 72,
+      "community": 32,
       "norm_label": "smallest panel meeting a tolerance, with how well that size is pinned down."
     },
     {
@@ -7070,7 +7070,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_209",
-      "community": 29,
+      "community": 32,
       "norm_label": "strongly connected components of the 'i leans on j' graph.      judges in a comm"
     },
     {
@@ -7080,7 +7080,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_245",
-      "community": 29,
+      "community": 32,
       "norm_label": "the only tolerances at which the individually-removable set changes.      ``r(ga"
     },
     {
@@ -7090,7 +7090,7 @@
       "source_location": "L270",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_270",
-      "community": 29,
+      "community": 32,
       "norm_label": "the section 22 procedure for one panel, over the tolerance grid.      `verbose`"
     },
     {
@@ -7100,7 +7100,7 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "experiments_experiment_e0_noncomposability_rationale_340",
-      "community": 29,
+      "community": 32,
       "norm_label": "same procedure on a scored panel, fitted on fit and judged on cert.      test st"
     },
     {
@@ -7230,7 +7230,7 @@
       "source_location": "L315",
       "_origin": "ast",
       "id": "experiments_experiment_e1_compression_frontier_main",
-      "community": 46,
+      "community": 66,
       "norm_label": "main()"
     },
     {
@@ -7590,7 +7590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness",
-      "community": 30,
+      "community": 12,
       "norm_label": "experiment_subset_robustness.py"
     },
     {
@@ -7610,7 +7610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_experiment_subset_robustness_rationale_1",
-      "community": 30,
+      "community": 12,
       "norm_label": "subset-robustness sweep: compare 6 pruning configs over random model subsets.  t"
     },
     {
@@ -7864,10 +7864,20 @@
       "norm_label": "_setup_section()"
     },
     {
+      "label": "_compliance_section()",
+      "file_type": "code",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1352",
+      "_origin": "ast",
+      "id": "experiments_export_results_compliance_section",
+      "community": 40,
+      "norm_label": "_compliance_section()"
+    },
+    {
       "label": "build_summary()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1312",
+      "source_location": "L1423",
       "_origin": "ast",
       "id": "experiments_export_results_build_summary",
       "community": 40,
@@ -7877,7 +7887,7 @@
       "label": "copy_notebooks()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1371",
+      "source_location": "L1484",
       "_origin": "ast",
       "id": "experiments_export_results_copy_notebooks",
       "community": 40,
@@ -7887,7 +7897,7 @@
       "label": "export()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1405",
+      "source_location": "L1518",
       "_origin": "ast",
       "id": "experiments_export_results_export",
       "community": 40,
@@ -7897,7 +7907,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1490",
+      "source_location": "L1603",
       "_origin": "ast",
       "id": "experiments_export_results_main",
       "community": 40,
@@ -7984,12 +7994,22 @@
       "norm_label": "panel, contexts, splits and bootstrap size \u2014 what every claim below shares."
     },
     {
+      "label": "Hand the plan's own evidence matrix back with the evidence filled in.      The p",
+      "file_type": "rationale",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1353",
+      "_origin": "ast",
+      "id": "experiments_export_results_rationale_1353",
+      "community": 40,
+      "norm_label": "hand the plan's own evidence matrix back with the evidence filled in.      the p"
+    },
+    {
       "label": "Render already-executed notebooks to HTML so they read without Jupyter.      Not",
       "file_type": "rationale",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1372",
+      "source_location": "L1485",
       "_origin": "ast",
-      "id": "experiments_export_results_rationale_1372",
+      "id": "experiments_export_results_rationale_1485",
       "community": 40,
       "norm_label": "render already-executed notebooks to html so they read without jupyter.      not"
     },
@@ -8000,7 +8020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_run_all",
-      "community": 10,
+      "community": 43,
       "norm_label": "run_all.py"
     },
     {
@@ -8030,7 +8050,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "experiments_run_all_run_pruners",
-      "community": 10,
+      "community": 43,
       "norm_label": "run_pruners()"
     },
     {
@@ -8040,7 +8060,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "experiments_run_all_certify_oracle",
-      "community": 10,
+      "community": 43,
       "norm_label": "certify_oracle()"
     },
     {
@@ -8050,7 +8070,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "experiments_run_all_main",
-      "community": 10,
+      "community": 43,
       "norm_label": "main()"
     },
     {
@@ -8060,7 +8080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "experiments_run_all_rationale_1",
-      "community": 10,
+      "community": 43,
       "norm_label": "single entry point for the epcrc gamma sweep: every pruner + the certified optim"
     },
     {
@@ -8360,7 +8380,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "tests_test_c3_baselines_test_pairwise_tv_is_a_metric_shaped_matrix",
-      "community": 37,
+      "community": 34,
       "norm_label": "test_pairwise_tv_is_a_metric_shaped_matrix()"
     },
     {
@@ -8390,7 +8410,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "tests_test_c3_baselines_test_duplicate_judges_are_not_both_selected_early",
-      "community": 76,
+      "community": 8,
       "norm_label": "test_duplicate_judges_are_not_both_selected_early()"
     },
     {
@@ -8520,7 +8540,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "tests_test_c3_baselines_rationale_78",
-      "community": 76,
+      "community": 8,
       "norm_label": "a cloned judge carries no new information, so geometry should skip it."
     },
     {
@@ -10190,7 +10210,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "tests_test_judge_coverage_test_barycentric_map_sends_the_corners_to_the_pure_outcomes",
-      "community": 64,
+      "community": 18,
       "norm_label": "test_barycentric_map_sends_the_corners_to_the_pure_outcomes()"
     },
     {
@@ -10300,7 +10320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap",
-      "community": 10,
+      "community": 43,
       "norm_label": "test_milp_and_kswap.py"
     },
     {
@@ -10310,7 +10330,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_triangle_cloud",
-      "community": 10,
+      "community": 43,
       "norm_label": "_triangle_cloud()"
     },
     {
@@ -10320,7 +10340,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_milp_recovers_hull_vertices",
-      "community": 10,
+      "community": 43,
       "norm_label": "test_milp_recovers_hull_vertices()"
     },
     {
@@ -10330,7 +10350,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_test_milp_matches_bruteforce_on_random_instance",
-      "community": 10,
+      "community": 43,
       "norm_label": "test_milp_matches_bruteforce_on_random_instance()"
     },
     {
@@ -10350,7 +10370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_1",
-      "community": 10,
+      "community": 43,
       "norm_label": "sanity checks for the milp oracle optimum and the k-swap reduction escape.  reus"
     },
     {
@@ -10360,7 +10380,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_41",
-      "community": 10,
+      "community": 43,
       "norm_label": "milp oracle optimum on the triangle cloud is exactly the 3 vertices."
     },
     {
@@ -10370,7 +10390,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "tests_test_milp_and_kswap_rationale_51",
-      "community": 10,
+      "community": 43,
       "norm_label": "milp size == brute-force protocol optimum on a small fit==eval instance.      wi"
     },
     {
@@ -10980,7 +11000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic",
-      "community": 70,
+      "community": 30,
       "norm_label": "test_pruning_synthetic.py"
     },
     {
@@ -10990,7 +11010,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_build_cloud",
-      "community": 70,
+      "community": 30,
       "norm_label": "_build_cloud()"
     },
     {
@@ -11000,7 +11020,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_coverage",
-      "community": 70,
+      "community": 30,
       "norm_label": "_coverage()"
     },
     {
@@ -11010,7 +11030,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_backward_returns_exact_hull_vertices",
-      "community": 70,
+      "community": 30,
       "norm_label": "test_backward_returns_exact_hull_vertices()"
     },
     {
@@ -11020,7 +11040,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_forward_output_contains_hull_vertices",
-      "community": 70,
+      "community": 30,
       "norm_label": "test_forward_output_contains_hull_vertices()"
     },
     {
@@ -11030,7 +11050,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_test_both_return_feasible_sets",
-      "community": 70,
+      "community": 30,
       "norm_label": "test_both_return_feasible_sets()"
     },
     {
@@ -11040,7 +11060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_1",
-      "community": 70,
+      "community": 30,
       "norm_label": "task-1 sanity checks on a tiny synthetic cloud with a known answer.  constructio"
     },
     {
@@ -11050,7 +11070,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_43",
-      "community": 70,
+      "community": 30,
       "norm_label": "3 triangle vertices + 5 strictly-interior points -> y of shape (2, 8)."
     },
     {
@@ -11060,7 +11080,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_75",
-      "community": 70,
+      "community": 30,
       "norm_label": "backward must return exactly the 3 hull vertices, with e <= gamma and no     fur"
     },
     {
@@ -11070,7 +11090,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_96",
-      "community": 70,
+      "community": 30,
       "norm_label": "forward's first feasible prefix must contain all 3 hull vertices, and be     fea"
     },
     {
@@ -11080,7 +11100,7 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "tests_test_pruning_synthetic_rationale_109",
-      "community": 70,
+      "community": 30,
       "norm_label": "every returned set must satisfy e(s) <= gamma."
     },
     {
@@ -12210,7 +12230,7 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_rendering_places_the_responses_in_order",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_rendering_places_the_responses_in_order()"
     },
     {
@@ -12220,7 +12240,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_swap_context_reverses_the_rendered_order",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_swap_context_reverses_the_rendered_order()"
     },
     {
@@ -12230,7 +12250,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_orientation_correction_restores_canonical_identity",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_orientation_correction_restores_canonical_identity()"
     },
     {
@@ -12240,7 +12260,7 @@
       "source_location": "L233",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_gold_label_follows_the_swap_but_ties_do_not",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_gold_label_follows_the_swap_but_ties_do_not()"
     },
     {
@@ -12250,7 +12270,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_interventions_change_only_their_own_target",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_interventions_change_only_their_own_target()"
     },
     {
@@ -12260,7 +12280,7 @@
       "source_location": "L258",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_registered_contexts_are_uniquely_named_and_hashes_are_stable",
-      "community": 47,
+      "community": 3,
       "norm_label": "test_registered_contexts_are_uniquely_named_and_hashes_are_stable()"
     },
     {
@@ -12270,7 +12290,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_render_rejects_an_unknown_protocol",
-      "community": 47,
+      "community": 25,
       "norm_label": "test_render_rejects_an_unknown_protocol()"
     },
     {
@@ -12310,7 +12330,7 @@
       "source_location": "L298",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_test_accuracy_report_separates_tie_and_binary_behaviour",
-      "community": 79,
+      "community": 25,
       "norm_label": "test_accuracy_report_separates_tie_and_binary_behaviour()"
     },
     {
@@ -12370,7 +12390,7 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "tests_test_scoring_pipeline_rationale_224",
-      "community": 47,
+      "community": 3,
       "norm_label": "the judge saw b first, so its 'a' mass belongs to canonical b."
     },
     {
@@ -12450,7 +12470,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_test_risk_controlled_is_more_conservative",
-      "community": 43,
+      "community": 36,
       "norm_label": "test_risk_controlled_is_more_conservative()"
     },
     {
@@ -12490,7 +12510,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "tests_test_sparse_and_risk_rationale_72",
-      "community": 43,
+      "community": 36,
       "norm_label": "ucb-gated backward keeps at least as many models as plain backward,     and its"
     },
     {
@@ -38091,7 +38111,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1312",
+      "source_location": "L1423",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_build_summary",
@@ -38201,7 +38221,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1371",
+      "source_location": "L1352",
+      "weight": 1.0,
+      "source": "experiments_export_results",
+      "target": "experiments_export_results_compliance_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1484",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_copy_notebooks",
@@ -38211,7 +38241,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1405",
+      "source_location": "L1518",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_export",
@@ -38251,7 +38281,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1490",
+      "source_location": "L1603",
       "weight": 1.0,
       "source": "experiments_export_results",
       "target": "experiments_export_results_main",
@@ -38312,7 +38342,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1407",
+      "source_location": "L1520",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_input_paths",
@@ -38333,7 +38363,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1418",
+      "source_location": "L1531",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_gate_paths",
@@ -38365,7 +38395,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1418",
+      "source_location": "L1531",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_provenance",
@@ -38386,7 +38416,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1463",
+      "source_location": "L1576",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_sha256",
@@ -38408,7 +38438,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1420",
+      "source_location": "L1533",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_build_tables",
@@ -38422,6 +38452,17 @@
       "weight": 1.0,
       "source": "experiments_export_results_rationale_153",
       "target": "experiments_export_results_build_tables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1387",
+      "weight": 1.0,
+      "source": "experiments_export_results_compliance_section",
+      "target": "experiments_export_results_py_dataframe",
       "confidence_score": 1.0
     },
     {
@@ -38539,7 +38580,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1333",
+      "source_location": "L1386",
+      "weight": 1.0,
+      "source": "experiments_export_results_compliance_section",
+      "target": "experiments_export_results_md_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1444",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c1_section",
@@ -38550,7 +38602,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1335",
+      "source_location": "L1446",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c2_section",
@@ -38603,7 +38655,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1337",
+      "source_location": "L1448",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c3_section",
@@ -38614,7 +38666,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1339",
+      "source_location": "L1450",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c4_section",
@@ -38625,7 +38677,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1341",
+      "source_location": "L1452",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c5_section",
@@ -38636,7 +38688,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1343",
+      "source_location": "L1454",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c6_section",
@@ -38647,7 +38699,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1345",
+      "source_location": "L1456",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_c7_section",
@@ -38658,7 +38710,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1332",
+      "source_location": "L1443",
       "weight": 1.0,
       "source": "experiments_export_results_build_summary",
       "target": "experiments_export_results_setup_section",
@@ -38679,7 +38731,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1454",
+      "source_location": "L1458",
+      "weight": 1.0,
+      "source": "experiments_export_results_build_summary",
+      "target": "experiments_export_results_compliance_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1353",
+      "weight": 1.0,
+      "source": "experiments_export_results_rationale_1353",
+      "target": "experiments_export_results_compliance_section",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "experiments/export_results.py",
+      "source_location": "L1567",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_build_summary",
@@ -38690,7 +38763,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1451",
+      "source_location": "L1564",
       "weight": 1.0,
       "source": "experiments_export_results_export",
       "target": "experiments_export_results_copy_notebooks",
@@ -38700,9 +38773,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1372",
+      "source_location": "L1485",
       "weight": 1.0,
-      "source": "experiments_export_results_rationale_1372",
+      "source": "experiments_export_results_rationale_1485",
       "target": "experiments_export_results_copy_notebooks",
       "confidence_score": 1.0
     },
@@ -38711,7 +38784,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "experiments/export_results.py",
-      "source_location": "L1503",
+      "source_location": "L1616",
       "weight": 1.0,
       "source": "experiments_export_results_main",
       "target": "experiments_export_results_export",
@@ -45607,5 +45680,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1a008bfa95db6c3ed80ab78f50b2bf1c6bdb21ad"
+  "built_at_commit": "57b2bea00dd99a7e6b1fe2e4ca262211e97bd21f"
 }
