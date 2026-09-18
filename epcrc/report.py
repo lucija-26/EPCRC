@@ -855,3 +855,177 @@ def reconstruction_table(path: str) -> pd.DataFrame:
                 "min_weight": row["min_weight"],
             })
     return pd.DataFrame(rows).sort_values(["k", "rule"]).reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------
+# C8 -- sparse certificates and cost-aware panels (E6, plan section 28)
+# --------------------------------------------------------------------------
+
+def c8_sparse_table(path: str) -> pd.DataFrame:
+    """Per (budget, support cap), the error across split seeds.
+
+    `ratio_to_uncapped` is the column the claim turns on: an absolute error is
+    hard to read at a budget where nothing is accurate, but a cap that costs one
+    percent of the uncapped error is plainly not binding.
+    """
+    payload = load(path)
+    seeds = [str(s) for s in payload["split_seeds"]]
+
+    rows = []
+    for k in payload["budgets"]:
+        uncapped = np.mean([
+            next(r for r in payload["sparse"][s][str(k)]["by_r"] if r["r"] is None)
+            ["worst_judge_worst_context_tv"]
+            for s in seeds
+        ])
+        for cap in list(payload["caps"]) + [None]:
+            per_seed = [
+                next(r for r in payload["sparse"][s][str(k)]["by_r"] if r["r"] == cap)
+                for s in seeds
+            ]
+            worst = np.array([r["worst_judge_worst_context_tv"] for r in per_seed])
+            rows.append({
+                "k": int(k),
+                "support_cap": "none" if cap is None else int(cap),
+                "worst_judge_tv_mean": float(worst.mean()),
+                "worst_judge_tv_sd": float(worst.std(ddof=0)),
+                "mean_judge_tv": float(np.mean(
+                    [r["mean_judge_worst_context_tv"] for r in per_seed])),
+                "mean_support_size": float(np.mean(
+                    [r["mean_support_size"] for r in per_seed])),
+                "ratio_to_uncapped": float(worst.mean() / uncapped),
+                "n_seeds": len(seeds),
+            })
+    return pd.DataFrame(rows)
+
+
+def c8_support_stability(path: str) -> pd.DataFrame:
+    """Which physical judges each virtual judge leans on, and how reliably.
+
+    A support that changes with the partition is a fitting artefact; one that
+    does not is a statement about the panel, and only the second kind belongs in
+    an interpretation.
+    """
+    payload = load(path)
+    rows = []
+    for k, by_cap in payload["support_stability"].items():
+        for cap, by_judge in by_cap.items():
+            for judge, body in by_judge.items():
+                rows.append({
+                    "k": int(k),
+                    "support_cap": int(cap),
+                    "judge": judge,
+                    "modal_support": ",".join(body["modal_support"]),
+                    "modal_count": body["modal_count"],
+                    "n_seeds": body["n_seeds"],
+                    "always_used": ",".join(body["always_used"]),
+                    "n_distinct_supports": body["n_distinct_supports"],
+                    "support_is_unanimous": body["n_distinct_supports"] == 1,
+                })
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["k", "support_cap", "judge"])
+        .reset_index(drop=True)
+    )
+
+
+def c8_cost_table(path: str) -> pd.DataFrame:
+    """The cheapest feasible panel under each cost objective.
+
+    Every winner is priced under all four objectives, not just the one it won,
+    because the question section 28 asks is whether the objectives disagree.
+    `same_panel_as_cardinality` answers that in one column.
+    """
+    payload = load(path)
+    rows = []
+    for block in payload["cost_aware"]["by_gamma"]:
+        if not block["feasible"]:
+            continue
+        reference = tuple(block["cardinality"]["panel"])
+        for objective in ("cardinality", "seconds", "memory_gb", "deployments"):
+            body = block[objective]
+            rows.append({
+                "gamma": block["gamma"],
+                "objective": objective,
+                "n_feasible_panels": block["n_feasible_panels"],
+                "k": int(body["cost"]["cardinality"]),
+                "coverage": body["coverage"],
+                "seconds": body["cost"]["seconds"],
+                "memory_gb": body["cost"]["memory_gb"],
+                "deployments": int(body["cost"]["deployments"]),
+                "same_panel_as_cardinality": tuple(body["panel"]) == reference,
+                "panel": ",".join(body["panel"]),
+            })
+    return pd.DataFrame(rows)
+
+
+# --------------------------------------------------------------------------
+# Backbone -- which judges appear in every optimum (plan section 20)
+# --------------------------------------------------------------------------
+
+def backbone_table(path: str) -> pd.DataFrame:
+    """Per (split seed, tolerance): the minimum panel size and its optima.
+
+    `certified` means the level below k* was scored in full and held nothing
+    feasible, so k* is the true minimum rather than the smallest a search
+    happened to reach.
+    """
+    payload = load(path)
+    rows = []
+    for seed, block in payload["per_split_seed"].items():
+        for body in block["by_gamma"]:
+            rows.append({
+                "split_seed": int(seed),
+                "gamma": body["gamma"],
+                "feasible": body["feasible"],
+                "certified": body["certified"],
+                "k_star": body["k_star"],
+                "n_optima": body["n_optima"],
+                "best_coverage": body["best_coverage"],
+                "n_mandatory": len(body["mandatory_backbone"]),
+                "n_optional": len(body["optional_representative"]),
+                "n_nonessential": len(body["nonessential"]),
+            })
+    return pd.DataFrame(rows).sort_values(["gamma", "split_seed"]).reset_index(drop=True)
+
+
+def backbone_headline(path: str) -> pd.DataFrame:
+    """The across-seed verdict: who is mandatory whatever the partition."""
+    payload = load(path)
+    rows = []
+    for body in payload["stability"]:
+        k_star = [k for k in body["k_star"] if k is not None]
+        rows.append({
+            "gamma": body["gamma"],
+            "n_seeds_feasible": body["n_seeds_feasible"],
+            "k_star_min": min(k_star) if k_star else None,
+            "k_star_max": max(k_star) if k_star else None,
+            "n_always_mandatory": len(body["always_mandatory"]),
+            "always_mandatory": ",".join(body["always_mandatory"]),
+            "never_in_any_optimum": ",".join(body["never_in_any_optimum"]),
+            "unstable": ",".join(body["unstable"]),
+        })
+    return pd.DataFrame(rows)
+
+
+def backbone_per_judge(path: str) -> pd.DataFrame:
+    """Per (tolerance, judge): how many seeds gave each classification."""
+    payload = load(path)
+    rows = []
+    for body in payload["stability"]:
+        for judge, counts in body["counts"].items():
+            total = sum(counts.values())
+            rows.append({
+                "gamma": body["gamma"],
+                "judge": judge,
+                "n_mandatory": counts["mandatory"],
+                "n_optional": counts["optional"],
+                "n_nonessential": counts["nonessential"],
+                "verdict": (
+                    "mandatory" if counts["mandatory"] == total
+                    else "nonessential" if counts["nonessential"] == total
+                    else "optional" if counts["optional"] == total
+                    else "unstable"
+                ),
+            })
+    return pd.DataFrame(rows).sort_values(["gamma", "judge"]).reset_index(drop=True)

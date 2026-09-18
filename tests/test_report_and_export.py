@@ -32,11 +32,16 @@ E1 = os.path.join(RESULTS, "e1_frontier.json")
 E0_REAL = os.path.join(RESULTS, "e0_real_core8.json")
 E0_SYNTH = os.path.join(RESULTS, "e0_noncomposability.json")
 C7 = os.path.join(RESULTS, "c7_certification_core20.json")
+E6 = os.path.join(RESULTS, "e6_sparse_cost_core20.json")
+BACKBONE = os.path.join(RESULTS, "backbone_core20.json")
 
 needs_c3 = pytest.mark.skipif(not os.path.exists(C3), reason="C3 not run")
 needs_e1 = pytest.mark.skipif(not os.path.exists(E1), reason="E1 not run")
 needs_e0 = pytest.mark.skipif(not os.path.exists(E0_REAL), reason="E0 real not run")
 needs_c7 = pytest.mark.skipif(not os.path.exists(C7), reason="C7 not run")
+needs_e6 = pytest.mark.skipif(not os.path.exists(E6), reason="E6 not run")
+needs_backbone = pytest.mark.skipif(not os.path.exists(BACKBONE),
+                                    reason="backbone not run")
 
 
 # --------------------------------------------------------------------------
@@ -865,3 +870,117 @@ def test_c7_verdict_does_not_report_violations_the_data_does_not_contain():
         assert f"not violated once in {int(primary['n_certified'])}" in text
     else:
         assert "not violated once" not in text
+
+
+# --------------------------------------------------------------------------
+# C8 and the backbone
+# --------------------------------------------------------------------------
+
+
+def test_sections_say_not_run_rather_than_inventing_numbers():
+    for section in (E._c8_section, E._backbone_section):
+        text = "\n".join(section({"e6": "", "backbone": ""}))
+        assert "_Not run._" in text
+
+
+@needs_e6
+def test_c8_prose_reads_the_cap_column_and_not_its_rendering():
+    """`support_cap` mixes ints with the string "none".
+
+    Comparing it against "3" silently selects nothing and the ratios come out
+    as NaN, which reads as a formatting glitch rather than as the bug it is.
+    """
+    text = "\n".join(E._c8_section({"e6": E6}))
+
+    assert "nan" not in text.lower()
+    sparse = R.c8_sparse_table(E6)
+    worst = float(sparse[sparse["support_cap"] == 3]["ratio_to_uncapped"].max())
+    assert f"{worst:.3f}" in text
+
+
+@needs_e6
+def test_c8_verdict_names_the_objectives_that_actually_disagreed():
+    """The cost half is a negative result, so it must not read as a positive one."""
+    cost = R.c8_cost_table(E6)
+    differs = cost[~cost["same_panel_as_cardinality"]]
+    text = "\n".join(E._c8_section({"e6": E6}))
+
+    assert "not separable on this panel" in text
+    for objective in set(differs["objective"]):
+        assert objective in text
+    # An objective that always returned the cardinality panel must not be
+    # listed as having disagreed.
+    for objective in set(cost["objective"]) - set(differs["objective"]):
+        assert f"gamma 0.2 under `{objective}`" not in text
+
+
+@needs_backbone
+def test_backbone_section_only_claims_certification_it_has():
+    per_seed = R.backbone_table(BACKBONE)
+    text = "\n".join(E._backbone_section({"backbone": BACKBONE}))
+
+    if bool(per_seed["certified"].all()):
+        assert "certified on every seed" in text
+    else:
+        assert "is an upper bound" in text
+
+
+@needs_backbone
+def test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding():
+    """A judge whose category changes with the partition is not a result."""
+    head = R.backbone_headline(BACKBONE)
+    text = "\n".join(E._backbone_section({"backbone": BACKBONE}))
+
+    loose = head[head["unstable"] != ""]
+    for row in loose.itertuples():
+        for judge in row.unstable.split(","):
+            assert judge not in row.always_mandatory.split(",")
+            assert judge not in row.never_in_any_optimum.split(",")
+    assert "is not a finding" in text or len(loose) == 0
+
+
+@needs_e6
+@needs_backbone
+def test_build_tables_ships_the_c8_and_backbone_csvs():
+    tables = E.build_tables({
+        key: "" for key in
+        ("e0_synthetic", "e0_real", "e1", "c3", "c4", "c5", "c6", "c7")
+    } | {"e6": E6, "backbone": BACKBONE})
+
+    assert set(tables) == {
+        "c8_sparse", "c8_support_stability", "c8_cost_panels",
+        "backbone_headline", "backbone_per_seed", "backbone_per_judge",
+    }
+    assert all(len(df) for df in tables.values())
+
+
+@needs_backbone
+def test_the_backbone_figure_accounts_for_every_judge():
+    """The four bands are a partition, so they must add up to the panel.
+
+    The headline names only the two extreme categories. Stacking those and
+    leaving the optional representatives out would draw a panel that is
+    missing judges, which reads as the panel having shrunk.
+    """
+    from epcrc import figures as Fg
+
+    per_judge = R.backbone_per_judge(BACKBONE)
+    n_judges = per_judge["judge"].nunique()
+    totals = per_judge.groupby("gamma").size()
+    assert (totals == n_judges).all()
+
+    fig = Fg.fig_backbone(BACKBONE)
+    stacked = fig.axes[0].collections
+    assert len(stacked) == 4
+    Fg.plt.close(fig)
+
+
+@needs_e6
+def test_the_c8_figure_draws_a_line_per_budget():
+    from epcrc import figures as Fg
+
+    budgets = R.c8_sparse_table(E6)["k"].nunique()
+    fig = Fg.fig_c8_sparse(E6)
+    # One line per budget plus the dashed uncapped reference.
+    assert len(fig.axes[0].lines) == budgets + 1
+    Fg.plt.close(fig)
