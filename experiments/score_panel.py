@@ -55,7 +55,15 @@ from epcrc.pruning import (
     BackwardKSwapPruner,
     ForwardSelectionPruner,
 )
-from epcrc.panel import CORE8, PANELS, panel_weight_gb, scores_dir
+from epcrc.panel import (
+    CORE8,
+    DATASETS,
+    PANELS,
+    pairs_path,
+    panel_weight_gb,
+    scores_dir,
+    split_path,
+)
 from epcrc.rewardbench import ALL_SEEDS, PRIMARY_SEED, read_pairs, stratified_subset
 from epcrc.scoring import LabelScorer, accuracy_report, score_pairs
 
@@ -74,24 +82,31 @@ DISK_HEADROOM_GB = 20.0
 # Defaults for the Core-8 smoke panel; `configure` overwrites all of them.
 PANEL_NAME = "core8"
 PANEL: Dict[str, str] = dict(CORE8)
+DATASET = "rewardbench"
 SCORES = scores_dir("core8")
 OUT = os.path.dirname(SCORES)
 MIN_FREE_GB = 35.0
 
 
-def configure(panel_name: str, evict: bool) -> None:
+def configure(panel_name: str, evict: bool, dataset: str = "rewardbench") -> None:
     """Point the runner at one of the registered panels.
 
     The disk budget depends on both choices.  Scoring with ``--evict`` deletes
     each snapshot once its blocks are cached, so the peak requirement is the
     single largest model; without it the whole panel has to fit at once, which
     for Core-20 is roughly 320 GB.
+
+    `dataset` also moves the block cache, which it must: blocks are named
+    ``{judge}__{context}.json`` with no benchmark in the key, so scoring E7's
+    JudgeBench pairs into the Core-20 directory would overwrite the blocks every
+    other claim is computed from.
     """
-    global PANEL_NAME, PANEL, OUT, SCORES, MIN_FREE_GB
+    global PANEL_NAME, PANEL, DATASET, OUT, SCORES, MIN_FREE_GB
 
     PANEL_NAME = panel_name
     PANEL = dict(PANELS[panel_name])
-    SCORES = scores_dir(panel_name)
+    DATASET = dataset
+    SCORES = scores_dir(panel_name, dataset)
     OUT = os.path.dirname(SCORES)
 
     if evict:
@@ -106,11 +121,11 @@ def configure(panel_name: str, evict: bool) -> None:
 # --------------------------------------------------------------------------
 
 def _pairs_path(seed: int) -> str:
-    return os.path.join(DATA, f"pairs_seed{seed}.jsonl")
+    return pairs_path(seed, DATASET)
 
 
 def _split_path(seed: int) -> str:
-    return os.path.join(DATA, f"split_seed{seed}.json")
+    return split_path(seed, DATASET)
 
 
 def _cache_path(judge_id: str, context: Context) -> str:
@@ -631,6 +646,9 @@ def main() -> None:
     parser.add_argument("--gate", choices=["g0", "g1", "g2"], default="g0")
     parser.add_argument("--panel", choices=sorted(PANELS), default="core8",
                         help="which registered panel to score")
+    parser.add_argument("--dataset", choices=sorted(DATASETS), default="rewardbench",
+                        help="which benchmark's pairs to score; judgebench is "
+                             "the E7 transfer set and gets its own cache")
     parser.add_argument("--seed", type=int, default=PRIMARY_SEED)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--model", default=G1_MODEL, help="the G1 model")
@@ -666,7 +684,7 @@ def main() -> None:
     args = parser.parse_args()
 
     G2_ITEMS = args.items
-    configure(args.panel, evict=args.evict)
+    configure(args.panel, evict=args.evict, dataset=args.dataset)
     if args.gate == "g2" and not args.scores_only:
         # The gate scores a stratified sample, which is not the item set the
         # production cache holds.  `score_block` keys its cache on (judge,
@@ -674,7 +692,7 @@ def main() -> None:
         # overwrites the blocks every claim is computed from.  Keep them apart.
         SCORES = os.path.join(OUT, "scores_gate")
     os.makedirs(SCORES, exist_ok=True)
-    print(f"panel {PANEL_NAME}: {len(PANEL)} judges, "
+    print(f"panel {PANEL_NAME} on {DATASET}: {len(PANEL)} judges, "
           f"~{panel_weight_gb(list(PANEL)):.0f} GB of weights, "
           f"needs {MIN_FREE_GB:.0f} GB free -> {SCORES}")
 

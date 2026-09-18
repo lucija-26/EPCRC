@@ -31,6 +31,12 @@ SCORES = os.path.join(ROOT, "results", "smoke_core8", "scores")
 
 SPLIT_SEEDS = [20260818, 20260819, 20260820, 20260821, 20260822]
 
+# Which benchmark a set of cached blocks was scored on.  The value is the file
+# name prefix used under data/ and under results/<panel>.  E7 scores the same
+# judges on a second benchmark, and the block cache is keyed only on
+# (judge, context), so the two runs must never share a directory.
+DATASETS: Dict[str, str] = {"rewardbench": "", "judgebench": "judgebench_"}
+
 # --------------------------------------------------------------------------
 # the formal panels (plan sections 10 and 10.3)
 # --------------------------------------------------------------------------
@@ -85,12 +91,24 @@ def panel_weight_gb(judge_ids: Sequence[str]) -> float:
     return 2.0 * sum(PARAMS_B[j] for j in judge_ids)
 
 
-def scores_dir(panel_name: str) -> str:
+def scores_dir(panel_name: str, dataset: str = "rewardbench") -> str:
     """Where a panel's cached (judge, context) blocks live."""
     if panel_name not in PANELS:
         raise ValueError(f"unknown panel {panel_name!r}; expected one of {sorted(PANELS)}")
+    if dataset not in DATASETS:
+        raise ValueError(f"unknown dataset {dataset!r}; expected one of {sorted(DATASETS)}")
     folder = "smoke_core8" if panel_name == "core8" else panel_name
+    if dataset != "rewardbench":
+        folder = f"{folder}_{dataset}"
     return os.path.join(ROOT, "results", folder, "scores")
+
+
+def pairs_path(seed: int, dataset: str = "rewardbench") -> str:
+    return os.path.join(DATA, f"{DATASETS[dataset]}pairs_seed{seed}.jsonl")
+
+
+def split_path(seed: int, dataset: str = "rewardbench") -> str:
+    return os.path.join(DATA, f"{DATASETS[dataset]}split_seed{seed}.json")
 
 
 class Panel:
@@ -161,6 +179,7 @@ class RawPanel:
 def load_raw_panel(
     seed: int = PRIMARY_SEED,
     scores_dir: str = SCORES,
+    dataset: str = "rewardbench",
 ) -> RawPanel:
     """Read the cached blocks into one unsplit tensor."""
     contexts = [c.name for c in REGISTERED_CONTEXTS]
@@ -191,7 +210,7 @@ def load_raw_panel(
         if block["pair_ids"] != reference:
             raise RuntimeError(f"block {key} does not match the reference pair order")
 
-    all_pairs = read_pairs(os.path.join(DATA, f"pairs_seed{seed}.jsonl"))
+    all_pairs = read_pairs(pairs_path(seed, dataset))
     pairs = stratified_subset(all_pairs, len(reference), seed=seed)
     if [p.pair_id for p in pairs] != reference:
         raise RuntimeError("cached blocks do not match the stratified subset for this seed")
@@ -242,6 +261,7 @@ def load_panel(
     seed: int = PRIMARY_SEED,
     scores_dir: str = SCORES,
     split_seed: Optional[int] = None,
+    dataset: str = "rewardbench",
 ) -> Panel:
     """Rebuild the response tensor, optionally re-splitting it under another seed.
 
@@ -249,7 +269,7 @@ def load_panel(
     only re-partitions those cached items and defaults to `seed`.
     """
     split_seed = seed if split_seed is None else split_seed
-    raw = load_raw_panel(seed, scores_dir)
-    with open(os.path.join(DATA, f"split_seed{split_seed}.json")) as handle:
+    raw = load_raw_panel(seed, scores_dir, dataset)
+    with open(split_path(split_seed, dataset)) as handle:
         assignment = json.load(handle)["splits"]
     return split_panel(raw, assignment)
