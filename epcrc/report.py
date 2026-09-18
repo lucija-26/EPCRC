@@ -297,8 +297,12 @@ def c3_paired_table(path: str, reference: str = "coverage_backward") -> pd.DataF
     the fact that both methods were scored on one set of items, so most of the
     sampling noise is shared and cancels in the difference.
 
-    Averaged over split seeds; `n_seeds_significant` counts how many of them
-    put the whole interval on one side of zero.
+    Averaged over split seeds.  `n_seeds_significant` counts how many of them
+    put the whole interval on one side of zero, which says a comparison was
+    decided but not who won.  `n_seeds_reference_better` and
+    `n_seeds_baseline_better` split it by direction, and they are what any
+    win/loss statement must be built from: a decided cell in which the
+    baseline came out ahead is a loss for the reference, not a win.
     """
     payload = load(path)
     rows = []
@@ -314,11 +318,14 @@ def c3_paired_table(path: str, reference: str = "coverage_backward") -> pd.DataF
                     "hi": row["hi"],
                     "prob_reference_better": row["prob_a_better"],
                     "excludes_zero": row["excludes_zero"],
+                    "reference_better": bool(row["excludes_zero"]) and row["delta"] < 0,
+                    "baseline_better": bool(row["excludes_zero"]) and row["delta"] > 0,
                 })
     if not rows:
         return pd.DataFrame(columns=[
             "method", "label", "k", "delta", "lo", "hi",
-            "prob_reference_better", "n_seeds_significant", "n_seeds",
+            "prob_reference_better", "n_seeds_significant",
+            "n_seeds_reference_better", "n_seeds_baseline_better", "n_seeds",
         ])
 
     df = pd.DataFrame(rows)
@@ -330,6 +337,8 @@ def c3_paired_table(path: str, reference: str = "coverage_backward") -> pd.DataF
             hi=("hi", "mean"),
             prob_reference_better=("prob_reference_better", "mean"),
             n_seeds_significant=("excludes_zero", "sum"),
+            n_seeds_reference_better=("reference_better", "sum"),
+            n_seeds_baseline_better=("baseline_better", "sum"),
             n_seeds=("excludes_zero", "size"),
         )
         .reset_index()
