@@ -199,6 +199,7 @@ def split_manifest(
     pairs: Sequence[JudgedPair],
     assignment: Dict[str, List[str]],
     seed: int,
+    dataset: str = DATASET_ID,
 ) -> Dict[str, object]:
     """Checksummed record of one split, so results can be traced to their data."""
     per_split = {
@@ -214,7 +215,7 @@ def split_manifest(
         bucket[membership[pair.base_item_id]] += 1
 
     return {
-        "dataset": DATASET_ID,
+        "dataset": dataset,
         "seed": seed,
         "n_pairs": len(pairs),
         "n_base_items": len(membership),
