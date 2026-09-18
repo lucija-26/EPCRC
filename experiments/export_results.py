@@ -997,12 +997,13 @@ def _c6_section(inputs: Dict[str, str]) -> List[str]:
             lines.append("")
 
     improvement = payload["summary"]["swap3_over_swap2"]
+    n_better = improvement["n_instances_improved"]
     lines.append("### Is a wider exchange worth it?")
     lines.append("")
     lines.append(
         f"3-swap searches a strictly larger neighbourhood than 2-swap and costs "
         f"{improvement['time_ratio']:.1f} times as long. It improves on 2-swap "
-        f"in {improvement['n_instances_improved']} instances and is worse in "
+        f"in {n_better} instance{'' if n_better == 1 else 's'} and is worse in "
         f"{improvement['n_instances_worse']}, for a mean gap reduction of "
         f"{improvement['mean_gap_reduction']:.3f} judges. "
         + ("The extra neighbourhood is not paying for itself at this panel size."
