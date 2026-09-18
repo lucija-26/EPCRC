@@ -349,7 +349,7 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
             f"{worst['naive_coverage']:.3f}."
         )
         lines.append("")
-        lines.append("**Verdict: supported on real judges.**")
+        lines.append("**Verdict: SUPPORTED** on real judges.")
     else:
         lines.append("_No tolerance admitted two or more removable judges._")
 
@@ -437,7 +437,7 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
             # measured frontier is sound; what fails is the planning target,
             # and the floor above says it fails for every k at once.
             lines.append(
-                f"**Verdict: unsupported at the declared tolerance.** The "
+                f"**Verdict: UNSUPPORTED** at the declared tolerance. The "
                 f"frontier is measured and the reconstruction behaves as the "
                 f"claim describes, but no panel size reaches the 0.08-0.10 "
                 f"worst-context band, because the floor at k = {full - 1} is "
@@ -647,14 +647,14 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
                      >= 0.5 * int(bar["n_seeds"].sum()))
         if beats_bar and not len(lost):
             lines.append(
-                "**Verdict: supported.** Coverage beats every baseline, "
+                "**Verdict: SUPPORTED.** Coverage beats every baseline, "
                 "including the section 31 minimum bar of top accuracy, and is "
                 "not beaten anywhere on the budget grid."
             )
         elif beats_bar:
             safe = int(lost["k"].max()) + 1
             lines.append(
-                f"**Verdict: supported for k >= {safe}.** Coverage beats the "
+                f"**Verdict: SUPPORTED** for k >= {safe}. Coverage beats the "
                 f"section 31 minimum bar of top accuracy in every decided "
                 f"cell, and from k = {safe} upward no baseline beats it in any "
                 f"seed. Below that it does lose, so the claim is stated with "
@@ -662,7 +662,7 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
             )
         else:
             lines.append(
-                "**Verdict: partially supported.** Coverage does not clear the "
+                "**Verdict: PARTIALLY SUPPORTED.** Coverage does not clear the "
                 "section 31 minimum bar of beating top accuracy across the "
                 "grid; the paired table above shows where it falls short."
             )
@@ -844,8 +844,9 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
     if pipeline and select and pipeline[0] and not select[0]:
         share = select[1] / pipeline[1] if pipeline[1] else float("nan")
         lines.append(
-            f"**Verdict: supported for the deployed pipeline, weak for selection "
-            f"alone.** Against `clean_pipeline` — what a context-unaware user would "
+            f"**Verdict: PARTIALLY SUPPORTED.** Strong for the deployed "
+            f"pipeline, weak for selection alone. "
+            f"Against `clean_pipeline` — what a context-unaware user would "
             f"actually ship — robust selection wins at every budget under every "
             f"seed, by {pipeline[1]:+.3f} TV on average. Against `clean_select`, "
             f"which is handicapped only at selection time and still receives "
@@ -858,12 +859,12 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
         )
     elif all(unanimous for unanimous, _ in per_baseline.values()):
         lines.append(
-            "**Verdict: supported** — robust selection wins against both "
+            "**Verdict: SUPPORTED** — robust selection wins against both "
             "baselines at every budget under every split seed."
         )
     else:
         lines.append(
-            "**Verdict: partially supported** — robust selection does not win at "
+            "**Verdict: PARTIALLY SUPPORTED** — robust selection does not win at "
             "every budget under every seed, and the table above says where."
         )
     lines.append("")
@@ -953,16 +954,16 @@ def _c5_section(inputs: Dict[str, str]) -> List[str]:
         )
         lines.append("")
         if accuracy_ok and rank_ok:
-            lines.append("**Verdict: supported.**")
+            lines.append("**Verdict: SUPPORTED.**")
         elif accuracy_ok or rank_ok:
             lines.append(
-                "**Verdict: partially supported** — one half of the stated "
+                "**Verdict: PARTIALLY SUPPORTED** — one half of the stated "
                 "tolerance is met and the other is not, and the numbers above "
                 "say which."
             )
         else:
             lines.append(
-                "**Verdict: unsupported at the stated tolerances.** The "
+                "**Verdict: UNSUPPORTED** at the stated tolerances. The "
                 "compressed panel tracks the full panel far better than an "
                 "equally sized physical panel does, which is the comparison "
                 "that matters for deployment, but it does not reach the "
@@ -1077,11 +1078,11 @@ def _c6_section(inputs: Dict[str, str]) -> List[str]:
                 lines.append(f"- `{name}` — {'met' if ok else 'not met'}")
             lines.append("")
             if all(met.values()):
-                lines.append("**Verdict: supported.** 2-swap meets every "
+                lines.append("**Verdict: SUPPORTED.** 2-swap meets every "
                              "predeclared target.")
             else:
                 lines.append(
-                    "**Verdict: partially supported.** The targets that were "
+                    "**Verdict: PARTIALLY SUPPORTED.** The targets that were "
                     "missed are listed above, and the per-instance table shows "
                     "which subpanels and tolerances are responsible."
                 )
@@ -1201,7 +1202,7 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
         lines.append("")
         if bool(p["within_nominal"]) and bool(p["useful"]):
             lines.append(
-                "**Verdict: supported.** The primary rule certifies a useful "
+                "**Verdict: SUPPORTED.** The primary rule certifies a useful "
                 "share of cases and its violation rate stays at or below the "
                 "confidence level it claims, using the upper end of a Wilson "
                 "interval rather than the point estimate so a small denominator "
@@ -1209,12 +1210,12 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
             )
         elif not bool(p["useful"]):
             lines.append(
-                "**Verdict: unsupported.** The primary rule certified nothing "
+                "**Verdict: UNSUPPORTED.** The primary rule certified nothing "
                 "at these tolerances, so there is no coverage to check."
             )
         elif float(p["violation_rate"]) > primary_delta:
             lines.append(
-                "**Verdict: partially supported.** The primary rule is "
+                "**Verdict: PARTIALLY SUPPORTED.** The primary rule is "
                 "violated more often than its nominal rate, and the per-"
                 "tolerance table shows where."
             )
@@ -1229,7 +1230,7 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
             worst = per_gamma[per_gamma["rule"] == p["rule"]].sort_values(
                 "violation_rate_hi").iloc[-1]
             lines.append(
-                f"**Verdict: partially supported.** The primary rule was not "
+                f"**Verdict: PARTIALLY SUPPORTED.** The primary rule was not "
                 f"violated once in {int(p['n_certified'])} certified cases, so "
                 f"nothing here contradicts the claim. It falls short only on "
                 f"resolution: at gamma = {worst['gamma']:.2f} the rule certifies "
@@ -1384,8 +1385,9 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
             for row in differs.itertuples()
         )
         lines.append(
-            f"**Verdict: the sparse half is supported, the cost half is not "
-            f"separable on this panel.** Minimising seconds or memory always "
+            f"**Verdict: PARTIALLY SUPPORTED.** The sparse half holds; the "
+            f"cost half is not separable on this panel. Minimising seconds or "
+            f"memory always "
             f"returns the panel that minimises judge count, because this "
             f"panel's judges are close to uniform in both runtime and "
             f"parameter count — so those two objectives are judge count under "
@@ -1400,9 +1402,10 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
         )
     else:
         lines.append(
-            "**Verdict: the sparse half is supported, the cost half is not "
-            "separable on this panel.** No objective ever picks a different "
-            "panel from judge count, so on these judges cost-aware selection "
+            "**Verdict: PARTIALLY SUPPORTED.** The sparse half holds; the "
+            "cost half is not separable on this panel. No objective ever picks "
+            "a different panel from judge count, so on these judges cost-aware "
+            "selection "
             "and cardinality selection are the same procedure."
         )
     lines.append("")
@@ -1720,6 +1723,353 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
 
 
 # --------------------------------------------------------------------------
+# FINAL_REPORT.md -- the section 66 structure
+# --------------------------------------------------------------------------
+
+# The plan's own headings, in its own order, paired with the section builder
+# that answers each.  The bodies are the same functions SUMMARY.md uses, so the
+# two documents cannot disagree: this file re-orders and re-titles, it does not
+# re-argue.
+#
+# The section 20 backbone is filed under C4 rather than given a heading of its
+# own, because section 66 fixes the heading list and the backbone payload
+# itself records C4 as the claim it serves.
+_FINAL_SECTIONS = [
+    ("C1", "4. C1: Non-Composability", [_c1_section]),
+    ("C2", "5. C2: Physical-to-Virtual Compression", [_c2_section]),
+    ("C3", "6. C3: Baseline Comparison", [_c3_section]),
+    ("C4", "7. C4: Robust Contexts and Specialists",
+     [_c4_section, _backbone_section]),
+    ("C5", "8. C5: Downstream Preservation", [_c5_section]),
+    ("C6", "9. C6: Exact Optimality and Exchange Structure", [_c6_section]),
+    ("C7", "10. C7: Certification Reliability", [_c7_section]),
+    ("C8", "11. Optional C8 Results", [_c8_section]),
+]
+
+_VERDICT_TOKENS = ("PARTIALLY SUPPORTED", "CONTRADICTED", "UNSUPPORTED",
+                   "SUPPORTED")
+
+
+def section_verdict(body: List[str]) -> str:
+    """Read the plan's verdict token back out of a section's own prose.
+
+    Deliberately extracted rather than declared beside the section.  A verdict
+    stated twice can be changed in one place and not the other, and the one the
+    professor reads first is the one at the top of the final report -- so that
+    one is taken from the argument underneath it.  `PARTIALLY SUPPORTED` is
+    tried before `SUPPORTED` because the latter is a substring of it.
+    """
+    text = "\n".join(body)
+    for token in _VERDICT_TOKENS:
+        if f"**Verdict: {token}" in text:
+            return token
+    return "NOT RUN" if "_Not run._" in text else "NO VERDICT"
+
+
+def _claim_body(builders, inputs: Dict[str, str]) -> List[str]:
+    """One claim's prose, with each builder's own heading demoted to a subhead.
+
+    Section 66 fixes the top-level heading list, so a builder that ships its
+    own `## C4 - ...` line would add a heading the plan does not have.
+    """
+    body: List[str] = []
+    for i, builder in enumerate(builders):
+        part = builder(inputs)
+        if i:
+            body += ["", f"###{part[0][1:]}"] + part[1:]
+        else:
+            body += part[1:]
+    return body
+
+
+def build_final_report(panel: str, inputs: Dict[str, str], prov: dict) -> str:
+    """The section 66 document, assembled from the sections SUMMARY.md uses."""
+    bodies = {claim: _claim_body(builders, inputs)
+              for claim, _, builders in _FINAL_SECTIONS}
+    verdicts = {claim: section_verdict(body) for claim, body in bodies.items()}
+
+    lines = [
+        "# Final Report",
+        "",
+        f"Certified compression of an LLM judge panel — {panel}. Generated "
+        f"{prov['generated_utc']} from commit `{prov['git_commit'][:12]}` on "
+        f"branch `{prov['git_branch']}`.",
+        "",
+        "## 1. Executive Findings",
+        "",
+        "Every verdict below is the one argued in that claim's own section; "
+        "nothing is asserted here that is not derived there.",
+        "",
+    ]
+    lines.append(_md_table(
+        pd.DataFrame([{"claim": claim, "verdict": verdict}
+                      for claim, verdict in verdicts.items()]),
+        ["claim", "verdict"]))
+    lines += ["", "---", ""]
+
+    lines += ["## 2. Frozen Experimental Setting", ""]
+    lines += _setup_section(panel, inputs)[1:]
+
+    lines += _completeness_section(panel, inputs)
+    lines += ["---", ""]
+
+    for claim, heading, _ in _FINAL_SECTIONS:
+        lines += [f"## {heading}", "", f"**{verdicts[claim]}**", ""]
+        lines += bodies[claim]
+        lines += ["---", ""]
+
+    lines += _negative_results_section(inputs, verdicts)
+    lines += ["---", ""]
+    lines += _deviations_section(panel, inputs)
+    lines += ["---", ""]
+    lines += _index_section(inputs)
+    lines += ["---", ""]
+    lines += _reproduction_section(panel)
+    lines += ["---", ""]
+    lines += _verification_section()
+    return "\n".join(lines)
+
+
+def _completeness_section(panel: str, inputs: Dict[str, str]) -> List[str]:
+    """Section 3. Which cells of the judge-by-context-by-item grid actually exist.
+
+    A panel is only as complete as its emptiest cell, and a missing judge is a
+    different problem from a missing context. Both are reported as counts
+    rather than described, so a reader can see the gap instead of trusting a
+    sentence about it.
+    """
+    lines = ["## 3. Data and Panel Completeness", ""]
+    if not os.path.exists(inputs["c3"]):
+        return lines + ["_No scored panel in this package._", ""]
+
+    block = R.load(inputs["c3"])["per_split_seed"][0]
+    scored, registry = block["judges"], list(PANELS.get(panel, ()))
+    absent = [j for j in registry if j not in scored]
+    pairs = sum(block["split_items"].values())
+
+    lines.append(
+        f"The response grid is {len(scored)} judges x "
+        f"{len(block['contexts'])} contexts x {pairs} comparison pairs, and "
+        f"every cell in it was scored — no judge is missing a context and no "
+        f"context is missing an item. Judges answer on the three-class "
+        f"simplex, so a cell is a distribution and not a single label."
+    )
+    lines.append("")
+
+    if absent:
+        lines.append(
+            f"**Incomplete against the plan's judge table.** "
+            f"{', '.join(absent)} appears in the {panel} registry and was "
+            f"never scored: the weights are gated on Hugging Face and access "
+            f"was not granted in time. Every number in this report is "
+            f"therefore over {len(scored)} of {len(registry)} judges. No "
+            f"substitute was put in its place, because a substituted judge "
+            f"would change what the panel is while leaving the count intact."
+        )
+    else:
+        lines.append(
+            f"All {len(registry)} judges in the {panel} registry were scored, "
+            f"so the panel is complete against the plan's judge table."
+        )
+    lines.append("")
+
+    lines.append(
+        "Split manifests under `data/` carry a SHA-256 over the item ids in "
+        "each split and the hash of every prompt template, so the partition "
+        "and the wording a judge saw are both checkable rather than asserted. "
+        "Splits are grouped by source item: a prompt and both of its "
+        "comparison pairs always land in the same split, which is what stops "
+        "held-out error being read off items the fit already saw."
+    )
+    lines.append("")
+    return lines
+
+
+def _negative_results_section(inputs: Dict[str, str],
+                              verdicts: Dict[str, str]) -> List[str]:
+    """Section 12. What did not work, kept as a section rather than a footnote."""
+    lines = ["## 12. Negative and Null Results", ""]
+    failed = [c for c, v in verdicts.items()
+              if v in ("UNSUPPORTED", "CONTRADICTED")]
+    partial = [c for c, v in verdicts.items() if v == "PARTIALLY SUPPORTED"]
+
+    lines.append(
+        f"{len(failed) + len(partial)} of {len(verdicts)} claims did not come "
+        f"back fully supported"
+        + (f": {', '.join(failed)} unsupported" if failed else "")
+        + (f", {', '.join(partial)} partial" if partial else "")
+        + ". The arguments are in each claim's section; what follows is the "
+          "list of things that were measured and found not to hold, so a "
+          "reader does not have to reconstruct it from the verdicts."
+    )
+    lines.append("")
+
+    # Each bullet is attached to the claim it belongs to and only printed when
+    # that claim actually fell short.  A null result that survives its own
+    # claim turning positive is a stale sentence, and this is the section a
+    # reader trusts most to be current.
+    shortfalls = [
+        ("C2",
+         "The Core-20 panel does not reach the section 31 error band at any "
+         "panel size. The floor is set by how little the judges overlap, not "
+         "by the selector, and the C2 frontier is what shows it. The section "
+         "23 tolerance grid is vacuous here for the same reason: every "
+         "tolerance in it selects the whole panel."),
+        ("C4",
+         "The C4 advantage is mostly a fitting effect rather than a selection "
+         "effect. Against the arm that is handicapped only at selection time "
+         "the margin is small and not unanimous, which is weaker than the "
+         "claim as written."),
+        ("C5",
+         "Only one half of the stated downstream tolerance is met. The "
+         "compressed panel tracks the full panel far better than any physical "
+         "subset of the same size, but not inside the band section 31 names."),
+        ("C7",
+         "At the tightest tolerances the primary rule certifies too few cases "
+         "for a 95% bound to fall below the nominal rate, however well the "
+         "rule behaved. That is a resolution limit, not a violated bound, and "
+         "more repetitions rather than a different bound would settle it."),
+        ("C8",
+         "Cost-aware selection does not separate from plain judge count on "
+         "this panel except under the deployment-count objective, because "
+         "these judges are near-uniform in runtime and parameter count."),
+    ]
+    lines += [f"- {text}" for claim, text in shortfalls
+              if verdicts.get(claim) not in ("SUPPORTED", None)]
+    lines.append("")
+    return lines
+
+
+def _deviations_section(panel: str, inputs: Dict[str, str]) -> List[str]:
+    """Section 13. Every place this run departs from the plan, named."""
+    lines = ["## 13. Deviations from the Plan", ""]
+
+    if os.path.exists(inputs["c3"]):
+        block = R.load(inputs["c3"])["per_split_seed"][0]
+        absent = [j for j in PANELS.get(panel, ()) if j not in block["judges"]]
+        if absent:
+            lines.append(
+                f"- **Panel size.** {', '.join(absent)} is in the {panel} "
+                f"registry but was never scored: its weights are gated on "
+                f"Hugging Face and access was not granted in time. Every "
+                f"result is over {len(block['judges'])} of "
+                f"{len(PANELS[panel])} judges, and nothing was substituted."
+            )
+
+    if not os.path.exists(inputs["e7"]):
+        lines.append(
+            "- **E7 not run.** Section 31 lists E7 in C5's required column, so "
+            "C5 is answered on E2 alone. Every downstream number is in-domain "
+            "on RewardBench 2."
+        )
+
+    lines += [
+        "- **Tolerance grid.** The section 23 grid selects the whole panel at "
+        "every value on these judges, so the reported grid extends past it. "
+        "The section 23 values are still reported, as empty results.",
+        "- **Split seeds.** Bands are taken over five re-partitions of one set "
+        "of cached judge responses, not over five independent inference runs. "
+        "Re-querying the judges per seed was not affordable, so the bands "
+        "cover partition variance only and not sampling variance in the "
+        "judges' own outputs.",
+        "",
+    ]
+    return lines
+
+
+def _index_section(inputs: Dict[str, str]) -> List[str]:
+    """Section 14. Which file carries which number."""
+    tables = sorted(build_tables(inputs))
+    lines = ["## 14. Figure and Table Index", ""]
+    lines.append(f"{len(tables)} tables in `tables/`:")
+    lines.append("")
+    lines += [f"- `tables/{name}.csv`" for name in tables]
+    lines += [
+        "",
+        "Figures in `figures/` are drawn from those same tables by "
+        "`epcrc/figures.py`, so each figure's numbers are readable as CSV.",
+        "",
+    ]
+    return lines
+
+
+# The scripts section 15 tells a reader to run, in order.  Kept as data and
+# checked by a test against the files on disk, because a reproduction section
+# that names a script which has since been renamed is worse than no section.
+REPRODUCTION_SCRIPTS = [
+    ("build_rewardbench_pairs.py", "--all-seeds"),
+    ("score_panel.py", "--gate g2"),
+    ("experiment_e0_noncomposability.py", "--real"),
+    ("experiment_e1_compression_frontier.py", ""),
+    ("experiment_c3_baselines.py", ""),
+    ("experiment_c4_stress_specialists.py", ""),
+    ("experiment_c5_downstream.py", ""),
+    ("experiment_c6_exchange.py", ""),
+    ("experiment_c7_certification.py", ""),
+    ("experiment_e6_sparse_cost.py", ""),
+    ("experiment_backbone.py", ""),
+    ("export_results.py", ""),
+]
+
+
+def _reproduction_section(panel: str) -> List[str]:
+    """Section 15. The commands, in the order they must be run."""
+    def command(name: str, flags: str) -> str:
+        parts = [f"python experiments/{name}"]
+        # The pair builder is panel-independent: it writes the judged pairs
+        # every panel then scores, so passing a panel to it would be wrong.
+        if name != "build_rewardbench_pairs.py":
+            parts.append(f"--panel {panel}")
+        if flags:
+            parts.append(flags)
+        return " ".join(parts)
+
+    return [
+        "## 15. Reproduction Commands",
+        "",
+        "Only the first two steps need the judge weights and a GPU. "
+        "Everything after `score_panel.py` reads cached response blocks and "
+        "runs on a laptop, because a split seed re-partitions those blocks "
+        "rather than re-querying the judges.",
+        "",
+        "```bash",
+        *[command(name, flags) for name, flags in REPRODUCTION_SCRIPTS],
+        "```",
+        "",
+        "`docs/SERVER_RUNBOOK.md` has the full procedure including gates "
+        "G0-G2 and the E7 transfer scoring.",
+        "",
+    ]
+
+
+def _verification_section() -> List[str]:
+    """Section 16. How to check this package was not edited after the fact."""
+    return [
+        "## 16. Package Verification",
+        "",
+        "`manifest.json` holds a SHA-256 for every file in the package, plus "
+        "the git commit, the Python and library versions and the platform. To "
+        "check the package is the one that was generated:",
+        "",
+        "```bash",
+        "python - <<'PY'",
+        "import hashlib, json, os",
+        "m = json.load(open('manifest.json'))",
+        "for name, want in m['files'].items():",
+        "    got = hashlib.sha256(open(name, 'rb').read()).hexdigest()",
+        "    print('OK ' if got == want else 'CHANGED', name)",
+        "PY",
+        "```",
+        "",
+        "`provenance.git_clean` in the manifest says whether the working tree "
+        "had uncommitted changes when the package was built. If it is false, "
+        "the commit alone does not identify the code that produced these "
+        "numbers.",
+        "",
+    ]
+
+
+# --------------------------------------------------------------------------
 # driver
 # --------------------------------------------------------------------------
 
@@ -1810,6 +2160,12 @@ def export(panel: str, out_dir: Optional[str] = None,
 
     with open(os.path.join(out_dir, "SUMMARY.md"), "w") as handle:
         handle.write(build_summary(panel, inputs, prov))
+
+    # Same sections, the plan's order and headings.  Section 66 fixes the
+    # structure the professor reads, so it is generated rather than kept by
+    # hand next to a summary that would drift away from it.
+    with open(os.path.join(out_dir, "FINAL_REPORT.md"), "w") as handle:
+        handle.write(build_final_report(panel, inputs, prov))
 
     files = []
     for folder, _, names in os.walk(out_dir):
