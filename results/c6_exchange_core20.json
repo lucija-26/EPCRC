@@ -1,0 +1,7695 @@
+{
+  "experiment": "E4",
+  "claim": "C6",
+  "seed": 20260818,
+  "split_seed": 20260818,
+  "judges": [
+    "J01",
+    "J02",
+    "J03",
+    "J04",
+    "J05",
+    "J06",
+    "J07",
+    "J08",
+    "J09",
+    "J10",
+    "J11",
+    "J12",
+    "J13",
+    "J14",
+    "J15",
+    "J16",
+    "J17",
+    "J18",
+    "J19",
+    "J20"
+  ],
+  "contexts": [
+    "I0_clean",
+    "I1_order_swap",
+    "I2_correctness_rubric",
+    "I3_bias_resistant_rubric",
+    "I4_verbosity_pad_a",
+    "I5_source_tags",
+    "I6_reference_hidden"
+  ],
+  "gammas": [
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "subpanel_sizes": [
+    12,
+    12,
+    13,
+    13,
+    14,
+    14,
+    15,
+    15,
+    16,
+    16
+  ],
+  "subpanel_seed": 606,
+  "methods": [
+    "forward",
+    "backward",
+    "forward_trim",
+    "swap2",
+    "swap2_forward",
+    "swap2_pq",
+    "swap3"
+  ],
+  "note_gamma_grid": "The section 23 grid (0.02 to 0.20) is vacuous on real judges: C2 measures a floor near 0.13 at k = 19, so no subpanel of 12 to 16 judges reaches any of those points and every instance would be unsolved. E4 uses tolerance points inside the achievable range. Recorded as a deviation from the plan.",
+  "note_fit_and_score": "E(S) is fitted on FIT and scored on CERT, so the optimum being certified is a held-out optimum rather than a training fit.",
+  "summary": {
+    "per_method": {
+      "forward": {
+        "n_instances": 60,
+        "exact_rate": 0.2,
+        "mean_gap": 1.55,
+        "max_gap": 4.0,
+        "mean_seconds": 4.279033333333333,
+        "total_seconds": 256.74199999999996
+      },
+      "backward": {
+        "n_instances": 60,
+        "exact_rate": 0.8,
+        "mean_gap": 0.2,
+        "max_gap": 1.0,
+        "mean_seconds": 8.562283333333333,
+        "total_seconds": 513.737
+      },
+      "forward_trim": {
+        "n_instances": 60,
+        "exact_rate": 0.7166666666666667,
+        "mean_gap": 0.2833333333333333,
+        "max_gap": 1.0,
+        "mean_seconds": 3.542216666666667,
+        "total_seconds": 212.53300000000002
+      },
+      "swap2": {
+        "n_instances": 60,
+        "exact_rate": 0.9833333333333333,
+        "mean_gap": 0.016666666666666666,
+        "max_gap": 1.0,
+        "mean_seconds": 50.79861666666667,
+        "total_seconds": 3047.917
+      },
+      "swap2_forward": {
+        "n_instances": 60,
+        "exact_rate": 0.95,
+        "mean_gap": 0.05,
+        "max_gap": 1.0,
+        "mean_seconds": 14.189983333333332,
+        "total_seconds": 851.3989999999999
+      },
+      "swap2_pq": {
+        "n_instances": 60,
+        "exact_rate": 0.9666666666666667,
+        "mean_gap": 0.03333333333333333,
+        "max_gap": 1.0,
+        "mean_seconds": 19.153500000000005,
+        "total_seconds": 1149.2100000000003
+      },
+      "swap3": {
+        "n_instances": 60,
+        "exact_rate": 1.0,
+        "mean_gap": 0.0,
+        "max_gap": 0.0,
+        "mean_seconds": 169.87178333333335,
+        "total_seconds": 10192.307
+      }
+    },
+    "swap3_over_swap2": {
+      "mean_gap_reduction": 0.016666666666666666,
+      "n_instances_improved": 1,
+      "n_instances_worse": 0,
+      "time_ratio": 3.344023803797807
+    },
+    "target_section_26": {
+      "swap2_exact_rate_at_least_0.70": true,
+      "swap2_mean_gap_at_most_0.5": true,
+      "swap2_max_gap_at_most_1": true
+    }
+  },
+  "instances": [
+    {
+      "judges": [
+        "J01",
+        "J02",
+        "J05",
+        "J07",
+        "J08",
+        "J09",
+        "J10",
+        "J15",
+        "J16",
+        "J17",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 12,
+      "subset_evaluations": 3796,
+      "cache_hits": 8189,
+      "cache_hit_rate": 0.6832707551105549,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.47855822875341625,
+          "opt_kept": [
+            "J02",
+            "J07",
+            "J09",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J07",
+              "J09",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J07",
+              "J09",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J05",
+              "J09",
+              "J16"
+            ],
+            "swap3": [
+              "J02",
+              "J07",
+              "J09",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 5.846,
+            "backward": 27.912,
+            "forward_trim": 1.024,
+            "swap2": 12.836,
+            "swap2_forward": 0.784,
+            "swap2_pq": 7.386,
+            "swap3": 11.394
+          },
+          "search_seconds": 5.318
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 5,
+          "opt_error": 0.3919229854359102,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J09",
+            "J10",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 12.358,
+            "swap2_forward": 3.882,
+            "swap2_pq": 6.061,
+            "swap3": 35.586
+          },
+          "search_seconds": 12.182
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 5,
+          "opt_error": 0.3919229854359102,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J09",
+            "J10",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 1.131,
+            "backward": 0.0,
+            "forward_trim": 1.168,
+            "swap2": 0.0,
+            "swap2_forward": 0.0,
+            "swap2_pq": 0.0,
+            "swap3": 0.001
+          },
+          "search_seconds": 0.0
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 7,
+          "opt_error": 0.33925409814865776,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J08",
+            "J09",
+            "J10",
+            "J17",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 7,
+            "forward_trim": 7,
+            "swap2": 7,
+            "swap2_forward": 7,
+            "swap2_pq": 7,
+            "swap3": 7
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J08",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J17",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 36.418,
+            "swap2_forward": 13.04,
+            "swap2_pq": 0.31,
+            "swap3": 82.097
+          },
+          "search_seconds": 61.274
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 9,
+          "opt_error": 0.238654428156949,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J05",
+            "J09",
+            "J10",
+            "J15",
+            "J16",
+            "J17",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J05",
+              "J07",
+              "J08",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 4.306,
+            "backward": 0.0,
+            "forward_trim": 7.602,
+            "swap2": 34.991,
+            "swap2_forward": 0.001,
+            "swap2_pq": 0.376,
+            "swap3": 58.749
+          },
+          "search_seconds": 61.576
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 9,
+          "opt_error": 0.238654428156949,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J05",
+            "J09",
+            "J10",
+            "J15",
+            "J16",
+            "J17",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J05",
+              "J07",
+              "J08",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J10",
+              "J15",
+              "J16",
+              "J17",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 0.001,
+            "swap2_forward": 0.0,
+            "swap2_pq": 0.0,
+            "swap3": 0.001
+          },
+          "search_seconds": 0.002
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J02",
+        "J03",
+        "J05",
+        "J06",
+        "J08",
+        "J10",
+        "J11",
+        "J12",
+        "J13",
+        "J14",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 12,
+      "subset_evaluations": 3796,
+      "cache_hits": 6770,
+      "cache_hit_rate": 0.6407344311943971,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.4837349024289453,
+          "opt_kept": [
+            "J05",
+            "J06",
+            "J12",
+            "J14"
+          ],
+          "sizes": {
+            "forward": 4,
+            "backward": 4,
+            "forward_trim": 4,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J05",
+              "J06",
+              "J12",
+              "J14"
+            ],
+            "backward": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J05",
+              "J06",
+              "J12",
+              "J14"
+            ],
+            "swap2": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J05",
+              "J06",
+              "J12",
+              "J14"
+            ],
+            "swap2_pq": [
+              "J05",
+              "J06",
+              "J12",
+              "J14"
+            ],
+            "swap3": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 4.871,
+            "backward": 36.75,
+            "forward_trim": 0.409,
+            "swap2": 8.705,
+            "swap2_forward": 5.311,
+            "swap2_pq": 1.66,
+            "swap3": 13.354
+          },
+          "search_seconds": 9.738
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 4,
+          "opt_error": 0.44658091889495877,
+          "opt_kept": [
+            "J02",
+            "J10",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 4,
+            "forward_trim": 5,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J05",
+              "J06",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J05",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J10",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 3,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 5.879,
+            "backward": 0.0,
+            "forward_trim": 4.146,
+            "swap2": 0.0,
+            "swap2_forward": 6.544,
+            "swap2_pq": 6.398,
+            "swap3": 0.001
+          },
+          "search_seconds": 0.0
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 5,
+          "opt_error": 0.3725075697274088,
+          "opt_kept": [
+            "J02",
+            "J10",
+            "J13",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 5,
+            "forward_trim": 6,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J05",
+              "J06",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J05",
+              "J06",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 13.588,
+            "swap2_forward": 8.133,
+            "swap2_pq": 0.655,
+            "swap3": 38.953
+          },
+          "search_seconds": 17.691
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 6,
+          "opt_error": 0.34945401101625323,
+          "opt_kept": [
+            "J02",
+            "J06",
+            "J10",
+            "J13",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 6,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 1.128,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 23.666,
+            "swap2_forward": 0.001,
+            "swap2_pq": 3.607,
+            "swap3": 71.523
+          },
+          "search_seconds": 25.039
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 9,
+          "opt_error": 0.24213361134733807,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J13",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.72,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 44.129,
+            "swap2_forward": 0.001,
+            "swap2_pq": 3.674,
+            "swap3": 69.843
+          },
+          "search_seconds": 79.755
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 9,
+          "opt_error": 0.24213361134733807,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J13",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 0.001,
+            "swap2_forward": 0.0,
+            "swap2_pq": 0.0,
+            "swap3": 0.001
+          },
+          "search_seconds": 0.002
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J02",
+        "J03",
+        "J04",
+        "J05",
+        "J06",
+        "J10",
+        "J11",
+        "J13",
+        "J14",
+        "J16",
+        "J18",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 13,
+      "subset_evaluations": 8099,
+      "cache_hits": 20189,
+      "cache_hit_rate": 0.7136948529411765,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 5,
+          "opt_error": 0.45803000876998895,
+          "opt_kept": [
+            "J02",
+            "J04",
+            "J10",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J05",
+              "J06",
+              "J14",
+              "J16",
+              "J18"
+            ],
+            "backward": [
+              "J02",
+              "J04",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J05",
+              "J06",
+              "J14",
+              "J18"
+            ],
+            "swap2": [
+              "J02",
+              "J04",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J05",
+              "J06",
+              "J14",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J04",
+              "J06",
+              "J14",
+              "J20"
+            ],
+            "swap3": [
+              "J02",
+              "J04",
+              "J10",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 11.441,
+            "backward": 51.868,
+            "forward_trim": 2.654,
+            "swap2": 23.074,
+            "swap2_forward": 17.643,
+            "swap2_pq": 28.049,
+            "swap3": 55.515
+          },
+          "search_seconds": 27.809
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 5,
+          "opt_error": 0.4333247257617329,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J04",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 6,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J04",
+              "J05",
+              "J06",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J04",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J04",
+              "J05",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J04",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J04",
+              "J14",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J04",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J04",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 3,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 5.577,
+            "backward": 0.0,
+            "forward_trim": 7.886,
+            "swap2": 24.329,
+            "swap2_forward": 11.546,
+            "swap2_pq": 8.867,
+            "swap3": 17.282
+          },
+          "search_seconds": 0.0
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 7,
+          "opt_error": 0.37185342151273887,
+          "opt_kept": [
+            "J02",
+            "J04",
+            "J10",
+            "J13",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 7,
+            "forward_trim": 8,
+            "swap2": 7,
+            "swap2_forward": 7,
+            "swap2_pq": 7,
+            "swap3": 7
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J04",
+              "J05",
+              "J06",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J04",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J04",
+              "J05",
+              "J06",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J04",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J04",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J04",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J04",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.176,
+            "backward": 0.0,
+            "forward_trim": 4.924,
+            "swap2": 52.024,
+            "swap2_forward": 24.35,
+            "swap2_pq": 1.097,
+            "swap3": 180.117
+          },
+          "search_seconds": 111.293
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 8,
+          "opt_error": 0.34776830286745714,
+          "opt_kept": [
+            "J02",
+            "J04",
+            "J06",
+            "J10",
+            "J13",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 10,
+            "backward": 8,
+            "forward_trim": 8,
+            "swap2": 8,
+            "swap2_forward": 8,
+            "swap2_pq": 8,
+            "swap3": 8
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J04",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.683,
+            "backward": 0.0,
+            "forward_trim": 6.006,
+            "swap2": 53.869,
+            "swap2_forward": 0.001,
+            "swap2_pq": 1.71,
+            "swap3": 197.354
+          },
+          "search_seconds": 73.033
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 11,
+          "opt_error": 0.2406191159443367,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J04",
+            "J05",
+            "J06",
+            "J10",
+            "J13",
+            "J14",
+            "J16",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 11,
+            "forward_trim": 11,
+            "swap2": 11,
+            "swap2_forward": 11,
+            "swap2_pq": 11,
+            "swap3": 11
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.27,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 47.362,
+            "swap2_forward": 0.001,
+            "swap2_pq": 1.809,
+            "swap3": 28.563
+          },
+          "search_seconds": 98.81
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 11,
+          "opt_error": 0.2406191159443367,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J04",
+            "J05",
+            "J06",
+            "J10",
+            "J13",
+            "J14",
+            "J16",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 11,
+            "forward_trim": 11,
+            "swap2": 11,
+            "swap2_forward": 11,
+            "swap2_pq": 11,
+            "swap3": 11
+          },
+          "kept": {
+            "forward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J04",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 0.001,
+            "swap2_forward": 0.0,
+            "swap2_pq": 0.0,
+            "swap3": 0.001
+          },
+          "search_seconds": 0.004
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J03",
+        "J05",
+        "J06",
+        "J07",
+        "J08",
+        "J10",
+        "J11",
+        "J12",
+        "J15",
+        "J16",
+        "J17",
+        "J18"
+      ],
+      "n_judges": 13,
+      "subset_evaluations": 7813,
+      "cache_hits": 10673,
+      "cache_hit_rate": 0.5773558368495078,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 2,
+          "opt_error": 0.48323811338857514,
+          "opt_kept": [
+            "J01",
+            "J03"
+          ],
+          "sizes": {
+            "forward": 3,
+            "backward": 3,
+            "forward_trim": 2,
+            "swap2": 2,
+            "swap2_forward": 2,
+            "swap2_pq": 2,
+            "swap3": 2
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J08"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03"
+            ],
+            "swap2": [
+              "J10",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03"
+            ],
+            "swap3": [
+              "J10",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 1,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.804,
+            "backward": 28.385,
+            "forward_trim": 0.119,
+            "swap2": 1.224,
+            "swap2_forward": 0.0,
+            "swap2_pq": 1.215,
+            "swap3": 0.0
+          },
+          "search_seconds": 0.007
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 3,
+          "opt_error": 0.4378980863347273,
+          "opt_kept": [
+            "J01",
+            "J10",
+            "J17"
+          ],
+          "sizes": {
+            "forward": 4,
+            "backward": 4,
+            "forward_trim": 4,
+            "swap2": 3,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 3
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J08",
+              "J12"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10",
+              "J18"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J08",
+              "J12"
+            ],
+            "swap2": [
+              "J01",
+              "J10",
+              "J17"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J08",
+              "J12"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J08",
+              "J12"
+            ],
+            "swap3": [
+              "J01",
+              "J10",
+              "J17"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 1,
+            "swap2_pq": 1,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": false,
+            "swap2_pq": false,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.007,
+            "backward": 0.0,
+            "forward_trim": 0.358,
+            "swap2": 11.477,
+            "swap2_forward": 7.122,
+            "swap2_pq": 0.0,
+            "swap3": 3.481
+          },
+          "search_seconds": 1.055
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 5,
+          "opt_error": 0.38389862818485454,
+          "opt_kept": [
+            "J01",
+            "J06",
+            "J10",
+            "J12",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J06",
+              "J08",
+              "J12",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J06",
+              "J08",
+              "J18"
+            ],
+            "swap2": [
+              "J01",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J06",
+              "J08",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J06",
+              "J11",
+              "J17",
+              "J18"
+            ],
+            "swap3": [
+              "J01",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 4.33,
+            "backward": 0.0,
+            "forward_trim": 3.012,
+            "swap2": 22.019,
+            "swap2_forward": 11.02,
+            "swap2_pq": 29.676,
+            "swap3": 45.999
+          },
+          "search_seconds": 29.316
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 6,
+          "opt_error": 0.3450510923611953,
+          "opt_kept": [
+            "J01",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 7,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J08",
+              "J12",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J12",
+              "J17",
+              "J18"
+            ],
+            "swap2": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J16",
+              "J18"
+            ],
+            "swap3": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.939,
+            "backward": 0.0,
+            "forward_trim": 3.591,
+            "swap2": 34.669,
+            "swap2_forward": 15.782,
+            "swap2_pq": 45.505,
+            "swap3": 89.63
+          },
+          "search_seconds": 45.808
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 9,
+          "opt_error": 0.28763886766398894,
+          "opt_kept": [
+            "J01",
+            "J03",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J15",
+            "J17",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap3": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J17",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 1.415,
+            "backward": 0.0,
+            "forward_trim": 3.898,
+            "swap2": 44.905,
+            "swap2_forward": 0.001,
+            "swap2_pq": 0.578,
+            "swap3": 115.812
+          },
+          "search_seconds": 197.177
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 10,
+          "opt_error": 0.24344156024843552,
+          "opt_kept": [
+            "J01",
+            "J03",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J15",
+            "J16",
+            "J17",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap3": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 2.801,
+            "swap2": 28.588,
+            "swap2_forward": 0.001,
+            "swap2_pq": 0.001,
+            "swap3": 73.03
+          },
+          "search_seconds": 45.771
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J02",
+        "J06",
+        "J07",
+        "J08",
+        "J09",
+        "J10",
+        "J11",
+        "J12",
+        "J14",
+        "J15",
+        "J17",
+        "J18",
+        "J19"
+      ],
+      "n_judges": 14,
+      "subset_evaluations": 16277,
+      "cache_hits": 38238,
+      "cache_hit_rate": 0.7014216270751169,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.49991229093715017,
+          "opt_kept": [
+            "J06",
+            "J09",
+            "J10",
+            "J14"
+          ],
+          "sizes": {
+            "forward": 5,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J06",
+              "J09",
+              "J15",
+              "J18"
+            ],
+            "backward": [
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J06",
+              "J09",
+              "J15",
+              "J18"
+            ],
+            "swap2": [
+              "J06",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "swap2_forward": [
+              "J06",
+              "J09",
+              "J14",
+              "J15"
+            ],
+            "swap2_pq": [
+              "J06",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "swap3": [
+              "J06",
+              "J09",
+              "J10",
+              "J14"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 10.177,
+            "backward": 45.423,
+            "forward_trim": 0.78,
+            "swap2": 20.413,
+            "swap2_forward": 9.571,
+            "swap2_pq": 3.419,
+            "swap3": 24.95
+          },
+          "search_seconds": 11.062
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 6,
+          "opt_error": 0.4193606668193952,
+          "opt_kept": [
+            "J02",
+            "J09",
+            "J10",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 7,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J12",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J12",
+              "J15",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J12",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 7.178,
+            "backward": 0.0,
+            "forward_trim": 4.511,
+            "swap2": 41.684,
+            "swap2_forward": 55.305,
+            "swap2_pq": 5.345,
+            "swap3": 129.279
+          },
+          "search_seconds": 108.969
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 7,
+          "opt_error": 0.37242206534062977,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J09",
+            "J10",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 7,
+            "forward_trim": 7,
+            "swap2": 7,
+            "swap2_forward": 7,
+            "swap2_pq": 7,
+            "swap3": 7
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J07",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 4,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.684,
+            "backward": 0.0,
+            "forward_trim": 2.447,
+            "swap2": 59.768,
+            "swap2_forward": 0.001,
+            "swap2_pq": 29.473,
+            "swap3": 187.335
+          },
+          "search_seconds": 123.329
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 9,
+          "opt_error": 0.33749188963242494,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J06",
+            "J09",
+            "J10",
+            "J14",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 84.004,
+            "swap2_forward": 0.001,
+            "swap2_pq": 43.533,
+            "swap3": 217.33
+          },
+          "search_seconds": 265.233
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 10,
+          "opt_error": 0.2932801574637586,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J06",
+            "J09",
+            "J10",
+            "J12",
+            "J14",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 63.53,
+            "swap2_forward": 0.001,
+            "swap2_pq": 2.571,
+            "swap3": 166.742
+          },
+          "search_seconds": 104.665
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 12,
+          "opt_error": 0.18061003738109485,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J06",
+            "J07",
+            "J09",
+            "J10",
+            "J12",
+            "J14",
+            "J15",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 12,
+            "forward_trim": 12,
+            "swap2": 12,
+            "swap2_forward": 12,
+            "swap2_pq": 12,
+            "swap3": 12
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J06",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.068,
+            "backward": 0.0,
+            "forward_trim": 2.11,
+            "swap2": 22.591,
+            "swap2_forward": 5.631,
+            "swap2_pq": 0.492,
+            "swap3": 21.375
+          },
+          "search_seconds": 86.584
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J05",
+        "J06",
+        "J07",
+        "J08",
+        "J10",
+        "J11",
+        "J12",
+        "J13",
+        "J15",
+        "J16",
+        "J18",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 14,
+      "subset_evaluations": 14912,
+      "cache_hits": 27864,
+      "cache_hit_rate": 0.6513933046568169,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 3,
+          "opt_error": 0.49615301655387906,
+          "opt_kept": [
+            "J10",
+            "J16",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 5,
+            "backward": 4,
+            "forward_trim": 4,
+            "swap2": 3,
+            "swap2_forward": 3,
+            "swap2_pq": 3,
+            "swap3": 3
+          },
+          "kept": {
+            "forward": [
+              "J08",
+              "J12",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10",
+              "J19"
+            ],
+            "forward_trim": [
+              "J08",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J10",
+              "J16",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J10",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J06",
+              "J16",
+              "J20"
+            ],
+            "swap3": [
+              "J10",
+              "J16",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 7.911,
+            "backward": 60.432,
+            "forward_trim": 0.96,
+            "swap2": 7.07,
+            "swap2_forward": 2.986,
+            "swap2_pq": 4.148,
+            "swap3": 2.576
+          },
+          "search_seconds": 1.619
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 5,
+          "opt_error": 0.4336140442060735,
+          "opt_kept": [
+            "J01",
+            "J06",
+            "J10",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 5,
+            "forward_trim": 5,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J06",
+              "J07",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J06",
+              "J10",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J06",
+              "J07",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J06",
+              "J16",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J06",
+              "J10",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 3,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 8.77,
+            "backward": 0.0,
+            "forward_trim": 6.669,
+            "swap2": 33.853,
+            "swap2_forward": 17.577,
+            "swap2_pq": 19.804,
+            "swap3": 79.863
+          },
+          "search_seconds": 48.734
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 6,
+          "opt_error": 0.3908470575066703,
+          "opt_kept": [
+            "J01",
+            "J06",
+            "J11",
+            "J12",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 10,
+            "backward": 7,
+            "forward_trim": 7,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J06",
+              "J11",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J06",
+              "J11",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J06",
+              "J11",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J06",
+              "J11",
+              "J12",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 4,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 5.634,
+            "backward": 0.0,
+            "forward_trim": 11.574,
+            "swap2": 89.781,
+            "swap2_forward": 0.001,
+            "swap2_pq": 61.907,
+            "swap3": 167.47
+          },
+          "search_seconds": 96.316
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 8,
+          "opt_error": 0.3450493168961824,
+          "opt_kept": [
+            "J01",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J13",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 10,
+            "backward": 8,
+            "forward_trim": 9,
+            "swap2": 8,
+            "swap2_forward": 8,
+            "swap2_pq": 8,
+            "swap3": 8
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J06",
+              "J08",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J13",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 102.632,
+            "swap2_forward": 40.723,
+            "swap2_pq": 121.27,
+            "swap3": 336.419
+          },
+          "search_seconds": 405.421
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 9,
+          "opt_error": 0.2742456201840262,
+          "opt_kept": [
+            "J01",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J13",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 9,
+            "forward_trim": 9,
+            "swap2": 9,
+            "swap2_forward": 9,
+            "swap2_pq": 9,
+            "swap3": 9
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.133,
+            "backward": 0.0,
+            "forward_trim": 10.558,
+            "swap2": 81.273,
+            "swap2_forward": 0.001,
+            "swap2_pq": 8.978,
+            "swap3": 322.042
+          },
+          "search_seconds": 215.828
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 10,
+          "opt_error": 0.24456465466899574,
+          "opt_kept": [
+            "J01",
+            "J05",
+            "J06",
+            "J10",
+            "J12",
+            "J13",
+            "J15",
+            "J16",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J07",
+              "J08",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J05",
+              "J06",
+              "J10",
+              "J12",
+              "J13",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 1.78,
+            "backward": 0.0,
+            "forward_trim": 10.645,
+            "swap2": 87.004,
+            "swap2_forward": 0.001,
+            "swap2_pq": 1.021,
+            "swap3": 314.486
+          },
+          "search_seconds": 176.743
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J03",
+        "J05",
+        "J06",
+        "J07",
+        "J09",
+        "J11",
+        "J13",
+        "J14",
+        "J15",
+        "J16",
+        "J17",
+        "J18",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 15,
+      "subset_evaluations": 32646,
+      "cache_hits": 71112,
+      "cache_hit_rate": 0.6853640201237495,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.4884495579059982,
+          "opt_kept": [
+            "J05",
+            "J06",
+            "J09",
+            "J14"
+          ],
+          "sizes": {
+            "forward": 5,
+            "backward": 4,
+            "forward_trim": 4,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J09",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J05",
+              "J06",
+              "J09",
+              "J14"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J09",
+              "J19"
+            ],
+            "swap2": [
+              "J05",
+              "J06",
+              "J09",
+              "J14"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J09",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J06",
+              "J09",
+              "J14",
+              "J20"
+            ],
+            "swap3": [
+              "J05",
+              "J06",
+              "J09",
+              "J14"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 13.097,
+            "backward": 54.884,
+            "forward_trim": 1.859,
+            "swap2": 15.659,
+            "swap2_forward": 12.279,
+            "swap2_pq": 15.459,
+            "swap3": 33.979
+          },
+          "search_seconds": 23.352
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 5,
+          "opt_error": 0.44719137194881786,
+          "opt_kept": [
+            "J03",
+            "J09",
+            "J14",
+            "J17",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 6,
+            "forward_trim": 5,
+            "swap2": 6,
+            "swap2_forward": 5,
+            "swap2_pq": 6,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J09",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J05",
+              "J06",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J03",
+              "J09",
+              "J14",
+              "J17",
+              "J19"
+            ],
+            "swap2": [
+              "J05",
+              "J06",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J03",
+              "J09",
+              "J14",
+              "J17",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J06",
+              "J09",
+              "J16",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J03",
+              "J09",
+              "J14",
+              "J17",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 0,
+            "swap2": 1,
+            "swap2_forward": 0,
+            "swap2_pq": 1,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": true,
+            "swap2": false,
+            "swap2_forward": true,
+            "swap2_pq": false,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 7.217,
+            "backward": 0.0,
+            "forward_trim": 4.667,
+            "swap2": 51.503,
+            "swap2_forward": 25.667,
+            "swap2_pq": 38.328,
+            "swap3": 140.776
+          },
+          "search_seconds": 57.994
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 7,
+          "opt_error": 0.3908534904696888,
+          "opt_kept": [
+            "J01",
+            "J06",
+            "J09",
+            "J11",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 8,
+            "forward_trim": 7,
+            "swap2": 7,
+            "swap2_forward": 7,
+            "swap2_pq": 7,
+            "swap3": 7
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 6.837,
+            "backward": 0.0,
+            "forward_trim": 10.147,
+            "swap2": 64.161,
+            "swap2_forward": 49.831,
+            "swap2_pq": 23.362,
+            "swap3": 308.153
+          },
+          "search_seconds": 347.909
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 10,
+          "opt_error": 0.3082875332348174,
+          "opt_kept": [
+            "J01",
+            "J03",
+            "J05",
+            "J06",
+            "J09",
+            "J13",
+            "J14",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 5.274,
+            "backward": 0.0,
+            "forward_trim": 9.495,
+            "swap2": 109.751,
+            "swap2_forward": 65.239,
+            "swap2_pq": 42.069,
+            "swap3": 372.95
+          },
+          "search_seconds": 979.637
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 11,
+          "opt_error": 0.27186445999362374,
+          "opt_kept": [
+            "J01",
+            "J03",
+            "J05",
+            "J06",
+            "J09",
+            "J13",
+            "J14",
+            "J15",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 11,
+            "forward_trim": 11,
+            "swap2": 11,
+            "swap2_forward": 11,
+            "swap2_pq": 11,
+            "swap3": 11
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 1.04,
+            "backward": 0.0,
+            "forward_trim": 5.657,
+            "swap2": 95.446,
+            "swap2_forward": 0.001,
+            "swap2_pq": 6.685,
+            "swap3": 353.202
+          },
+          "search_seconds": 205.749
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 13,
+          "opt_error": 0.21599520731487148,
+          "opt_kept": [
+            "J01",
+            "J03",
+            "J05",
+            "J06",
+            "J09",
+            "J11",
+            "J13",
+            "J14",
+            "J15",
+            "J16",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 13,
+            "backward": 13,
+            "forward_trim": 13,
+            "swap2": 13,
+            "swap2_forward": 13,
+            "swap2_pq": 13,
+            "swap3": 13
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J03",
+              "J05",
+              "J06",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.507,
+            "backward": 0.0,
+            "forward_trim": 0.001,
+            "swap2": 50.149,
+            "swap2_forward": 0.001,
+            "swap2_pq": 12.758,
+            "swap3": 43.845
+          },
+          "search_seconds": 152.954
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J02",
+        "J03",
+        "J05",
+        "J07",
+        "J09",
+        "J11",
+        "J13",
+        "J14",
+        "J15",
+        "J16",
+        "J17",
+        "J18",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 15,
+      "subset_evaluations": 32646,
+      "cache_hits": 71112,
+      "cache_hit_rate": 0.6853640201237495,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.49680674236443706,
+          "opt_kept": [
+            "J02",
+            "J05",
+            "J09",
+            "J14"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 4,
+            "forward_trim": 5,
+            "swap2": 4,
+            "swap2_forward": 5,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J05",
+              "J09",
+              "J14"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J05",
+              "J09",
+              "J14"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J05",
+              "J09",
+              "J14"
+            ],
+            "swap3": [
+              "J02",
+              "J05",
+              "J09",
+              "J14"
+            ]
+          },
+          "gap": {
+            "forward": 3,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 1,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": false,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 20.46,
+            "backward": 51.478,
+            "forward_trim": 5.341,
+            "swap2": 14.956,
+            "swap2_forward": 29.233,
+            "swap2_pq": 20.529,
+            "swap3": 45.793
+          },
+          "search_seconds": 14.454
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 6,
+          "opt_error": 0.42277995378556865,
+          "opt_kept": [
+            "J02",
+            "J05",
+            "J09",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 6,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J11",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J05",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J16",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J05",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J16",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J09",
+              "J14",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J02",
+              "J05",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.677,
+            "backward": 0.0,
+            "forward_trim": 5.065,
+            "swap2": 49.015,
+            "swap2_forward": 33.826,
+            "swap2_pq": 21.238,
+            "swap3": 199.653
+          },
+          "search_seconds": 183.403
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 7,
+          "opt_error": 0.39380355486940294,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J09",
+            "J11",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 8,
+            "forward_trim": 7,
+            "swap2": 7,
+            "swap2_forward": 7,
+            "swap2_pq": 7,
+            "swap3": 7
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J11",
+              "J14",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 2.208,
+            "backward": 0.0,
+            "forward_trim": 7.485,
+            "swap2": 101.045,
+            "swap2_forward": 0.001,
+            "swap2_pq": 5.106,
+            "swap3": 318.188
+          },
+          "search_seconds": 204.958
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 10,
+          "opt_error": 0.2937411736065429,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J05",
+            "J09",
+            "J13",
+            "J14",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 11,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J07",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 3.067,
+            "backward": 0.0,
+            "forward_trim": 7.475,
+            "swap2": 106.197,
+            "swap2_forward": 58.131,
+            "swap2_pq": 67.468,
+            "swap3": 370.465
+          },
+          "search_seconds": 870.658
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 10,
+          "opt_error": 0.2937411736065429,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J05",
+            "J09",
+            "J13",
+            "J14",
+            "J15",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.516,
+            "backward": 0.0,
+            "forward_trim": 8.781,
+            "swap2": 0.001,
+            "swap2_forward": 0.001,
+            "swap2_pq": 9.728,
+            "swap3": 0.006
+          },
+          "search_seconds": 0.015
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 13,
+          "opt_error": 0.21899089533901073,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J05",
+            "J09",
+            "J11",
+            "J13",
+            "J14",
+            "J15",
+            "J16",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 13,
+            "backward": 13,
+            "forward_trim": 13,
+            "swap2": 13,
+            "swap2_forward": 13,
+            "swap2_pq": 13,
+            "swap3": 13
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J05",
+              "J09",
+              "J11",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.251,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 48.653,
+            "swap2_forward": 0.001,
+            "swap2_pq": 13.772,
+            "swap3": 40.858
+          },
+          "search_seconds": 312.87
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J04",
+        "J05",
+        "J06",
+        "J07",
+        "J08",
+        "J09",
+        "J10",
+        "J11",
+        "J12",
+        "J13",
+        "J14",
+        "J15",
+        "J16",
+        "J17",
+        "J18",
+        "J20"
+      ],
+      "n_judges": 16,
+      "subset_evaluations": 63018,
+      "cache_hits": 95078,
+      "cache_hit_rate": 0.6013940896670378,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 4,
+          "opt_error": 0.4705560547219923,
+          "opt_kept": [
+            "J04",
+            "J09",
+            "J10",
+            "J14"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 4,
+            "forward_trim": 5,
+            "swap2": 4,
+            "swap2_forward": 4,
+            "swap2_pq": 4,
+            "swap3": 4
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "forward_trim": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14"
+            ],
+            "swap2": [
+              "J04",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J09",
+              "J10",
+              "J14"
+            ],
+            "swap3": [
+              "J04",
+              "J09",
+              "J10",
+              "J14"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 22.419,
+            "backward": 98.369,
+            "forward_trim": 2.821,
+            "swap2": 18.594,
+            "swap2_forward": 15.892,
+            "swap2_pq": 14.926,
+            "swap3": 59.483
+          },
+          "search_seconds": 13.097
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 5,
+          "opt_error": 0.44091396553305195,
+          "opt_kept": [
+            "J04",
+            "J09",
+            "J10",
+            "J14",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 5,
+            "forward_trim": 6,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J09",
+              "J10",
+              "J14",
+              "J18"
+            ],
+            "forward_trim": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "swap2": [
+              "J04",
+              "J09",
+              "J10",
+              "J14",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J09",
+              "J10",
+              "J14",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J09",
+              "J10",
+              "J14",
+              "J18"
+            ],
+            "swap3": [
+              "J04",
+              "J09",
+              "J10",
+              "J14",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.001,
+            "forward_trim": 0.0,
+            "swap2": 36.741,
+            "swap2_forward": 18.21,
+            "swap2_pq": 0.001,
+            "swap3": 162.74
+          },
+          "search_seconds": 54.326
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 6,
+          "opt_error": 0.3953241076671788,
+          "opt_kept": [
+            "J04",
+            "J06",
+            "J09",
+            "J11",
+            "J14",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 6,
+            "backward": 7,
+            "forward_trim": 6,
+            "swap2": 6,
+            "swap2_forward": 6,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J06",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "forward_trim": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "swap2": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ],
+            "swap3": [
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 1,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": false,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.0,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 118.688,
+            "swap2_forward": 0.001,
+            "swap2_pq": 58.405,
+            "swap3": 324.851
+          },
+          "search_seconds": 146.246
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 8,
+          "opt_error": 0.3497553991240579,
+          "opt_kept": [
+            "J04",
+            "J05",
+            "J06",
+            "J09",
+            "J10",
+            "J13",
+            "J14",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 9,
+            "backward": 8,
+            "forward_trim": 8,
+            "swap2": 8,
+            "swap2_forward": 8,
+            "swap2_pq": 8,
+            "swap3": 8
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J11",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "forward_trim": [
+              "J04",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "swap2": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ],
+            "swap3": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J13",
+              "J14",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 1,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 11.964,
+            "backward": 0.0,
+            "forward_trim": 9.094,
+            "swap2": 162.312,
+            "swap2_forward": 76.167,
+            "swap2_pq": 145.713,
+            "swap3": 771.86
+          },
+          "search_seconds": 836.042
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 11,
+          "opt_error": 0.25376448272074287,
+          "opt_kept": [
+            "J04",
+            "J05",
+            "J06",
+            "J09",
+            "J10",
+            "J12",
+            "J13",
+            "J14",
+            "J15",
+            "J17",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 14,
+            "backward": 11,
+            "forward_trim": 11,
+            "swap2": 11,
+            "swap2_forward": 11,
+            "swap2_pq": 11,
+            "swap3": 11
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J05",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "forward_trim": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ],
+            "swap3": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J17",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 3,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 14.618,
+            "backward": 0.0,
+            "forward_trim": 8.406,
+            "swap2": 199.931,
+            "swap2_forward": 0.002,
+            "swap2_pq": 14.534,
+            "swap3": 842.584
+          },
+          "search_seconds": 1862.065
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 12,
+          "opt_error": 0.2369719678060005,
+          "opt_kept": [
+            "J04",
+            "J05",
+            "J06",
+            "J09",
+            "J10",
+            "J12",
+            "J13",
+            "J14",
+            "J15",
+            "J16",
+            "J17",
+            "J18"
+          ],
+          "sizes": {
+            "forward": 14,
+            "backward": 12,
+            "forward_trim": 12,
+            "swap2": 12,
+            "swap2_forward": 12,
+            "swap2_pq": 12,
+            "swap3": 12
+          },
+          "kept": {
+            "forward": [
+              "J04",
+              "J05",
+              "J06",
+              "J07",
+              "J09",
+              "J10",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "backward": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "forward_trim": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2_forward": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ],
+            "swap3": [
+              "J04",
+              "J05",
+              "J06",
+              "J09",
+              "J10",
+              "J12",
+              "J13",
+              "J14",
+              "J15",
+              "J16",
+              "J17",
+              "J18"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.001,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 158.219,
+            "swap2_forward": 0.002,
+            "swap2_pq": 1.292,
+            "swap3": 633.327
+          },
+          "search_seconds": 351.654
+        }
+      ]
+    },
+    {
+      "judges": [
+        "J01",
+        "J02",
+        "J03",
+        "J04",
+        "J06",
+        "J07",
+        "J08",
+        "J09",
+        "J11",
+        "J12",
+        "J13",
+        "J14",
+        "J17",
+        "J18",
+        "J19",
+        "J20"
+      ],
+      "n_judges": 16,
+      "subset_evaluations": 64838,
+      "cache_hits": 151212,
+      "cache_hit_rate": 0.6998935431613053,
+      "rows": [
+        {
+          "gamma": 0.5,
+          "opt_size": 5,
+          "opt_error": 0.4991634937771489,
+          "opt_kept": [
+            "J04",
+            "J06",
+            "J09",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 7,
+            "backward": 6,
+            "forward_trim": 6,
+            "swap2": 5,
+            "swap2_forward": 5,
+            "swap2_pq": 5,
+            "swap3": 5
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J04",
+              "J09",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J04",
+              "J09",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J04",
+              "J06",
+              "J09",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J04",
+              "J06",
+              "J09",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J04",
+              "J06",
+              "J09",
+              "J14",
+              "J20"
+            ],
+            "swap3": [
+              "J04",
+              "J06",
+              "J09",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 1,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": false,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 23.873,
+            "backward": 58.234,
+            "forward_trim": 5.465,
+            "swap2": 37.495,
+            "swap2_forward": 46.714,
+            "swap2_pq": 63.121,
+            "swap3": 126.506
+          },
+          "search_seconds": 100.154
+        },
+        {
+          "gamma": 0.45,
+          "opt_size": 6,
+          "opt_error": 0.4333241558446558,
+          "opt_kept": [
+            "J02",
+            "J03",
+            "J04",
+            "J09",
+            "J14",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 8,
+            "backward": 6,
+            "forward_trim": 7,
+            "swap2": 6,
+            "swap2_forward": 7,
+            "swap2_pq": 6,
+            "swap3": 6
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J12",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J12",
+              "J19"
+            ],
+            "swap2": [
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J12",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J19"
+            ],
+            "swap3": [
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 1,
+            "swap2": 0,
+            "swap2_forward": 1,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": false,
+            "swap2": true,
+            "swap2_forward": false,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 4.457,
+            "backward": 0.001,
+            "forward_trim": 8.29,
+            "swap2": 42.237,
+            "swap2_forward": 78.037,
+            "swap2_pq": 64.513,
+            "swap3": 282.344
+          },
+          "search_seconds": 160.507
+        },
+        {
+          "gamma": 0.4,
+          "opt_size": 8,
+          "opt_error": 0.3980590016974389,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J04",
+            "J09",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 10,
+            "backward": 8,
+            "forward_trim": 8,
+            "swap2": 8,
+            "swap2_forward": 8,
+            "swap2_pq": 8,
+            "swap3": 8
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J02",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J09",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 10.031,
+            "backward": 0.0,
+            "forward_trim": 12.63,
+            "swap2": 105.129,
+            "swap2_forward": 85.195,
+            "swap2_pq": 5.323,
+            "swap3": 584.964
+          },
+          "search_seconds": 732.537
+        },
+        {
+          "gamma": 0.35,
+          "opt_size": 10,
+          "opt_error": 0.33990319911669553,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J04",
+            "J06",
+            "J09",
+            "J13",
+            "J14",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 12,
+            "backward": 10,
+            "forward_trim": 10,
+            "swap2": 10,
+            "swap2_forward": 10,
+            "swap2_pq": 10,
+            "swap3": 10
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J13",
+              "J14",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 2,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": false,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 3.421,
+            "backward": 0.0,
+            "forward_trim": 0.001,
+            "swap2": 150.49,
+            "swap2_forward": 0.002,
+            "swap2_pq": 14.151,
+            "swap3": 783.108
+          },
+          "search_seconds": 982.394
+        },
+        {
+          "gamma": 0.3,
+          "opt_size": 13,
+          "opt_error": 0.21953324439692457,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J04",
+            "J06",
+            "J09",
+            "J11",
+            "J12",
+            "J13",
+            "J14",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 13,
+            "backward": 13,
+            "forward_trim": 13,
+            "swap2": 13,
+            "swap2_forward": 13,
+            "swap2_pq": 13,
+            "swap3": 13
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.948,
+            "backward": 0.0,
+            "forward_trim": 0.001,
+            "swap2": 87.707,
+            "swap2_forward": 0.002,
+            "swap2_pq": 40.133,
+            "swap3": 234.514
+          },
+          "search_seconds": 729.14
+        },
+        {
+          "gamma": 0.25,
+          "opt_size": 13,
+          "opt_error": 0.21953324439692457,
+          "opt_kept": [
+            "J01",
+            "J02",
+            "J03",
+            "J04",
+            "J06",
+            "J09",
+            "J11",
+            "J12",
+            "J13",
+            "J14",
+            "J17",
+            "J18",
+            "J19"
+          ],
+          "sizes": {
+            "forward": 13,
+            "backward": 13,
+            "forward_trim": 13,
+            "swap2": 13,
+            "swap2_forward": 13,
+            "swap2_pq": 13,
+            "swap3": 13
+          },
+          "kept": {
+            "forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "backward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "forward_trim": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_forward": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ],
+            "swap2_pq": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19",
+              "J20"
+            ],
+            "swap3": [
+              "J01",
+              "J02",
+              "J03",
+              "J04",
+              "J06",
+              "J09",
+              "J11",
+              "J12",
+              "J13",
+              "J14",
+              "J17",
+              "J18",
+              "J19"
+            ]
+          },
+          "gap": {
+            "forward": 0,
+            "backward": 0,
+            "forward_trim": 0,
+            "swap2": 0,
+            "swap2_forward": 0,
+            "swap2_pq": 0,
+            "swap3": 0
+          },
+          "exact": {
+            "forward": true,
+            "backward": true,
+            "forward_trim": true,
+            "swap2": true,
+            "swap2_forward": true,
+            "swap2_pq": true,
+            "swap3": true
+          },
+          "method_seconds": {
+            "forward": 0.001,
+            "backward": 0.0,
+            "forward_trim": 0.0,
+            "swap2": 0.001,
+            "swap2_forward": 0.001,
+            "swap2_pq": 0.001,
+            "swap3": 0.004
+          },
+          "search_seconds": 0.035
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 7265.9
+}
