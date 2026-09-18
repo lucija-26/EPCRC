@@ -32,6 +32,9 @@ __all__ = [
     "fig_c3_cost",
     "fig_c3_reconstruction",
     "fig_c4_stress",
+    "fig_c5_downstream",
+    "fig_c6_exchange",
+    "fig_c7_certification",
     "save_all",
 ]
 
@@ -428,6 +431,175 @@ def fig_c4_stress(c4_path: str) -> plt.Figure:
 # driver
 # --------------------------------------------------------------------------
 
+# --------------------------------------------------------------------------
+# C5 -- downstream preservation
+# --------------------------------------------------------------------------
+
+def fig_c5_downstream(c5_path: str, aggregator: str = "mean") -> plt.Figure:
+    """What reconstruction buys downstream, budget by budget.
+
+    Left: how far each arm's accuracy sits from the full panel's.  Right: how
+    often each arm decides the same item the same way.  The two are separate
+    panels because an arm can match the accuracy while deciding different items,
+    and only the right panel notices that.
+
+    `physical` is the comparison that matters: same budget, same judges, no
+    reconstruction.  The shaded gap between the two curves is the claim.
+    """
+    df = R.c5_table(c5_path)
+    df = df[df["aggregator"] == aggregator]
+
+    full = df[df["arm"] == "full"]["accuracy"].mean()
+    budgets = sorted(df[df["arm"] == "virtual"]["k"].unique())
+
+    def curve(arm: str, column: str):
+        sub = df[(df["arm"] == arm) & df["k"].isin(budgets)]
+        grouped = sub.groupby("k")[column].mean()
+        return [grouped.get(k, np.nan) for k in budgets]
+
+    arms = ["virtual", "physical", "top_accuracy", "one_per_family", "random"]
+    styles = {
+        "virtual": dict(color=COVERAGE_COLOUR, lw=2.0, marker="o", zorder=3),
+        "physical": dict(color=FLOOR_COLOUR, lw=2.0, marker="s", zorder=3),
+        "top_accuracy": dict(color=ACCENT, lw=1.2, marker="^", alpha=0.9),
+        "one_per_family": dict(color=BASELINE_COLOUR, lw=1.0, marker="v"),
+        "random": dict(color=BASELINE_COLOUR, lw=1.0, ls=":", marker="d"),
+    }
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.5))
+
+    ax = axes[0]
+    virtual = np.array(curve("virtual", "accuracy")) - full
+    physical = np.array(curve("physical", "accuracy")) - full
+    ax.fill_between(budgets, virtual, physical, color=COVERAGE_COLOUR, alpha=0.10)
+    for arm in arms:
+        ax.plot(budgets, np.array(curve(arm, "accuracy")) - full,
+                label=R.C5_PRETTY.get(arm, arm), **styles[arm])
+    ax.axhline(0, color="black", lw=1, ls="--")
+    ax.set_xlabel("physical judges executed, $k$")
+    ax.set_ylabel("accuracy $-$ full panel accuracy")
+    ax.set_title(f"decision quality ({aggregator} aggregate)", fontsize=9)
+    ax.legend(fontsize=6.5, loc="lower right")
+
+    ax = axes[1]
+    for arm in arms:
+        ax.plot(budgets, curve(arm, "verdict_agreement_vs_full"), **styles[arm])
+    ax.set_xlabel("physical judges executed, $k$")
+    ax.set_ylabel("items decided as the full panel decided them")
+    ax.set_title("agreement with the full panel", fontsize=9)
+
+    fig.suptitle("C5: reconstruction preserves the panel's decisions better than "
+                 "dropping the same judges", fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
+# --------------------------------------------------------------------------
+# C6 -- exchange structure
+# --------------------------------------------------------------------------
+
+def fig_c6_exchange(c6_path: str) -> plt.Figure:
+    """How close each method gets to the certified optimum, and what it costs.
+
+    Left: the share of instances solved exactly, with the section 26 target
+    drawn as a line.  Right: mean extra judges against mean runtime, which is
+    where the 3-swap question is settled -- it can only earn its cost by sitting
+    lower *and* not far to the right.
+    """
+    head = R.c6_headline(c6_path)
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.5))
+
+    ax = axes[0]
+    colours = [
+        COVERAGE_COLOUR if m.startswith("swap") else BASELINE_COLOUR
+        for m in head["method"]
+    ]
+    ax.bar(range(len(head)), head["exact_rate"], color=colours, width=0.62)
+    ax.axhline(0.70, color=FLOOR_COLOUR, lw=1.2, ls="--",
+               label="section 26 target (0.70)")
+    ax.set_xticks(range(len(head)))
+    ax.set_xticklabels(head["label"], rotation=30, ha="right", fontsize=7)
+    ax.set_ylabel("instances solved exactly")
+    ax.set_ylim(0, 1.05)
+    ax.set_title("exact-optimum rate", fontsize=9)
+    ax.legend(fontsize=7)
+
+    ax = axes[1]
+    for _, row in head.iterrows():
+        colour = COVERAGE_COLOUR if row["method"].startswith("swap") else BASELINE_COLOUR
+        ax.scatter(row["mean_seconds"], row["mean_gap"], s=60, color=colour,
+                   edgecolor="white", lw=0.6, zorder=3)
+        ax.annotate(row["label"], (row["mean_seconds"], row["mean_gap"]),
+                    textcoords="offset points", xytext=(6, 4), fontsize=6.5)
+    ax.axhline(0, color="black", lw=1, ls="--")
+    ax.set_xscale("log")
+    ax.set_xlabel("mean seconds per instance (log scale)")
+    ax.set_ylabel("mean extra judges vs optimum")
+    ax.set_title("does the extra search pay for itself?", fontsize=9)
+
+    fig.suptitle("C6: low-order exchange closes most of the gap to the certified "
+                 "optimum", fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
+# --------------------------------------------------------------------------
+# C7 -- certification reliability
+# --------------------------------------------------------------------------
+
+def fig_c7_certification(c7_path: str, delta: float = 0.05) -> plt.Figure:
+    """Violation rate against the nominal level, and what certifying costs.
+
+    Left: for each rule and tolerance, how often a certified panel broke its
+    promise on the locked split.  Anything above the dashed line is a rule whose
+    stated confidence is not being kept.
+
+    Right: the price of that confidence.  A rule that certifies nothing sits at
+    zero on the left and is worthless, so the two panels must be read together.
+    """
+    df = R.c7_table(c7_path)
+    df = df[df["delta"].isna() | np.isclose(df["delta"], delta)]
+    rules = [r for r in R.C7_PRETTY if r in set(df["rule"])]
+
+    def style(rule: str) -> dict:
+        if rule == "bernstein_bonferroni":
+            return dict(color=COVERAGE_COLOUR, lw=2.2, marker="o", zorder=3)
+        if rule.startswith("empirical"):
+            return dict(color=FLOOR_COLOUR, lw=1.6, marker="s")
+        if rule == "bootstrap_max":
+            return dict(color=ACCENT, lw=1.6, marker="^")
+        return dict(color=BASELINE_COLOUR, lw=1.1, marker="d", ls=":")
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.5))
+
+    ax = axes[0]
+    for rule in rules:
+        sub = df[df["rule"] == rule].sort_values("gamma")
+        ax.plot(sub["gamma"], sub["violation_rate"],
+                label=R.C7_PRETTY[rule], **style(rule))
+    ax.axhline(delta, color="black", lw=1, ls="--",
+               label=f"nominal level ({delta:g})")
+    ax.set_xlabel("stated tolerance $\\gamma$")
+    ax.set_ylabel("certified panels that broke $\\gamma$ on TEST")
+    ax.set_title("is the promise kept?", fontsize=9)
+    ax.legend(fontsize=6.5, loc="upper right")
+
+    ax = axes[1]
+    for rule in rules:
+        sub = df[df["rule"] == rule].sort_values("gamma")
+        ax.plot(sub["gamma"], sub["certified_frac"], **style(rule))
+    ax.set_xlabel("stated tolerance $\\gamma$")
+    ax.set_ylabel("cases the rule was willing to certify")
+    ax.set_ylim(-0.02, 1.02)
+    ax.set_title("what the confidence costs", fontsize=9)
+
+    fig.suptitle(f"C7: an independent split and a simultaneous bound, at "
+                 f"$\\delta$ = {delta:g}", fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
 def save_all(
     out_dir: str,
     e0_real: Optional[str] = None,
@@ -435,6 +607,9 @@ def save_all(
     e1: Optional[str] = None,
     c3: Optional[str] = None,
     c4: Optional[str] = None,
+    c5: Optional[str] = None,
+    c6: Optional[str] = None,
+    c7: Optional[str] = None,
 ) -> list:
     """Write every figure whose inputs exist; return the paths written."""
     os.makedirs(out_dir, exist_ok=True)
@@ -448,6 +623,9 @@ def save_all(
         ("c3_cost.png", fig_c3_cost, (c3,)),
         ("c3_reconstruction.png", fig_c3_reconstruction, (c3,)),
         ("c4_stress.png", fig_c4_stress, (c4,)),
+        ("c5_downstream.png", fig_c5_downstream, (c5,)),
+        ("c6_exchange.png", fig_c6_exchange, (c6,)),
+        ("c7_certification.png", fig_c7_certification, (c7,)),
     ]
 
     written = []

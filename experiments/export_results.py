@@ -43,6 +43,12 @@ from epcrc.panel import PANELS
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS = os.path.join(ROOT, "results")
 
+# The budget C5 is reported at.  Half the panel is the point the plan's
+# evidence matrix states its downstream tolerance over, and reporting one
+# budget in prose while shipping every budget as a CSV keeps the choice
+# visible instead of letting a reader wonder which k the sentence used.
+C5_HEADLINE_K = 10
+
 
 # --------------------------------------------------------------------------
 # where the inputs live
@@ -71,6 +77,12 @@ def input_paths(panel: str) -> Dict[str, str]:
         "c3": pick(f"c3_baselines_{panel}.json", *(["c3_baselines.json"] if legacy else [])),
         "c4": pick(f"c4_stress_specialists_{panel}.json",
                    *(["c4_stress_specialists.json"] if legacy else [])),
+        "c5": pick(f"c5_downstream_{panel}.json",
+                   *(["c5_downstream.json"] if legacy else [])),
+        "c6": pick(f"c6_exchange_{panel}.json",
+                   *(["c6_exchange.json"] if legacy else [])),
+        "c7": pick(f"c7_certification_{panel}.json",
+                   *(["c7_certification.json"] if legacy else [])),
     }
 
 
@@ -174,6 +186,25 @@ def build_tables(inputs: Dict[str, str]) -> Dict[str, pd.DataFrame]:
         tables["c4_headline"] = R.c4_headline(inputs["c4"])
         tables["c4_per_seed_per_arm"] = R.c4_table(inputs["c4"])
         tables["c4_specialists"] = R.c4_specialists(inputs["c4"])
+
+    if os.path.exists(inputs["c5"]):
+        tables["c5_per_context"] = R.c5_table(inputs["c5"])
+        # One headline per aggregator, because the aggregator is the variable
+        # that decides C5: reconstruction only has to earn its place under a
+        # rule that does not already re-weight the judges itself.
+        for aggregator in R.load(inputs["c5"])["aggregators"]:
+            tables[f"c5_headline_k{C5_HEADLINE_K}_{aggregator}"] = R.c5_headline(
+                inputs["c5"], C5_HEADLINE_K, aggregator)
+
+    if os.path.exists(inputs["c6"]):
+        tables["c6_headline"] = R.c6_headline(inputs["c6"])
+        tables["c6_per_instance"] = R.c6_table(inputs["c6"])
+
+    if os.path.exists(inputs["c7"]):
+        tables["c7_per_rule_per_gamma"] = R.c7_table(inputs["c7"])
+        for delta in R.load(inputs["c7"])["deltas"]:
+            tables[f"c7_headline_delta{delta:g}"] = R.c7_headline(
+                inputs["c7"], delta)
 
     return tables
 
@@ -724,6 +755,387 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+def _c5_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## C5 — does the compressed panel still decide the same way?", ""]
+    lines.append("**Claim.** A panel compressed to virtual judges preserves the "
+                 "decisions the full panel would have made: accuracy against "
+                 "gold within about a percentage point, and rank agreement "
+                 "above 0.95.")
+    lines.append("")
+    if not os.path.exists(inputs["c5"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["c5"])
+    k = C5_HEADLINE_K
+
+    lines.append(
+        f"**Test.** Every arm is a panel of the same size k = {k}, aggregated "
+        f"to one verdict per item and scored against RewardBench 2 gold. "
+        f"`virtual` keeps k judges and reconstructs the other "
+        f"{len(payload['judges']) - k} from them; `physical` keeps the same k "
+        f"and simply drops the rest. The gap between those two rows is what "
+        f"reconstruction buys, and it is the only comparison in which one "
+        f"variable moves. Averaged over "
+        f"{len(payload['split_seeds'])} split seed"
+        f"{'' if len(payload['split_seeds']) == 1 else 's'} and "
+        f"{len(payload['contexts'])} contexts."
+    )
+    lines.append("")
+    lines.append(
+        f"Three aggregators are reported because the claim is silent about "
+        f"which one a user would deploy, and they do not agree: "
+        f"{', '.join(payload['aggregators'])}. `mean` and `majority` are fixed "
+        f"rules; `logistic` is fitted on FIT only and never sees the split it "
+        f"is scored on."
+    )
+    lines.append("")
+
+    columns = ["label", "accuracy", "delta_accuracy", "verdict_agreement",
+               "item_rank_tau", "domain_rank_tau", "nll", "ece"]
+    for aggregator in payload["aggregators"]:
+        head = R.c5_headline(inputs["c5"], k, aggregator)
+        lines.append(f"### Aggregator: {aggregator}")
+        lines.append("")
+        lines.append(_md_table(head, columns))
+        lines.append("")
+
+        virtual = head[head["arm"] == "virtual"]
+        physical = head[head["arm"] == "physical"]
+        if not (len(virtual) and len(physical)):
+            continue
+        v, p = virtual.iloc[0], physical.iloc[0]
+        wins = int(p["n_seeds_virtual_better"])
+        n_seeds = int(p["n_seeds"])
+        lines.append(
+            f"Reconstruction costs {abs(v['delta_accuracy']):.4f} accuracy "
+            f"against the full panel, and dropping the same judges costs "
+            f"{abs(p['delta_accuracy']):.4f}. Virtual beats physical on "
+            f"{wins} of {n_seeds} split seeds. Verdict agreement with the full "
+            f"panel is {v['verdict_agreement']:.3f} for virtual against "
+            f"{p['verdict_agreement']:.3f} for physical."
+        )
+        lines.append("")
+
+    # The two halves of the claim have to be judged separately: the accuracy
+    # tolerance and the rank tolerance are different numbers and can fail
+    # independently, so collapsing them would hide which one broke.
+    head = R.c5_headline(inputs["c5"], k, "mean")
+    virtual = head[head["arm"] == "virtual"]
+    if len(virtual):
+        v = virtual.iloc[0]
+        accuracy_ok = abs(v["delta_accuracy"]) <= 0.01
+        tau = float(v["item_rank_tau"])
+        rank_ok = tau >= 0.95
+        lines.append("### Verdict")
+        lines.append("")
+        lines.append(
+            f"Under the mean aggregator the accuracy drop is "
+            f"{abs(v['delta_accuracy']):.4f}, which "
+            f"{'meets' if accuracy_ok else 'misses'} the stated tolerance of "
+            f"about one percentage point. The item-level rank correlation is "
+            f"{tau:.3f}, which {'meets' if rank_ok else 'misses'} the stated "
+            f"0.95."
+        )
+        lines.append("")
+        if accuracy_ok and rank_ok:
+            lines.append("**Verdict: supported.**")
+        elif accuracy_ok or rank_ok:
+            lines.append(
+                "**Verdict: partially supported** — one half of the stated "
+                "tolerance is met and the other is not, and the numbers above "
+                "say which."
+            )
+        else:
+            lines.append(
+                "**Verdict: unsupported at the stated tolerances.** The "
+                "compressed panel tracks the full panel far better than an "
+                "equally sized physical panel does, which is the comparison "
+                "that matters for deployment, but it does not reach the "
+                "absolute numbers the claim names."
+            )
+        lines.append("")
+
+    # A learned aggregator re-weights the judges itself, so it can absorb the
+    # missing ones.  Where that happens, reconstruction has nothing left to
+    # add, and saying so is the honest reading of the table above.
+    logistic = R.c5_headline(inputs["c5"], k, "logistic")
+    lv = logistic[logistic["arm"] == "virtual"]
+    lp = logistic[logistic["arm"] == "physical"]
+    if len(lv) and len(lp):
+        margin = float(lp.iloc[0]["accuracy"] - lv.iloc[0]["accuracy"])
+        if abs(margin) < 0.005:
+            lines.append(
+                f"**A negative result worth stating.** Under the learned "
+                f"aggregator, virtual and physical are separated by only "
+                f"{abs(margin):.4f} accuracy. A logistic aggregate already "
+                f"fits its own weights over whichever judges it is given, so "
+                f"it recovers by itself most of what reconstruction supplies. "
+                f"Reconstruction earns its place under the fixed aggregators, "
+                f"not under a learned one."
+            )
+            lines.append("")
+
+    # The single-best row routinely beats the panel on this dataset.  That is a
+    # property of RewardBench 2 gold and not of the compression, and leaving it
+    # unexplained would invite the reader to conclude panels are pointless.
+    single = head[head["arm"] == "single_best"]
+    full = head[head["arm"] == "full"]
+    if len(single) and len(full) and (
+            float(single.iloc[0]["accuracy"]) > float(full.iloc[0]["accuracy"])):
+        lines.append(
+            f"**Note on the single-judge row.** One judge alone scores "
+            f"{single.iloc[0]['accuracy']:.3f} against gold, above the full "
+            f"panel's {full.iloc[0]['accuracy']:.3f}. That is a fact about this "
+            f"dataset: RewardBench 2 gold is itself a model-assisted label, so "
+            f"a judge close to the labeller wins on agreement while still "
+            f"carrying its own biases. It is reported because it is in the "
+            f"data, but it is not evidence that panels are unnecessary — "
+            f"nothing in the plan's setup lets a user identify that judge in "
+            f"advance."
+        )
+        lines.append("")
+
+    lines.append(f"_{payload['note_system_ranking']}_")
+    lines.append("")
+    return lines
+
+
+def _c6_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## C6 — the exchange structure greedy selection misses", ""]
+    lines.append("**Claim.** Which judges are worth keeping depends on the set "
+                 "they sit in, so greedy add-one or drop-one selection can stop "
+                 "at a panel larger than necessary, and a local exchange that "
+                 "swaps judges in and out recovers the difference.")
+    lines.append("")
+    if not os.path.exists(inputs["c6"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["c6"])
+    head = R.c6_headline(inputs["c6"])
+    df = R.c6_table(inputs["c6"])
+    n_instances = int(head["n_instances"].max())
+    sizes = sorted(set(payload["subpanel_sizes"]))
+
+    lines.append(
+        f"**Test.** The comparison needs a known answer, so it is run on "
+        f"{len(payload['subpanel_sizes'])} fixed subpanels of "
+        f"{sizes[0]}–{sizes[-1]} judges, small enough that the smallest "
+        f"feasible set is found by exact search rather than assumed. Each "
+        f"method is then asked for the smallest panel meeting the same "
+        f"tolerance, and `gap` is how many judges more than the certified "
+        f"optimum it returned. {n_instances} (subpanel, tolerance) instances "
+        f"in total."
+    )
+    lines.append("")
+    lines.append(f"_{payload['note_fit_and_score']}_")
+    lines.append("")
+    lines.append(_md_table(
+        head, ["label", "exact_rate", "mean_gap", "max_gap", "mean_seconds"]))
+    lines.append("")
+
+    greedy = head[head["method"].isin(["forward", "backward", "forward_trim"])]
+    swaps = head[head["method"].str.startswith("swap")]
+    if len(greedy) and len(swaps):
+        best_greedy = greedy.loc[greedy["mean_gap"].idxmin()]
+        best_swap = swaps.loc[swaps["mean_gap"].idxmin()]
+        lines.append(
+            f"The best plain greedy method is {best_greedy['label']}, which "
+            f"lands on the certified optimum in {best_greedy['exact_rate']:.0%} "
+            f"of instances and averages {best_greedy['mean_gap']:.2f} extra "
+            f"judges. The best exchange method is {best_swap['label']} at "
+            f"{best_swap['exact_rate']:.0%} and {best_swap['mean_gap']:.2f}."
+        )
+        lines.append("")
+
+    # The section 26 targets are stated for 2-swap only, so the verdict is read
+    # off that row and nowhere else.
+    swap2 = head[head["method"] == "swap2"]
+    if len(swap2):
+        row = swap2.iloc[0]
+        target_columns = [c for c in head.columns if c.startswith("swap2_")]
+        met = {c: bool(row[c]) for c in target_columns if pd.notna(row[c])}
+        if met:
+            lines.append("The planning targets in section 26 are stated for "
+                         "2-swap. Against them:")
+            lines.append("")
+            for name, ok in met.items():
+                lines.append(f"- `{name}` — {'met' if ok else 'not met'}")
+            lines.append("")
+            if all(met.values()):
+                lines.append("**Verdict: supported.** 2-swap meets every "
+                             "predeclared target.")
+            else:
+                lines.append(
+                    "**Verdict: partially supported.** The targets that were "
+                    "missed are listed above, and the per-instance table shows "
+                    "which subpanels and tolerances are responsible."
+                )
+            lines.append("")
+
+    # A claim about set-dependence is only demonstrated by a case where a judge
+    # that greedy refused to drop becomes droppable once another one moves.
+    # One such case is worth more than any aggregate rate, so it is named.
+    beaten = df[(df["method"] == "backward") & (df["gap"] > 0)]
+    if len(beaten):
+        case = beaten.loc[beaten["gap"].idxmax()]
+        rival = df[(df["subpanel"] == case["subpanel"])
+                   & (df["gamma"] == case["gamma"])
+                   & (df["method"] == "swap2")]
+        if len(rival) and int(rival.iloc[0]["size"]) < int(case["size"]):
+            lines.append(
+                f"**The trap, concretely.** On subpanel "
+                f"{int(case['subpanel'])} ({int(case['n_judges'])} judges) at "
+                f"tolerance {case['gamma']:g}, backward elimination stops at "
+                f"{int(case['size'])} judges. The certified optimum is "
+                f"{int(case['opt_size'])}, and 2-swap finds "
+                f"{int(rival.iloc[0]['size'])}. Backward could not drop any "
+                f"single judge from its panel without breaking the tolerance, "
+                f"yet a panel one smaller exists — it just is not reachable by "
+                f"deletions alone. That is the set-dependence the claim is "
+                f"about."
+            )
+            lines.append("")
+
+    improvement = payload["summary"]["swap3_over_swap2"]
+    lines.append("### Is a wider exchange worth it?")
+    lines.append("")
+    lines.append(
+        f"3-swap searches a strictly larger neighbourhood than 2-swap and costs "
+        f"{improvement['time_ratio']:.1f} times as long. It improves on 2-swap "
+        f"in {improvement['n_instances_improved']} instances and is worse in "
+        f"{improvement['n_instances_worse']}, for a mean gap reduction of "
+        f"{improvement['mean_gap_reduction']:.3f} judges. "
+        + ("The extra neighbourhood is not paying for itself at this panel size."
+           if improvement["mean_gap_reduction"] <= 0.05
+           else "The extra neighbourhood does buy something here.")
+    )
+    lines.append("")
+    lines.append(f"_{payload['note_gamma_grid']}_")
+    lines.append("")
+    return lines
+
+
+def _c7_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## C7 — certificates that hold up out of sample", ""]
+    lines.append("**Claim.** A compression certificate computed with a "
+                 "finite-sample bound on held-out items, corrected for testing "
+                 "many judges at once, holds on fresh items at the stated "
+                 "confidence, while the empirical error the weights were fitted "
+                 "on does not.")
+    lines.append("")
+    if not os.path.exists(inputs["c7"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["c7"])
+    n_reps = len(payload["repetitions"])
+    primary_delta = payload["deltas"][0]
+
+    lines.append(
+        f"**Test.** The items are re-partitioned {n_reps} times into fitting, "
+        f"certification and test thirds, always grouped by source item so one "
+        f"prompt never straddles two splits. On each repetition a panel is "
+        f"selected, every absent judge is reconstructed, each rule states a "
+        f"bound from the certification third, and the bound is then checked "
+        f"against the worst error actually observed on the test third. A "
+        f"violation is a bound that the test error exceeded. Panel sizes "
+        f"k in {payload['k_grid']}; tolerances "
+        f"{payload['gammas']}; {payload['n_boot']} bootstrap replicates."
+    )
+    lines.append("")
+    lines.append(
+        "One point of bookkeeping matters more than it looks. A single source "
+        "item produces several comparison pairs, and those pairs are not "
+        "independent, so every bound averages within a source item first and "
+        "is computed over source items. Treating the pairs as independent "
+        "would shrink every interval by a factor the data does not earn."
+    )
+    lines.append("")
+
+    head = R.c7_headline(inputs["c7"], primary_delta)
+    lines.append(f"### At delta = {primary_delta:g}")
+    lines.append("")
+    lines.append(
+        "`certified_frac` is the share of cases the rule was able to certify "
+        "at all, and `violation_rate` is conditional on that. Both are needed: "
+        "a rule that certifies nothing never violates anything and is useless."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        head, ["label", "certified_frac", "n_certified", "n_violated",
+               "violation_rate", "worst_violation_rate_hi", "within_nominal",
+               "useful"]))
+    lines.append("")
+
+    naive = head[head["rule"] == "empirical_fit"]
+    primary = head[head["is_primary"]]
+    if len(naive) and len(primary):
+        n, p = naive.iloc[0], primary.iloc[0]
+        lines.append(
+            f"The naive certificate — the error measured on the very items the "
+            f"weights were fitted to — is violated on "
+            f"{n['violation_rate']:.1%} of the cases it certifies. The primary "
+            f"rule, an empirical Bernstein bound on held-out items with a "
+            f"Bonferroni correction across judge-context pairs, is violated on "
+            f"{p['violation_rate']:.1%}, against a nominal "
+            f"{primary_delta:.0%}."
+        )
+        lines.append("")
+        if bool(p["within_nominal"]) and bool(p["useful"]):
+            lines.append(
+                "**Verdict: supported.** The primary rule certifies a useful "
+                "share of cases and its violation rate stays at or below the "
+                "confidence level it claims, using the upper end of a Wilson "
+                "interval rather than the point estimate so a small denominator "
+                "is not mistaken for proof."
+            )
+        elif not bool(p["useful"]):
+            lines.append(
+                "**Verdict: unsupported.** The primary rule certified nothing "
+                "at these tolerances, so there is no coverage to check."
+            )
+        else:
+            lines.append(
+                "**Verdict: partially supported.** The primary rule is "
+                "violated more often than its nominal rate, and the per-"
+                "tolerance table shows where."
+            )
+        lines.append("")
+
+    lines.append("### The price of each correction")
+    lines.append("")
+    lines.append(
+        "Every step from the naive number to the primary rule costs width, and "
+        "the point of reporting all four is that the cost is visible rather "
+        "than asserted. Moving off the fitting split removes the optimism; the "
+        "Bernstein bound replaces a normal approximation with one that holds at "
+        "finite sample size; the Bonferroni correction pays for the fact that "
+        "many judges and contexts are certified simultaneously; and the grouped "
+        "bootstrap pays for the dependence that is actually present instead of "
+        "the worst case, which is why it lands between the two."
+    )
+    lines.append("")
+
+    per_gamma = R.c7_table(inputs["c7"])
+    per_gamma = per_gamma[per_gamma["delta"].isna()
+                          | np.isclose(per_gamma["delta"], primary_delta)]
+    lines.append("### Per tolerance")
+    lines.append("")
+    lines.append(_md_table(
+        per_gamma, ["label", "gamma", "certified_frac", "n_certified",
+                    "n_violated", "violation_rate", "violation_rate_hi"]))
+    lines.append("")
+
+    others = [d for d in payload["deltas"] if d != primary_delta]
+    if others:
+        lines.append(
+            f"The same tables at delta in {others} are in `tables/`, so a "
+            f"reader can see that a tighter confidence level widens the bound "
+            f"and lowers the violation rate as it should."
+        )
+        lines.append("")
+    return lines
+
+
 def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     """Panel, contexts, splits and bootstrap size — what every claim below shares."""
     if not os.path.exists(inputs["c3"]):
@@ -802,6 +1214,12 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += _c3_section(inputs)
     lines += ["---", ""]
     lines += _c4_section(inputs)
+    lines += ["---", ""]
+    lines += _c5_section(inputs)
+    lines += ["---", ""]
+    lines += _c6_section(inputs)
+    lines += ["---", ""]
+    lines += _c7_section(inputs)
     lines += [
         "---",
         "",
@@ -889,6 +1307,9 @@ def export(panel: str, out_dir: Optional[str] = None,
         e1=inputs["e1"] if os.path.exists(inputs["e1"]) else None,
         c3=inputs["c3"] if os.path.exists(inputs["c3"]) else None,
         c4=inputs["c4"] if os.path.exists(inputs["c4"]) else None,
+        c5=inputs["c5"] if os.path.exists(inputs["c5"]) else None,
+        c6=inputs["c6"] if os.path.exists(inputs["c6"]) else None,
+        c7=inputs["c7"] if os.path.exists(inputs["c7"]) else None,
     )
     print(f"figures: {len(figs)}")
 

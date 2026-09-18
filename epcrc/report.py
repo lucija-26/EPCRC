@@ -32,6 +32,12 @@ __all__ = [
     "c4_table",
     "c4_headline",
     "c4_specialists",
+    "c5_table",
+    "c5_headline",
+    "c6_table",
+    "c6_headline",
+    "c7_table",
+    "c7_headline",
     "reconstruction_table",
     "lowrank_floor_table",
     "fmt_ci",
@@ -540,6 +546,285 @@ def c4_specialists(path: str) -> pd.DataFrame:
     return pd.DataFrame(
         rows,
         columns=["judge", "n_seeds_flagged", "in_every_seed", "binding_contexts"],
+    )
+
+
+# --------------------------------------------------------------------------
+# C5 -- downstream preservation
+# --------------------------------------------------------------------------
+
+# The comparison C5 turns on.  `physical` is the same budget without
+# reconstruction, so the gap between it and `virtual` is what reconstruction
+# buys; everything else is a heuristic panel of the same size.
+C5_ARM_ORDER = [
+    "full", "virtual", "physical",
+    "top_accuracy", "one_per_family", "random", "single_best",
+]
+
+C5_PRETTY = {
+    "full": "Full panel (reference)",
+    "virtual": "Virtual (k real + reconstructions)",
+    "physical": "Physical (k real only)",
+    "top_accuracy": "Top accuracy",
+    "one_per_family": "One per family",
+    "random": "Random",
+    "single_best": "Single best judge",
+}
+
+
+def c5_table(path: str) -> pd.DataFrame:
+    """One row per (split seed, arm, budget, context, aggregator) from E2."""
+    payload = load(path)
+    rows = []
+    for seed, block in payload["per_seed"].items():
+        for key, record in block.items():
+            for context_key, metrics in record["contexts"].items():
+                context, aggregator = context_key.split("|")
+                rows.append({
+                    "split_seed": int(seed),
+                    "arm": record.get("arm", key),
+                    "k": record["k"],
+                    "context": context,
+                    "aggregator": aggregator,
+                    "kept": ",".join(record["kept"]),
+                    **{
+                        name: value for name, value in metrics.items()
+                        if isinstance(value, (int, float))
+                    },
+                })
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["aggregator", "arm", "k", "context", "split_seed"])
+        .reset_index(drop=True)
+    )
+
+
+def c5_headline(path: str, k: int, aggregator: str = "mean") -> pd.DataFrame:
+    """Each arm at one budget, averaged over contexts and split seeds.
+
+    `delta_accuracy` is the arm minus the full panel, which is the quantity the
+    claim states a tolerance on.  Read it beside `verdict_agreement_vs_full`:
+    an arm can land on the same accuracy while deciding different items, and
+    only the second column notices.
+
+    `n_seeds_virtual_better` is filled in on the `physical` row only.  It counts
+    the split seeds where reconstruction beat dropping the same judges, because
+    a mean difference that rests on one partition is not evidence.
+    """
+    df = c5_table(path)
+    df = df[df["aggregator"] == aggregator]
+    df = df[(df["k"] == k) | (df["arm"].isin(["full", "single_best"]))]
+
+    out = (
+        df.groupby("arm")
+        .agg(
+            k=("k", "first"),
+            accuracy=("accuracy", "mean"),
+            macro_accuracy=("macro_accuracy", "mean"),
+            nll=("nll", "mean"),
+            brier=("brier", "mean"),
+            ece=("ece", "mean"),
+            verdict_agreement=("verdict_agreement_vs_full", "mean"),
+            item_rank_tau=("item_rank_kendall_tau", "mean"),
+            domain_rank_tau=("domain_rank_kendall_tau", "mean"),
+            n_observations=("accuracy", "size"),
+        )
+        .reset_index()
+    )
+
+    reference = out.loc[out["arm"] == "full", "accuracy"]
+    base = float(reference.iloc[0]) if len(reference) else np.nan
+    out["delta_accuracy"] = out["accuracy"] - base
+
+    per_seed = (
+        df[df["arm"].isin(["virtual", "physical"])]
+        .groupby(["arm", "split_seed"])["accuracy"].mean().unstack("arm")
+    )
+    wins = (
+        int((per_seed["virtual"] > per_seed["physical"]).sum())
+        if {"virtual", "physical"} <= set(per_seed.columns) else 0
+    )
+    out["n_seeds_virtual_better"] = np.where(out["arm"] == "physical", wins, np.nan)
+    out["n_seeds"] = df["split_seed"].nunique()
+
+    out["label"] = out["arm"].map(lambda a: C5_PRETTY.get(a, a))
+    out["rank_order"] = out["arm"].map(
+        {a: i for i, a in enumerate(C5_ARM_ORDER)}
+    ).fillna(len(C5_ARM_ORDER))
+    return (
+        out.sort_values("rank_order").drop(columns="rank_order").reset_index(drop=True)
+    )
+
+
+# --------------------------------------------------------------------------
+# C6 -- exchange structure
+# --------------------------------------------------------------------------
+
+C6_METHOD_ORDER = [
+    "forward", "backward", "forward_trim",
+    "swap2", "swap2_forward", "swap2_pq", "swap3",
+]
+
+C6_PRETTY = {
+    "forward": "Forward",
+    "backward": "Backward",
+    "forward_trim": "Forward + trim",
+    "swap2": "2-swap (backward seed)",
+    "swap2_forward": "2-swap (forward seed)",
+    "swap2_pq": "2-swap (priority queue)",
+    "swap3": "3-swap",
+}
+
+
+def c6_table(path: str) -> pd.DataFrame:
+    """One row per (subpanel, gamma, method) from E4, against the exact optimum."""
+    payload = load(path)
+    rows = []
+    for index, instance in enumerate(payload["instances"]):
+        for row in instance["rows"]:
+            for method in payload["methods"]:
+                rows.append({
+                    "subpanel": index,
+                    "n_judges": instance["n_judges"],
+                    "gamma": row["gamma"],
+                    "method": method,
+                    "opt_size": row["opt_size"],
+                    "size": row["sizes"][method],
+                    "gap": row["gap"][method],
+                    "is_exact": row["exact"][method],
+                    "seconds": row["method_seconds"][method],
+                    "opt_error": row["opt_error"],
+                    "search_seconds": row["search_seconds"],
+                })
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["method", "subpanel", "gamma"])
+        .reset_index(drop=True)
+    )
+
+
+def c6_headline(path: str) -> pd.DataFrame:
+    """Per method: how often it hit the certified optimum, and by how much it missed.
+
+    `mean_gap` is in extra judges, so it is directly comparable with the
+    section 26 planning targets, which are carried in the `meets_*` columns.
+    """
+    payload = load(path)
+    targets = payload["summary"]["target_section_26"]
+
+    rows = []
+    for method, stats in payload["summary"]["per_method"].items():
+        rows.append({
+            "method": method,
+            "label": C6_PRETTY.get(method, method),
+            "n_instances": stats["n_instances"],
+            "exact_rate": stats["exact_rate"],
+            "mean_gap": stats["mean_gap"],
+            "max_gap": stats["max_gap"],
+            "mean_seconds": stats["mean_seconds"],
+        })
+    out = pd.DataFrame(rows)
+
+    # The targets are stated for 2-swap, so they are attached to that row only.
+    for name, value in targets.items():
+        out[name] = np.where(out["method"] == "swap2", value, np.nan)
+
+    out["rank_order"] = out["method"].map(
+        {m: i for i, m in enumerate(C6_METHOD_ORDER)}
+    ).fillna(len(C6_METHOD_ORDER))
+    return (
+        out.sort_values("rank_order").drop(columns="rank_order").reset_index(drop=True)
+    )
+
+
+# --------------------------------------------------------------------------
+# C7 -- certification reliability
+# --------------------------------------------------------------------------
+
+C7_PRETTY = {
+    "empirical_fit": "Empirical, fitting split (naive)",
+    "empirical_cert": "Empirical, certification split",
+    "normal_uncorrected": "Normal UCB, uncorrected",
+    "bernstein_uncorrected": "Bernstein UCB, uncorrected",
+    "bernstein_bonferroni": "Bernstein UCB, Bonferroni (primary)",
+    "bootstrap_max": "Grouped bootstrap of the maximum",
+}
+
+
+def _c7_rule_parts(rule: str) -> tuple:
+    """Split `bernstein_bonferroni@0.05` into its rule and its delta."""
+    if "@" in rule:
+        base, delta = rule.split("@")
+        return base, float(delta)
+    return rule, np.nan
+
+
+def c7_table(path: str) -> pd.DataFrame:
+    """One row per (rule, delta, gamma) from E5.
+
+    `violation_rate` is conditional on the rule having certified the case, so it
+    must be read next to `certified_frac`: a rule that certifies nothing never
+    violates anything and is worthless.
+    """
+    payload = load(path)
+    rows = []
+    for row in payload["summary"]["rows"]:
+        base, delta = _c7_rule_parts(row["rule"])
+        rows.append({
+            "rule": base,
+            "delta": delta,
+            "gamma": row["gamma"],
+            "n_cases": row["n_cases"],
+            "n_certified": row["n_certified"],
+            "certified_frac": row["certified_frac"],
+            "n_violated": row["n_violated"],
+            "violation_rate": row["violation_rate"],
+            "violation_rate_hi": row["violation_rate_hi"],
+        })
+    out = pd.DataFrame(rows)
+    out["label"] = out["rule"].map(lambda r: C7_PRETTY.get(r, r))
+    return out.sort_values(["rule", "delta", "gamma"]).reset_index(drop=True)
+
+
+def c7_headline(path: str, delta: float = 0.05) -> pd.DataFrame:
+    """The certified rules against the empirical ones, at one delta.
+
+    Two columns decide the claim.  `within_nominal` asks whether the violation
+    rate is at or below delta, using the Wilson upper end rather than the point
+    estimate so a rate of "0 out of 3" is not read as proof.  `useful` asks
+    whether the rule certified anything at all.  A rule needs both.
+
+    Rules that carry no delta -- the two empirical ones -- appear at every
+    delta, because they are the comparison the claim is stated against.
+    """
+    df = c7_table(path)
+    df = df[df["delta"].isna() | np.isclose(df["delta"], delta)]
+
+    out = (
+        df.groupby(["rule", "label"])
+        .agg(
+            n_cases=("n_cases", "sum"),
+            n_certified=("n_certified", "sum"),
+            certified_frac=("certified_frac", "mean"),
+            n_violated=("n_violated", "sum"),
+            worst_violation_rate=("violation_rate", "max"),
+            worst_violation_rate_hi=("violation_rate_hi", "max"),
+            n_gammas=("gamma", "nunique"),
+        )
+        .reset_index()
+    )
+    out["violation_rate"] = np.where(
+        out["n_certified"] > 0, out["n_violated"] / out["n_certified"], np.nan
+    )
+    out["delta"] = delta
+    out["within_nominal"] = out["worst_violation_rate_hi"] <= delta
+    out["useful"] = out["n_certified"] > 0
+    out["is_primary"] = out["rule"] == "bernstein_bonferroni"
+
+    order = {r: i for i, r in enumerate(C7_PRETTY)}
+    out["rank_order"] = out["rule"].map(lambda r: order.get(r, len(order)))
+    return (
+        out.sort_values("rank_order").drop(columns="rank_order").reset_index(drop=True)
     )
 
 
