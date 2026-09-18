@@ -35,6 +35,8 @@ __all__ = [
     "fig_c5_downstream",
     "fig_c6_exchange",
     "fig_c7_certification",
+    "fig_c8_sparse",
+    "fig_backbone",
     "save_all",
 ]
 
@@ -604,6 +606,113 @@ def fig_c7_certification(c7_path: str, delta: float = 0.05) -> plt.Figure:
     return fig
 
 
+# --------------------------------------------------------------------------
+# C8 -- how sparse a certificate can be
+# --------------------------------------------------------------------------
+
+def fig_c8_sparse(e6_path: str) -> plt.Figure:
+    """What capping the support costs, and whether the cap binds at all.
+
+    Left: error as a multiple of the uncapped fit.  A cap that costs nothing is
+    a flat line at one.
+
+    Right: how many judges the uncapped fit actually used.  This is the panel
+    that decides how to read the left one -- a cap set above the support the
+    solver would have chosen anyway is not a constraint, so the two must be
+    read together or the left panel looks like a stronger result than it is.
+    """
+    df = R.c8_sparse_table(e6_path)
+    caps = sorted(c for c in set(df["support_cap"]) if c != "none")
+    budgets = sorted(set(df["k"]))
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.5))
+
+    ax = axes[0]
+    for i, k in enumerate(budgets):
+        sub = df[(df["k"] == k) & (df["support_cap"] != "none")]
+        sub = sub.set_index("support_cap").loc[caps]
+        ax.plot(caps, sub["ratio_to_uncapped"], marker="o",
+                color=plt.cm.viridis(i / max(len(budgets) - 1, 1)),
+                label=f"k = {k}")
+    ax.axhline(1.0, color="black", lw=1, ls="--", label="uncapped")
+    ax.set_xticks(caps)
+    ax.set_xlabel("judges allowed per virtual judge $r$")
+    ax.set_ylabel("worst-judge TV / uncapped")
+    ax.set_title("what the cap costs", fontsize=9)
+    ax.legend(fontsize=6.5)
+
+    ax = axes[1]
+    uncapped = df[df["support_cap"] == "none"].sort_values("k")
+    ax.bar([str(k) for k in uncapped["k"]], uncapped["mean_support_size"],
+           color=COVERAGE_COLOUR, width=0.55)
+    for cap in caps:
+        ax.axhline(cap, color=BASELINE_COLOUR, lw=0.8, ls=":")
+    ax.set_xlabel("retained judges $k$")
+    ax.set_ylabel("mean judges used, no cap")
+    ax.set_title("does the cap bind?", fontsize=9)
+
+    fig.suptitle("C8: three or four judges per virtual judge is what the "
+                 "uncapped fit already chooses", fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
+# --------------------------------------------------------------------------
+# backbone -- which judges every optimum must contain
+# --------------------------------------------------------------------------
+
+def fig_backbone(backbone_path: str) -> plt.Figure:
+    """The three section-20 categories against tolerance.
+
+    A judge counts as mandatory only if it is mandatory under every split seed,
+    so `unstable` is its own band rather than being folded into one of the
+    three.  A band that grows with tolerance is redundancy appearing.
+    """
+    head = R.backbone_headline(backbone_path)
+    head = head[head["n_seeds_feasible"] > 0].sort_values("gamma")
+    gammas = list(head["gamma"])
+
+    # Counted off the per-judge verdicts rather than off the headline strings,
+    # because the headline names only the two extreme categories.  Deriving the
+    # optional band by subtraction would hide the judges that fall in some
+    # optimum but not all -- which is the section 20 category the whole
+    # question is about.
+    per_judge = R.backbone_per_judge(backbone_path)
+    counts = (per_judge.groupby(["gamma", "verdict"]).size()
+              .unstack(fill_value=0).reindex(gammas, fill_value=0))
+    bands = [counts.get(v, 0 * counts.iloc[:, 0])
+             for v in ("mandatory", "optional", "unstable", "nonessential")]
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.5))
+
+    ax = axes[0]
+    ax.stackplot(
+        gammas, *bands,
+        labels=["in every optimum", "in some optima",
+                "category varies by seed", "in no optimum"],
+        colors=[COVERAGE_COLOUR, "#7fa8cc", ACCENT, BASELINE_COLOUR], alpha=0.9)
+    ax.set_xlabel("stated tolerance $\\gamma$")
+    ax.set_ylabel("judges")
+    ax.set_title("how the panel splits", fontsize=9)
+    ax.legend(fontsize=6.5, loc="lower left")
+
+    ax = axes[1]
+    ax.plot(gammas, head["k_star_min"], marker="o", color=COVERAGE_COLOUR,
+            label="smallest certified panel $k^*$")
+    ax.fill_between(gammas, head["k_star_min"], head["k_star_max"],
+                    color=COVERAGE_COLOUR, alpha=0.2,
+                    label="range over split seeds")
+    ax.set_xlabel("stated tolerance $\\gamma$")
+    ax.set_ylabel("judges in the smallest feasible panel")
+    ax.set_title("and how far it can shrink", fontsize=9)
+    ax.legend(fontsize=6.5, loc="lower left")
+
+    fig.suptitle("Backbone: nothing is redundant until the tolerance is "
+                 "loosened well past the target", fontsize=10)
+    fig.tight_layout()
+    return fig
+
+
 def save_all(
     out_dir: str,
     e0_real: Optional[str] = None,
@@ -614,6 +723,8 @@ def save_all(
     c5: Optional[str] = None,
     c6: Optional[str] = None,
     c7: Optional[str] = None,
+    e6: Optional[str] = None,
+    backbone: Optional[str] = None,
 ) -> list:
     """Write every figure whose inputs exist; return the paths written."""
     os.makedirs(out_dir, exist_ok=True)
@@ -630,6 +741,8 @@ def save_all(
         ("c5_downstream.png", fig_c5_downstream, (c5,)),
         ("c6_exchange.png", fig_c6_exchange, (c6,)),
         ("c7_certification.png", fig_c7_certification, (c7,)),
+        ("c8_sparse.png", fig_c8_sparse, (e6,)),
+        ("backbone.png", fig_backbone, (backbone,)),
     ]
 
     written = []

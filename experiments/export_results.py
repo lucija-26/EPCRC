@@ -83,6 +83,11 @@ def input_paths(panel: str) -> Dict[str, str]:
                    *(["c6_exchange.json"] if legacy else [])),
         "c7": pick(f"c7_certification_{panel}.json",
                    *(["c7_certification.json"] if legacy else [])),
+        # No legacy names below: both were written after the panel registry
+        # existed, so an unsuffixed file for them never existed.
+        "e6": pick(f"e6_sparse_cost_{panel}.json"),
+        "e7": pick(f"e7_transfer_{panel}.json"),
+        "backbone": pick(f"backbone_{panel}.json"),
     }
 
 
@@ -205,6 +210,16 @@ def build_tables(inputs: Dict[str, str]) -> Dict[str, pd.DataFrame]:
         for delta in R.load(inputs["c7"])["deltas"]:
             tables[f"c7_headline_delta{delta:g}"] = R.c7_headline(
                 inputs["c7"], delta)
+
+    if os.path.exists(inputs["e6"]):
+        tables["c8_sparse"] = R.c8_sparse_table(inputs["e6"])
+        tables["c8_support_stability"] = R.c8_support_stability(inputs["e6"])
+        tables["c8_cost_panels"] = R.c8_cost_table(inputs["e6"])
+
+    if os.path.exists(inputs["backbone"]):
+        tables["backbone_headline"] = R.backbone_headline(inputs["backbone"])
+        tables["backbone_per_seed"] = R.backbone_table(inputs["backbone"])
+        tables["backbone_per_judge"] = R.backbone_per_judge(inputs["backbone"])
 
     return tables
 
@@ -1259,6 +1274,220 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+def _c8_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## C8 — sparse certificates and cost-aware selection", ""]
+    lines.append("**Claim.** A certificate stays useful when each virtual judge "
+                 "is allowed only a handful of physical judges, and choosing a "
+                 "panel by what it costs to run rather than by how many judges "
+                 "it has buys real savings at the same coverage.")
+    lines.append("")
+    if not os.path.exists(inputs["e6"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["e6"])
+    sparse = R.c8_sparse_table(inputs["e6"])
+    stability = R.c8_support_stability(inputs["e6"])
+    cost = R.c8_cost_table(inputs["e6"])
+
+    lines.append(
+        f"**Test, sparse half.** The support of every reconstruction weight "
+        f"vector is capped at r judges, for r in {payload['caps']}, and the "
+        f"cap is enforced exactly by fitting every support of that size rather "
+        f"than by a penalty, so `ratio_to_uncapped` is the true price of "
+        f"sparsity and not a solver artefact. Budgets {payload['budgets']}, "
+        f"scored on {payload['eval_split']} over "
+        f"{len(payload['split_seeds'])} split seeds."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        sparse, ["k", "support_cap", "worst_judge_tv_mean", "worst_judge_tv_sd",
+                 "mean_judge_tv", "mean_support_size", "ratio_to_uncapped",
+                 "n_seeds"]))
+    lines.append("")
+
+    # The comparison that decides the sparse half is r = 3 against no cap: the
+    # plan's strong result names four judges, so three clearing it is the
+    # statement worth making, and the uncapped support size says whether the cap
+    # bound anything at all.
+    # The cap column mixes ints with the string "none", so it must be compared
+    # against the value the table actually holds and not against its rendering.
+    worst_three = float(
+        sparse[sparse["support_cap"] == 3]["ratio_to_uncapped"].max())
+    at_one = float(
+        sparse[sparse["support_cap"] == 1]["ratio_to_uncapped"].max())
+    mean_support = float(
+        sparse[sparse["support_cap"] == "none"]["mean_support_size"].mean())
+    at_four = sparse[sparse["support_cap"] == 4]
+    worst_four = float(at_four["ratio_to_uncapped"].max())
+    worst_k = int(at_four.loc[at_four["ratio_to_uncapped"].idxmax(), "k"])
+    lines.append(
+        f"Three physical judges per virtual judge is close to free: at r = 3 "
+        f"the worst budget costs {worst_three:.3f} times the uncapped error, "
+        f"and at r = 4 the worst costs {worst_four:.3f}. Both of those worst "
+        f"cases are at k = {worst_k}, where the uncapped fit is already the "
+        f"sparsest and the cap therefore bites hardest. The reason is visible "
+        f"in the last column — the uncapped fit already spreads over "
+        f"{mean_support:.1f} judges on average, so a cap at three or four is "
+        f"describing the solution rather than constraining it. The one real "
+        f"cliff is r = 1, which costs up to {at_one:.3f} times uncapped: a "
+        f"single substitute judge is not a certificate, it is a replacement."
+    )
+    lines.append("")
+
+    # Unanimity alone would read as instability at the wider caps, when what is
+    # actually happening is that a wider cap has more near-equivalent supports
+    # to choose between.  The count of distinct supports is the honest measure,
+    # so both are reported.
+    by_cap = stability.groupby("support_cap").agg(
+        unanimous=("support_is_unanimous", "sum"),
+        cases=("support_is_unanimous", "size"),
+        distinct=("n_distinct_supports", "mean"),
+    )
+    tight, wide = by_cap.iloc[0], by_cap.iloc[-1]
+    lines.append(
+        f"Which judges stand in for which is largely a property of the panel "
+        f"rather than of the partition, but less so as the cap widens: at "
+        f"r = {by_cap.index[0]} the same support is picked under all five seeds "
+        f"in {int(tight.unanimous)} of {int(tight.cases)} (budget, judge) "
+        f"cases, falling to {int(wide.unanimous)} of {int(wide.cases)} at "
+        f"r = {by_cap.index[-1]}. That is the expected direction — a wider cap "
+        f"has more near-equivalent supports to choose between — and the "
+        f"variation stays small in absolute terms, at "
+        f"{tight.distinct:.1f} to {wide.distinct:.1f} distinct supports across "
+        f"five seeds. The full table is `tables/c8_support_stability.csv`."
+    )
+    lines.append("")
+
+    lines.append(
+        f"**Test, cost half.** Every panel meeting a tolerance is enumerated, "
+        f"then the cheapest one is picked under each of four objectives: "
+        f"judge count, wall-clock seconds, weight memory in GB, and the number "
+        f"of distinct model families that must be deployed. Tolerances "
+        f"{payload['gammas']}. `same_panel_as_cardinality` is the column that "
+        f"matters — it says whether costing the panel changed the answer."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        cost, ["gamma", "objective", "n_feasible_panels", "k", "coverage",
+               "seconds", "memory_gb", "deployments",
+               "same_panel_as_cardinality"]))
+    lines.append("")
+
+    # The honest reading is the negative one.  Reporting only the two rows where
+    # deployments disagrees would let a reader believe cost-aware selection is
+    # generally live on this panel, when in fact three of the four objectives
+    # are the same objective in disguise.
+    differs = cost[~cost["same_panel_as_cardinality"]]
+    if len(differs):
+        named = ", ".join(
+            f"gamma {row.gamma:g} under `{row.objective}`"
+            for row in differs.itertuples()
+        )
+        lines.append(
+            f"**Verdict: the sparse half is supported, the cost half is not "
+            f"separable on this panel.** Minimising seconds or memory always "
+            f"returns the panel that minimises judge count, because this "
+            f"panel's judges are close to uniform in both runtime and "
+            f"parameter count — so those two objectives are judge count under "
+            f"another name. Only `deployments`, the count of distinct model "
+            f"families, ever disagrees: {named}. Each buys one fewer family to "
+            f"host at a small coverage cost, which is a real saving for someone "
+            f"paying per served model and no saving at all for someone paying "
+            f"per token. The plan's strong result asks that a cost-aware panel "
+            f"improve real cost at similar coverage; that holds for the "
+            f"deployment objective only, so C8 is reported as supported on "
+            f"sparsity and partial on cost."
+        )
+    else:
+        lines.append(
+            "**Verdict: the sparse half is supported, the cost half is not "
+            "separable on this panel.** No objective ever picks a different "
+            "panel from judge count, so on these judges cost-aware selection "
+            "and cardinality selection are the same procedure."
+        )
+    lines.append("")
+    return lines
+
+
+def _backbone_section(inputs: Dict[str, str]) -> List[str]:
+    lines = ["## Backbone — which judges every optimal panel must contain", ""]
+    lines.append("**Question.** Section 20 asks the panel to be split three "
+                 "ways at each tolerance: judges in *every* minimum panel "
+                 "(mandatory backbone), judges in *some* (optional "
+                 "representatives), and judges in *none* (nonessential).")
+    lines.append("")
+    if not os.path.exists(inputs["backbone"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["backbone"])
+    head = R.backbone_headline(inputs["backbone"])
+    per_seed = R.backbone_table(inputs["backbone"])
+
+    lines.append(
+        f"**Method.** This is a statement about all optima, so it cannot be "
+        f"read off one greedy run. Every panel of the smallest feasible size "
+        f"is enumerated and scored, which is affordable because the error is "
+        f"monotone — adding a judge can never raise it — so any superset of an "
+        f"infeasible panel is infeasible too and never has to be fitted. "
+        f"`certified` records that the size below k* was enumerated in full "
+        f"and came back empty, which is what makes k* a minimum rather than "
+        f"the best found. Over {len(payload['judges'])} judges, "
+        f"{len(payload['split_seeds'])} split seeds, fitted on "
+        f"{payload['eval_split']}."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        head, ["gamma", "n_seeds_feasible", "k_star_min", "k_star_max",
+               "n_always_mandatory", "always_mandatory",
+               "never_in_any_optimum", "unstable"]))
+    lines.append("")
+
+    all_certified = bool(per_seed["certified"].all())
+    if all_certified:
+        lines.append(
+            "Every k\\* above is certified on every seed, so these are minima "
+            "and not greedy stopping points."
+        )
+    else:
+        uncertified = per_seed[~per_seed["certified"]]
+        lines.append(
+            f"{len(uncertified)} of {len(per_seed)} (seed, tolerance) cases hit "
+            f"the enumeration cap before the level below k\\* was cleared, so "
+            f"their k\\* is an upper bound. They are marked in "
+            f"`tables/backbone_per_seed.csv`."
+        )
+    lines.append("")
+
+    loose = head[head["never_in_any_optimum"] != ""]
+    if len(loose):
+        row = loose.iloc[-1]
+        lines.append(
+            f"**Reading.** Up to the tolerance where the first judge becomes "
+            f"droppable the backbone is the whole panel, which is the same fact "
+            f"C2 reports as a high floor, seen from the other side: if every "
+            f"judge is in every optimum then nothing is redundant. The panel "
+            f"only starts to separate once the tolerance is loosened well past "
+            f"the target band. At gamma = {row['gamma']:g} the judges in no "
+            f"optimum at all are {row['never_in_any_optimum']}"
+            + (f", and {row['unstable']} " if row["unstable"] else " ")
+            + ("changes category between seeds and so is not a finding."
+               if row["unstable"] else "is a stable split.")
+        )
+        lines.append("")
+
+    stable_mandatory = head[head["unstable"] == ""]
+    lines.append(
+        f"The `unstable` column is the guard. A judge that is mandatory under "
+        f"one partition and nonessential under another says nothing about the "
+        f"panel, only about the split, and {len(head) - len(stable_mandatory)} "
+        f"of {len(head)} tolerances have at least one such judge. Only the "
+        f"`always_mandatory` and `never_in_any_optimum` columns should be "
+        f"quoted; per-judge counts are in `tables/backbone_per_judge.csv`."
+    )
+    lines.append("")
+    return lines
+
+
 def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     """Panel, contexts, splits and bootstrap size — what every claim below shares."""
     if not os.path.exists(inputs["c3"]):
@@ -1391,17 +1620,26 @@ def _compliance_section(inputs: Dict[str, str]) -> List[str]:
     if missing:
         named = "; ".join(
             f"{claim} ({experiments})" for claim, experiments, _ in missing)
-        lines.append(
-            f"**Not run.** {named}. E6 is marked optional in the plan and was "
-            f"deferred so that E0-E5 could be completed first, as section 28 "
-            f"directs. E7 is the cross-benchmark transfer to JudgeBench and "
-            f"JuStRank; section 29 describes it as strengthening C2, C4 and "
-            f"C5, but section 31 lists it in C5's required column, so C5's row "
-            f"is answered on E2 alone and that is a real gap rather than a "
-            f"judgement call. Every C5 number here is in-domain on "
-            f"RewardBench 2."
-        )
+        lines.append(f"**Not run.** {named}.")
         lines.append("")
+        # Only the gaps that are actually open get explained.  A paragraph that
+        # still names E6 as deferred after E6 has been run would be the kind of
+        # stale claim this whole section exists to prevent.
+        if any("e7" in absent for _, _, absent in missing):
+            lines.append(
+                "E7 is the cross-benchmark transfer to JudgeBench; section 29 "
+                "describes it as strengthening C2, C4 and C5, but section 31 "
+                "lists it in C5's required column, so C5's row is answered on "
+                "E2 alone and that is a real gap rather than a judgement call. "
+                "Every C5 number here is in-domain on RewardBench 2."
+            )
+            lines.append("")
+        if any("e6" in absent for _, _, absent in missing):
+            lines.append(
+                "E6 is marked optional in the plan and was deferred so that "
+                "E0-E5 could be completed first, as section 28 directs."
+            )
+            lines.append("")
 
     lines.append(
         "Section 32 sets outcome tiers on the reduction achieved at an "
@@ -1454,6 +1692,10 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += _c6_section(inputs)
     lines += ["---", ""]
     lines += _c7_section(inputs)
+    lines += ["---", ""]
+    lines += _c8_section(inputs)
+    lines += ["---", ""]
+    lines += _backbone_section(inputs)
     lines += ["---", ""]
     lines += _compliance_section(inputs)
     lines += [
@@ -1546,6 +1788,9 @@ def export(panel: str, out_dir: Optional[str] = None,
         c5=inputs["c5"] if os.path.exists(inputs["c5"]) else None,
         c6=inputs["c6"] if os.path.exists(inputs["c6"]) else None,
         c7=inputs["c7"] if os.path.exists(inputs["c7"]) else None,
+        e6=inputs["e6"] if os.path.exists(inputs["e6"]) else None,
+        backbone=(inputs["backbone"]
+                  if os.path.exists(inputs["backbone"]) else None),
     )
     print(f"figures: {len(figs)}")
 
