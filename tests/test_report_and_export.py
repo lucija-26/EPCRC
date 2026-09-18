@@ -413,6 +413,38 @@ def test_paired_outcome_labels_a_zero_difference_as_a_tie():
 
 
 @needs_c3
+def test_paired_win_and_loss_counts_are_split_by_direction():
+    """A decided cell says the comparison resolved, not who won.
+
+    Summing `excludes_zero` and calling the total a win count silently
+    credits the reference with every cell a baseline took off it, which is
+    the one direction of error a reader cannot detect from the table.
+    """
+    paired = R.c3_paired_table(C3)
+    both = paired["n_seeds_reference_better"] + paired["n_seeds_baseline_better"]
+    assert (both == paired["n_seeds_significant"]).all()
+    # Losses exist in this data, so the split is not vacuous and any claim
+    # phrased as a win count must be strictly smaller than the decided count.
+    assert int(paired["n_seeds_baseline_better"].sum()) > 0
+
+
+@needs_c3
+def test_c3_section_states_where_coverage_loses():
+    """The budgets where the method fails must be in the prose, not derivable.
+
+    The losses are concentrated at the smallest budgets and are unanimous
+    across seeds, so they are a property of greedy elimination rather than
+    noise.  Reporting only the pooled delta would hide that.
+    """
+    paired = R.c3_paired_table(C3)
+    lost = paired[paired["n_seeds_baseline_better"] > 0]
+    text = "\n".join(E._c3_section({"c3": C3}))
+    assert "Where coverage loses" in text
+    assert str(int(lost["n_seeds_baseline_better"].sum())) in text
+    assert "Verdict:" in text
+
+
+@needs_c3
 def test_paired_is_more_sensitive_than_comparing_two_intervals():
     """This is the reason section 34.2 exists.
 
@@ -430,7 +462,7 @@ def test_paired_is_more_sensitive_than_comparing_two_intervals():
 
     paired = R.c3_paired_table(C3)
     cells = paired.groupby("method")["n_seeds"].sum()
-    wins = paired.groupby("method")["n_seeds_significant"].sum()
+    wins = paired.groupby("method")["n_seeds_reference_better"].sum()
     decided = set(wins[wins >= 0.5 * cells].index)
 
     assert decided - unpaired, (

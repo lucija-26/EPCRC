@@ -417,6 +417,18 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
                 f"6-10 judges. The judges are less mutually redundant than that "
                 f"planning target assumed."
             )
+            lines.append("")
+            # The verdict has to name the tolerance it is given against.  The
+            # measured frontier is sound; what fails is the planning target,
+            # and the floor above says it fails for every k at once.
+            lines.append(
+                f"**Verdict: unsupported at the declared tolerance.** The "
+                f"frontier is measured and the reconstruction behaves as the "
+                f"claim describes, but no panel size reaches the 0.08-0.10 "
+                f"worst-context band, because the floor at k = {full - 1} is "
+                f"already {floor:.3f}. The claim is not contradicted by a "
+                f"better method existing — it is out of reach on this panel."
+            )
     lines.append("")
     return lines
 
@@ -430,7 +442,8 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
     pooled = (
         paired.groupby(["method", "label"], as_index=False)
         .agg(delta=("delta", "mean"), lo=("lo", "mean"), hi=("hi", "mean"),
-             cells_significant=("n_seeds_significant", "sum"),
+             cells_won=("n_seeds_reference_better", "sum"),
+             cells_lost=("n_seeds_baseline_better", "sum"),
              cells=("n_seeds", "sum"))
         .sort_values("delta")
     )
@@ -444,14 +457,16 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
         "difference. Below, coverage (backward) and each baseline are resampled "
         "on the **same** bootstrap items and the difference is taken. A negative "
         "delta means coverage is better. `cells` counts the "
-        "(split seed, panel size) pairs, and `significant` counts how many of "
-        "them put the whole 95% interval on one side of zero."
+        "(split seed, panel size) pairs. `won` and `lost` count the cells whose "
+        "whole 95% interval falls on one side of zero, split by which side: a "
+        "decided cell that went against coverage is a loss and is reported as "
+        "one. The remainder are undecided."
     )
     lines.append("")
 
-    show = pooled.rename(columns={"cells_significant": "significant"})
+    show = pooled.rename(columns={"cells_won": "won", "cells_lost": "lost"})
     lines.append(_md_table(
-        show, ["label", "delta", "lo", "hi", "significant", "cells"]))
+        show, ["label", "delta", "lo", "hi", "won", "lost", "cells"]))
     lines.append("")
 
     # `random_best_draw` is the best of 100 random panels chosen by looking at
@@ -460,8 +475,8 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
     oracle = pooled[pooled["method"] == "random_best_draw"]
     rest = pooled[pooled["method"] != "random_best_draw"]
 
-    decided = rest[rest["cells_significant"] >= 0.5 * total_cells]
-    ties = rest[(rest["cells_significant"] <= 0.2 * total_cells)
+    decided = rest[rest["cells_won"] >= 0.5 * total_cells]
+    ties = rest[((rest["cells_won"] + rest["cells_lost"]) <= 0.2 * total_cells)
                 & (~rest["method"].isin(R.COVERAGE_METHODS))]
 
     if len(decided):
@@ -469,6 +484,30 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
             f"Coverage wins on a majority of cells against "
             f"{', '.join(decided['label'])} — every heuristic a practitioner "
             f"would actually reach for."
+        )
+        lines.append("")
+
+    # Where coverage loses is the honest limit of the method and has to be
+    # stated at the same volume as the wins, not left for a reader to derive
+    # from the `lost` column.
+    lost = paired[paired["n_seeds_baseline_better"] > 0]
+    if len(lost):
+        budgets = sorted(int(k) for k in lost["k"].unique())
+        losers = sorted(set(lost["label"]))
+        run = (budgets == list(range(min(budgets), max(budgets) + 1)))
+        where = (f"k <= {max(budgets)}" if run and min(budgets) == int(paired["k"].min())
+                 else "k in " + ", ".join(str(b) for b in budgets))
+        lines.append(
+            f"**Where coverage loses.** Of the {total_cells} cells, "
+            f"{int(pooled['cells_lost'].sum())} go against coverage, and every "
+            f"one of them sits at {where} — the smallest budgets on the grid. "
+            f"The baselines that win there are {', '.join(losers)}. From "
+            f"k = {max(budgets) + 1} upward coverage is not beaten by any "
+            f"baseline in any seed. Backward elimination has almost nothing to "
+            f"remove at two or three judges, so the greedy order it produces "
+            f"carries little information; that is a real limit of the method "
+            f"and not a sampling accident, since the losses are unanimous "
+            f"across seeds."
         )
         lines.append("")
     if len(ties):
@@ -575,6 +614,40 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
     lines += _c3_paired_section(inputs)
     lines += _c3_robustness_section(inputs)
 
+    # Section 31 sets the minimum bar at beating `top_accuracy`; the paired
+    # test is what decides it, and the verdict has to survive the budgets
+    # where coverage loses rather than average them away.
+    paired = R.c3_paired_table(inputs["c3"])
+    if not paired.empty:
+        bar = paired[paired["method"] == "top_accuracy"]
+        lost = paired[paired["n_seeds_baseline_better"] > 0]
+        beats_bar = (len(bar)
+                     and int(bar["n_seeds_baseline_better"].sum()) == 0
+                     and int(bar["n_seeds_reference_better"].sum())
+                     >= 0.5 * int(bar["n_seeds"].sum()))
+        if beats_bar and not len(lost):
+            lines.append(
+                "**Verdict: supported.** Coverage beats every baseline, "
+                "including the section 31 minimum bar of top accuracy, and is "
+                "not beaten anywhere on the budget grid."
+            )
+        elif beats_bar:
+            safe = int(lost["k"].max()) + 1
+            lines.append(
+                f"**Verdict: supported for k >= {safe}.** Coverage beats the "
+                f"section 31 minimum bar of top accuracy in every decided "
+                f"cell, and from k = {safe} upward no baseline beats it in any "
+                f"seed. Below that it does lose, so the claim is stated with "
+                f"the budget range attached rather than as a blanket result."
+            )
+        else:
+            lines.append(
+                "**Verdict: partially supported.** Coverage does not clear the "
+                "section 31 minimum bar of beating top accuracy across the "
+                "grid; the paired table above shows where it falls short."
+            )
+        lines.append("")
+
     df = R.c3_table(inputs["c3"])
     if "exhaustive" in set(df["method"]):
         deficits = []
@@ -613,15 +686,37 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
     lines.append("### How much of the gap is unavoidable")
     lines.append("")
     lines.append(
-        "The rank-k floor is what a best-case k-dimensional basis achieves. It "
-        "is **not deployable** — its basis vectors are not real judges, so "
-        "nothing can be run to produce them — but it bounds what any selection "
-        "of k judges could hope for."
+        "The rank-k floor is what a k-dimensional basis achieves when the "
+        "basis is free to be anything rather than a set of real judges. It is "
+        "**not deployable** — nothing can be run to produce those directions, "
+        "and its outputs are not on the simplex — so it is a reference point "
+        "for how much of the error is dimensional rather than a consequence of "
+        "picking the wrong judges."
     )
     lines.append("")
-    lines.append(_md_table(floor[floor["method"] == "pca"],
-                           ["k", "worst_judge_tv", "mean_judge_tv"]))
+    pca = floor[floor["method"] == "pca"]
+    lines.append(_md_table(pca, ["k", "worst_judge_tv", "mean_judge_tv"]))
     lines.append("")
+    # The basis is fitted on FIT and scored on held-out rows, and the
+    # objective it minimises is squared error, not worst-judge TV.  Neither
+    # matches the quantity tabulated, so the column is not a certified lower
+    # bound and the data shows it: it goes up in places.  Say so rather than
+    # let a reader treat a rise as an error.
+    w = pca.sort_values("k")["worst_judge_tv"].to_numpy()
+    rises = [int(k) for k, a, b in zip(pca.sort_values("k")["k"].to_numpy()[1:],
+                                       w[:-1], w[1:]) if b > a + 1e-9]
+    if rises:
+        lines.append(
+            f"This column is not a certified lower bound and should not be "
+            f"read as one. The basis is fitted on FIT and scored on held-out "
+            f"rows, and it is chosen to minimise squared error rather than "
+            f"worst-judge TV, so neither the split nor the objective matches "
+            f"the number tabulated. That is visible in the table: it rises at "
+            f"k = {', '.join(str(r) for r in rises)}, which a true floor could "
+            f"not do. It stays below the achieved error at every k here, which "
+            f"is the comparison it is used for."
+        )
+        lines.append("")
 
     rec = R.reconstruction_table(inputs["c3"])
     off = rec[(rec["rule"] != "simplex") & (rec["off_simplex_frac"] > 0)]

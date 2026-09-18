@@ -251,11 +251,15 @@ def fig_c3_paired(c3_path: str) -> plt.Figure:
     pooled = (
         df.groupby(["method", "label"], as_index=False)
         .agg(delta=("delta", "mean"), lo=("lo", "mean"), hi=("hi", "mean"),
-             sig=("n_seeds_significant", "sum"), cells=("n_seeds", "sum"))
+             won=("n_seeds_reference_better", "sum"),
+             lost=("n_seeds_baseline_better", "sum"),
+             cells=("n_seeds", "sum"))
         .sort_values("delta", ascending=False)
         .reset_index(drop=True)
     )
-    decisive = pooled["sig"] >= 0.5 * pooled["cells"]
+    # Decided cells that went against the reference are losses, so counting
+    # them towards a majority would colour a bar as a win it did not earn.
+    decisive = pooled["won"] >= 0.5 * pooled["cells"]
     y = np.arange(len(pooled))
 
     fig, ax = plt.subplots(figsize=(6.6, 0.36 * len(pooled) + 1.6))
@@ -268,12 +272,12 @@ def fig_c3_paired(c3_path: str) -> plt.Figure:
     ax.axvline(0, color="black", lw=1)
     ax.set_yticks(y)
     ax.set_yticklabels(
-        [f"{row.label}  ({int(row.sig)}/{int(row.cells)})"
+        [f"{row.label}  ({int(row.won)}W {int(row.lost)}L / {int(row.cells)})"
          for row in pooled.itertuples()], fontsize=8)
     ax.set_xlabel("paired difference in worst-judge TV: coverage $-$ baseline\n"
                   "(negative means coverage is better)")
     ax.set_title("C3: paired bootstrap on matched items\n"
-                 "label shows cells where the whole interval excludes zero",
+                 "label shows decided cells won and lost by coverage",
                  fontsize=9)
     ax.grid(axis="y", alpha=0)
     fig.tight_layout()
