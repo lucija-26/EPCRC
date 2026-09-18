@@ -186,23 +186,42 @@ ls results/core20/scores/*.json | wc -l     # target: 20 judges x 7 contexts = 1
 
 ---
 
-## 6. Run the four claims
+## 6. Run the claims
 
-All CPU — no GPU needed once scoring is done. Run detached; C3 alone took
-6090 s (1 h 41 m) on the 19-judge panel and is the long pole.
+All CPU — no GPU needed once scoring is done. Everything here reads the cached
+response tensor from step 5, so the GPU can be idle for the whole of this
+section. Run detached.
 
 ```bash
 nohup sh -c '
 .venv/bin/python -u experiments/experiment_e0_noncomposability.py --real --panel core20
 .venv/bin/python -u experiments/experiment_e1_compression_frontier.py --panel core20 --max-exhaustive 0
 .venv/bin/python -u experiments/experiment_c4_stress_specialists.py --panel core20
+.venv/bin/python -u experiments/experiment_c5_downstream.py --panel core20
 .venv/bin/python -u experiments/experiment_c3_baselines.py --panel core20 --max-exhaustive 0
 ' > claims.log 2>&1 &
 ```
 
-C3 runs last deliberately: it is the slowest, and the three before it are the
-ones whose output the notebooks read first, so a failure surfaces early rather
-than after the long wait.
+C3 runs last deliberately: it is the slowest — 6090 s (1 h 41 m) on the
+19-judge panel — and the ones before it are what the notebooks read first, so
+a failure surfaces early rather than after the long wait.
+
+C6 and C7 both parallelise internally, so they go in their own chain rather
+than inside the one above, and `--workers` should be set to the cores the
+machine actually has:
+
+```bash
+nohup sh -c '
+.venv/bin/python -u experiments/experiment_c6_exchange.py --panel core20 --workers 16
+.venv/bin/python -u experiments/experiment_c7_certification.py --panel core20 --workers 16
+' > exchange_certification.log 2>&1 &
+```
+
+These two are the long poles on a laptop and the reason for running them here.
+C7 re-partitions the items 120 times and re-certifies every budget on each,
+which is roughly ten minutes per repetition at eight workers; C6 enumerates
+subsets of a 12-to-16 judge subpanel to prove the optimum. Both scale almost
+linearly with cores, so the server turns an overnight job into an hour or two.
 
 Notes:
 
@@ -219,6 +238,12 @@ Notes:
   evidence when the predeclared gamma grid is too tight for the panel.
 - C3 parallelises over subsets; it deduplicates to the unique subsets first,
   so adding baselines costs far less than it looks.
+- C6 uses tolerance points outside the plan's section 23 grid, because that
+  grid is unreachable on real judges. The deviation is recorded in the result
+  file and repeated in the summary, so it does not have to be remembered here.
+- C7's split grid is 120 repetitions, not the five predeclared seeds. Five
+  seeds cannot resolve a 5% violation rate at all. The five predeclared seeds
+  lead the list, so the primary setting stays inside the grid.
 
 ---
 
