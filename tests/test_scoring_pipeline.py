@@ -7,6 +7,8 @@ softmax normalisation -- are all pure functions.
 
 from __future__ import annotations
 
+import json
+
 import numpy as np
 import pytest
 
@@ -314,6 +316,40 @@ def test_accuracy_report_separates_tie_and_binary_behaviour():
     assert report["gold_tie_rate"] == pytest.approx(1 / 3)
     assert report["predicted_tie_rate"] == pytest.approx(1 / 3)
     assert argmax_labels(probabilities) == ["A", "B", "C"]
+
+
+def test_a_cache_holding_another_pair_set_is_not_rescored_over(tmp_path):
+    """The one mistake in the pipeline that destroys data must stop the run.
+
+    Blocks are cached as `{judge}__{context}.json` with no benchmark in the
+    name, so an E7 transfer pass that forgets `--dataset judgebench` points at
+    the production directory and `score_block` replaces all 140 blocks with
+    620-row ones.  Nothing downstream crashes; the panel is simply rebuilt from
+    the wrong rows.  A genuine resume, where the pair set matches, must still
+    pass through.
+    """
+    import experiments.score_panel as S
+
+    class Pair:
+        def __init__(self, pair_id):
+            self.pair_id = pair_id
+
+    held = [Pair("a"), Pair("b"), Pair("c")]
+    block = tmp_path / "J01__baseline.json"
+    block.write_text(json.dumps({"pair_ids": [p.pair_id for p in held]}))
+
+    original = S.SCORES
+    try:
+        S.SCORES = str(tmp_path)
+        S.guard_cache_pair_set(held)  # a resume asks for what is already there
+
+        with pytest.raises(SystemExit) as raised:
+            S.guard_cache_pair_set([Pair("a"), Pair("b")])
+    finally:
+        S.SCORES = original
+
+    assert "refusing to rescore" in str(raised.value)
+    assert "--dataset judgebench" in str(raised.value)
 
 
 def test_a_single_judge_top_up_does_not_report_a_failed_gate():

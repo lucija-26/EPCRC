@@ -407,6 +407,47 @@ def gate_g1(seed: int, model_id: str, batch_size: int) -> Dict[str, object]:
 # G2 -- whole-panel end-to-end
 # --------------------------------------------------------------------------
 
+def guard_cache_pair_set(pairs) -> None:
+    """Refuse to rewrite a cache that holds a different pair set.
+
+    `score_block` treats a block whose `pair_ids` differ from the ones asked for
+    as a miss and rescores over the top of it.  That is right for a resumed run
+    and wrong for a mistyped one: `--items 620` without `--dataset judgebench`
+    points at the production directory with a 620-row RewardBench subset, and
+    every block would be replaced by a truncated one.  Nothing downstream would
+    crash -- the panel would simply be built from 620 rows and every claim would
+    quietly change.
+
+    Checked once, before any weights are loaded, so the run stops in a second
+    rather than after an hour of GPU time.  Raises rather than prompting,
+    because this is the one failure in the pipeline that destroys data no CPU
+    rerun can reproduce.
+    """
+    if not os.path.isdir(SCORES):
+        return
+
+    want = [p.pair_id for p in pairs]
+    for name in sorted(os.listdir(SCORES)):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(SCORES, name)
+        with open(path) as handle:
+            cached = json.load(handle)
+        held = cached.get("pair_ids")
+        if held is None or held == want:
+            continue
+        raise SystemExit(
+            f"refusing to rescore into {SCORES}\n"
+            f"  {name} holds {len(held)} pairs, this run asks for {len(want)}\n"
+            f"  dataset is '{DATASET}' and --items is {len(want)}\n"
+            f"Rescoring would overwrite every block in that directory with the\n"
+            f"pair set above.  If this is the E7 transfer pass, add\n"
+            f"--dataset judgebench so the blocks go somewhere else.  If the\n"
+            f"pair set really did change on purpose, move or delete the\n"
+            f"directory yourself first."
+        )
+
+
 def gate_g2(
     seed: int,
     batch_size: int,
@@ -420,6 +461,7 @@ def gate_g2(
 
     all_pairs = read_pairs(_pairs_path(seed))
     pairs = stratified_subset(all_pairs, G2_ITEMS, seed=seed)
+    guard_cache_pair_set(pairs)
     with open(_split_path(seed)) as handle:
         membership = {
             i: name
