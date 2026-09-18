@@ -316,9 +316,9 @@ def main() -> None:
         raise SystemExit(
             f"no JudgeBench blocks at {away_scores}.\n"
             f"Score them first:\n"
-            f"  python -u experiments/build_judgebench_pairs.py\n"
+            f"  python -u experiments/build_judgebench_pairs.py --all-seeds\n"
             f"  python -u experiments/score_panel.py --gate g2 --panel {args.panel} "
-            f"--dataset judgebench --items 620 --scores-only --evict"
+            f"--dataset judgebench --items 620 --scores-only"
         )
 
     home = load_panel(args.seed, home_scores)

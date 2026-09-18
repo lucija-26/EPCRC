@@ -40,6 +40,9 @@ __all__ = [
     "c7_headline",
     "reconstruction_table",
     "lowrank_floor_table",
+    "e7_table",
+    "e7_headline",
+    "e7_calibration",
     "fmt_ci",
 ]
 
@@ -1029,3 +1032,119 @@ def backbone_per_judge(path: str) -> pd.DataFrame:
                 ),
             })
     return pd.DataFrame(rows).sort_values(["gamma", "judge"]).reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------
+# E7 -- cross-benchmark transfer
+# --------------------------------------------------------------------------
+
+def _e7_largest_calibration(row: dict) -> dict:
+    """The refit result at the largest calibration sample that was run."""
+    refit = row["refit_weights_TEST"]
+    largest = max(refit, key=lambda m: int(m))
+    return refit[largest]
+
+
+def e7_table(path: str) -> pd.DataFrame:
+    """Per (method, budget): the three settings side by side.
+
+    The three settings answer different questions and must not be collapsed.
+    `frozen` is transfer with nothing adjusted, `refit` is transfer with only
+    the weights recalibrated, and `oracle` is what the transfer benchmark would
+    have selected for itself -- a diagnostic ceiling, never transfer.
+    """
+    payload = load(path)
+    rows = []
+    for method, budgets in payload["methods"].items():
+        for k, row in budgets.items():
+            best = _e7_largest_calibration(row)
+            oracle = row["oracle_reselection"]
+            rows.append({
+                "method": PRETTY.get(_family(method), _family(method)),
+                "raw_method": method,
+                "k": int(k),
+                "in_domain_tv": row["in_domain_TEST"]["worst_judge_worst_context_tv"],
+                "frozen_tv": row["frozen_weights_TEST"]["worst_judge_worst_context_tv"],
+                "transfer_gap": row["transfer_gap"],
+                "refit_tv": best["worst_judge_worst_context_tv"],
+                "refit_gain": (
+                    row["frozen_weights_TEST"]["worst_judge_worst_context_tv"]
+                    - best["worst_judge_worst_context_tv"]
+                ),
+                "oracle_tv": oracle["TEST"]["worst_judge_worst_context_tv"],
+                "basis_overlap_jaccard": oracle["basis_overlap_jaccard"],
+                "frozen_verdict_agreement":
+                    row["frozen_weights_TEST"]["verdict_agreement"],
+            })
+    return pd.DataFrame(rows).sort_values(["k", "raw_method"]).reset_index(drop=True)
+
+
+def e7_headline(path: str, method: str = "coverage_backward") -> pd.DataFrame:
+    """Per budget: the selected basis against its baselines, after transfer.
+
+    E7's question is not whether the error rises -- under a change of domain it
+    must -- but whether the basis chosen in domain still beats the baselines on
+    a benchmark that had no say in choosing it.  The random draws are collapsed
+    to their mean, because a single draw is a coin toss and the claim is about
+    the method.
+    """
+    table = e7_table(path)
+    grouped = (
+        table.groupby(["k", "method"], as_index=False)
+        .agg({"frozen_tv": "mean", "refit_tv": "mean", "transfer_gap": "mean",
+              "oracle_tv": "mean", "basis_overlap_jaccard": "mean"})
+    )
+    reference = PRETTY.get(method, method)
+    rows = []
+    for k in sorted(grouped["k"].unique()):
+        block = grouped[grouped["k"] == k]
+        ours = block[block["method"] == reference]
+        if not len(ours):
+            continue
+        ours = ours.iloc[0]
+        others = block[block["method"] != reference]
+        best_other = others.loc[others["frozen_tv"].idxmin()] if len(others) else None
+        rows.append({
+            "k": int(k),
+            "method": reference,
+            "frozen_tv": float(ours["frozen_tv"]),
+            "refit_tv": float(ours["refit_tv"]),
+            "transfer_gap": float(ours["transfer_gap"]),
+            "oracle_tv": float(ours["oracle_tv"]),
+            "basis_overlap_jaccard": float(ours["basis_overlap_jaccard"]),
+            "best_baseline": (
+                str(best_other["method"]) if best_other is not None else ""),
+            "best_baseline_frozen_tv": (
+                float(best_other["frozen_tv"]) if best_other is not None
+                else float("nan")),
+            "beats_every_baseline": (
+                bool(ours["frozen_tv"] < best_other["frozen_tv"])
+                if best_other is not None else True),
+        })
+    return pd.DataFrame(rows)
+
+
+def e7_calibration(path: str, method: str = "coverage_backward") -> pd.DataFrame:
+    """How much of the transfer loss refitting the weights buys back, per sample.
+
+    This is the plan's calibration-sample efficiency: the basis is fixed, only
+    the weights move, and the x axis is how many pairs of the new benchmark
+    were spent fitting them.
+    """
+    payload = load(path)
+    rows = []
+    for name, budgets in payload["methods"].items():
+        if name != method:
+            continue
+        for k, row in budgets.items():
+            frozen = row["frozen_weights_TEST"]["worst_judge_worst_context_tv"]
+            for m, body in row["refit_weights_TEST"].items():
+                tv = body["worst_judge_worst_context_tv"]
+                rows.append({
+                    "k": int(k),
+                    "calibration_pairs": int(m),
+                    "tv": tv,
+                    "gain_over_frozen": frozen - tv,
+                })
+    return pd.DataFrame(rows).sort_values(
+        ["k", "calibration_pairs"]).reset_index(drop=True)
