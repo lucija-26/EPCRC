@@ -1053,6 +1053,9 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
     lines.append("")
 
     head = R.c7_headline(inputs["c7"], primary_delta)
+    per_gamma = R.c7_table(inputs["c7"])
+    per_gamma = per_gamma[per_gamma["delta"].isna()
+                          | np.isclose(per_gamma["delta"], primary_delta)]
     lines.append(f"### At delta = {primary_delta:g}")
     lines.append("")
     lines.append(
@@ -1094,11 +1097,33 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
                 "**Verdict: unsupported.** The primary rule certified nothing "
                 "at these tolerances, so there is no coverage to check."
             )
-        else:
+        elif float(p["violation_rate"]) > primary_delta:
             lines.append(
                 "**Verdict: partially supported.** The primary rule is "
                 "violated more often than its nominal rate, and the per-"
                 "tolerance table shows where."
+            )
+        else:
+            # Zero (or few enough) observed violations, but the Wilson upper
+            # bound still clears delta.  That is a statement about how many
+            # cases the rule managed to certify, not about the bound failing:
+            # "0 of 10" simply cannot be resolved below 5%.  Saying the rule
+            # was violated here would be false, so name the binding cell and
+            # call it what it is -- too few certified cases to demonstrate the
+            # rate, at the tolerance where the rule certifies almost nothing.
+            worst = per_gamma[per_gamma["rule"] == p["rule"]].sort_values(
+                "violation_rate_hi").iloc[-1]
+            lines.append(
+                f"**Verdict: partially supported.** The primary rule was not "
+                f"violated once in {int(p['n_certified'])} certified cases, so "
+                f"nothing here contradicts the claim. It falls short only on "
+                f"resolution: at gamma = {worst['gamma']:.2f} the rule certifies "
+                f"just {int(worst['n_certified'])} cases, and "
+                f"{int(worst['n_violated'])} violations out of that many bounds "
+                f"the rate no tighter than {worst['violation_rate_hi']:.1%} — "
+                f"above the nominal {primary_delta:.0%} however well the rule "
+                f"behaves. More repetitions at the tight tolerances, not a "
+                f"different bound, is what would settle it."
             )
         lines.append("")
 
@@ -1116,9 +1141,6 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
     )
     lines.append("")
 
-    per_gamma = R.c7_table(inputs["c7"])
-    per_gamma = per_gamma[per_gamma["delta"].isna()
-                          | np.isclose(per_gamma["delta"], primary_delta)]
     lines.append("### Per tolerance")
     lines.append("")
     lines.append(_md_table(
