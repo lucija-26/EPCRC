@@ -353,14 +353,21 @@ and lists three settings.
 weights, frozen basis with refitted weights on a calibration sample, and oracle
 reselection as a diagnostic. Only JudgeBench is used.
 
-**Why.** Each additional transfer benchmark is another full scoring pass over
-20 judges and 7 contexts on rented GPU time. One transfer benchmark answers the
-question the claim is stated over; two would strengthen it but were not
-affordable within the course.
+**Why.** The two benchmarks do not cost the same. JudgeBench is pairwise, so it
+enters the existing pipeline as another pair file and costs one scoring pass.
+JuStRank ranks whole systems, which section 13.3 confirms by giving it its own
+role and its own metric: it needs a second converter, an aggregation step from
+per-pair judgements up to a score per system, a rank-correlation metric rather
+than a reconstruction error, and a predeclared subset because the full corpus
+may not fit. That is a second data pipeline with its own tests, not an extra
+hour of GPU time, and it was the engineering time that could not be found.
 
-**Cost.** Transfer is demonstrated on one shift, not two. JudgeBench also
-contains no ties, so nothing in E7 says whether the tie corner of the simplex
-transfers. Both limits are stated in the E7 section.
+**Cost.** Transfer is demonstrated on one shift, not two. Two further limits
+follow. JudgeBench contains no ties, so nothing in E7 says whether the tie
+corner of the simplex transfers. And with no system axis anywhere in the data,
+the system-level ranking the plan asks for in sections 30 and 33 stays a
+surrogate: C5 ranks items by preference score and says so wherever it is
+reported. All three limits are stated where they bite.
 
 ---
 
