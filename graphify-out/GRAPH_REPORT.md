@@ -1,16 +1,16 @@
 # Graph Report - EPCRC  (2026-09-18)
 
 ## Corpus Check
-- 297 files · ~5,954,047 words
+- 297 files · ~5,954,086 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1333 nodes · 3050 edges · 79 communities (54 shown, 25 thin omitted)
+- 1333 nodes · 3050 edges · 80 communities (55 shown, 25 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 104 edges (avg confidence: 0.58)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1c15c579`
+- Built from commit: `1a008bfa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -94,6 +94,7 @@
 - [[_COMMUNITY_test_duplicate_judges_are_not_both_selected_early|test_duplicate_judges_are_not_both_selected_early]]
 - [[_COMMUNITY_test_c3_section_states_where_coverage_loses|test_c3_section_states_where_coverage_loses]]
 - [[_COMMUNITY_test_paired_is_more_sensitive_than_comparing_two_intervals|test_paired_is_more_sensitive_than_comparing_two_intervals]]
+- [[_COMMUNITY___init__.py|__init__.py]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `JudgeResponses` - 77 edges
@@ -122,7 +123,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (79 total, 25 thin omitted)
+## Communities (80 total, 25 thin omitted)
 
 ### Community 1 - "figs.py"
 Cohesion: 0.12
@@ -133,8 +134,8 @@ Cohesion: 0.12
 Nodes (29): ExactSearch, _init_worker(), main(), _one(), E4 -- exact optimality and exchange structure (plan section 26, claim C6).  C6 s, The proved optimum, searching sizes 1 .. upper_bound - 1 first.          `upper_, Per method: how often it hit the optimum, and by how much it missed., The fixed subpanels, drawn once from a fixed seed. (+21 more)
 
 ### Community 3 - "test_sparse_and_risk.py"
-Cohesion: 0.11
-Nodes (30): base_item_id(), build_pairs(), is_tie_row(), Turn base tasks into at most `max_pairs` judged pairs each.      Non-tie tasks p, Grouping key. Plain `id` collides across subsets, so qualify it., normalize_label_scores(), Softmax over the three candidate log-likelihoods.      Shifted by the maximum be, _corpus() (+22 more)
+Cohesion: 0.13
+Nodes (28): base_item_id(), build_pairs(), is_tie_row(), Turn base tasks into at most `max_pairs` judged pairs each.      Non-tie tasks p, Grouping key. Plain `id` collides across subsets, so qualify it., normalize_label_scores(), Softmax over the three candidate log-likelihoods.      Shifted by the maximum be, _corpus() (+20 more)
 
 ### Community 4 - "2. Algorithms"
 Cohesion: 0.11
@@ -225,8 +226,8 @@ Cohesion: 0.14
 Nodes (25): BackwardEliminationPruner, ForwardKSwapPruner, ForwardSelectionPruner, PriorityQueuePruner, Section 4.1 backward elimination.      Start with S = J and remove one model at, Section 4.2 forward selection.      Start with S = empty and greedily add the mo, Lazy greedy forward + backward cleanup, with optional k-swap escape.      Phase, Forward selection seed + the k-swap reduction escape (no backward cleanup). (+17 more)
 
 ### Community 31 - "LabelScorer"
-Cohesion: 0.20
-Nodes (7): LabelScorer, Record how each label encodes, and whether the labels are comparable., Wrap the prompt in the model's official chat template.          Qwen 3 exposes a, Three-class probabilities for one rendered prompt., Three-class probabilities for a batch of rendered prompts., Exact sequence log-likelihood of a multi-token label., Scores rendered prompts against the labels A, B and C.      Loading is lazy so i
+Cohesion: 0.17
+Nodes (10): LabelScorer, ndarray, Record how each label encodes, and whether the labels are comparable., Wrap the prompt in the model's official chat template.          Qwen 3 exposes a, Three-class probabilities for one rendered prompt., Three-class probabilities for a batch of rendered prompts., Exact sequence log-likelihood of a multi-token label., Canonical three-class probabilities for every pair under one context.      Retur (+2 more)
 
 ### Community 32 - "BackwardEliminationPruner"
 Cohesion: 0.16
@@ -286,7 +287,7 @@ Nodes (11): load_panel(), Rebuild the response tensor, optionally re-splitting i
 
 ### Community 47 - "test_duplicate_judges_are_not_both_selected_early"
 Cohesion: 0.12
-Nodes (28): EPCRC: Ecosystem Pruning via Convex Routing Coverage.  Minimal implementation fo, canonical_gold_label(), canonicalize(), Context, prompt_sha256(), Frozen judge prompt protocols, interventions, and prompt rendering.  The retaine, One registered evaluation condition.      `swap` exchanges the two responses, wh, Render one prompt under a context.      Interventions are applied to the *conten (+20 more)
+Nodes (20): canonical_gold_label(), canonicalize(), Context, prompt_sha256(), protocol_hashes(), Frozen judge prompt protocols, interventions, and prompt rendering.  The retaine, One registered evaluation condition.      `swap` exchanges the two responses, wh, Render one prompt under a context.      Interventions are applied to the *conten (+12 more)
 
 ### Community 62 - "Panel"
 Cohesion: 0.17
@@ -305,8 +306,8 @@ Cohesion: 0.22
 Nodes (9): A C3 file carrying only what the summary's Setup block reads., A short panel is a deviation from the plan, not a design choice.      Every numb, The recorded counts are rows, and a row is a comparison pair.      One base item, The notice must not fire on a full panel, or it stops meaning anything., _setup_only_c3(), _summary_setup(), test_summary_calls_the_split_counts_pairs_not_items(), test_summary_claims_no_deviation_when_the_panel_is_complete() (+1 more)
 
 ### Community 66 - "audit_algorithms.py"
-Cohesion: 0.16
-Nodes (18): protocol_hashes(), Hashes of the frozen templates, recorded once per run., _digest(), grouped_split(), load_reward_bench_2(), RewardBench 2 -> judged pairs, and the grouped stratified split.  Verified again, Assign base tasks to FIT / CERT / TEST, stratified and grouped.      Splitting h, Checksummed record of one split, so results can be traced to their data. (+10 more)
+Cohesion: 0.19
+Nodes (15): _digest(), grouped_split(), load_reward_bench_2(), RewardBench 2 -> judged pairs, and the grouped stratified split.  Verified again, Assign base tasks to FIT / CERT / TEST, stratified and grouped.      Splitting h, Checksummed record of one split, so results can be traced to their data., One JSON object per line, so the scorer can stream it., Stable 64-bit integer from the string form of `parts`. (+7 more)
 
 ### Community 67 - "test_the_free_contexts_are_still_fitted_when_others_pin_the_maximum"
 Cohesion: 0.33
@@ -340,6 +341,10 @@ Nodes (55): bernstein_ucb(), bootstrap_max_error(), certified_error(), empirical
 Cohesion: 0.08
 Nodes (16): load_raw_panel(), ndarray, Rebuild the scored judge panel from the cached (judge, context) blocks.  Two see, The scored tensor before any FIT / CERT / TEST partition is applied.      Loadin, Read the cached blocks into one unsplit tensor., Where a panel's cached (judge, context) blocks live., RawPanel, scores_dir() (+8 more)
 
+### Community 79 - "__init__.py"
+Cohesion: 0.23
+Nodes (10): EPCRC: Ecosystem Pruning via Convex Routing Coverage.  Minimal implementation fo, JudgedPair, One A-versus-B comparison put to a judge.      `gold_label` is "A", "B" or "C";, accuracy_report(), argmax_labels(), Deterministic three-label probability extraction from an open-weight judge.  The, Sanity statistics for one judge under one context.      A judge whose prediction, Per-model record of how the three labels encode. (+2 more)
+
 ## Knowledge Gaps
 - **57 isolated node(s):** `graphify`, `EPCRC`, `Routing semantics`, `2.1 Forward selection (`forward`)`, `2.2 Forward selection with trimming (`forward_trim`)` (+52 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -348,9 +353,9 @@ Nodes (16): load_raw_panel(), ndarray, Rebuild the scored judge panel from the c
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `JudgeResponses` connect `SubstitutionCertificate` to `synthetic_judges.py`, `BackwardEliminationPruner`, `CoverageFunctional`, `judge.py`, `load_panel`, `synthetic_judges.py`, `milp_min_representative_set`, `manifest.json`, `test_certification.py`, `rewardbench.py`, `CoverageFunctional`, `test_duplicate_judges_are_not_both_selected_early`, `__init__.py`, `test_duplicate_judges_are_not_both_selected_early`, `build_or_load_bundle`, `__init__.py`, `smoke_core8.py`, `Panel`?**
+- **Why does `JudgeResponses` connect `SubstitutionCertificate` to `synthetic_judges.py`, `BackwardEliminationPruner`, `CoverageFunctional`, `judge.py`, `load_panel`, `synthetic_judges.py`, `milp_min_representative_set`, `manifest.json`, `test_certification.py`, `rewardbench.py`, `CoverageFunctional`, `test_duplicate_judges_are_not_both_selected_early`, `__init__.py`, `__init__.py`, `build_or_load_bundle`, `__init__.py`, `smoke_core8.py`, `Panel`?**
   _High betweenness centrality (0.143) - this node is a cross-community bridge._
-- **Why does `CoverageFunctional` connect `CoverageFunctional` to `SubstitutionCertificate`, `render`, `judge.py`, `test_pruning_synthetic.py`, `test_task_error.py`, `coverage.py`, `PriorityQueuePruner`, `test_sparse_and_risk.py`, `test_duplicate_judges_are_not_both_selected_early`, `experiment_0_warm_forward.py`, `build_or_load_bundle`, `experiment_forward_beats_backward.py`, `rewardbench.py`?**
+- **Why does `CoverageFunctional` connect `CoverageFunctional` to `SubstitutionCertificate`, `render`, `judge.py`, `test_pruning_synthetic.py`, `test_task_error.py`, `coverage.py`, `PriorityQueuePruner`, `test_sparse_and_risk.py`, `__init__.py`, `experiment_0_warm_forward.py`, `build_or_load_bundle`, `experiment_forward_beats_backward.py`, `rewardbench.py`?**
   _High betweenness centrality (0.121) - this node is a cross-community bridge._
 - **Why does `summarise()` connect `__init__.py` to `run_all.py`, `_c4_payload`?**
   _High betweenness centrality (0.090) - this node is a cross-community bridge._

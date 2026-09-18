@@ -497,9 +497,14 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
         run = (budgets == list(range(min(budgets), max(budgets) + 1)))
         where = (f"k <= {max(budgets)}" if run and min(budgets) == int(paired["k"].min())
                  else "k in " + ", ".join(str(b) for b in budgets))
+        # `total_cells` is per baseline, so the denominator for a count pooled
+        # over baselines is that times the number of baselines compared.
+        n_comparisons = total_cells * int(pooled["method"].nunique())
         lines.append(
-            f"**Where coverage loses.** Of the {total_cells} cells, "
-            f"{int(pooled['cells_lost'].sum())} go against coverage, and every "
+            f"**Where coverage loses.** Of the {n_comparisons} comparisons — "
+            f"{total_cells} cells against each of {int(pooled['method'].nunique())} "
+            f"baselines — {int(pooled['cells_lost'].sum())} go against "
+            f"coverage, and every "
             f"one of them sits at {where} — the smallest budgets on the grid. "
             f"The baselines that win there are {', '.join(losers)}. From "
             f"k = {max(budgets) + 1} upward coverage is not beaten by any "
