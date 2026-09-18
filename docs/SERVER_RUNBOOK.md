@@ -247,6 +247,43 @@ Notes:
 
 ---
 
+## 6b. Score the E7 transfer benchmark
+
+The second and last GPU step. E7 asks whether a basis picked on RewardBench 2
+still works on a benchmark it was never selected for, so the same 20 judges have
+to answer JudgeBench's 620 pairs under the same 7 contexts.
+
+```bash
+.venv/bin/python -u experiments/build_judgebench_pairs.py --all-seeds
+
+tmux new -s transfer
+.venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20 \
+    --dataset judgebench --items 620 --scores-only --batch-size 64 \
+    2>&1 | tee transfer.log
+```
+
+`--dataset judgebench` is not optional and is not cosmetic. Blocks are cached as
+`{judge}__{context}.json` with no benchmark in the name, so without it this run
+would overwrite `results/core20/scores/` — the blocks every other claim is
+computed from. With it, the blocks go to `results/core20_judgebench/scores/` and
+the pairs come from `data/judgebench_pairs_seed*.jsonl`.
+
+620 pairs is about a sixth of the in-domain pass, so expect roughly an hour.
+The weights are already on disk from step 5, so do not pass `--evict` here.
+
+Then, on CPU:
+
+```bash
+.venv/bin/python -u experiments/experiment_e7_transfer.py --panel core20
+```
+
+Two limits travel with every E7 number and are recorded in the result file:
+JudgeBench has no ties, so nothing here says whether the tie corner survives
+compression; and 620 pairs means the calibration curve runs out of data before
+it flattens.
+
+---
+
 ## 7. Build the package
 
 ```bash
