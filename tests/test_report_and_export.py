@@ -1060,3 +1060,36 @@ def test_a_null_result_is_dropped_when_its_claim_comes_back_supported():
 
     assert "0 of 8 claims" in text
     assert "- " not in text
+
+
+def test_the_result_index_agrees_with_the_report_it_indexes():
+    """A script reading the index and a person reading the report must not
+    come away with different verdicts."""
+    inputs = E.input_paths("core20")
+    index = E.build_result_index("core20", inputs, _FAKE_PROV)
+    text = E.build_final_report("core20", inputs, _FAKE_PROV)
+
+    for entry in index["claims"]:
+        block = text.split(f"## {entry['section']}\n\n")[1]
+        assert block.split("\n")[0].strip("* ") == entry["verdict"]
+        assert entry["verdict"] in index["verdict_vocabulary"]
+
+
+def test_every_table_in_the_index_is_claimed_by_exactly_one_claim():
+    inputs = E.input_paths("core20")
+    index = E.build_result_index("core20", inputs, _FAKE_PROV)
+
+    listed = [t for entry in index["claims"] for t in entry["tables"]]
+    assert len(listed) == len(set(listed))
+    # The backbone tables are filed under C4, not left unclaimed.
+    c4 = next(e for e in index["claims"] if e["claim"] == "C4")
+    assert any("backbone" in t for t in c4["tables"])
+
+
+def test_a_missing_experiment_is_named_rather_than_silently_dropped():
+    inputs = dict(E.input_paths("core20"), e7="")
+    index = E.build_result_index("core20", inputs, _FAKE_PROV)
+
+    c5 = next(e for e in index["claims"] if e["claim"] == "C5")
+    assert "e7" in c5["missing_inputs"]
+    assert "e7" not in c5["inputs"]

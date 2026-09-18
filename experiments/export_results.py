@@ -1830,6 +1830,49 @@ def build_final_report(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     return "\n".join(lines)
 
 
+def build_result_index(panel: str, inputs: Dict[str, str],
+                       prov: dict) -> dict:
+    """Section 65's `RESULT_INDEX.json`: the report's verdicts, machine-readable.
+
+    Built from the same section bodies the report is, so a script reading this
+    and a person reading FINAL_REPORT.md get the same verdict. `tables` lists
+    the CSVs whose names begin with the claim, which is the naming rule the
+    export already follows.
+    """
+    tables = sorted(build_tables(inputs))
+    matrix = {claim: (keys, required)
+              for claim, keys, required, _, _ in _EVIDENCE_MATRIX}
+    # Table names start with the claim they belong to, with one exception: the
+    # section 20 backbone tables are filed under C4, which is the claim its
+    # payload records.
+    prefixes = {claim: [claim.lower()] for claim, _, _ in _FINAL_SECTIONS}
+    prefixes["C4"].append("backbone")
+
+    claims = []
+    for claim, heading, builders in _FINAL_SECTIONS:
+        keys, required = matrix.get(claim, ([], ""))
+        claims.append({
+            "claim": claim,
+            "section": heading,
+            "verdict": section_verdict(_claim_body(builders, inputs)),
+            "required_experiments": required,
+            "inputs": {k: os.path.relpath(inputs[k], ROOT) for k in keys
+                       if k in inputs and os.path.exists(inputs[k])},
+            "missing_inputs": [k for k in keys
+                               if not os.path.exists(inputs.get(k, ""))],
+            "tables": [f"tables/{t}.csv" for t in tables
+                       if t.lower().startswith(tuple(prefixes[claim]))],
+        })
+
+    return {
+        "panel": panel,
+        "generated_utc": prov["generated_utc"],
+        "git_commit": prov["git_commit"],
+        "verdict_vocabulary": list(_VERDICT_TOKENS) + ["NOT RUN", "NO VERDICT"],
+        "claims": claims,
+    }
+
+
 def _completeness_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     """Section 3. Which cells of the judge-by-context-by-item grid actually exist.
 
@@ -2047,19 +2090,23 @@ def _verification_section() -> List[str]:
     return [
         "## 16. Package Verification",
         "",
-        "`manifest.json` holds a SHA-256 for every file in the package, plus "
-        "the git commit, the Python and library versions and the platform. To "
-        "check the package is the one that was generated:",
+        "`manifest.json` holds a SHA-256 and a byte count for every file in "
+        "the package, plus the git commit, the Python and library versions "
+        "and the platform. To check the package is the one that was "
+        "generated, run this from the package root:",
         "",
         "```bash",
         "python - <<'PY'",
-        "import hashlib, json, os",
-        "m = json.load(open('manifest.json'))",
-        "for name, want in m['files'].items():",
-        "    got = hashlib.sha256(open(name, 'rb').read()).hexdigest()",
-        "    print('OK ' if got == want else 'CHANGED', name)",
+        "import hashlib, json",
+        "for f in json.load(open('manifest.json'))['files']:",
+        "    got = hashlib.sha256(open(f['path'], 'rb').read()).hexdigest()",
+        "    print('OK     ' if got == f['sha256'] else 'CHANGED', f['path'])",
         "PY",
         "```",
+        "",
+        "`RESULT_INDEX.json` is the machine-readable form of this report: one "
+        "entry per claim, with its verdict, the experiment behind it and the "
+        "tables and figures that carry its numbers.",
         "",
         "`provenance.git_clean` in the manifest says whether the working tree "
         "had uncommitted changes when the package was built. If it is false, "
@@ -2166,6 +2213,9 @@ def export(panel: str, out_dir: Optional[str] = None,
     # hand next to a summary that would drift away from it.
     with open(os.path.join(out_dir, "FINAL_REPORT.md"), "w") as handle:
         handle.write(build_final_report(panel, inputs, prov))
+
+    with open(os.path.join(out_dir, "RESULT_INDEX.json"), "w") as handle:
+        json.dump(build_result_index(panel, inputs, prov), handle, indent=2)
 
     files = []
     for folder, _, names in os.walk(out_dir):
