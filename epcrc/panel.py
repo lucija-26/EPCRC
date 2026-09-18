@@ -22,7 +22,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 import numpy as np
 
 from epcrc.judge import JudgeResponses
-from epcrc.prompts import REGISTERED_CONTEXTS
+from epcrc.prompts import LABELS, REGISTERED_CONTEXTS
 from epcrc.rewardbench import PRIMARY_SEED, read_pairs, stratified_subset
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -108,12 +108,20 @@ class Panel:
         splits: Dict[str, JudgeResponses],
         n_items: Dict[str, int],
         item_groups: Optional[Dict[str, np.ndarray]] = None,
+        gold: Optional[Dict[str, np.ndarray]] = None,
+        domains: Optional[Dict[str, np.ndarray]] = None,
     ):
         self.judge_ids = judge_ids
         self.model_ids = model_ids
         self.context_names = context_names
         self.splits = splits
         self.n_items = n_items
+        # Per split, the human label as a class index into ("A", "B", "C").
+        # Stored probabilities are canonicalised upstream, so one gold vector
+        # serves every context -- an order swap moves the judge's mass back,
+        # not the label.  E2 needs these; the coverage claims do not.
+        self.gold = gold or {}
+        self.domains = domains or {}
         # Per split, the base item each row came from, as contiguous integers.
         # One base item can yield several comparison pairs, and those pairs are
         # not independent, so the bootstrap has to resample base items and take
@@ -125,17 +133,36 @@ class Panel:
         return len(self.judge_ids)
 
 
-def load_panel(
+class RawPanel:
+    """The scored tensor before any FIT / CERT / TEST partition is applied.
+
+    Loading the cached blocks costs a JSON parse per (judge, context); the
+    partition itself is a cheap reindex.  E5 re-splits the same tensor a
+    hundred times or more, so the two are separated and only the reindex is
+    repeated.
+    """
+
+    def __init__(
+        self,
+        judge_ids: List[str],
+        model_ids: List[str],
+        context_names: List[str],
+        probabilities: List[np.ndarray],
+        pairs: List,
+    ):
+        self.judge_ids = judge_ids
+        self.model_ids = model_ids
+        self.context_names = context_names
+        # One (n_pairs, n_judges, 3) array per context, in `context_names` order.
+        self.probabilities = probabilities
+        self.pairs = pairs
+
+
+def load_raw_panel(
     seed: int = PRIMARY_SEED,
     scores_dir: str = SCORES,
-    split_seed: Optional[int] = None,
-) -> Panel:
-    """Rebuild the response tensor, optionally re-splitting it under another seed.
-
-    `seed` must be the seed the cached blocks were scored under; `split_seed`
-    only re-partitions those cached items and defaults to `seed`.
-    """
-    split_seed = seed if split_seed is None else split_seed
+) -> RawPanel:
+    """Read the cached blocks into one unsplit tensor."""
     contexts = [c.name for c in REGISTERED_CONTEXTS]
 
     judge_ids = sorted({
@@ -169,33 +196,60 @@ def load_panel(
     if [p.pair_id for p in pairs] != reference:
         raise RuntimeError("cached blocks do not match the stratified subset for this seed")
 
-    with open(os.path.join(DATA, f"split_seed{split_seed}.json")) as handle:
-        membership = {
-            i: name
-            for name, ids in json.load(handle)["splits"].items()
-            for i in ids
-        }
-    where = np.array([membership[p.base_item_id] for p in pairs])
+    probabilities = [
+        np.stack(
+            [np.asarray(blocks[(j, c)]["probabilities"]) for j in judge_ids],
+            axis=1,
+        )
+        for c in contexts
+    ]
+    model_ids = [blocks[(j, contexts[0])]["model_id"] for j in judge_ids]
+    return RawPanel(judge_ids, model_ids, contexts, probabilities, list(pairs))
 
-    base_items = np.array([p.base_item_id for p in pairs])
+
+def split_panel(raw: RawPanel, assignment: Dict[str, List[str]]) -> Panel:
+    """Partition a `RawPanel` by base item into FIT / CERT / TEST."""
+    membership = {i: name for name, ids in assignment.items() for i in ids}
+    where = np.array([membership[p.base_item_id] for p in raw.pairs])
+    base_items = np.array([p.base_item_id for p in raw.pairs])
+    gold_all = np.array([LABELS.index(p.gold_label) for p in raw.pairs])
+    domain_all = np.array([p.domain for p in raw.pairs])
 
     splits: Dict[str, JudgeResponses] = {}
     n_items: Dict[str, int] = {}
     item_groups: Dict[str, np.ndarray] = {}
+    gold: Dict[str, np.ndarray] = {}
+    domains: Dict[str, np.ndarray] = {}
     for name in ("FIT", "CERT", "TEST"):
         rows = np.flatnonzero(where == name)
         if rows.size == 0:
             raise RuntimeError(f"split {name} has no scored items")
-        tensor = [
-            np.stack(
-                [np.asarray(blocks[(j, c)]["probabilities"])[rows] for j in judge_ids],
-                axis=1,
-            )
-            for c in contexts
-        ]
-        splits[name] = JudgeResponses(tensor, contexts)
+        splits[name] = JudgeResponses(
+            [block[rows] for block in raw.probabilities], raw.context_names
+        )
         n_items[name] = int(rows.size)
         item_groups[name] = np.unique(base_items[rows], return_inverse=True)[1]
+        gold[name] = gold_all[rows]
+        domains[name] = domain_all[rows]
 
-    model_ids = [blocks[(j, contexts[0])]["model_id"] for j in judge_ids]
-    return Panel(judge_ids, model_ids, contexts, splits, n_items, item_groups)
+    return Panel(
+        raw.judge_ids, raw.model_ids, raw.context_names, splits, n_items,
+        item_groups, gold, domains,
+    )
+
+
+def load_panel(
+    seed: int = PRIMARY_SEED,
+    scores_dir: str = SCORES,
+    split_seed: Optional[int] = None,
+) -> Panel:
+    """Rebuild the response tensor, optionally re-splitting it under another seed.
+
+    `seed` must be the seed the cached blocks were scored under; `split_seed`
+    only re-partitions those cached items and defaults to `seed`.
+    """
+    split_seed = seed if split_seed is None else split_seed
+    raw = load_raw_panel(seed, scores_dir)
+    with open(os.path.join(DATA, f"split_seed{split_seed}.json")) as handle:
+        assignment = json.load(handle)["splits"]
+    return split_panel(raw, assignment)
