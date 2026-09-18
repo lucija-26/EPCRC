@@ -201,6 +201,11 @@ def build_tables(inputs: Dict[str, str]) -> Dict[str, pd.DataFrame]:
             tables[f"c5_headline_k{C5_HEADLINE_K}_{aggregator}"] = R.c5_headline(
                 inputs["c5"], C5_HEADLINE_K, aggregator)
 
+    if os.path.exists(inputs["e7"]):
+        tables["c5_e7_transfer_headline"] = R.e7_headline(inputs["e7"])
+        tables["c5_e7_transfer_per_method"] = R.e7_table(inputs["e7"])
+        tables["c5_e7_calibration_efficiency"] = R.e7_calibration(inputs["e7"])
+
     if os.path.exists(inputs["c6"]):
         tables["c6_headline"] = R.c6_headline(inputs["c6"])
         tables["c6_per_instance"] = R.c6_table(inputs["c6"])
@@ -1016,6 +1021,127 @@ def _c5_section(inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+def _e7_section(inputs: Dict[str, str]) -> List[str]:
+    """E7, filed under C5 because section 31 lists it in C5's required column.
+
+    Deliberately declares no verdict of its own.  `section_verdict` reads the
+    token out of the claim body, and C5's body is this section plus
+    `_c5_section`, so a second token here could silently become the one the
+    professor reads at the top of C5.
+    """
+    lines = ["## E7 — does the basis still work on a benchmark it never saw?", ""]
+    lines.append(
+        "**Question.** Section 29 asks whether a physical basis selected on "
+        "RewardBench 2 stays useful off it. Selecting and evaluating on the "
+        "same benchmark can only ever show the basis fits that benchmark; this "
+        "is the test that separates a real finding from a fitted one."
+    )
+    lines.append("")
+    if not os.path.exists(inputs["e7"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["e7"])
+    head = R.e7_headline(inputs["e7"])
+    calib = R.e7_calibration(inputs["e7"])
+
+    lines.append(
+        f"**Test.** The same {len(payload['judges'])} judges answer "
+        f"`{payload['away_benchmark']}` under the same contexts. Three settings, "
+        f"as the plan states them: `frozen` applies the basis and its weights "
+        f"unchanged; `refit` keeps the basis and recalibrates only the weights "
+        f"on a sample of the new benchmark; `oracle` reselects the basis on the "
+        f"new benchmark and is a ceiling, not transfer. Away split sizes: "
+        + ", ".join(f"{name} {n}"
+                    for name, n in payload["split_items"]["away"].items()) + "."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        head,
+        ["k", "frozen_tv", "refit_tv", "transfer_gap", "oracle_tv",
+         "basis_overlap_jaccard", "best_baseline", "best_baseline_frozen_tv"]))
+    lines.append("")
+
+    # The error rising under a domain shift is expected and is not the finding.
+    # What decides E7 is whether the in-domain basis still leads off its own
+    # benchmark, so that is stated as a count over budgets rather than prose.
+    wins = int(head["beats_every_baseline"].sum())
+    total = len(head)
+    risen = int((head["transfer_gap"] > 0).sum())
+    if risen == total:
+        movement = (
+            "The error rises on the new benchmark at every budget, which a "
+            "change of domain leads one to expect; the transfer gap column is "
+            "that rise."
+        )
+    elif risen:
+        movement = (
+            f"The error rises on the new benchmark at {risen} of {total} "
+            f"budgets and falls at the rest. A fall is not evidence of a better "
+            f"basis: the two benchmarks are different populations, and "
+            f"JudgeBench has no ties, so its judges have one fewer corner of "
+            f"the simplex to disagree over."
+        )
+    else:
+        movement = (
+            "The error does not rise on the new benchmark at any budget. That "
+            "is not evidence of a better basis: JudgeBench contains no ties, "
+            "so its judges have one fewer corner of the simplex to disagree "
+            "over, and the two benchmarks are not comparable in level. Only "
+            "the ordering within this benchmark is read below."
+        )
+    lines.append(
+        f"{movement} The finding is the ordering: the coverage basis beats "
+        f"every baseline at {wins} of {total} budget"
+        f"{'' if total == 1 else 's'}, on a benchmark that had no part in "
+        f"choosing it."
+    )
+    lines.append("")
+
+    if len(calib):
+        ordered = calib.sort_values("calibration_pairs")
+        smallest, largest = ordered.iloc[0], ordered.iloc[-1]
+        gain = float(largest["gain_over_frozen"])
+        if gain > 0:
+            lines.append(
+                f"**Calibration efficiency.** Refitting only the weights "
+                f"recovers {gain:.4f} TV at "
+                f"{int(largest['calibration_pairs'])} calibration pairs, "
+                f"against {float(smallest['gain_over_frozen']):.4f} at "
+                f"{int(smallest['calibration_pairs'])}. The basis is the "
+                f"expensive object and it is the part that travels; the "
+                f"weights are cheap to replace."
+            )
+        else:
+            lines.append(
+                f"**Calibration efficiency, as a negative result.** Refitting "
+                f"the weights on up to {int(largest['calibration_pairs'])} "
+                f"pairs of the new benchmark does not improve on the frozen "
+                f"weights ({gain:.4f} TV). The weights fitted in domain are "
+                f"already as good as this much calibration data can make them, "
+                f"so the sample-efficiency curve has nothing to climb."
+            )
+        lines.append("")
+
+    overlap = float(head["basis_overlap_jaccard"].mean())
+    lines.append(
+        f"**Overlap with the oracle.** Mean Jaccard between the basis chosen in "
+        f"domain and the one the new benchmark would have chosen for itself is "
+        f"{overlap:.2f}. The oracle column is reported only to bound what "
+        f"reselection could buy and is never counted as transfer."
+    )
+    lines.append("")
+    lines.append(
+        f"_Two limits travel with every number above. "
+        f"`{payload['away_benchmark']}` contains no ties, so nothing here says "
+        f"whether the tie corner of the simplex survives compression; and at "
+        f"{sum(payload['split_items']['away'].values())} pairs the calibration "
+        f"curve runs out of data before it flattens. Transfer is demonstrated "
+        f"on one shift, not the two section 29 names — see `DECISIONS.md`, D17._"
+    )
+    lines.append("")
+    return lines
+
+
 def _c6_section(inputs: Dict[str, str]) -> List[str]:
     lines = ["## C6 — the exchange structure greedy selection misses", ""]
     lines.append("**Claim.** Which judges are worth keeping depends on the set "
@@ -1692,6 +1818,8 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += ["---", ""]
     lines += _c5_section(inputs)
     lines += ["---", ""]
+    lines += _e7_section(inputs)
+    lines += ["---", ""]
     lines += _c6_section(inputs)
     lines += ["---", ""]
     lines += _c7_section(inputs)
@@ -1740,7 +1868,7 @@ _FINAL_SECTIONS = [
     ("C3", "6. C3: Baseline Comparison", [_c3_section]),
     ("C4", "7. C4: Robust Contexts and Specialists",
      [_c4_section, _backbone_section]),
-    ("C5", "8. C5: Downstream Preservation", [_c5_section]),
+    ("C5", "8. C5: Downstream Preservation", [_c5_section, _e7_section]),
     ("C6", "9. C6: Exact Optimality and Exchange Structure", [_c6_section]),
     ("C7", "10. C7: Certification Reliability", [_c7_section]),
     ("C8", "11. Optional C8 Results", [_c8_section]),
@@ -2192,6 +2320,7 @@ def export(panel: str, out_dir: Optional[str] = None,
         e6=inputs["e6"] if os.path.exists(inputs["e6"]) else None,
         backbone=(inputs["backbone"]
                   if os.path.exists(inputs["backbone"]) else None),
+        e7=inputs["e7"] if os.path.exists(inputs["e7"]) else None,
     )
     print(f"figures: {len(figs)}")
 

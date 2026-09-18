@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "tests/test_scoring_pipeline.py": {
-    "mtime": 1789410726.437836,
-    "ast_hash": "26a998d64dd5c04c44c0c75f1a5c1cd2",
+    "mtime": 1789765563.183814,
+    "ast_hash": "a15500ca815561c9ba68c9707950f6ca",
     "semantic_hash": ""
   },
   "experiments/experiment_e1_compression_frontier.py": {
@@ -760,8 +760,8 @@
     "semantic_hash": ""
   },
   "epcrc/figures.py": {
-    "mtime": 1789758993.926872,
-    "ast_hash": "76e097a3a745cc48c2642726cfee8fad",
+    "mtime": 1789766054.803404,
+    "ast_hash": "8abd8601c5e25c70937bcf5b088a87b9",
     "semantic_hash": ""
   },
   "epcrc/reconstruction.py": {
@@ -770,8 +770,8 @@
     "semantic_hash": ""
   },
   "epcrc/report.py": {
-    "mtime": 1789758357.6989923,
-    "ast_hash": "184a640db79cfe6f8a9e9f554f85cbc3",
+    "mtime": 1789765988.555006,
+    "ast_hash": "7dd41d5c0567d5b60c7d5512d9cdf0aa",
     "semantic_hash": ""
   },
   "epcrc/selection_baselines.py": {
@@ -785,13 +785,13 @@
     "semantic_hash": ""
   },
   "experiments/export_results.py": {
-    "mtime": 1789762802.5324137,
-    "ast_hash": "ef9c804fc347279cc71b024ff64471f5",
+    "mtime": 1789766142.7754502,
+    "ast_hash": "d1b9d9bf345b92de3a1050f6178578da",
     "semantic_hash": ""
   },
   "experiments/score_panel.py": {
-    "mtime": 1789757443.1619647,
-    "ast_hash": "a2f18a6b0a92e7a0f3cff6aaa3ca3516",
+    "mtime": 1789765542.8982022,
+    "ast_hash": "7dd8e3a77ef2dfda4e9a1572acbbcf21",
     "semantic_hash": ""
   },
   "results/c3_baselines.json": {
@@ -815,8 +815,8 @@
     "semantic_hash": ""
   },
   "tests/test_report_and_export.py": {
-    "mtime": 1789762822.3413298,
-    "ast_hash": "96c4e02dbd7069feb5fd88a0909805f6",
+    "mtime": 1789766392.4074883,
+    "ast_hash": "09ebfb6dd6050b7d37ca334b2a08ee99",
     "semantic_hash": ""
   },
   "docs/SERVER_RUNBOOK.md": {
@@ -1710,8 +1710,8 @@
     "semantic_hash": ""
   },
   "experiments/experiment_e7_transfer.py": {
-    "mtime": 1789757728.006134,
-    "ast_hash": "d88859bb7bfe0ae472e7a9c151b678fa",
+    "mtime": 1789766484.347683,
+    "ast_hash": "1ef76e2e2dfcd683bc8c5ebcaf97a300",
     "semantic_hash": ""
   },
   "results/backbone_core20.json": {
@@ -1740,8 +1740,8 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1789762777.682784,
-    "ast_hash": "a5be8ef3201bca2004aed42e9d25a408",
+    "mtime": 1789763728.4925215,
+    "ast_hash": "16d0b20c94ff06e5edb7fdfa0ec225d5",
     "semantic_hash": ""
   }
 }

@@ -37,6 +37,7 @@ __all__ = [
     "fig_c7_certification",
     "fig_c8_sparse",
     "fig_backbone",
+    "fig_e7_transfer",
     "save_all",
 ]
 
@@ -713,6 +714,58 @@ def fig_backbone(backbone_path: str) -> plt.Figure:
     return fig
 
 
+def fig_e7_transfer(e7_path: str) -> plt.Figure:
+    """E7 in two panels: where the basis lands off-benchmark, and what refitting buys.
+
+    Left is the ordering question -- the coverage basis against its baselines on
+    a benchmark that had no part in choosing it, with the oracle drawn as a
+    floor so the reader can see it is a ceiling on reselection and not a rival.
+    Right is the plan's calibration-sample efficiency, on a log x axis because
+    the sizes are spaced by multiples.
+    """
+    table = R.e7_table(e7_path)
+    calib = R.e7_calibration(e7_path)
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.6, 3.4))
+
+    ax = axes[0]
+    reference = R.PRETTY["coverage_backward"]
+    grouped = table.groupby(["method", "k"], as_index=False)["frozen_tv"].mean()
+    for method, block in grouped.groupby("method"):
+        block = block.sort_values("k")
+        is_ours = method == reference
+        ax.plot(block["k"], block["frozen_tv"],
+                marker="o" if is_ours else "s",
+                ms=4.5 if is_ours else 3.5,
+                lw=2.0 if is_ours else 1.0,
+                color=COVERAGE_COLOUR if is_ours else BASELINE_COLOUR,
+                zorder=3 if is_ours else 2,
+                label=method if is_ours else None)
+    oracle = table.groupby("k", as_index=False)["oracle_tv"].mean().sort_values("k")
+    ax.plot(oracle["k"], oracle["oracle_tv"], lw=1.2, ls="--", color=FLOOR_COLOUR,
+            label="oracle reselection (ceiling)")
+    ax.plot([], [], marker="s", ms=3.5, lw=1.0, color=BASELINE_COLOUR,
+            label="baselines")
+    ax.set_xlabel("physical judges kept, k")
+    ax.set_ylabel("worst-judge worst-context TV")
+    ax.set_title("Transfer: frozen basis and weights")
+    ax.legend(fontsize=7, frameon=False)
+
+    ax = axes[1]
+    for k, block in calib.groupby("k"):
+        block = block.sort_values("calibration_pairs")
+        ax.plot(block["calibration_pairs"], block["tv"], marker="o", ms=3.5,
+                lw=1.2, label=f"k = {int(k)}")
+    ax.set_xscale("log")
+    ax.set_xlabel("calibration pairs from the new benchmark")
+    ax.set_ylabel("worst-judge worst-context TV")
+    ax.set_title("Refitting the weights only")
+    ax.legend(fontsize=7, frameon=False, ncol=2)
+
+    fig.tight_layout()
+    return fig
+
+
 def save_all(
     out_dir: str,
     e0_real: Optional[str] = None,
@@ -725,6 +778,7 @@ def save_all(
     c7: Optional[str] = None,
     e6: Optional[str] = None,
     backbone: Optional[str] = None,
+    e7: Optional[str] = None,
 ) -> list:
     """Write every figure whose inputs exist; return the paths written."""
     os.makedirs(out_dir, exist_ok=True)
@@ -739,6 +793,7 @@ def save_all(
         ("c3_reconstruction.png", fig_c3_reconstruction, (c3,)),
         ("c4_stress.png", fig_c4_stress, (c4,)),
         ("c5_downstream.png", fig_c5_downstream, (c5,)),
+        ("c5_e7_transfer.png", fig_e7_transfer, (e7,)),
         ("c6_exchange.png", fig_c6_exchange, (c6,)),
         ("c7_certification.png", fig_c7_certification, (c7,)),
         ("c8_sparse.png", fig_c8_sparse, (e6,)),

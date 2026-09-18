@@ -943,7 +943,7 @@ def test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding():
 def test_build_tables_ships_the_c8_and_backbone_csvs():
     tables = E.build_tables({
         key: "" for key in
-        ("e0_synthetic", "e0_real", "e1", "c3", "c4", "c5", "c6", "c7")
+        ("e0_synthetic", "e0_real", "e1", "c3", "c4", "c5", "e7", "c6", "c7")
     } | {"e6": E6, "backbone": BACKBONE})
 
     assert set(tables) == {
@@ -1105,3 +1105,121 @@ def test_a_missing_experiment_is_named_rather_than_silently_dropped():
     c5 = next(e for e in index["claims"] if e["claim"] == "C5")
     assert "e7" in c5["missing_inputs"]
     assert "e7" not in c5["inputs"]
+
+
+# --------------------------------------------------------------------------
+# E7 -- cross-benchmark transfer
+# --------------------------------------------------------------------------
+
+def _e7_result(tv, refit=None, oracle_tv=0.30, overlap=0.5):
+    """One budget's worth of E7 output, in the shape the experiment writes."""
+    def block(value):
+        return {"worst_judge_worst_context_tv": value,
+                "mean_judge_worst_context_tv": value * 0.6,
+                "verdict_agreement": 0.9}
+
+    return {
+        "kept": ["J01", "J02"],
+        "in_domain_TEST": block(0.20),
+        "frozen_weights_TEST": block(tv),
+        "transfer_gap": tv - 0.20,
+        "refit_weights_TEST": {str(m): block(v)
+                               for m, v in (refit or {10: tv, 310: tv - 0.05}).items()},
+        "oracle_reselection": {"kept": ["J01", "J03"], "TEST": block(oracle_tv),
+                               "basis_overlap_jaccard": overlap},
+        "seconds": 1.0,
+    }
+
+
+def _e7_payload(tmp_path, coverage_tv=0.25, baseline_tv=0.40):
+    payload = {
+        "experiment": "E7",
+        "claims": ["C2", "C4", "C5"],
+        "seed": 1,
+        "judges": [f"J{i:02d}" for i in range(1, 21)],
+        "home_benchmark": "allenai/reward-bench-2",
+        "away_benchmark": "ScalerLab/JudgeBench",
+        "away_has_ties": False,
+        "budgets": [4],
+        "calibration_sizes": [10, 310],
+        "n_random_draws": 1,
+        "split_items": {"home": {"FIT": 1866, "CERT": 932, "TEST": 926},
+                        "away": {"FIT": 310, "CERT": 153, "TEST": 157}},
+        "methods": {
+            "coverage_backward": {"4": _e7_result(coverage_tv)},
+            "top_accuracy": {"4": _e7_result(baseline_tv)},
+            "random_0": {"4": _e7_result(baseline_tv + 0.02)},
+        },
+    }
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    path = tmp_path / "e7_transfer_core20.json"
+    path.write_text(json.dumps(payload))
+    return str(path)
+
+
+def test_e7_reports_the_refit_at_the_largest_calibration_sample(tmp_path):
+    """The efficiency claim is about the most calibration data that was spent.
+
+    Dict order in JSON is not numeric order, so picking the last key would
+    report an arbitrary sample size as though it were the best available.
+    """
+    path = _e7_payload(tmp_path)
+    row = R.e7_table(path)
+    ours = row[row["raw_method"] == "coverage_backward"].iloc[0]
+
+    assert ours["refit_tv"] == pytest.approx(0.20)   # 0.25 - 0.05, the m=310 row
+    assert ours["refit_gain"] == pytest.approx(0.05)
+
+
+def test_e7_headline_says_whether_the_basis_still_leads_off_benchmark(tmp_path):
+    """E7's finding is the ordering, not the level, so the flag is the point."""
+    ahead = R.e7_headline(_e7_payload(tmp_path / "a", coverage_tv=0.25,
+                                      baseline_tv=0.40))
+    behind = R.e7_headline(_e7_payload(tmp_path / "b", coverage_tv=0.45,
+                                       baseline_tv=0.40))
+
+    assert bool(ahead.iloc[0]["beats_every_baseline"]) is True
+    assert ahead.iloc[0]["best_baseline_frozen_tv"] == pytest.approx(0.40)
+    assert bool(behind.iloc[0]["beats_every_baseline"]) is False
+
+
+def test_e7_does_not_declare_a_verdict_of_its_own(tmp_path):
+    """C5 owns the verdict; E7 is filed under it as evidence.
+
+    `section_verdict` scans the whole claim body, so a second token here could
+    become the one printed at the top of C5 in the final report.
+    """
+    inputs = dict(E.input_paths("core20"), e7=_e7_payload(tmp_path))
+    text = "\n".join(E._e7_section(inputs))
+
+    assert "**Verdict:" not in text
+    assert E.section_verdict(E._claim_body([E._c5_section, E._e7_section], inputs)) \
+        == E.section_verdict(E._claim_body([E._c5_section], inputs))
+
+
+def test_e7_describes_the_direction_the_error_actually_moved(tmp_path):
+    """A benchmark with no ties can lower the error, and the prose must allow it.
+
+    Asserting a rise unconditionally would print a false statement on exactly
+    the data the reader would most want explained.
+    """
+    rose = dict(E.input_paths("core20"),
+                e7=_e7_payload(tmp_path / "up", coverage_tv=0.35))
+    fell = dict(E.input_paths("core20"),
+                e7=_e7_payload(tmp_path / "down", coverage_tv=0.05,
+                               baseline_tv=0.06))
+
+    assert "rises on the new benchmark at every budget" in "\n".join(
+        E._e7_section(rose))
+    assert "does not rise on the new benchmark at any budget" in "\n".join(
+        E._e7_section(fell))
+
+
+def test_e7_tables_are_filed_under_c5(tmp_path):
+    """Section 31 puts E7 in C5's required column, so its CSVs belong there."""
+    inputs = dict(E.input_paths("core20"), e7=_e7_payload(tmp_path))
+    index = E.build_result_index("core20", inputs, _FAKE_PROV)
+
+    c5 = next(e for e in index["claims"] if e["claim"] == "C5")
+    assert any("e7" in t for t in c5["tables"])
+    assert "e7" not in c5["missing_inputs"]
