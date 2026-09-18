@@ -430,6 +430,12 @@ def guard_cache_pair_set(pairs) -> None:
     for name in sorted(os.listdir(SCORES)):
         if not name.endswith(".json"):
             continue
+        # Only this panel's judge blocks count.  `results/core20/scores` also
+        # holds `G1__I0_clean.json`, the single-model G1 probe over 20 pairs,
+        # which never matches the production pair set -- checking it would
+        # refuse every legitimate resume.
+        if name.split("__", 1)[0] not in PANEL:
+            continue
         path = os.path.join(SCORES, name)
         with open(path) as handle:
             cached = json.load(handle)

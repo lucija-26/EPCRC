@@ -338,15 +338,22 @@ def test_a_cache_holding_another_pair_set_is_not_rescored_over(tmp_path):
     block = tmp_path / "J01__baseline.json"
     block.write_text(json.dumps({"pair_ids": [p.pair_id for p in held]}))
 
-    original = S.SCORES
+    # The G1 probe shares the directory and holds its own short pair set.  It is
+    # not a panel judge, so it must not be read as a mismatched block -- doing so
+    # would refuse every legitimate resume of the production pass.
+    probe = tmp_path / "G1__baseline.json"
+    probe.write_text(json.dumps({"pair_ids": ["a"]}))
+
+    original_scores, original_panel = S.SCORES, S.PANEL
     try:
         S.SCORES = str(tmp_path)
+        S.PANEL = {"J01": "some/model"}
         S.guard_cache_pair_set(held)  # a resume asks for what is already there
 
         with pytest.raises(SystemExit) as raised:
             S.guard_cache_pair_set([Pair("a"), Pair("b")])
     finally:
-        S.SCORES = original
+        S.SCORES, S.PANEL = original_scores, original_panel
 
     assert "refusing to rescore" in str(raised.value)
     assert "--dataset judgebench" in str(raised.value)
