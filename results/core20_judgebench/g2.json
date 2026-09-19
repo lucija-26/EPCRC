@@ -1,0 +1,43 @@
+{
+  "gate": "G2",
+  "passed": true,
+  "checks": {
+    "n_items": 620,
+    "judges": [
+      "J07",
+      "J08",
+      "J09",
+      "J10",
+      "J19"
+    ],
+    "contexts": [
+      "I0_clean",
+      "I1_order_swap",
+      "I2_correctness_rubric",
+      "I3_bias_resistant_rubric",
+      "I4_verbosity_pad_a",
+      "I5_source_tags",
+      "I6_reference_hidden"
+    ],
+    "n_prompts": 21700,
+    "n_rows": 21700,
+    "success_rate": 1.0,
+    "ok_success_rate": true,
+    "ok_failures_have_error_codes": true,
+    "judges_with_complete_blocks": [
+      "J07",
+      "J08",
+      "J09",
+      "J10",
+      "J19"
+    ],
+    "scored_splits": [
+      "CERT",
+      "FIT",
+      "TEST"
+    ],
+    "ok_no_split_leakage": true,
+    "scores_only": true
+  },
+  "panel": "core20"
+}
