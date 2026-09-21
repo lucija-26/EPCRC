@@ -305,8 +305,8 @@
     "semantic_hash": ""
   },
   "epcrc/synthetic_judges.py": {
-    "mtime": 1788785102.994853,
-    "ast_hash": "65ea5349c8549d37b9e1988cd431d3a6",
+    "mtime": 1789975902.4595652,
+    "ast_hash": "692882dab1b6d9ef1481da2473cc5d64",
     "semantic_hash": ""
   },
   "experiments/experiment_e0_noncomposability.py": {
@@ -770,8 +770,8 @@
     "semantic_hash": ""
   },
   "epcrc/report.py": {
-    "mtime": 1789765988.555006,
-    "ast_hash": "7dd41d5c0567d5b60c7d5512d9cdf0aa",
+    "mtime": 1789977182.2280054,
+    "ast_hash": "1c1d75812c9fce7ee29471bdb337744f",
     "semantic_hash": ""
   },
   "epcrc/selection_baselines.py": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "experiments/export_results.py": {
-    "mtime": 1789766142.7754502,
-    "ast_hash": "d1b9d9bf345b92de3a1050f6178578da",
+    "mtime": 1789977372.4607317,
+    "ast_hash": "1ed20e817c965c577bf9ddbda103d7c6",
     "semantic_hash": ""
   },
   "experiments/score_panel.py": {
@@ -815,8 +815,8 @@
     "semantic_hash": ""
   },
   "tests/test_report_and_export.py": {
-    "mtime": 1789766392.4074883,
-    "ast_hash": "09ebfb6dd6050b7d37ca334b2a08ee99",
+    "mtime": 1789977474.7167425,
+    "ast_hash": "2806158bbb62179703fc47fabf57b9fd",
     "semantic_hash": ""
   },
   "docs/SERVER_RUNBOOK.md": {
@@ -1742,6 +1742,806 @@
   "DECISIONS.md": {
     "mtime": 1789763728.4925215,
     "ast_hash": "16d0b20c94ff06e5edb7fdfa0ec225d5",
+    "semantic_hash": ""
+  },
+  "experiments/experiment_e8_synthetic.py": {
+    "mtime": 1789975984.946542,
+    "ast_hash": "cdfa496c0f244567518a7ab8bfad92bc",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/g2.json": {
+    "mtime": 1789777942.4963262,
+    "ast_hash": "130c9969d82b0f0a724e3a5dde5d6a66",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I0_clean.json": {
+    "mtime": 1789777948.676371,
+    "ast_hash": "ec668c6a94f41624b699688cb748c520",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I1_order_swap.json": {
+    "mtime": 1789777955.9598708,
+    "ast_hash": "fb2c56cb326b882ea59810f93066159e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I2_correctness_rubric.json": {
+    "mtime": 1789777953.558273,
+    "ast_hash": "a9423ea063db93e8d6e2db9e18d4d199",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777951.3531976,
+    "ast_hash": "f422d3503679ae1992658208089aa135",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I4_verbosity_pad_a.json": {
+    "mtime": 1789777944.4482698,
+    "ast_hash": "9cb5f86b095679c9c89447af23645532",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I5_source_tags.json": {
+    "mtime": 1789777953.3902774,
+    "ast_hash": "b7378a54b7f526beb11699dcb02a7de8",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J01__I6_reference_hidden.json": {
+    "mtime": 1789777956.280381,
+    "ast_hash": "9478644869a074b1f34d50d695cae56c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I0_clean.json": {
+    "mtime": 1789777945.3503969,
+    "ast_hash": "218272362b4e124d420ef423665e329c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I1_order_swap.json": {
+    "mtime": 1789777954.7463694,
+    "ast_hash": "2f3df6037c29cde6c29ad9f62569447e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I2_correctness_rubric.json": {
+    "mtime": 1789777947.520228,
+    "ast_hash": "8ecf29db60adc66e89192aa637cfbb2e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777947.138297,
+    "ast_hash": "88eb73b2e9aa8a78844a4a7274b867e3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I4_verbosity_pad_a.json": {
+    "mtime": 1789777946.8804488,
+    "ast_hash": "7d389909f46706ea7d8f3beb5bb30b9a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I5_source_tags.json": {
+    "mtime": 1789777956.424126,
+    "ast_hash": "d577221077217ca5e73d45bf5cf6c7ad",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J02__I6_reference_hidden.json": {
+    "mtime": 1789777949.676473,
+    "ast_hash": "395bf676f6446a2e5b7427eee634351e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I0_clean.json": {
+    "mtime": 1789777945.5903065,
+    "ast_hash": "a4c8a2de5dc63bdc679e47c4497e74fa",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I1_order_swap.json": {
+    "mtime": 1789777945.4299526,
+    "ast_hash": "1a745136fa151f95325e5cb1fb6ba40c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I2_correctness_rubric.json": {
+    "mtime": 1789777945.7603211,
+    "ast_hash": "46c901264acc1a4b8cb573d7505c8a4e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777949.4961283,
+    "ast_hash": "afe596c00a4564d7785306e8c9b792b0",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I4_verbosity_pad_a.json": {
+    "mtime": 1789777947.0542686,
+    "ast_hash": "ef76e977e58fadaf8ace36ca6d033a25",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I5_source_tags.json": {
+    "mtime": 1789777953.6442676,
+    "ast_hash": "216ecd0bb698d7fe5a096bf29bfcfe9e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J03__I6_reference_hidden.json": {
+    "mtime": 1789777954.0684059,
+    "ast_hash": "87d5802a5a9a95869ccd4f6ef119820f",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I0_clean.json": {
+    "mtime": 1789777944.9729302,
+    "ast_hash": "0cacec960e2509115e0ed82e64c35385",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I1_order_swap.json": {
+    "mtime": 1789777944.8802285,
+    "ast_hash": "6cc1c353da58c6c84046548d7e394f2e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I2_correctness_rubric.json": {
+    "mtime": 1789777953.3062556,
+    "ast_hash": "40c3a2dba4edc882f61334e2971f25c9",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777944.278318,
+    "ast_hash": "48cf3eb46e4745684066146c9d56d2cd",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I4_verbosity_pad_a.json": {
+    "mtime": 1789777945.0625932,
+    "ast_hash": "af5a0501827d4881585a088684c25fd6",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I5_source_tags.json": {
+    "mtime": 1789777949.7623305,
+    "ast_hash": "6f4785d4466d57ef7121180f85c55538",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J04__I6_reference_hidden.json": {
+    "mtime": 1789777949.9541857,
+    "ast_hash": "5a3e4cff0c7045c13a216b1c204ae762",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I0_clean.json": {
+    "mtime": 1789777955.0884619,
+    "ast_hash": "3d6b00b89cd3f70dab2503b73907b0d4",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I1_order_swap.json": {
+    "mtime": 1789777945.9342287,
+    "ast_hash": "ef2cb6c6afcd6e8fad0dbaf235c28495",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I2_correctness_rubric.json": {
+    "mtime": 1789777947.6901648,
+    "ast_hash": "fa4358475ac1ec6dd452d015bd64401b",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777949.3240788,
+    "ast_hash": "7756003018491e009aec5840120e4e6b",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I4_verbosity_pad_a.json": {
+    "mtime": 1789777942.8301094,
+    "ast_hash": "3ad7e90a200f02a3174036af96db3c3c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I5_source_tags.json": {
+    "mtime": 1789777948.116185,
+    "ast_hash": "8a49ee3d9d049758c67c4d7802a479a6",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J05__I6_reference_hidden.json": {
+    "mtime": 1789777943.000449,
+    "ast_hash": "8bc41d3682eaa12999f82f9c797e92ca",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I0_clean.json": {
+    "mtime": 1789777949.8525448,
+    "ast_hash": "c69fa1be3f2a74f13e56b6b1dd40816c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I1_order_swap.json": {
+    "mtime": 1789777945.6747777,
+    "ast_hash": "921ac5e67f4ff94c4b2240b034921999",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I2_correctness_rubric.json": {
+    "mtime": 1789777942.7442036,
+    "ast_hash": "f5898aaa38b5b86fe386190dd5172105",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777955.6025584,
+    "ast_hash": "1b070b61816f5fa893d16b07fcbcb4d0",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I4_verbosity_pad_a.json": {
+    "mtime": 1789777951.8442857,
+    "ast_hash": "93d1ae77aa4996fb7c9b01786208141c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I5_source_tags.json": {
+    "mtime": 1789777952.3907654,
+    "ast_hash": "d362d69d4341196ed1553399297456dd",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J06__I6_reference_hidden.json": {
+    "mtime": 1789777956.1263855,
+    "ast_hash": "4613abe4bcdbed2f0f897c395e971488",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I0_clean.json": {
+    "mtime": 1789777946.4340515,
+    "ast_hash": "71a0779ef57d280b5852aab036edfd42",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I1_order_swap.json": {
+    "mtime": 1789777955.6884494,
+    "ast_hash": "11259ca87b9a08e4628e0d076dbfcee2",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I2_correctness_rubric.json": {
+    "mtime": 1789777954.8323736,
+    "ast_hash": "aac0ba5ed99e78b96460e4521b099bd4",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777955.8624032,
+    "ast_hash": "7c258a97af9338126b12d5c48ca1ed87",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I4_verbosity_pad_a.json": {
+    "mtime": 1789777947.2242138,
+    "ast_hash": "dbd6d467b12ec56825ad7374f3b6324e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I5_source_tags.json": {
+    "mtime": 1789777947.8602195,
+    "ast_hash": "1aa1ebf1cbc2b8728bca69b17f267114",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J07__I6_reference_hidden.json": {
+    "mtime": 1789777953.4745002,
+    "ast_hash": "c638ad96bfa0f098822577b151111298",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I0_clean.json": {
+    "mtime": 1789777955.776023,
+    "ast_hash": "0a742a568c6c10bc6412992ccdd4ccc3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I1_order_swap.json": {
+    "mtime": 1789777944.6203344,
+    "ast_hash": "bfa4de9f696a8a9eb5a2834f34f6082f",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I2_correctness_rubric.json": {
+    "mtime": 1789777953.982367,
+    "ast_hash": "9080581cfefc5a3bc7022c3b896b87a3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777949.5803518,
+    "ast_hash": "26c8b5a3751599230a42da9f7e47b524",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I4_verbosity_pad_a.json": {
+    "mtime": 1789777945.2554123,
+    "ast_hash": "d9f51378804772ed3f7fb22a127e403a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I5_source_tags.json": {
+    "mtime": 1789777944.1064546,
+    "ast_hash": "6f09ea5c5802cc3ce434adeb3b618767",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J08__I6_reference_hidden.json": {
+    "mtime": 1789777949.1823304,
+    "ast_hash": "4e81ad69a1c8072c1b835dd2fdfc0cf5",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I0_clean.json": {
+    "mtime": 1789777948.9323108,
+    "ast_hash": "89c6bc8210de480589af58c8f7c770db",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I1_order_swap.json": {
+    "mtime": 1789777945.153025,
+    "ast_hash": "fb5eb91db3cef6555968cf1f22981887",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I2_correctness_rubric.json": {
+    "mtime": 1789777949.26046,
+    "ast_hash": "5910e957a48e6dcd94354ae696c6466c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777948.276561,
+    "ast_hash": "db89aaea33e8d313dc8cc8a4988eabe0",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I4_verbosity_pad_a.json": {
+    "mtime": 1789777949.4046855,
+    "ast_hash": "fd926cb616700e62dbfe5aed66efe815",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I5_source_tags.json": {
+    "mtime": 1789777943.344225,
+    "ast_hash": "8ab7ed75818eedd77322e97be7724686",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J09__I6_reference_hidden.json": {
+    "mtime": 1789777950.4080753,
+    "ast_hash": "c0a57f04b46973dc9e964e2acc5692fb",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I0_clean.json": {
+    "mtime": 1789777948.0324874,
+    "ast_hash": "2b8488d8ad97a6525b204668b8cd5b33",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I1_order_swap.json": {
+    "mtime": 1789777948.4279025,
+    "ast_hash": "87b7e269b631214dcccbcd2232f99d4d",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I2_correctness_rubric.json": {
+    "mtime": 1789777948.7624106,
+    "ast_hash": "9d28eee05dee6d32f6f301afc49613bf",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777946.3518584,
+    "ast_hash": "c7830ff7ad52b7efaa041fd1d967cadb",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I4_verbosity_pad_a.json": {
+    "mtime": 1789777943.43034,
+    "ast_hash": "af4f9e893bd73e3a50956fe5d54a979f",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I5_source_tags.json": {
+    "mtime": 1789777944.710292,
+    "ast_hash": "4051a3f23ee72f31e7bdb92cddd33c47",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J10__I6_reference_hidden.json": {
+    "mtime": 1789777946.1041675,
+    "ast_hash": "a4a86a681f3f5cb055fa7506357e6a9b",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I0_clean.json": {
+    "mtime": 1789777955.1762307,
+    "ast_hash": "7da8da503b53e49458f28f59da95045a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I1_order_swap.json": {
+    "mtime": 1789777946.188162,
+    "ast_hash": "188af8fddeef3884429c7b6d49a90098",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I2_correctness_rubric.json": {
+    "mtime": 1789777948.8480947,
+    "ast_hash": "40659d16f64291b0fbe6d33a104b1f49",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777949.0124354,
+    "ast_hash": "0159236f5f5ae1c479ee4cc1f6de83fa",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I4_verbosity_pad_a.json": {
+    "mtime": 1789777955.5163321,
+    "ast_hash": "c54ea78a20062d53ce85a0935b563a79",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I5_source_tags.json": {
+    "mtime": 1789777946.966434,
+    "ast_hash": "4bba72c9aa97b02d5afd0d12ea1cf2b2",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J11__I6_reference_hidden.json": {
+    "mtime": 1789777953.2202287,
+    "ast_hash": "bafa888cd06beea660e25dba5e90c535",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I0_clean.json": {
+    "mtime": 1789777946.0184774,
+    "ast_hash": "7dcbc1151e0b33d1772f7446b28dd1d1",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I1_order_swap.json": {
+    "mtime": 1789777943.850374,
+    "ast_hash": "1074761c2fd5c5c42918afb988ec033a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I2_correctness_rubric.json": {
+    "mtime": 1789777953.8146682,
+    "ast_hash": "7225e7c65a4035c54496ca1d75c72cb2",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777956.2042027,
+    "ast_hash": "f26ed87f0881cdb763b4fe2e2856033d",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I4_verbosity_pad_a.json": {
+    "mtime": 1789777954.5763547,
+    "ast_hash": "ec446c12708c8a0f59025a41fbd53216",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I5_source_tags.json": {
+    "mtime": 1789777942.9162922,
+    "ast_hash": "32ba0723391608fc54fb7ebe7b4ce0bf",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J12__I6_reference_hidden.json": {
+    "mtime": 1789777952.790341,
+    "ast_hash": "c8dfd8cd1f207f8c48e20428f1693f61",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I0_clean.json": {
+    "mtime": 1789777947.2920535,
+    "ast_hash": "9ce22e5122e887af19b36b830571f1b2",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I1_order_swap.json": {
+    "mtime": 1789777947.9463143,
+    "ast_hash": "28e15fa9ec2105c415b83c3cfc10c702",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I2_correctness_rubric.json": {
+    "mtime": 1789777947.776249,
+    "ast_hash": "48e9ff8a7c6829f1d9c09df174da90b9",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777947.3561132,
+    "ast_hash": "2b9808b850c455296d8e92ef19a008ba",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I4_verbosity_pad_a.json": {
+    "mtime": 1789777946.2662544,
+    "ast_hash": "4d075a820c9386810c524a73b7e044d1",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I5_source_tags.json": {
+    "mtime": 1789777948.5922925,
+    "ast_hash": "4275a71a4be23dc42517177daf4e8391",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J13__I6_reference_hidden.json": {
+    "mtime": 1789777946.6905916,
+    "ast_hash": "fa310ba7bf2400c6ef697b88bbfd4b3a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I0_clean.json": {
+    "mtime": 1789777956.0425022,
+    "ast_hash": "c89b89bd569e6b8a2c9b7477ecb2984a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I1_order_swap.json": {
+    "mtime": 1789777953.0508153,
+    "ast_hash": "2de014a220093b168722ad1d0c4de497",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I2_correctness_rubric.json": {
+    "mtime": 1789777953.1342611,
+    "ast_hash": "d79acaead1f50eb4f6b0518530f28e51",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777945.5103486,
+    "ast_hash": "b45f23dd3585163a0fd2bade40fda35d",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I4_verbosity_pad_a.json": {
+    "mtime": 1789777944.1943386,
+    "ast_hash": "943c7e28f9ce29e4ce7b4eb722fb219c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I5_source_tags.json": {
+    "mtime": 1789777947.4336474,
+    "ast_hash": "16b664bb9ad5f243a2e44203d3fd9139",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J14__I6_reference_hidden.json": {
+    "mtime": 1789777952.1965997,
+    "ast_hash": "8f813bb1f88a220207b722ef286598db",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I0_clean.json": {
+    "mtime": 1789777943.7661598,
+    "ast_hash": "d1f9a375ad4c3f872f685e57221edfe5",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I1_order_swap.json": {
+    "mtime": 1789777953.899999,
+    "ast_hash": "aecf2aa1abac1bcb579125867178c2a4",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I2_correctness_rubric.json": {
+    "mtime": 1789777954.2363741,
+    "ast_hash": "e54c97aa8417836c0225c25966f46266",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777946.518191,
+    "ast_hash": "30270bad1d0f4c1249801468d673ebb9",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I4_verbosity_pad_a.json": {
+    "mtime": 1789777943.172037,
+    "ast_hash": "c572ea8e50af1527ea853fc3b72f34ec",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I5_source_tags.json": {
+    "mtime": 1789777951.0425746,
+    "ast_hash": "4c3e7e7ce30a3993dc24a1f8d9c12a9e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J15__I6_reference_hidden.json": {
+    "mtime": 1789777943.6042778,
+    "ast_hash": "2f493d1b8ac405c95043dbd258986b76",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I0_clean.json": {
+    "mtime": 1789777943.5162635,
+    "ast_hash": "4ff43e0146b16338f1429ba721453fb3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I1_order_swap.json": {
+    "mtime": 1789777944.3642788,
+    "ast_hash": "63a5c26825f96cd88c9cc335b90f6d88",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I2_correctness_rubric.json": {
+    "mtime": 1789777954.4923518,
+    "ast_hash": "4aa17c2fc0bc8559f8c7f7869b0e038e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777945.842144,
+    "ast_hash": "5d977abb6d972b43ca43b44788733c37",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I4_verbosity_pad_a.json": {
+    "mtime": 1789777953.7303865,
+    "ast_hash": "b24534826461cde0b8535e7855aa00bc",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I5_source_tags.json": {
+    "mtime": 1789777944.7942464,
+    "ast_hash": "c85066b4c39af929acdddb135c88b089",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J16__I6_reference_hidden.json": {
+    "mtime": 1789777948.2021415,
+    "ast_hash": "5ef4eaf3a083dfb6c7b45f3bcdc9933e",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I0_clean.json": {
+    "mtime": 1789777944.0203028,
+    "ast_hash": "e9f0e06bb50dab4397efe80d3d4ed8ed",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I1_order_swap.json": {
+    "mtime": 1789777954.4062796,
+    "ast_hash": "f967205ec0220ad3ad314ce414b0bdf9",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I2_correctness_rubric.json": {
+    "mtime": 1789777948.5064242,
+    "ast_hash": "33c9003ddc2214e77a0657e0d154ddd3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777952.8781755,
+    "ast_hash": "68d9f07d7ff0829102061fe5344c87e0",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I4_verbosity_pad_a.json": {
+    "mtime": 1789777950.1344736,
+    "ast_hash": "8675196ee725dcd82b79acf5a8784ec7",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I5_source_tags.json": {
+    "mtime": 1789777943.6906044,
+    "ast_hash": "9e9b2d4c5458737cd34498bfa939e95b",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J17__I6_reference_hidden.json": {
+    "mtime": 1789777947.6043854,
+    "ast_hash": "8c13592d3bd58ff737dd2ccd6293bb56",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I0_clean.json": {
+    "mtime": 1789777943.2563105,
+    "ast_hash": "7ecb8bfdfe8a3d1d58660125c4edd1ef",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I1_order_swap.json": {
+    "mtime": 1789777955.2603798,
+    "ast_hash": "6d4f4e9bed879702bdfa5028b18c9355",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I2_correctness_rubric.json": {
+    "mtime": 1789777955.346215,
+    "ast_hash": "77583d37e4a3de335e3dbaff73a71bad",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777954.1543717,
+    "ast_hash": "b9398434a584d04ed16460525f99adc9",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I4_verbosity_pad_a.json": {
+    "mtime": 1789777954.3185678,
+    "ast_hash": "f794eba71fa3d59114a02a629d8ce207",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I5_source_tags.json": {
+    "mtime": 1789777950.7040937,
+    "ast_hash": "d4eacea7e473b484606057a1c42b2872",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J18__I6_reference_hidden.json": {
+    "mtime": 1789777955.4325726,
+    "ast_hash": "0e126753410caa0020cb008e502b8ee1",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I0_clean.json": {
+    "mtime": 1789777952.6278358,
+    "ast_hash": "88850d81ecfc4bdabdc3a0af387946d2",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I1_order_swap.json": {
+    "mtime": 1789777943.086443,
+    "ast_hash": "b3443c1d9afee486f4cb2f2e67b07449",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I2_correctness_rubric.json": {
+    "mtime": 1789777954.9181528,
+    "ast_hash": "c6e57338b57e6bcd0d754b4e1d5af3cb",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777948.3562007,
+    "ast_hash": "05ab0eac4f22f2b41ca7eb7f533d5b23",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I4_verbosity_pad_a.json": {
+    "mtime": 1789777952.9643133,
+    "ast_hash": "9c2be399bb1310b76769ca4ab46d5452",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I5_source_tags.json": {
+    "mtime": 1789777943.9381843,
+    "ast_hash": "145b2c978e53d601ced1f873b0ed26e3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J19__I6_reference_hidden.json": {
+    "mtime": 1789777949.0982435,
+    "ast_hash": "b63c0a2342ee2d991765194476b7a1f3",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I0_clean.json": {
+    "mtime": 1789777946.6022027,
+    "ast_hash": "3a6c1398c72201c266fc50be1dcc2f8a",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I1_order_swap.json": {
+    "mtime": 1789777955.0021405,
+    "ast_hash": "78f40eefc66f24c60211bcd4272d729c",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I2_correctness_rubric.json": {
+    "mtime": 1789777944.5343108,
+    "ast_hash": "2d7209d472695326f22df1a1a6860847",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I3_bias_resistant_rubric.json": {
+    "mtime": 1789777951.5564427,
+    "ast_hash": "a5bf81304ae27ea91fc5c19e8aa09333",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I4_verbosity_pad_a.json": {
+    "mtime": 1789777954.6622753,
+    "ast_hash": "4f2abda09bb2e98927dfea89c914e124",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I5_source_tags.json": {
+    "mtime": 1789777946.7942343,
+    "ast_hash": "9cec972f385a517123aa8be04bd591d4",
+    "semantic_hash": ""
+  },
+  "results/core20_judgebench/scores/J20__I6_reference_hidden.json": {
+    "mtime": 1789777956.356166,
+    "ast_hash": "b6288299669fa107c0db41a2b4969a11",
+    "semantic_hash": ""
+  },
+  "results/e7_transfer_core20.json": {
+    "mtime": 1789777957.074687,
+    "ast_hash": "26005416e314e6ecb1f1527dabfc7990",
+    "semantic_hash": ""
+  },
+  "results/e8_synthetic.json": {
+    "mtime": 1789977056.9292192,
+    "ast_hash": "eb30dcfa46327d15277fd4b87ddfb602",
+    "semantic_hash": ""
+  },
+  "tests/test_e8_synthetic.py": {
+    "mtime": 1789976115.6750047,
+    "ast_hash": "c0ec541cc187191d04baef74670c7fa6",
+    "semantic_hash": ""
+  },
+  "paper/figures/backbone.png": {
+    "mtime": 1789804186.7072406,
+    "ast_hash": "24bc6b6cd7157cde3fc170ad548d697b",
+    "semantic_hash": ""
+  },
+  "paper/figures/c1_real_composition.png": {
+    "mtime": 1789804186.7085478,
+    "ast_hash": "d160fac068ed8ca4f0a77138fe6fb175",
+    "semantic_hash": ""
+  },
+  "paper/figures/c1_synthetic_gap.png": {
+    "mtime": 1789804186.709474,
+    "ast_hash": "fccd2e1c12108915b2e8859c2d3bbfcc",
+    "semantic_hash": ""
+  },
+  "paper/figures/c2_frontier.png": {
+    "mtime": 1789804186.7104926,
+    "ast_hash": "df43d337448dbafe5115dd3b4ea95052",
+    "semantic_hash": ""
+  },
+  "paper/figures/c3_cost.png": {
+    "mtime": 1789804186.7113442,
+    "ast_hash": "1477ae364146e0bd60c59fce0a4726e5",
+    "semantic_hash": ""
+  },
+  "paper/figures/c3_headline.png": {
+    "mtime": 1789804186.712076,
+    "ast_hash": "afda33806b32231207b2cae7276c7d35",
+    "semantic_hash": ""
+  },
+  "paper/figures/c3_paired.png": {
+    "mtime": 1789804186.7126582,
+    "ast_hash": "d0680d270a8f694058507fc9f99b3c8a",
+    "semantic_hash": ""
+  },
+  "paper/figures/c3_reconstruction.png": {
+    "mtime": 1789804186.7134984,
+    "ast_hash": "37b11903f731a791ee49a6db818d60d9",
+    "semantic_hash": ""
+  },
+  "paper/figures/c3_split_robustness.png": {
+    "mtime": 1789804186.7141347,
+    "ast_hash": "0e2d26b53cc8fab9a3fb23fa11e09c2c",
+    "semantic_hash": ""
+  },
+  "paper/figures/c4_stress.png": {
+    "mtime": 1789804186.7150056,
+    "ast_hash": "f7f7d7aa04f8ff88d299b8c9163ed0aa",
+    "semantic_hash": ""
+  },
+  "paper/figures/c5_downstream.png": {
+    "mtime": 1789804186.7157798,
+    "ast_hash": "61cc03bbb2586b71cdaa726961e5c1ef",
+    "semantic_hash": ""
+  },
+  "paper/figures/c5_e7_transfer.png": {
+    "mtime": 1789804186.716878,
+    "ast_hash": "146d18ad4f1d353864ed36a410a7385f",
+    "semantic_hash": ""
+  },
+  "paper/figures/c6_exchange.png": {
+    "mtime": 1789804186.7176661,
+    "ast_hash": "5d3bf8ce08518794b497553a88db029a",
+    "semantic_hash": ""
+  },
+  "paper/figures/c7_certification.png": {
+    "mtime": 1789804186.7183402,
+    "ast_hash": "29edeede8b0649c16ef5f6fb1d224f40",
+    "semantic_hash": ""
+  },
+  "paper/figures/c8_sparse.png": {
+    "mtime": 1789804186.718904,
+    "ast_hash": "1be0496974d6faf2e3b8d428f22e1067",
     "semantic_hash": ""
   }
 }

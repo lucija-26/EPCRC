@@ -943,7 +943,8 @@ def test_backbone_section_does_not_quote_an_unstable_judge_as_a_finding():
 def test_build_tables_ships_the_c8_and_backbone_csvs():
     tables = E.build_tables({
         key: "" for key in
-        ("e0_synthetic", "e0_real", "e1", "c3", "c4", "c5", "e7", "c6", "c7")
+        ("e0_synthetic", "e0_real", "e1", "c3", "c4", "c5", "e7", "e8",
+         "c6", "c7")
     } | {"e6": E6, "backbone": BACKBONE})
 
     assert set(tables) == {
@@ -993,11 +994,20 @@ _FAKE_PROV = {"generated_utc": "x", "git_commit": "0" * 40, "git_branch": "t"}
 
 
 def test_the_final_report_has_the_section_66_headings_in_order():
-    """Section 66 fixes the structure, so it is checked rather than trusted."""
+    """Section 66 fixes the structure, so it is checked rather than trusted.
+
+    Only the *numbered* headings are pinned. Material the plan never asked for
+    may ship as an appendix -- E8 does -- but it may not take a number, because
+    that would silently renumber the list the professor reads against the plan.
+    """
     text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
     headings = [l for l in text.split("\n") if l.startswith("## ")]
+    numbered = [h for h in headings if h.removeprefix("## ").split(".")[0].isdigit()]
 
-    assert headings == [
+    for extra in [h for h in headings if h not in numbered]:
+        assert extra.startswith("## Appendix "), extra
+
+    assert numbered == [
         "## 1. Executive Findings",
         "## 2. Frozen Experimental Setting",
         "## 3. Data and Panel Completeness",

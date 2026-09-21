@@ -43,6 +43,9 @@ __all__ = [
     "e7_table",
     "e7_headline",
     "e7_calibration",
+    "e8_recovery_table",
+    "e8_composition_table",
+    "e8_calibration_table",
     "fmt_ci",
 ]
 
@@ -1148,3 +1151,90 @@ def e7_calibration(path: str, method: str = "coverage_backward") -> pd.DataFrame
                 })
     return pd.DataFrame(rows).sort_values(
         ["k", "calibration_pairs"]).reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------
+# E8 -- the synthetic sweep, where the right answer is known in advance
+# --------------------------------------------------------------------------
+
+def _e8_axis_frame(path: str, extract) -> pd.DataFrame:
+    """One row per (axis, value), averaged over seeds.
+
+    `extract` maps a run record to a dict of numbers.  Every E8 table has this
+    shape, so the seed averaging and axis ordering live here rather than being
+    repeated three times.
+    """
+    payload = load(path)
+    rows = [dict(axis=r["axis"], value=r["value"], **extract(r))
+            for r in payload["records"]]
+    frame = pd.DataFrame(rows)
+    grouped = frame.groupby(["axis", "value"], as_index=False).mean()
+
+    order = {axis: i for i, axis in enumerate(payload["axes"])}
+    grouped["_axis_order"] = grouped["axis"].map(order)
+    return (
+        grouped.sort_values(["_axis_order", "value"])
+        .drop(columns="_axis_order")
+        .reset_index(drop=True)
+    )
+
+
+def e8_recovery_table(path: str) -> pd.DataFrame:
+    """Per axis value: is the planted backbone recovered, and at what cost?
+
+    `exact_recovers` and `greedy_recovers` are rates over seeds of returning
+    the planted set *exactly*, not of getting close, because the construction
+    makes that set the unique minimum and so anything else is a miss.
+    `greedy_gap` is the coverage error backward elimination pays over
+    exhaustive search at the same panel size; it cannot be negative.
+    """
+    return _e8_axis_frame(path, lambda r: {
+        "exact_recovers": float(r["recovery"]["exact_recovers_backbone"]),
+        "greedy_recovers": float(r["recovery"]["greedy_recovers_backbone"]),
+        "exact_jaccard": r["recovery"]["exact_jaccard"],
+        "greedy_jaccard": r["recovery"]["greedy_jaccard"],
+        "greedy_gap": r["recovery"]["greedy_gap"],
+        "backbone_coverage": r["recovery"]["backbone_coverage"],
+    })
+
+
+def e8_composition_table(path: str) -> pd.DataFrame:
+    """Per tolerance, pooled over the sweep: does the naive audit break?
+
+    The same statistic C1 rests on, on panels whose dependency structure was
+    planted rather than discovered.
+    """
+    payload = load(path)
+    rows = [dict(gamma=c["gamma"],
+                 n_individually_removable=c["n_individually_removable"],
+                 naive_retained_size=c["naive_retained_size"],
+                 naive_coverage=c["naive_coverage"],
+                 violates=float(c["naive_violates_gamma"]),
+                 n_cycles=c["n_cycles"])
+            for r in payload["records"] for c in r["composition"]]
+    return (
+        pd.DataFrame(rows).groupby("gamma", as_index=False).mean()
+        .sort_values("gamma").reset_index(drop=True)
+    )
+
+
+def e8_calibration_table(path: str) -> pd.DataFrame:
+    """Per tolerance: a panel certified on CERT, then checked on held-out TEST.
+
+    `violation_rate` is the fraction of runs whose TEST error exceeded the
+    tolerance the panel was selected to meet. It is the synthetic counterpart
+    of C7, with the difference that here the sampling noise is the only thing
+    that can cause a violation.
+    """
+    payload = load(path)
+    rows = [dict(gamma=c["gamma"],
+                 selected_size=c["selected_size"],
+                 cert_coverage=c["cert_coverage"],
+                 test_coverage=c["test_coverage"],
+                 test_minus_cert=c["test_minus_cert"],
+                 violation_rate=float(c["test_violates_gamma"]))
+            for r in payload["records"] for c in r["calibration"]]
+    return (
+        pd.DataFrame(rows).groupby("gamma", as_index=False).mean()
+        .sort_values("gamma").reset_index(drop=True)
+    )

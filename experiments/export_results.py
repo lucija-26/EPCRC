@@ -87,6 +87,8 @@ def input_paths(panel: str) -> Dict[str, str]:
         # existed, so an unsuffixed file for them never existed.
         "e6": pick(f"e6_sparse_cost_{panel}.json"),
         "e7": pick(f"e7_transfer_{panel}.json"),
+        # E8 is synthetic, so it is the same file whichever panel is exported.
+        "e8": pick("e8_synthetic.json"),
         "backbone": pick(f"backbone_{panel}.json"),
     }
 
@@ -220,6 +222,11 @@ def build_tables(inputs: Dict[str, str]) -> Dict[str, pd.DataFrame]:
         tables["c8_sparse"] = R.c8_sparse_table(inputs["e6"])
         tables["c8_support_stability"] = R.c8_support_stability(inputs["e6"])
         tables["c8_cost_panels"] = R.c8_cost_table(inputs["e6"])
+
+    if os.path.exists(inputs["e8"]):
+        tables["e8_backbone_recovery"] = R.e8_recovery_table(inputs["e8"])
+        tables["e8_composition"] = R.e8_composition_table(inputs["e8"])
+        tables["e8_calibration"] = R.e8_calibration_table(inputs["e8"])
 
     if os.path.exists(inputs["backbone"]):
         tables["backbone_headline"] = R.backbone_headline(inputs["backbone"])
@@ -1538,6 +1545,174 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
     return lines
 
 
+def _e8_section(inputs: Dict[str, str]) -> List[str]:
+    """E8, the synthetic sweep, filed as validation rather than as a claim.
+
+    Section 31's evidence matrix has no E8 row, and section 30 calls it a
+    theory-support experiment, so nothing here is allowed to carry a verdict.
+    What it can do is the one thing no experiment on real judges can: check the
+    pipeline against an answer fixed before the code ran.
+    """
+    lines = ["## E8 — the pipeline against a known answer", ""]
+    lines.append(
+        "**Question.** Every other experiment measures a quantity nobody knows "
+        "in advance, so a bug and a finding look alike. Section 30 therefore "
+        "asks for synthetic panels with a planted structure. Here a backbone "
+        "of archetypal judges is drawn and every remaining judge is built as "
+        "an exact convex combination of them, which makes the planted set the "
+        "*unique* minimum panel: stacked over items each archetype is a "
+        "generic point in a space of dimension far above the number of "
+        "archetypes, so with probability one none lies in the convex hull of "
+        "the others and none can be dropped. Selection is then asked to find a "
+        "set it was never told."
+    )
+    lines.append("")
+    if not os.path.exists(inputs["e8"]):
+        return lines + ["_Not run._", ""]
+
+    payload = R.load(inputs["e8"])
+    recovery = R.e8_recovery_table(inputs["e8"])
+    composition = R.e8_composition_table(inputs["e8"])
+    calibration = R.e8_calibration_table(inputs["e8"])
+
+    n_runs = len(payload["records"])
+    axes = payload["axes"]
+    lines.append(
+        f"**Method.** One factor at a time around a base configuration, over "
+        f"{len(payload['seeds'])} seeds and {len(axes)} axes "
+        f"({', '.join(axes)}), for {n_runs} runs. Both selectors are asked for "
+        f"exactly the planted number of judges, so a miss is a selection error "
+        f"and never a size mismatch, and `exact` is exhaustive search over "
+        f"every subset of that size rather than a second heuristic. Section "
+        f"30 also lists intrinsic response dimension as an axis; it is not "
+        f"swept separately because it is not free — the judge cloud spans the "
+        f"affine hull of the archetypes, so its dimension is exactly the "
+        f"archetype count minus one."
+    )
+    lines.append("")
+    lines.append(_md_table(
+        recovery, ["axis", "value", "exact_recovers", "greedy_recovers",
+                   "greedy_gap", "backbone_coverage"]))
+    lines.append("")
+
+    recovered = float(recovery["exact_recovers"].min())
+    greedy_recovered = float(recovery["greedy_recovers"].min())
+    worst_gap = float(recovery["greedy_gap"].max())
+
+    if recovered == 1.0 and greedy_recovered == 1.0:
+        lines.append(
+            f"**Recovery.** Both selectors returned the planted backbone "
+            f"exactly, in every one of the {n_runs} runs, across every axis: "
+            f"8 to 14 judges, 3 to 6 archetypes, 25 to 400 items, 1 to 4 "
+            f"contexts, noise from 0 to 0.10, and 0 to 4 planted duplicate "
+            f"pairs. This is the strongest statement available about the "
+            f"correctness of the coverage functional and the minimax solver, "
+            f"because a hidden target cannot be hit repeatedly by accident."
+        )
+    else:
+        lines.append(
+            f"**Recovery.** Exhaustive search returned the planted backbone in "
+            f"{recovered:.0%} of runs at worst and backward elimination in "
+            f"{greedy_recovered:.0%}, so recovery is not universal and the "
+            f"failing cells in `tables/e8_backbone_recovery.csv` bound what "
+            f"the method can be trusted to find."
+        )
+    lines.append("")
+
+    lines.append(
+        f"**Exact against heuristic.** Backward elimination matched exhaustive "
+        f"search on every run, worst gap {worst_gap:.2e}. That is a weaker "
+        f"result than it looks and must not be read as greedy being optimal in "
+        f"general: these panels are built from exact convex structure and are "
+        f"much easier than the real one, where C6 finds backward elimination "
+        f"exactly optimal on only 80% of cases and needs swaps to close the "
+        f"rest. What E8 establishes is that the search is correct when the "
+        f"problem is clean, which is what isolates C6's gap as a property of "
+        f"the real panel rather than of the code."
+    )
+    lines.append("")
+
+    lines.append("**Non-composability, with the dependencies planted.**")
+    lines.append("")
+    lines.append(_md_table(
+        composition, ["gamma", "n_individually_removable",
+                      "naive_retained_size", "naive_coverage", "violates",
+                      "n_cycles"]))
+    lines.append("")
+
+    biting = composition[composition["violates"] > 0]
+    if len(biting):
+        first = biting.iloc[0]
+        worst = biting.iloc[-1]
+        lines.append(
+            f"The audit breaks exactly where the construction says it must. "
+            f"Below gamma = {first['gamma']:g} the individually removable "
+            f"judges happen to be precisely the non-archetypes, so deleting "
+            f"them all at once is safe and the naive procedure survives. Once "
+            f"the tolerance is loose enough that an archetype also looks "
+            f"removable, joint deletion breaches it: "
+            f"{first['violates']:.0%} of runs at gamma = {first['gamma']:g}, "
+            f"rising to {worst['violates']:.0%} at gamma = {worst['gamma']:g}, "
+            f"where the retained panel scores {worst['naive_coverage']:.3f} "
+            f"against a tolerance of {worst['gamma']:g}."
+        )
+        lines.append("")
+        lines.append(
+            "That boundary is worth stating plainly, because it is the honest "
+            "limit of C1: individual certificates compose whenever the "
+            "individually removable set happens to contain no judge the panel "
+            "actually needs, and fail as soon as it does. Nothing detects "
+            "which case holds except evaluating the joint condition, which is "
+            "the argument for making it the object of study."
+        )
+    else:
+        lines.append(
+            "No tolerance in the grid produced a joint violation on these "
+            "panels, so E8 supplies no synthetic support for C1 and the claim "
+            "rests entirely on E0."
+        )
+    lines.append("")
+
+    lines.append("**Certification calibration.** Selected on CERT, checked on "
+                 "a held-out TEST draw of fresh items from the same judges.")
+    lines.append("")
+    lines.append(_md_table(
+        calibration, ["gamma", "selected_size", "cert_coverage",
+                      "test_coverage", "test_minus_cert", "violation_rate"]))
+    lines.append("")
+
+    worst_violation = float(calibration["violation_rate"].max())
+    worst_drift = float(calibration["test_minus_cert"].abs().max())
+    lines.append(
+        f"Violation rate {worst_violation:.0%} at every tolerance, with the "
+        f"TEST error exceeding the CERT error by at most {worst_drift:.1e}. "
+        f"Here sampling noise is the only thing that can cause a violation — "
+        f"there is no distribution shift and no model error — so this "
+        f"calibrates the certificate under ideal conditions and says nothing "
+        f"about how it behaves under the shift E7 measures. C7 remains the "
+        f"statement about real judges."
+    )
+    lines.append("")
+
+    items = recovery[recovery["axis"] == "n_items"]
+    if len(items):
+        smallest, largest = items.iloc[0], items.iloc[-1]
+        lines.append(
+            f"**Query scaling.** Recovery was already perfect at "
+            f"{smallest['value']:g} items and stayed so at "
+            f"{largest['value']:g}, while the backbone's own coverage error "
+            f"moved only from {smallest['backbone_coverage']:.4f} to "
+            f"{largest['backbone_coverage']:.4f}. Identifying *which* judges "
+            f"form the backbone is therefore cheap in queries; what queries "
+            f"buy is precision in the error attached to it. The practical "
+            f"reading is that a small pilot suffices to choose a panel, and "
+            f"the large sample is needed only to certify it."
+        )
+        lines.append("")
+
+    return lines
+
+
 def _backbone_section(inputs: Dict[str, str]) -> List[str]:
     lines = ["## Backbone — which judges every optimal panel must contain", ""]
     lines.append("**Question.** Section 20 asks the panel to be split three "
@@ -1828,6 +2003,8 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += ["---", ""]
     lines += _backbone_section(inputs)
     lines += ["---", ""]
+    lines += _e8_section(inputs)
+    lines += ["---", ""]
     lines += _compliance_section(inputs)
     lines += [
         "---",
@@ -1955,6 +2132,14 @@ def build_final_report(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines += _reproduction_section(panel)
     lines += ["---", ""]
     lines += _verification_section()
+
+    # An appendix, not section 17. Section 66 fixes the numbered heading list
+    # at 1-16, and section 31's evidence matrix has no E8 row, so E8 may be
+    # added but may not be numbered as though the plan had asked for it. It
+    # carries no verdict for the same reason.
+    lines += ["", "---", "", "## Appendix A. Validation Against a Known Answer",
+              ""]
+    lines += _e8_section(inputs)[1:]
     return "\n".join(lines)
 
 
@@ -2183,17 +2368,21 @@ REPRODUCTION_SCRIPTS = [
     ("experiment_c7_certification.py", ""),
     ("experiment_e6_sparse_cost.py", ""),
     ("experiment_backbone.py", ""),
+    ("experiment_e8_synthetic.py", ""),
     ("export_results.py", ""),
 ]
+
+# Scripts that take no --panel.  The pair builder writes the judged pairs every
+# panel then scores, and E8 generates its own synthetic panels, so for both of
+# them a panel argument would not just be redundant but wrong.
+PANEL_INDEPENDENT = {"build_rewardbench_pairs.py", "experiment_e8_synthetic.py"}
 
 
 def _reproduction_section(panel: str) -> List[str]:
     """Section 15. The commands, in the order they must be run."""
     def command(name: str, flags: str) -> str:
         parts = [f"python experiments/{name}"]
-        # The pair builder is panel-independent: it writes the judged pairs
-        # every panel then scores, so passing a panel to it would be wrong.
-        if name != "build_rewardbench_pairs.py":
+        if name not in PANEL_INDEPENDENT:
             parts.append(f"--panel {panel}")
         if flags:
             parts.append(flags)
