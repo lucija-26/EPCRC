@@ -33,7 +33,11 @@ if _root not in sys.path:
     sys.path.insert(0, _root)
 
 from epcrc.coverage import CoverageFunctional
-from epcrc.pruning import BackwardEliminationPruner, ForwardSelectionPruner
+from epcrc.pruning import (
+    BackwardEliminationPruner,
+    BackwardKSwapPruner,
+    ForwardSelectionPruner,
+)
 
 # gamma ~ 0, with a margin to absorb the SLSQP solver tolerance on interior points.
 GAMMA = 1e-6
@@ -112,4 +116,25 @@ def test_both_return_feasible_sets():
         res = pruner.run()
         assert res.coverage <= GAMMA, (
             f"{type(pruner).__name__} returned E(S)={res.coverage} > gamma={GAMMA}"
+        )
+
+
+def test_backward_kswap_never_worse_than_backward():
+    """BackwardKSwapPruner output is feasible and no larger than backward's."""
+    rng = np.random.default_rng(11)
+    for trial in range(5):
+        N, dim = 9, 2
+        pts = rng.standard_normal((N, dim))
+        Y = pts.T.copy()
+        scale = float(np.mean([np.linalg.norm(pts[i] - pts[j])
+                               for i in range(N) for j in range(i + 1, N)]))
+        gamma = 0.25 * scale
+        cov = CoverageFunctional(Y, Y, [f"m{i}" for i in range(N)])
+
+        bwd = BackwardEliminationPruner(cov, gamma).run()
+        ksw = BackwardKSwapPruner(cov, gamma, max_swap_k=2).run()
+
+        assert ksw.coverage <= gamma
+        assert len(ksw.kept_set) <= len(bwd.kept_set), (
+            f"trial {trial}: kswap {len(ksw.kept_set)} > backward {len(bwd.kept_set)}"
         )

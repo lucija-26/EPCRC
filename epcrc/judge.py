@@ -16,8 +16,8 @@ solves the same problem by cutting planes, which avoids the per-item slack
 variables and is what the experiments actually call.
 
 `JudgeCoverageFunctional` exposes exactly the interface `CoverageFunctional`
-does, so `pruning`, `milp`, `risk` and `task_error` run against judge panels
-without modification.
+does, so every pruner in `pruning` runs against judge panels without
+modification.
 """
 
 from __future__ import annotations

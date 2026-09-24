@@ -64,11 +64,9 @@ mixing weights do not and must be recalibrated.
 │   ├── judge.py               # the three-class judge instance: TV, worst context, minimax weights
 │   ├── geometry.py            # convex projection and the NNLS/simplex solvers
 │   ├── pruning.py             # backward, forward, k-swap and priority-queue pruners
-│   ├── milp.py                # exact minimum representative set by MILP
 │   ├── certification.py       # empirical Bernstein and naive certificates
 │   ├── reconstruction.py      # weight-fitting rules and their scoring
 │   ├── selection_baselines.py # the 11 comparator selection rules and the low-rank floor
-│   ├── risk.py                # risk-controlled pruning with UCB coverage
 │   ├── panel.py               # the judge registry, split loading and the response tensor
 │   ├── rewardbench.py         # RewardBench 2 to judged pairs
 │   ├── judgebench.py          # JudgeBench to judged pairs (transfer benchmark)
@@ -76,7 +74,6 @@ mixing weights do not and must be recalibrated.
 │   ├── scoring.py             # label scoring and normalisation
 │   ├── downstream.py          # aggregation to one verdict per item
 │   ├── synthetic_judges.py    # planted-structure judge generators
-│   ├── task_error.py          # quality-eligibility and joint feasibility
 │   ├── report.py              # result JSON to paper tables
 │   └── figures.py             # result JSON to paper figures
 │
@@ -103,7 +100,7 @@ mixing weights do not and must be recalibrated.
 │   ├── 03_c2_compression_frontier.ipynb# the frontier and why the declared band is unreachable
 │   └── 04_results_package.ipynb        # builds the delivery zip
 │
-├── tests/                     # 344 tests, including solver cross-checks against an exact LP
+├── tests/                     # 334 tests, including solver cross-checks against an exact LP
 ├── data/                      # split manifests with SHA-256 over the item ids (pairs are regenerated)
 ├── docs/
 │   ├── SERVER_RUNBOOK.md      # the Core-20 GPU scoring procedure, start to finish
@@ -162,7 +159,7 @@ python experiments/export_results.py --panel core20
 ```
 
 ```bash
-pytest -q          # 344 tests
+pytest -q          # 334 tests
 ```
 
 ## Usage

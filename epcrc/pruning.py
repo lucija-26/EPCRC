@@ -40,15 +40,15 @@ class ForwardSelectionPruner:
     cleanup=False is the literal paper-4.2 rule: stop at the first feasible
     prefix.  Because E is non-monotone, a model added early can be made
     redundant by later additions, so that prefix is typically not even locally
-    minimal -- on UTD19 it leaves up to 5 droppable models.
+    minimal.
 
     cleanup=True (default) additionally trims, using the same lowest-E single
     deletion rule as BackwardEliminationPruner, so the result ends on a
     comparable single-deletion optimum.  Note this makes it a forward/backward
     hybrid rather than forward selection: backward elimination beats the
     cleanup=False variant, and only the trimmed variant beats backward.  Report
-    the two separately (run_all.py calls them forward and forward_trim) instead
-    of collapsing them into one "forward" number.
+    the two separately (experiment_c6_exchange.py calls them forward and
+    forward_trim) instead of collapsing them into one "forward" number.
     """
 
     def __init__(
@@ -169,113 +169,6 @@ class ForwardSelectionPruner:
             if best_coverage <= self.gamma:
                 # Coverage satisfied, done
                 return self._finalize(S, history, it, debug)
-
-
-class WarmStartForwardWorstCoveredPruner:
-    """Warm-started forward pruning seeded with an initial kept set.
-
-    Starts from a user-provided seed set M (instead of the empty set), then
-    repeatedly adds the currently worst-covered model
-        argmax_i U(i | S)
-    until E(S) <= gamma or all models are in S.
-    """
-
-    def __init__(
-        self,
-        coverage_fn: CoverageFunctional,
-        tolerance_gamma: float,
-        seed_set: Optional[Set[int]] = None,
-    ):
-        self.coverage_fn = coverage_fn
-        self.gamma = float(tolerance_gamma)
-        self.seed_set = set(seed_set or set())
-
-        bad = [j for j in self.seed_set if j < 0 or j >= self.coverage_fn.N]
-        if bad:
-            raise ValueError(
-                f"seed_set contains invalid model indices {bad}; expected [0, {self.coverage_fn.N - 1}]"
-            )
-
-    def run(self, debug: bool = False) -> PruningResult:
-        all_models = set(range(self.coverage_fn.N))
-        S: Set[int] = set(self.seed_set)
-        history: list[PruningStep] = []
-        it = 0
-
-        while True:
-            E_now, certs_now = self.coverage_fn.compute_coverage(S, return_certificates=True)
-            sum_u = self.coverage_fn.compute_sum_uniqueness(S)
-
-            if E_now <= self.gamma or len(S) == self.coverage_fn.N:
-                it += 1
-                history.append(
-                    PruningStep(
-                        iteration=it,
-                        removed_model_idx=None,
-                        removed_model_name=None,
-                        kept_set=set(S),
-                        coverage=E_now,
-                        sum_uniqueness=sum_u,
-                        action="stop",
-                    )
-                )
-                assert certs_now is not None
-                return PruningResult(
-                    kept_set=set(S),
-                    coverage=E_now,
-                    sum_uniqueness=sum_u,
-                    history=history,
-                    certificates=certs_now,
-                )
-
-            assert certs_now is not None
-            remaining = sorted(all_models - S)
-            if not remaining:
-                # Defensive (should be covered by len(S) == N check above).
-                it += 1
-                history.append(
-                    PruningStep(
-                        iteration=it,
-                        removed_model_idx=None,
-                        removed_model_name=None,
-                        kept_set=set(S),
-                        coverage=E_now,
-                        sum_uniqueness=sum_u,
-                        action="stop",
-                    )
-                )
-                return PruningResult(
-                    kept_set=set(S),
-                    coverage=E_now,
-                    sum_uniqueness=sum_u,
-                    history=history,
-                    certificates=certs_now,
-                )
-
-            # Add current bottleneck among not-yet-kept models.
-            worst_j = max(remaining, key=lambda j: certs_now[j].uniqueness)
-            S.add(worst_j)
-
-            E_after, _ = self.coverage_fn.compute_coverage(S)
-            sum_u_after = self.coverage_fn.compute_sum_uniqueness(S)
-            it += 1
-            history.append(
-                PruningStep(
-                    iteration=it,
-                    removed_model_idx=worst_j,       # here it means "added"
-                    removed_model_name=self.coverage_fn.model_names[worst_j],
-                    kept_set=set(S),
-                    coverage=E_after,
-                    sum_uniqueness=sum_u_after,
-                    action="add",
-                )
-            )
-
-            if debug:
-                print(
-                    f"[warm-forward iter {it}] ADD {self.coverage_fn.model_names[worst_j]} "
-                    f"(U={certs_now[worst_j].uniqueness:.6f}) -> E(S)={E_after:.6f}"
-                )
 
 
 class BackwardEliminationPruner:
