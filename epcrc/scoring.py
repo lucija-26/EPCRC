@@ -22,7 +22,6 @@ cleanly without them so the pure logic stays testable on a laptop.
 
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Sequence, Tuple
 
@@ -322,8 +321,3 @@ def accuracy_report(
         "mean_max_probability": float(probabilities.max(axis=1).mean()),
         "position_bias_a_rate": float(np.mean([lab == "A" for lab in predicted])),
     }
-
-
-def write_scores(path: str, payload: Dict[str, object]) -> None:
-    with open(path, "w") as handle:
-        json.dump(payload, handle, indent=2)
