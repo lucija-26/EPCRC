@@ -24,7 +24,7 @@ Backward elimination on the twenty-judge panel discards J08 first and J07
 second. The consequence is sharp:
 
 **The subset chosen at every budget from 1 to 18 judges is identical in the two
-runs, judge for judge.** Not similar — the same set.
+runs, judge for judge.** Not similar: the same set.
 
 | k | subset selected by coverage backward elimination (identical in both runs) |
 | ---: | --- |
@@ -55,7 +55,7 @@ Worst-judge worst-context total variation on the held-out TEST split.
 
 Up to k = 17 the agreement is exact. At k = 18 the *selected panel is still the
 same*, and the error rises only because J07 has joined the set of judges that
-must be reconstructed — and it is slightly harder to reconstruct than the rest.
+must be reconstructed, and it is slightly harder to reconstruct than the rest.
 At k = 19 the two runs are answering different questions: for the 19-judge panel
 that is the whole panel, which reconstructs itself at zero error by
 construction.
@@ -65,7 +65,7 @@ the frontier below k = 18 reads bit-identical values.
 
 ## 3. Claim by claim
 
-### C1 — non-composability: confirmed in both, stronger at twenty
+### C1: non-composability, confirmed in both, stronger at twenty
 
 On the predeclared tolerance grid (fixed before any judge was scored):
 
@@ -86,7 +86,7 @@ Across the data-driven leave-one-out breakpoints:
 | 19-judge | 90 | 84 | +2.40 judges |
 | 20-judge | 95 | 86 | +2.37 judges |
 
-### C2 — compression frontier: fails as declared in both
+### C2: compression frontier, fails as declared in both
 
 The evidence matrix in plan section 31 asks for Core-20 reduced to 6-10 judges
 at worst-context error 0.08-0.10. Measured at k = 10: **0.348 in both runs**,
@@ -98,7 +98,7 @@ costs 0.130. That is a floor under every smaller panel, so no panel below twenty
 reaches 0.10 at all. The judges are less mutually redundant than the planning
 target assumed. Reported as measured.
 
-### C3 — coverage selection beats the baselines: same ranking, lower errors
+### C3: coverage selection beats the baselines, same ranking, lower errors
 
 Mean worst-judge worst-context TV over k in [2, N-1] and five split seeds.
 
@@ -118,22 +118,22 @@ Mean worst-judge worst-context TV over k in [2, N-1] and five split seeds.
 | top_accuracy | 0.5844 | 0.5823 | 12 | 12 |
 
 Ten of twelve ranks are unchanged. The two that move are adjacent pairs
-separated by less than 0.005 TV — hierarchical against correlation_medoid, and
-cost_descending against one_per_family — which is noise at this resolution, not
+separated by less than 0.005 TV, hierarchical against correlation_medoid, and
+cost_descending against one_per_family, which is noise at this resolution, not
 a reordering.
 
 Coverage backward elimination is first in both runs. Every method improves on
 the larger panel, coverage included, and its margin over the nearest rival,
-pivoted_qr, narrows marginally from 0.0431 to 0.0408 TV — a change well inside
+pivoted_qr, narrows marginally from 0.0431 to 0.0408 TV, a change well inside
 the bootstrap width, and in any case the head-to-head paired test below is what
 settles the comparison.
 
 The verdict on C3 is decided by the paired bootstrap of plan section 34.2, not
-by this table. On the twenty-judge panel that is 1080 comparisons — five seeds
-by eighteen budgets by twelve baselines — with 31 losses, every one of them at
+by this table. On the twenty-judge panel that is 1080 comparisons, five seeds
+by eighteen budgets by twelve baselines, with 31 losses, every one of them at
 k <= 4. From k = 5 upward coverage does not lose to any baseline in any seed.
 
-### C4 — stress specialists: identical finding, larger effect
+### C4: stress specialists, identical finding, larger effect
 
 | | 19-judge | 20-judge |
 | --- | ---: | ---: |
@@ -147,7 +147,7 @@ k <= 4. From k = 5 upward coverage does not lose to any baseline in any seed.
 The specialist set is unchanged: **J07 is not a stress specialist under any
 split seed.** All six recurring specialists bind on the bias-resistant rubric
 context and two of them also on the correctness rubric, which is the mechanism
-the claim predicts rather than a correlate — a pipeline that only ever sees
+the claim predicts rather than a correlate. A pipeline that only ever sees
 clean items is blind to exactly the contexts where specialisation lives.
 
 The two baseline arms must never be pooled. Pooled they average to roughly 30%

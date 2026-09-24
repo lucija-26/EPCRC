@@ -253,7 +253,7 @@ def _md_table(df: pd.DataFrame, columns: List[str], digits: int = 3) -> str:
 
 
 def _c1_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C1 — individual redundancy certificates do not compose", ""]
+    lines = ["## C1: individual redundancy certificates do not compose", ""]
     lines.append("**Claim.** A judge certified removable on its own need not be "
                  "removable alongside other judges that were each certified the "
                  "same way.")
@@ -337,9 +337,9 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
             f"**Result.** Across {len(multi)} (split seed, tolerance) cases in "
             f"which at least two judges were individually certified removable, "
             f"the joint deletion broke the tolerance in **{n_viol} of "
-            f"{len(multi)}** cases. The mean composition gap — how many more "
+            f"{len(multi)}** cases. The mean composition gap, how many more "
             f"judges the joint constraint requires than the one-at-a-time audit "
-            f"kept — is {relation}**{gap:+.2f}** judges."
+            f"kept, is {relation}**{gap:+.2f}** judges."
         )
         lines.append("")
         if n_bounded:
@@ -384,7 +384,7 @@ def _c1_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c2_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C2 — the physical-to-virtual compression frontier", ""]
+    lines = ["## C2: the physical-to-virtual compression frontier", ""]
     lines.append("**Claim.** A small physical panel can reconstruct every "
                  "virtual judge to within a small worst-context error on held-out "
                  "items.")
@@ -412,8 +412,8 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
     if len(half):
         row = half.iloc[-1]
         lines.append(
-            f"At k = {int(row['k'])} of {full} judges — {row['calls_avoided_frac']:.0%} "
-            f"of judge calls avoided — the median item is reconstructed to "
+            f"At k = {int(row['k'])} of {full} judges, {row['calls_avoided_frac']:.0%} "
+            f"of judge calls avoided, the median item is reconstructed to "
             f"{row['median_item_tv']:.3f} TV and verdicts agree "
             f"{row['verdict_agreement']:.1%} of the time, while the worst judge "
             f"in its worst context still sits at {row['worst_judge_tv']:.3f}."
@@ -437,8 +437,8 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
             lines.append("")
             lines.append(
                 f"The shortfall is structural, not a matter of tuning. Removing "
-                f"a single judge — the most redundant one in the panel, and the "
-                f"least that can be removed at all — already costs {floor:.3f}. "
+                f"a single judge, the most redundant one in the panel, and the "
+                f"least that can be removed at all, already costs {floor:.3f}. "
                 f"That is a floor on every smaller panel, so no k below {full} "
                 f"can reach the 0.08-0.10 band the evidence matrix asks for at "
                 f"6-10 judges. The judges are less mutually redundant than that "
@@ -454,7 +454,7 @@ def _c2_section(inputs: Dict[str, str]) -> List[str]:
                 f"claim describes, but no panel size reaches the 0.08-0.10 "
                 f"worst-context band, because the floor at k = {full - 1} is "
                 f"already {floor:.3f}. The claim is not contradicted by a "
-                f"better method existing — it is out of reach on this panel."
+                f"better method existing. It is out of reach on this panel."
             )
     lines.append("")
     return lines
@@ -509,7 +509,7 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
     if len(decided):
         lines.append(
             f"Coverage wins on a majority of cells against "
-            f"{', '.join(decided['label'])} — every heuristic a practitioner "
+            f"{', '.join(decided['label'])}, every heuristic a practitioner "
             f"would actually reach for."
         )
         lines.append("")
@@ -528,11 +528,11 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
         # over baselines is that times the number of baselines compared.
         n_comparisons = total_cells * int(pooled["method"].nunique())
         lines.append(
-            f"**Where coverage loses.** Of the {n_comparisons} comparisons — "
+            f"**Where coverage loses.** Of the {n_comparisons} comparisons, "
             f"{total_cells} cells against each of {int(pooled['method'].nunique())} "
-            f"baselines — {int(pooled['cells_lost'].sum())} go against "
+            f"baselines, {int(pooled['cells_lost'].sum())} go against "
             f"coverage, and every "
-            f"one of them sits at {where} — the smallest budgets on the grid. "
+            f"one of them sits at {where}, the smallest budgets on the grid. "
             f"The baselines that win there are {', '.join(losers)}. From "
             f"k = {max(budgets) + 1} upward coverage is not beaten by any "
             f"baseline in any seed. Backward elimination has almost nothing to "
@@ -558,7 +558,7 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
             f"panels *chosen after seeing which one won*, so no practitioner "
             f"could produce it. It is included as an oracle, and coverage lands "
             f"{abs(row['delta']):.3f} TV "
-            f"{'behind' if row['delta'] > 0 else 'ahead of'} it — that is, "
+            f"{'behind' if row['delta'] > 0 else 'ahead of'} it. That is, "
             f"coverage picks about as well as a hundred random tries with "
             f"hindsight, from a single pass."
         )
@@ -604,7 +604,7 @@ def _c3_robustness_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c3_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C3 — coverage-based selection beats the baselines", ""]
+    lines = ["## C3: coverage-based selection beats the baselines", ""]
     lines.append("**Claim.** Choosing the physical panel by the coverage "
                  "functional does better than accuracy ranking, random choice, "
                  "family diversity, cost heuristics, and standard pairwise-"
@@ -720,8 +720,8 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
     lines.append(
         "The rank-k floor is what a k-dimensional basis achieves when the "
         "basis is free to be anything rather than a set of real judges. It is "
-        "**not deployable** — nothing can be run to produce those directions, "
-        "and its outputs are not on the simplex — so it is a reference point "
+        "**not deployable**, nothing can be run to produce those directions, "
+        "and its outputs are not on the simplex, so it is a reference point "
         "for how much of the error is dimensional rather than a consequence of "
         "picking the wrong judges."
     )
@@ -771,7 +771,7 @@ def _c3_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c4_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C4 — stress specialists and multi-context selection", ""]
+    lines = ["## C4: stress specialists and multi-context selection", ""]
     lines.append("**Claim.** Selecting on clean items alone retires judges that "
                  "are redundant on average but distinctive under position swaps, "
                  "verbosity changes, rubric changes or a hidden reference. "
@@ -858,8 +858,8 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
         lines.append(
             f"**Verdict: PARTIALLY SUPPORTED.** Strong for the deployed "
             f"pipeline, weak for selection alone. "
-            f"Against `clean_pipeline` — what a context-unaware user would "
-            f"actually ship — robust selection wins at every budget under every "
+            f"Against `clean_pipeline`, what a context-unaware user would "
+            f"actually ship, robust selection wins at every budget under every "
             f"seed, by {pipeline[1]:+.3f} TV on average. Against `clean_select`, "
             f"which is handicapped only at selection time and still receives "
             f"robust weights, the advantage falls to {select[1]:+.3f} TV and is "
@@ -871,12 +871,12 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
         )
     elif all(unanimous for unanimous, _ in per_baseline.values()):
         lines.append(
-            "**Verdict: SUPPORTED** — robust selection wins against both "
+            "**Verdict: SUPPORTED**. Robust selection wins against both "
             "baselines at every budget under every split seed."
         )
     else:
         lines.append(
-            "**Verdict: PARTIALLY SUPPORTED** — robust selection does not win at "
+            "**Verdict: PARTIALLY SUPPORTED**. Robust selection does not win at "
             "every budget under every seed, and the table above says where."
         )
     lines.append("")
@@ -884,7 +884,7 @@ def _c4_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c5_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C5 — does the compressed panel still decide the same way?", ""]
+    lines = ["## C5: does the compressed panel still decide the same way?", ""]
     lines.append("**Claim.** A panel compressed to virtual judges preserves the "
                  "decisions the full panel would have made: accuracy against "
                  "gold within about a percentage point, and rank agreement "
@@ -969,7 +969,7 @@ def _c5_section(inputs: Dict[str, str]) -> List[str]:
             lines.append("**Verdict: SUPPORTED.**")
         elif accuracy_ok or rank_ok:
             lines.append(
-                "**Verdict: PARTIALLY SUPPORTED** — one half of the stated "
+                "**Verdict: PARTIALLY SUPPORTED**. One half of the stated "
                 "tolerance is met and the other is not, and the numbers above "
                 "say which."
             )
@@ -1017,8 +1017,8 @@ def _c5_section(inputs: Dict[str, str]) -> List[str]:
             f"dataset: RewardBench 2 gold is itself a model-assisted label, so "
             f"a judge close to the labeller wins on agreement while still "
             f"carrying its own biases. It is reported because it is in the "
-            f"data, but it is not evidence that panels are unnecessary — "
-            f"nothing in the plan's setup lets a user identify that judge in "
+            f"data, but it is not evidence that panels are unnecessary. "
+            f"Nothing in the plan's setup lets a user identify that judge in "
             f"advance."
         )
         lines.append("")
@@ -1036,7 +1036,7 @@ def _e7_section(inputs: Dict[str, str]) -> List[str]:
     `_c5_section`, so a second token here could silently become the one the
     professor reads at the top of C5.
     """
-    lines = ["## E7 — does the basis still work on a benchmark it never saw?", ""]
+    lines = ["## E7: does the basis still work on a benchmark it never saw?", ""]
     lines.append(
         "**Question.** Section 29 asks whether a physical basis selected on "
         "RewardBench 2 stays useful off it. Selecting and evaluating on the "
@@ -1143,14 +1143,14 @@ def _e7_section(inputs: Dict[str, str]) -> List[str]:
         f"whether the tie corner of the simplex survives compression; and at "
         f"{sum(payload['split_items']['away'].values())} pairs the calibration "
         f"curve runs out of data before it flattens. Transfer is demonstrated "
-        f"on one shift, not the two section 29 names — see `DECISIONS.md`, D17._"
+        f"on one shift, not the two section 29 names. See `DECISIONS.md`, D17._"
     )
     lines.append("")
     return lines
 
 
 def _c6_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C6 — the exchange structure greedy selection misses", ""]
+    lines = ["## C6: the exchange structure greedy selection misses", ""]
     lines.append("**Claim.** Which judges are worth keeping depends on the set "
                  "they sit in, so greedy add-one or drop-one selection can stop "
                  "at a panel larger than necessary, and a local exchange that "
@@ -1208,7 +1208,7 @@ def _c6_section(inputs: Dict[str, str]) -> List[str]:
                          "2-swap. Against them:")
             lines.append("")
             for name, ok in met.items():
-                lines.append(f"- `{name}` — {'met' if ok else 'not met'}")
+                lines.append(f"- `{name}`: {'met' if ok else 'not met'}")
             lines.append("")
             if all(met.values()):
                 lines.append("**Verdict: SUPPORTED.** 2-swap meets every "
@@ -1239,7 +1239,7 @@ def _c6_section(inputs: Dict[str, str]) -> List[str]:
                 f"{int(case['opt_size'])}, and 2-swap finds "
                 f"{int(rival.iloc[0]['size'])}. Backward could not drop any "
                 f"single judge from its panel without breaking the tolerance, "
-                f"yet a panel one smaller exists — it just is not reachable by "
+                f"yet a panel one smaller exists. It just is not reachable by "
                 f"deletions alone. That is the set-dependence the claim is "
                 f"about."
             )
@@ -1266,7 +1266,7 @@ def _c6_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c7_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C7 — certificates that hold up out of sample", ""]
+    lines = ["## C7: certificates that hold up out of sample", ""]
     lines.append("**Claim.** A compression certificate computed with a "
                  "finite-sample bound on held-out items, corrected for testing "
                  "many judges at once, holds on fresh items at the stated "
@@ -1324,8 +1324,8 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
     if len(naive) and len(primary):
         n, p = naive.iloc[0], primary.iloc[0]
         lines.append(
-            f"The naive certificate — the error measured on the very items the "
-            f"weights were fitted to — is violated on "
+            f"The naive certificate, the error measured on the very items the "
+            f"weights were fitted to, is violated on "
             f"{n['violation_rate']:.1%} of the cases it certifies. The primary "
             f"rule, an empirical Bernstein bound on held-out items with a "
             f"Bonferroni correction across judge-context pairs, is violated on "
@@ -1369,7 +1369,7 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
                 f"resolution: at gamma = {worst['gamma']:.2f} the rule certifies "
                 f"just {int(worst['n_certified'])} cases, and "
                 f"{int(worst['n_violated'])} violations out of that many bounds "
-                f"the rate no tighter than {worst['violation_rate_hi']:.1%} — "
+                f"the rate no tighter than {worst['violation_rate_hi']:.1%}, "
                 f"above the nominal {primary_delta:.0%} however well the rule "
                 f"behaves. More repetitions at the tight tolerances, not a "
                 f"different bound, is what would settle it."
@@ -1409,7 +1409,7 @@ def _c7_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _c8_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## C8 — sparse certificates and cost-aware selection", ""]
+    lines = ["## C8: sparse certificates and cost-aware selection", ""]
     lines.append("**Claim.** A certificate stays useful when each virtual judge "
                  "is allowed only a handful of physical judges, and choosing a "
                  "panel by what it costs to run rather than by how many judges "
@@ -1460,7 +1460,7 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
         f"and at r = 4 the worst costs {worst_four:.3f}. Both of those worst "
         f"cases are at k = {worst_k}, where the uncapped fit is already the "
         f"sparsest and the cap therefore bites hardest. The reason is visible "
-        f"in the last column — the uncapped fit already spreads over "
+        f"in the last column. The uncapped fit already spreads over "
         f"{mean_support:.1f} judges on average, so a cap at three or four is "
         f"describing the solution rather than constraining it. The one real "
         f"cliff is r = 1, which costs up to {at_one:.3f} times uncapped: a "
@@ -1484,8 +1484,8 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
         f"r = {by_cap.index[0]} the same support is picked under all five seeds "
         f"in {int(tight.unanimous)} of {int(tight.cases)} (budget, judge) "
         f"cases, falling to {int(wide.unanimous)} of {int(wide.cases)} at "
-        f"r = {by_cap.index[-1]}. That is the expected direction — a wider cap "
-        f"has more near-equivalent supports to choose between — and the "
+        f"r = {by_cap.index[-1]}. That is the expected direction, a wider cap "
+        f"has more near-equivalent supports to choose between, and the "
         f"variation stays small in absolute terms, at "
         f"{tight.distinct:.1f} to {wide.distinct:.1f} distinct supports across "
         f"five seeds. The full table is `tables/c8_support_stability.csv`."
@@ -1498,7 +1498,7 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
         f"judge count, wall-clock seconds, weight memory in GB, and the number "
         f"of distinct model families that must be deployed. Tolerances "
         f"{payload['gammas']}. `same_panel_as_cardinality` is the column that "
-        f"matters — it says whether costing the panel changed the answer."
+        f"matters. It says whether costing the panel changed the answer."
     )
     lines.append("")
     lines.append(_md_table(
@@ -1523,7 +1523,7 @@ def _c8_section(inputs: Dict[str, str]) -> List[str]:
             f"memory always "
             f"returns the panel that minimises judge count, because this "
             f"panel's judges are close to uniform in both runtime and "
-            f"parameter count — so those two objectives are judge count under "
+            f"parameter count, so those two objectives are judge count under "
             f"another name. Only `deployments`, the count of distinct model "
             f"families, ever disagrees: {named}. Each buys one fewer family to "
             f"host at a small coverage cost, which is a real saving for someone "
@@ -1553,7 +1553,7 @@ def _e8_section(inputs: Dict[str, str]) -> List[str]:
     What it can do is the one thing no experiment on real judges can: check the
     pipeline against an answer fixed before the code ran.
     """
-    lines = ["## E8 — the pipeline against a known answer", ""]
+    lines = ["## E8: the pipeline against a known answer", ""]
     lines.append(
         "**Question.** Every other experiment measures a quantity nobody knows "
         "in advance, so a bug and a finding look alike. Section 30 therefore "
@@ -1585,7 +1585,7 @@ def _e8_section(inputs: Dict[str, str]) -> List[str]:
         f"and never a size mismatch, and `exact` is exhaustive search over "
         f"every subset of that size rather than a second heuristic. Section "
         f"30 also lists intrinsic response dimension as an axis; it is not "
-        f"swept separately because it is not free — the judge cloud spans the "
+        f"swept separately because it is not free. The judge cloud spans the "
         f"affine hull of the archetypes, so its dimension is exactly the "
         f"archetype count minus one."
     )
@@ -1686,8 +1686,8 @@ def _e8_section(inputs: Dict[str, str]) -> List[str]:
     lines.append(
         f"Violation rate {worst_violation:.0%} at every tolerance, with the "
         f"TEST error exceeding the CERT error by at most {worst_drift:.1e}. "
-        f"Here sampling noise is the only thing that can cause a violation — "
-        f"there is no distribution shift and no model error — so this "
+        f"Here sampling noise is the only thing that can cause a violation, "
+        f"there is no distribution shift and no model error, so this "
         f"calibrates the certificate under ideal conditions and says nothing "
         f"about how it behaves under the shift E7 measures. C7 remains the "
         f"statement about real judges."
@@ -1714,7 +1714,7 @@ def _e8_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _backbone_section(inputs: Dict[str, str]) -> List[str]:
-    lines = ["## Backbone — which judges every optimal panel must contain", ""]
+    lines = ["## Backbone: which judges every optimal panel must contain", ""]
     lines.append("**Question.** Section 20 asks the panel to be split three "
                  "ways at each tolerance: judges in *every* minimum panel "
                  "(mandatory backbone), judges in *some* (optional "
@@ -1731,7 +1731,7 @@ def _backbone_section(inputs: Dict[str, str]) -> List[str]:
         f"**Method.** This is a statement about all optima, so it cannot be "
         f"read off one greedy run. Every panel of the smallest feasible size "
         f"is enumerated and scored, which is affordable because the error is "
-        f"monotone — adding a judge can never raise it — so any superset of an "
+        f"monotone, adding a judge can never raise it, so any superset of an "
         f"infeasible panel is infeasible too and never has to be fitted. "
         f"`certified` records that the size below k* was enumerated in full "
         f"and came back empty, which is what makes k* a minimum rather than "
@@ -1793,7 +1793,7 @@ def _backbone_section(inputs: Dict[str, str]) -> List[str]:
 
 
 def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
-    """Panel, contexts, splits and bootstrap size — what every claim below shares."""
+    """Panel, contexts, splits and bootstrap size: what every claim below shares."""
     if not os.path.exists(inputs["c3"]):
         return []
 
@@ -1802,7 +1802,7 @@ def _setup_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     lines = [
         "## Setup",
         "",
-        f"- Judges: {len(block['judges'])} — {', '.join(block['judges'])}",
+        f"- Judges: {len(block['judges'])}: {', '.join(block['judges'])}",
         f"- Contexts per judge: {len(block['contexts'])}",
         # Rows, not base items: one base item yields up to two comparison pairs
         # and both land in the same split, so these counts are roughly twice the
@@ -1954,7 +1954,7 @@ def _compliance_section(inputs: Dict[str, str]) -> List[str]:
         "manufacture a strong application claim, and the C2 section does that: "
         "the panel is less mutually redundant than the target assumed, and the "
         "floor at k = 19 says so directly. The other Tier C symptoms do not "
-        "hold here — reconstruction does beat the physical subset downstream, "
+        "hold here: reconstruction does beat the physical subset downstream, "
         "the non-composability and exchange results are clear, and the "
         "selected sets are stable across all five split seeds."
     )
@@ -1964,7 +1964,7 @@ def _compliance_section(inputs: Dict[str, str]) -> List[str]:
 
 def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines = [
-        f"# EPCRC results — {panel}",
+        f"# EPCRC results: {panel}",
         "",
         f"Generated {prov['generated_utc']} from commit `{prov['git_commit'][:12]}`"
         f" on branch `{prov['git_branch']}`"
@@ -2011,12 +2011,12 @@ def build_summary(panel: str, inputs: Dict[str, str], prov: dict) -> str:
         "",
         "## Package contents",
         "",
-        "- `tables/` — every reported number as CSV",
-        "- `figures/` — the figures, drawn from those same tables",
-        "- `raw/` — the unmodified experiment output the tables are derived from",
-        "- `gates/` — the G0-G2 gate records for this panel",
-        "- `notebooks/` — the analysis notebooks as HTML, readable without Jupyter",
-        "- `manifest.json` — SHA-256 of every file, plus commit and versions",
+        "- `tables/`: every reported number as CSV",
+        "- `figures/`: the figures, drawn from those same tables",
+        "- `raw/`: the unmodified experiment output the tables are derived from",
+        "- `gates/`: the G0-G2 gate records for this panel",
+        "- `notebooks/`: the analysis notebooks as HTML, readable without Jupyter",
+        "- `manifest.json`: SHA-256 of every file, plus commit and versions",
         "",
         "Tables and figures are produced by `epcrc/report.py` and "
         "`epcrc/figures.py`, which are also what the notebooks call, so a number "
@@ -2096,7 +2096,7 @@ def build_final_report(panel: str, inputs: Dict[str, str], prov: dict) -> str:
     lines = [
         "# Final Report",
         "",
-        f"Certified compression of an LLM judge panel — {panel}. Generated "
+        f"Certified compression of an LLM judge panel: {panel}. Generated "
         f"{prov['generated_utc']} from commit `{prov['git_commit'][:12]}` on "
         f"branch `{prov['git_branch']}`.",
         "",
@@ -2206,7 +2206,7 @@ def _completeness_section(panel: str, inputs: Dict[str, str]) -> List[str]:
     lines.append(
         f"The response grid is {len(scored)} judges x "
         f"{len(block['contexts'])} contexts x {pairs} comparison pairs, and "
-        f"every cell in it was scored — no judge is missing a context and no "
+        f"every cell in it was scored. No judge is missing a context and no "
         f"context is missing an item. Judges answer on the three-class "
         f"simplex, so a cell is a distribution and not a single label."
     )
@@ -2576,7 +2576,9 @@ def export(panel: str, out_dir: Optional[str] = None,
                     f"epcrc_results_{panel}", os.path.relpath(full, out_dir)))
 
     size_mb = os.path.getsize(zip_path) / 1e6
-    print(f"\nwrote {zip_path}  ({size_mb:.1f} MB)")
+    # Reported relative to the repository root: the absolute path depends on the
+    # machine the analysis ran on and does not belong in a committed notebook.
+    print(f"\nwrote {os.path.relpath(zip_path, ROOT)}  ({size_mb:.1f} MB)")
     return zip_path
 
 

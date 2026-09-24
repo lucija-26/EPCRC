@@ -6,8 +6,8 @@ choices a reader cannot recover from the code alone: where the plan left a
 choice open, where it named something this run could not do, and where the
 data made a predeclared setting uninformative.
 
-Engineering-only changes — file names, caching, bug fixes that change no
-reported number — are in the commit history, not here. Where a decision changed
+Engineering-only changes, file names, caching, bug fixes that change no
+reported number, are in the commit history, not here. Where a decision changed
 a number that appears in the report, the effect is stated.
 
 Format of each entry: what the plan said, what was done, why, and what it costs
@@ -59,8 +59,8 @@ throughout so no reader has to reconcile two naming schemes.
 **Plan.** Section 42 budgets the compute; sections 13 and 14 fix the benchmark
 and the pair construction.
 
-**Done.** The reported grid is 20 judges by 7 contexts by 3724 comparison pairs
-— about 521,000 scored prompts — produced in a single pass on rented GPU time
+**Done.** The reported grid is 20 judges by 7 contexts by 3724 comparison pairs,
+about 521,000 scored prompts, produced in a single pass on rented GPU time
 and cached. Every experiment after that reads the cache and runs on CPU.
 
 **Why.** The scoring pass is the only expensive step in the project, and on a
@@ -349,7 +349,7 @@ does not separate. E8's absence is recorded in the compliance section.
 **Plan.** Section 29 names JudgeBench and JuStRank as the transfer benchmarks
 and lists three settings.
 
-**Done.** All three settings are implemented — frozen basis with frozen
+**Done.** All three settings are implemented: frozen basis with frozen
 weights, frozen basis with refitted weights on a calibration sample, and oracle
 reselection as a diagnostic. Only JudgeBench is used.
 

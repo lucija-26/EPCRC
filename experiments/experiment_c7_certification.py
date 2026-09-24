@@ -1,4 +1,4 @@
-"""E5 — certification reliability (plan section 27, claim C7).
+"""E5: certification reliability (plan section 27, claim C7).
 
 C7 says a pruning rule that certifies on an independent split with a
 simultaneous upper confidence bound should violate its stated tolerance about

@@ -1,11 +1,9 @@
 """EPCRC: Ecosystem Pruning via Convex Routing Coverage.
 
-Minimal implementation for Section 4.1 backward elimination.
+Certified compression of LLM judge panels by joint behavioural coverage.
 """
 
-from .core import Intervention, ModelUnit, Scalarizer
 from .coverage import CoverageFunctional, SubstitutionCertificate
-from .ecosystem import Ecosystem
 from .judge import (
     JudgeCoverageFunctional,
     JudgeResponses,
@@ -66,10 +64,6 @@ from .pruning import (
 __all__ = [
     "CoverageFunctional",
     "SubstitutionCertificate",
-    "Intervention",
-    "ModelUnit",
-    "Scalarizer",
-    "Ecosystem",
     "JudgeCoverageFunctional",
     "JudgeResponses",
     "context_errors",

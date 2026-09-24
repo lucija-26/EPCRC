@@ -11,10 +11,10 @@ q -> a + s (q - a) with s in (0, 1].  A contraction toward an interior point
 maps the triangle into itself, so every generated row is a valid distribution
 with no clipping, and being affine it leaves all convexity relations intact.
 
-  * `duplicated_extremes` — every judge is individually redundant (its twin
+  * `duplicated_extremes`: every judge is individually redundant (its twin
     covers it exactly) yet one representative of each extreme must remain, so
     the naive simultaneous removal leaves nothing and the composition gap is 3.
-  * `curved_arc` — judges evenly spaced on a circular arc.  A judge's neighbours
+  * `curved_arc`: judges evenly spaced on a circular arc.  A judge's neighbours
     miss it by the sagitta of the chord, which shrinks like k^-2 in the number
     of judges, giving a smooth family of near-redundant panels.
 

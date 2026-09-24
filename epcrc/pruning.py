@@ -167,7 +167,7 @@ class ForwardSelectionPruner:
             )
 
             if best_coverage <= self.gamma:
-                # Coverage satisfied — done
+                # Coverage satisfied, done
                 return self._finalize(S, history, it, debug)
 
 
@@ -375,7 +375,7 @@ class PriorityQueuePruner:
     add invalidates it -- so this computes the same set as plain forward
     selection, modulo gain-tie ordering.  Kept as-is to preserve verified results.
 
-    Phase 2 (backward / prune): Greedy sweep — remove any model from S whose
+    Phase 2 (backward / prune): Greedy sweep. Remove any model from S whose
     removal keeps E(S) <= gamma.
 
     Phase 3 (k-swap, optional): Escape the Phase 2 single-deletion optimum with
@@ -513,12 +513,12 @@ class PriorityQueuePruner:
                     )
 
                 if E_current <= self.gamma:
-                    # Coverage satisfied — exit phase 1
+                    # Coverage satisfied, exit phase 1
                     if debug:
                         print(f"[Phase 1] E(S)={E_current:.6f} <= gamma={self.gamma} -> DONE")
                     phase1_done = True
             else:
-                # Stale entry — recompute gain with current S
+                # Stale entry, recompute gain with current S
                 E_with_m, _ = self.coverage_fn.compute_coverage(S | {m_idx})
                 new_gain = E_current - E_with_m
                 heapq.heappush(heap, (-new_gain, timestamp, m_idx, generation))

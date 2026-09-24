@@ -33,7 +33,7 @@ UCloud → Jobs → **gpu-nvidia-b200**
 |---|---|---|
 | Hours | 24 | Billed on actual runtime; this is a ceiling, not a charge |
 | Nodes | 1 | Nothing here is multi-node |
-| Machine | 1 full B200 | Not a MIG slice — a slice will not hold a 14B judge comfortably |
+| Machine | 1 full B200 | Not a MIG slice, a slice will not hold a 14B judge comfortably |
 | Drive | mount Member Files (⌘⌥S) | Otherwise everything vanishes when the job ends |
 | SSH | enable (⌘⌥C) | Needed to run anything interactively |
 
@@ -49,7 +49,7 @@ The port is shown on the running job's page.
 
 ## 2. Set up the environment
 
-`/work` itself is rewritten per job — the job scripts and logs at its top level
+`/work` itself is rewritten per job. The job scripts and logs at its top level
 belong to the current job only. The *persistent* member-files drive is the
 folder inside it, `/work/Lucija`. Everything expensive goes there.
 
@@ -85,7 +85,7 @@ export HF_HOME=/work/Lucija/hf
 ```
 
 Five of the twenty repos are gated (J07, J08 Llama; J09, J10 Gemma; J19 Aya).
-Log in once — the token is written into `$HF_HOME/token`, so it survives job
+Log in once. The token is written into `$HF_HOME/token`, so it survives job
 restarts along with the cache and does not have to be re-exported:
 
 ```bash
@@ -103,7 +103,7 @@ Then build the pair files, which are derived data and deliberately not in git:
 
 ---
 
-## 3. Gate G0 — fail cheaply
+## 3. Gate G0: fail cheaply
 
 ```bash
 .venv/bin/python -u experiments/score_panel.py --gate g0 --panel core20
@@ -127,7 +127,7 @@ hours; found now it costs a browser click.
 .venv/bin/python -u experiments/score_panel.py --gate g2 --panel core20 --max-exhaustive 0
 ```
 
-G1 is a single judge on a handful of items — it proves the parsing and scoring
+G1 is a single judge on a handful of items. It proves the parsing and scoring
 path works end to end. G2 sweeps decoding settings on a small sample.
 
 `--max-exhaustive 0` matters for the same reason it does in E1: G2 finishes by
@@ -164,7 +164,7 @@ tmux new -s score
 ```
 
 `--batch-size 64` is not optional at this scale. The default of 8 leaves a B200
-mostly idle — measured on 256 pairs, Phi-3.5-mini goes 1.7 → 17.0 pairs/s from
+mostly idle: measured on 256 pairs, Phi-3.5-mini goes 1.7 → 17.0 pairs/s from
 bs=8 to bs=32, and Qwen2.5-14B goes 5.1 → 8.2 at bs=64 before regressing at 128.
 Small judges saturate at 32 and the 14B peaks at 64, so 64 is the single best
 choice for a mixed panel. It turns a ~18–27 hour pass, which would not fit in
@@ -172,7 +172,7 @@ the job, into ~6–7 hours at a sustained ~21 pairs/s.
 
 `--scores-only` stops once every block is written. Without it the run ends by
 driving the pruners over all 3724 pairs, which costs many hours and re-tests the
-pipeline rather than the data — G2 on the 100-item sample already did that.
+pipeline rather than the data. G2 on the 100-item sample already did that.
 
 Writes one JSON per (judge, context) into `results/core20/scores/`. The run is
 resumable: an existing block is skipped, so an interruption costs only the
@@ -188,7 +188,7 @@ ls results/core20/scores/*.json | wc -l     # target: 20 judges x 7 contexts = 1
 
 ## 6. Run the claims
 
-All CPU — no GPU needed once scoring is done. Everything here reads the cached
+All CPU, no GPU needed once scoring is done. Everything here reads the cached
 response tensor from step 5, so the GPU can be idle for the whole of this
 section. Run detached.
 
@@ -202,8 +202,8 @@ nohup sh -c '
 ' > claims.log 2>&1 &
 ```
 
-C3 runs last deliberately: it is the slowest — 6090 s (1 h 41 m) on the
-19-judge panel — and the ones before it are what the notebooks read first, so
+C3 runs last deliberately: it is the slowest, 6090 s (1 h 41 m) on the
+19-judge panel, and the ones before it are what the notebooks read first, so
 a failure surfaces early rather than after the long wait.
 
 C6 and C7 both parallelise internally, so they go in their own chain rather
@@ -232,7 +232,7 @@ Notes:
   intent explicit. Either way the exhaustive row is absent from the Core-20
   tables, which is expected and is stated in the summary.
 - The one place this was *not* guarded was `score_panel.py`, where G2 finished
-  all its GPU work and then enumerated forever — hence `--max-exhaustive` there
+  all its GPU work and then enumerated forever, hence `--max-exhaustive` there
   too, and the `exhaustive_enumerated` flag in `g2.json`.
 - E0 also sweeps the leave-one-out breakpoints, which is where C1 gets its
   evidence when the predeclared gamma grid is too tight for the panel.
@@ -264,7 +264,7 @@ tmux new -s transfer
 
 `--dataset judgebench` is not optional and is not cosmetic. Blocks are cached as
 `{judge}__{context}.json` with no benchmark in the name, so without it this run
-would overwrite `results/core20/scores/` — the blocks every other claim is
+would overwrite `results/core20/scores/`, the blocks every other claim is
 computed from. With it, the blocks go to `results/core20_judgebench/scores/` and
 the pairs come from `data/judgebench_pairs_seed*.jsonl`.
 
@@ -293,14 +293,14 @@ EPCRC_PANEL=core20 .venv/bin/python -m nbconvert --to notebook --execute \
 ```
 
 The notebook reads `EPCRC_PANEL` and defaults to `core8`, so nothing has to be
-edited by hand — and the server's working tree stays clean apart from the
+edited by hand, and the server's working tree stays clean apart from the
 executed outputs.
 
 Produces `results/export/epcrc_results_core20_<date>.zip` containing
 `tables/`, `figures/`, `raw/`, `notebooks/`, `SUMMARY.md` and a `manifest.json`
 with a SHA-256 per file plus the git commit.
 
-Copy it off the job before shutting down — the container filesystem does not
+Copy it off the job before shutting down. The container filesystem does not
 survive, only the mounted drive does.
 
 ---
@@ -317,7 +317,7 @@ early is the whole saving.
 | Symptom | Cause | Fix |
 |---|---|---|
 | G0 says a repo is gated | Licence not accepted for that model | Accept it on the model's HF page with the same account as `HF_TOKEN` |
-| A repo that worked before returns 401 | The command ran in a shell that never got `HF_HOME` — `nohup sh -c ...`, `ssh host "..."` and cron do not read your profile | Export `HF_HOME=/work/Lucija/hf` inside the command itself, not before it |
+| A repo that worked before returns 401 | The command ran in a shell that never got `HF_HOME`, `nohup sh -c ...`, `ssh host "..."` and cron do not read your profile | Export `HF_HOME=/work/Lucija/hf` inside the command itself, not before it |
 | Out of memory on a 14B judge | Another judge's weights still resident | Add `--evict` to drop weights between judges |
 | Scoring restarted from zero | `HF_HOME` was not on `/work` | Re-export it; already-written score blocks are still skipped |
 | E1 appears to hang | `--max-exhaustive` left at its default | Rerun with `--max-exhaustive 0` |
@@ -334,10 +334,10 @@ rather than findings:
   leave-one-out error was 0.241 while the grid stops at 0.20. With 20 judges
   and several within-family pairs, leave-one-out errors should fall
   substantially and the declared grid should start doing work.
-- **C3** could not separate coverage from the strongest geometric baseline —
-  their bootstrap intervals overlap. At N=8 there are few distinct subsets to
+- **C3** could not separate coverage from the strongest geometric baseline.
+  Their bootstrap intervals overlap. At N=8 there are few distinct subsets to
   choose between; at N=20 there are many, which is where a selection rule can
   actually show an advantage.
 
 Both are stated as open in the current summary. Core-20 is what settles them,
-either way — and a negative result stated clearly is still a result.
+either way, and a negative result stated clearly is still a result.

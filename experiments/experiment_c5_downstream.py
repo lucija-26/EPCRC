@@ -1,4 +1,4 @@
-"""E2 — downstream preservation (plan section 24, claim C5).
+"""E2: downstream preservation (plan section 24, claim C5).
 
 C5 asks whether aggregations computed from the *reconstructed* panel match
 aggregations computed from the actual full panel: preference accuracy within a
