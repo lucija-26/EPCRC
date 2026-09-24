@@ -42,7 +42,7 @@ imputed:
 | Finding | Number |
 | --- | --- |
 | Joint deletion breaks the tolerance | 86 of 95 audited cases |
-| Overdeletion by the one-at-a-time audit at the predeclared `gamma = 0.2` | exactly 1 judge (17 returned, 18 certified minimal) |
+| Overdeletion by the one-at-a-time audit at the predeclared `gamma = 0.2` | one judge: the 17 it returns violate the tolerance, 18 is the smallest that does not |
 | Coverage vs. the best of 11 baselines, worst-judge worst-context TV | 0.363 vs. 0.404 (pivoted QR) |
 | Significant losses to any baseline | all at panels of 4 judges or fewer |
 | Backward elimination reaches the certified optimum | 80% of instances, vs. 20% for forward selection |

@@ -534,8 +534,11 @@ def _c3_paired_section(inputs: Dict[str, str]) -> List[str]:
             f"coverage, and every "
             f"one of them sits at {where}, the smallest budgets on the grid. "
             f"The baselines that win there are {', '.join(losers)}. From "
-            f"k = {max(budgets) + 1} upward coverage is not beaten by any "
-            f"baseline in any seed. Backward elimination has almost nothing to "
+            f"k = {max(budgets) + 1} upward no loss is decided against "
+            f"coverage. Point estimates still go the wrong way in a few cells "
+            f"above that budget, so what holds there is that coverage is "
+            f"never significantly beaten, not that it always wins. "
+            f"Backward elimination has almost nothing to "
             f"remove at two or three judges, so the greedy order it produces "
             f"carries little information; that is a real limit of the method "
             f"and not a sampling accident, since the losses are unanimous "
@@ -1105,25 +1108,27 @@ def _e7_section(inputs: Dict[str, str]) -> List[str]:
     lines.append("")
 
     if len(calib):
-        ordered = calib.sort_values("calibration_pairs")
-        smallest, largest = ordered.iloc[0], ordered.iloc[-1]
-        gain = float(largest["gain_over_frozen"])
+        # One gain per calibration size, averaged over budgets. Reading a
+        # single row at each end would compare two different budgets.
+        by_size = calib.groupby("calibration_pairs")["gain_over_frozen"].mean()
+        smallest_n, largest_n = int(by_size.index[0]), int(by_size.index[-1])
+        gain = float(by_size.iloc[-1])
         if gain > 0:
             lines.append(
                 f"**Calibration efficiency.** Refitting only the weights "
-                f"recovers {gain:.4f} TV at "
-                f"{int(largest['calibration_pairs'])} calibration pairs, "
-                f"against {float(smallest['gain_over_frozen']):.4f} at "
-                f"{int(smallest['calibration_pairs'])}. The basis is the "
+                f"recovers {gain:.4f} TV at {largest_n} calibration pairs, "
+                f"against {float(by_size.iloc[0]):.4f} at {smallest_n}, "
+                f"averaged over budgets. The basis is the "
                 f"expensive object and it is the part that travels; the "
                 f"weights are cheap to replace."
             )
         else:
             lines.append(
                 f"**Calibration efficiency, as a negative result.** Refitting "
-                f"the weights on up to {int(largest['calibration_pairs'])} "
+                f"the weights on up to {largest_n} "
                 f"pairs of the new benchmark does not improve on the frozen "
-                f"weights ({gain:.4f} TV). The weights fitted in domain are "
+                f"weights ({gain:.4f} TV averaged over budgets). The weights "
+                f"fitted in domain are "
                 f"already as good as this much calibration data can make them, "
                 f"so the sample-efficiency curve has nothing to climb."
             )
