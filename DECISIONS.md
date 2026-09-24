@@ -39,10 +39,13 @@ panels can be compared, but they are never mixed into a Core-20 table.
 **Plan.** Section 10's table names 20 judges.
 
 **Done.** J07's weights were gated on Hugging Face and the first full run went
-ahead on 19 judges rather than wait. Access was granted later and J07 was
-scored, so the reported panel is all 20. The 19-judge run is kept in
-`results/archive_19judge/` for comparison and `docs/PANEL_19_VS_20.md` records
-what the twentieth judge changed.
+ahead on 19 judges rather than wait. Access was granted later, J07 was scored,
+and the whole chain was re-run, so every number in this repository comes from
+the complete 20-judge panel. The two runs were compared before the 19-judge one
+was discarded: the subset selected at every budget from 1 to 18 judges is
+identical judge for judge, the worst-judge worst-context errors agree to four
+decimals up to k = 17, and no claim changes verdict. The twentieth judge only
+moves the top of the budget range.
 
 **Why.** Waiting on an access request would have blocked every downstream
 experiment. Running short and saying so was preferable to substituting a judge

@@ -102,9 +102,6 @@ mixing weights do not and must be recalibrated.
 │
 ├── tests/                     # 334 tests, including solver cross-checks against an exact LP
 ├── data/                      # split manifests with SHA-256 over the item ids (pairs are regenerated)
-├── docs/
-│   ├── SERVER_RUNBOOK.md      # the Core-20 GPU scoring procedure, start to finish
-│   └── PANEL_19_VS_20.md      # why one judge is gated out and what that costs
 ├── DECISIONS.md               # every scientific choice, recorded before results were inspected
 ├── requirements.txt           # CPU: all analysis, tables and figures
 └── requirements-scoring.txt   # GPU: only needed to run the judges themselves
@@ -125,9 +122,9 @@ pip install -r requirements.txt
 ```
 
 Core requirements are numpy, scipy, pandas, scikit-learn, joblib and
-matplotlib. Running the judges additionally needs
-`requirements-scoring.txt`; see `docs/SERVER_RUNBOOK.md` for the GPU procedure
-and the CUDA 12.8 caveat on Blackwell.
+matplotlib. Running the judges additionally needs `requirements-scoring.txt`.
+On Blackwell (sm_100) the default PyPI torch wheel does not build for the
+architecture, so install torch from the cu128 index before that file.
 
 ## Reproducing the results
 
@@ -136,14 +133,22 @@ that is expensive. Everything after it is CPU analysis over the cached tensor.
 
 ```bash
 # 1. Build the judged pairs and the split manifests (CPU, minutes)
-python experiments/build_rewardbench_pairs.py
+python experiments/build_rewardbench_pairs.py --all-seeds
 python experiments/build_judgebench_pairs.py
 
-# 2. Score the 20 judges under 7 contexts, behind gates G0/G1/G2 (GPU, hours)
-python -u experiments/score_panel.py --panel core20
+# 2. Score the 20 judges under 7 contexts (GPU, hours). One gate per call:
+#    G0 checks the protocol, G1 the label extractor, G2 writes the tensor.
+python -u experiments/score_panel.py --gate g0 --panel core20
+python -u experiments/score_panel.py --gate g1
+python -u experiments/score_panel.py --gate g2 --panel core20 \
+        --items 4000 --batch-size 64 --scores-only
+
+#    The E7 transfer set is scored into its own cache, never over the above.
+python -u experiments/score_panel.py --gate g2 --panel core20 \
+        --dataset judgebench --items 620 --batch-size 64 --scores-only
 
 # 3. Each claim, in any order (CPU)
-python experiments/experiment_e0_noncomposability.py     --panel core20
+python experiments/experiment_e0_noncomposability.py     --real --panel core20
 python experiments/experiment_e1_compression_frontier.py --panel core20
 python experiments/experiment_c3_baselines.py            --panel core20
 python experiments/experiment_c4_stress_specialists.py   --panel core20
@@ -151,7 +156,8 @@ python experiments/experiment_c5_downstream.py           --panel core20
 python experiments/experiment_c6_exchange.py             --panel core20
 python experiments/experiment_c7_certification.py        --panel core20
 python experiments/experiment_e6_sparse_cost.py          --panel core20
-python experiments/experiment_e7_transfer.py             --dataset judgebench
+python experiments/experiment_e7_transfer.py             --panel core20
+python experiments/experiment_backbone.py                --panel core20
 python experiments/experiment_e8_synthetic.py
 
 # 4. Tables, figures and the delivery zip

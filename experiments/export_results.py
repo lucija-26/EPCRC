@@ -2367,6 +2367,7 @@ REPRODUCTION_SCRIPTS = [
     ("experiment_c6_exchange.py", ""),
     ("experiment_c7_certification.py", ""),
     ("experiment_e6_sparse_cost.py", ""),
+    ("experiment_e7_transfer.py", ""),
     ("experiment_backbone.py", ""),
     ("experiment_e8_synthetic.py", ""),
     ("export_results.py", ""),
@@ -2400,8 +2401,12 @@ def _reproduction_section(panel: str) -> List[str]:
         *[command(name, flags) for name, flags in REPRODUCTION_SCRIPTS],
         "```",
         "",
-        "`docs/SERVER_RUNBOOK.md` has the full procedure including gates "
-        "G0-G2 and the E7 transfer scoring.",
+        "`score_panel.py` runs one gate per invocation, so the production "
+        "pass is `--gate g0`, then `--gate g1`, then the `--gate g2` line "
+        "above. The E7 transfer set is built by "
+        "`build_judgebench_pairs.py` and scored by the same script with "
+        "`--dataset judgebench`, which keeps its response blocks out of the "
+        "RewardBench cache.",
         "",
     ]
 
