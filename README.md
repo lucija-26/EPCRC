@@ -208,9 +208,3 @@ print(sorted(result.kept_set), result.coverage)
 To audit your own panel, build a `JudgeResponses` from per-context blocks of
 per-item class probabilities, each of shape `(n_items, n_judges, 3)` with the
 last axis summing to one, and the same code applies.
-
-## Citation
-
-```
-To be announced.
-```
