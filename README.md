@@ -33,6 +33,16 @@ monotone, so a single evaluation at any subset is a floor on every subset
 inside it, which is what turns an exhaustive search into a certificate rather
 than a heuristic.
 
+### A three-judge example
+
+Judges 1 and 2 always answer "A is better"; judge 3 always answers "B is
+better". Hold out judge 1 and judge 2 reproduces it exactly, so its error is 0.
+Hold out judge 2 and judge 1 reproduces it, error 0 again. Both one-at-a-time
+checks pass, yet dropping both leaves only judge 3, whose answers are the
+opposite: total variation 1, the worst possible. Each check assumed the other
+judge would still be there. `E(S)` evaluates the set that is actually kept, so
+it rejects this deletion.
+
 ### Headline results
 
 Measured on a fully scored response tensor of 20 open-weight judges, 7 prompt
