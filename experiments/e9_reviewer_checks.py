@@ -1,0 +1,149 @@
+"""Reviewer-style follow-up checks on E9 (supporting analyses, not the protocol's main run).
+
+Each check answers one question a skeptical reviewer could ask.  All fits are
+on FIT; nothing is tuned on CERT/TEST.
+
+  R1  Is the increase driven by one context?  -> mean-over-contexts error
+      (instead of the worst context) for individual vs triple.
+  R2  What does +0.05 TV mean in decisions?   -> argmax-verdict agreement
+      between each judge and its reconstruction, individual vs triple.
+  R3  Is the failure an artefact of fixed weights across contexts?
+      -> a richer decoder: a separate convex weight vector per context
+         (still fitted on F only), individual vs triple.
+  R4  Who are the survivor donors?            -> top survivor weights per
+      target in the singleton and triple fits.
+  R5  At what tolerance would the triple pass? -> the smallest gamma the
+      triple meets on F and on V, per split.
+
+Writes results/joint_removal_audit/reviewer_checks.json and REVIEWER_CHECKS.md.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+
+import numpy as np
+import pandas as pd
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+
+from epcrc import joint_removal as jr  # noqa: E402
+from epcrc.judge import JudgeResponses, solve_minimax_weights  # noqa: E402
+from epcrc.panel import CORE20, SPLIT_SEEDS, load_panel, scores_dir  # noqa: E402
+from epcrc.rewardbench import PRIMARY_SEED  # noqa: E402
+
+RES = os.path.join(ROOT, "results", "joint_removal_audit")
+TARGETS = ["J07", "J08", "J11"]
+GAMMA = 0.20
+PARTS = {"F": "FIT", "V": "CERT", "T": "TEST"}
+
+
+def main():
+    wz = np.load(os.path.join(RES, "weights.npz"))
+    r1, r2, r3, r4, r5 = [], [], [], [], []
+    for seed in SPLIT_SEEDS:
+        panel = load_panel(PRIMARY_SEED, scores_dir("core20"), split_seed=seed)
+        ids = panel.judge_ids
+        idx = {t: ids.index(t) for t in TARGETS}
+        P = {q: jr.dense(panel.splits[n]) for q, n in PARTS.items()}
+        trip = "+".join(TARGETS)
+        rem = [idx[t] for t in TARGETS]
+        surv = [j for j in range(len(ids)) if j not in rem]
+        for t in TARGETS:
+            i = idx[t]
+            w_ind = wz[f"{seed}|{t}|{t}"]
+            w_tri = wz[f"{seed}|{trip}|{t}"]
+            for q in ("V", "T"):
+                y = P[q][i]
+                for arm, w in (("individual", w_ind), ("triple", w_tri)):
+                    pred = np.einsum("j,jcnd->cnd", w, P[q])
+                    ctx = jr.tv(y, pred).mean(-1)
+                    agree = (pred.argmax(-1) == y.argmax(-1)).mean(-1)   # per context
+                    r1.append({"split_seed": seed, "partition": q, "target": t, "arm": arm,
+                               "mean_context_tv": float(ctx.mean()), "worst_context_tv": float(ctx.max())})
+                    r2.append({"split_seed": seed, "partition": q, "target": t, "arm": arm,
+                               "verdict_agreement_mean": float(agree.mean()),
+                               "verdict_agreement_worst_context": float(agree.min())})
+            # R3: per-context weights, fitted on F context by context
+            for arm, donors in (("individual", [j for j in range(len(ids)) if j != i]), ("triple", surv)):
+                errs = {q: [] for q in ("F", "V", "T")}
+                for c in range(len(panel.context_names)):
+                    fitc = JudgeResponses([panel.splits["FIT"].blocks[c]])
+                    _, w = solve_minimax_weights(fitc, i, donors)
+                    row = np.zeros(len(ids))
+                    row[donors] = w
+                    for q in errs:
+                        pred = np.einsum("j,jnd->nd", row, P[q][:, c])
+                        errs[q].append(float(jr.tv(P[q][i, c], pred).mean()))
+                r3.append({"split_seed": seed, "target": t, "arm": arm,
+                           **{f"worst_context_{q}": max(v) for q, v in errs.items()}})
+            # R4: top survivor donors
+            for arm, w in (("individual", w_ind), ("triple", w_tri)):
+                top = np.argsort(-w)[:4]
+                r4.append({"split_seed": seed, "target": t, "arm": arm,
+                           "top_donors": [(ids[j], CORE20[ids[j]], round(float(w[j]), 4)) for j in top if w[j] > 0]})
+        # R5
+        cov = pd.read_csv(os.path.join(RES, "coverage_errors.csv"))
+        for q in ("F", "V", "T"):
+            e = cov[(cov.split_seed == seed) & (cov.partition == q) & (cov.removal_set == trip)].E_refit.iloc[0]
+            r5.append({"split_seed": seed, "partition": q, "smallest_gamma_triple_meets": float(e)})
+
+    doc = {"R1_mean_over_contexts": r1, "R2_verdict_agreement": r2,
+           "R3_per_context_weights": r3, "R4_top_donors": r4, "R5_threshold": r5}
+    with open(os.path.join(RES, "reviewer_checks.json"), "w") as f:
+        json.dump(doc, f, indent=1)
+
+    d1, d2, d3 = pd.DataFrame(r1), pd.DataFrame(r2), pd.DataFrame(r3)
+    lines = ["# Reviewer-style checks (supporting, generated by experiments/e9_reviewer_checks.py)\n"]
+
+    lines.append("## R1. Mean over contexts instead of the worst context (per target, range over 5 splits)\n")
+    lines.append("| Q | target | individual | triple | increase |")
+    lines.append("|---|---|---|---|---|")
+    for q in ("V", "T"):
+        for t in TARGETS:
+            a = d1[(d1.partition == q) & (d1.target == t) & (d1.arm == "individual")].sort_values("split_seed")
+            b = d1[(d1.partition == q) & (d1.target == t) & (d1.arm == "triple")].sort_values("split_seed")
+            inc = b.mean_context_tv.values - a.mean_context_tv.values
+            lines.append(f"| {q} | {t} | {a.mean_context_tv.min():.4f}-{a.mean_context_tv.max():.4f} | "
+                         f"{b.mean_context_tv.min():.4f}-{b.mean_context_tv.max():.4f} | {inc.min():+.4f} to {inc.max():+.4f} |")
+
+    lines.append("\n## R2. Argmax-verdict agreement between each judge and its reconstruction (mean over contexts; range over 5 splits)\n")
+    lines.append("| Q | target | individual | triple | change (points) |")
+    lines.append("|---|---|---|---|---|")
+    for q in ("V", "T"):
+        for t in TARGETS:
+            a = d2[(d2.partition == q) & (d2.target == t) & (d2.arm == "individual")].sort_values("split_seed")
+            b = d2[(d2.partition == q) & (d2.target == t) & (d2.arm == "triple")].sort_values("split_seed")
+            ch = 100 * (b.verdict_agreement_mean.values - a.verdict_agreement_mean.values)
+            lines.append(f"| {q} | {t} | {a.verdict_agreement_mean.min():.3f}-{a.verdict_agreement_mean.max():.3f} | "
+                         f"{b.verdict_agreement_mean.min():.3f}-{b.verdict_agreement_mean.max():.3f} | {ch.min():+.1f} to {ch.max():+.1f} |")
+
+    lines.append("\n## R3. Richer decoder: a separate weight vector per context (fitted on F), coverage error = max over targets of worst context\n")
+    lines.append("| split | Q | individual (max over trio) | triple | increase | triple passes 0.20 |")
+    lines.append("|---|---|---|---|---|---|")
+    for seed in SPLIT_SEEDS:
+        for q in ("F", "V", "T"):
+            a = d3[(d3.split_seed == seed) & (d3.arm == "individual")][f"worst_context_{q}"].max()
+            b = d3[(d3.split_seed == seed) & (d3.arm == "triple")][f"worst_context_{q}"].max()
+            lines.append(f"| {seed} | {q} | {a:.4f} | {b:.4f} | {b - a:+.4f} | {'yes' if b <= GAMMA else 'no'} |")
+
+    lines.append("\n## R4. Top donors, split 20260818\n")
+    for r in r4:
+        if r["split_seed"] == PRIMARY_SEED:
+            lines.append(f"- {r['target']} ({r['arm']}): " + ", ".join(f"{a} {b.split('/')[-1]} {w}" for a, b, w in r["top_donors"]))
+
+    lines.append("\n## R5. Smallest tolerance the triple would meet (= its coverage error)\n")
+    d5 = pd.DataFrame(r5)
+    for q in ("F", "V", "T"):
+        x = d5[d5.partition == q].smallest_gamma_triple_meets
+        lines.append(f"- {q}: {x.min():.4f} to {x.max():.4f}")
+    with open(os.path.join(RES, "REVIEWER_CHECKS.md"), "w") as f:
+        f.write("\n".join(lines) + "\n")
+    print("\n".join(lines))
+
+
+if __name__ == "__main__":
+    main()
