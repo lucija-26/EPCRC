@@ -1,0 +1,47 @@
+{
+  "name": "independently_assembled_small_judges8",
+  "interface": "judge",
+  "note": "Zero exact model-ID overlap with original core20; shares some families. Convenience-selected panel, not an iid population sample.",
+  "endpoints": [
+    {
+      "judge_id": "S01",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+    },
+    {
+      "judge_id": "S02",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+    },
+    {
+      "judge_id": "S03",
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "revision": "31b70e2e869a7173562077fd711b654946d38674"
+    },
+    {
+      "judge_id": "S04",
+      "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"
+    },
+    {
+      "judge_id": "S05",
+      "model_id": "allenai/OLMo-2-0425-1B-Instruct",
+      "revision": "48d788eca847d4d7548f375ad03d3c9312f6139e"
+    },
+    {
+      "judge_id": "S06",
+      "model_id": "tiiuae/Falcon3-1B-Instruct",
+      "revision": "28ba2251970a01dd1edc7ba7dad2eb71216ccfdf"
+    },
+    {
+      "judge_id": "S07",
+      "model_id": "tiiuae/Falcon3-3B-Instruct",
+      "revision": "411bb94318f94f7a5735b77109f456b1e74b42a1"
+    },
+    {
+      "judge_id": "S08",
+      "model_id": "ibm-granite/granite-3.3-2b-instruct",
+      "revision": "707f574c62054322f6b5b04b6d075f0a8f05e0f0"
+    }
+  ]
+}

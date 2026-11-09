@@ -1,0 +1,107 @@
+{
+  "name": "original_core20_remeasurement",
+  "interface": "judge",
+  "note": "Paper Table 2 revision prefixes. Lock resolves these prefixes; failure must be investigated, never silently replace with main.",
+  "endpoints": [
+    {
+      "judge_id": "J01",
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993"
+    },
+    {
+      "judge_id": "J02",
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c70"
+    },
+    {
+      "judge_id": "J03",
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "revision": "cf98f3b3bbb4"
+    },
+    {
+      "judge_id": "J04",
+      "model_id": "Qwen/Qwen3-4B",
+      "revision": "1cfa9a720891"
+    },
+    {
+      "judge_id": "J05",
+      "model_id": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46"
+    },
+    {
+      "judge_id": "J06",
+      "model_id": "Qwen/Qwen3-14B",
+      "revision": "40c069824f42"
+    },
+    {
+      "judge_id": "J07",
+      "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+      "revision": "0cb88a4f764b"
+    },
+    {
+      "judge_id": "J08",
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": "0e9e39f249a1"
+    },
+    {
+      "judge_id": "J09",
+      "model_id": "google/gemma-3-4b-it",
+      "revision": "093f9f388b31"
+    },
+    {
+      "judge_id": "J10",
+      "model_id": "google/gemma-3-12b-it",
+      "revision": "96b6f1eccf38"
+    },
+    {
+      "judge_id": "J11",
+      "model_id": "microsoft/Phi-4-mini-instruct",
+      "revision": "cfbefacb9925"
+    },
+    {
+      "judge_id": "J12",
+      "model_id": "microsoft/phi-4",
+      "revision": "2db69c1c3e91"
+    },
+    {
+      "judge_id": "J13",
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "revision": "2fe192450127"
+    },
+    {
+      "judge_id": "J14",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": "c170c708c41d"
+    },
+    {
+      "judge_id": "J15",
+      "model_id": "mistralai/Mistral-Nemo-Instruct-2407",
+      "revision": "04d8a90549d2"
+    },
+    {
+      "judge_id": "J16",
+      "model_id": "ibm-granite/granite-3.3-8b-instruct",
+      "revision": "51dd4bc2ade4"
+    },
+    {
+      "judge_id": "J17",
+      "model_id": "tiiuae/Falcon3-7B-Instruct",
+      "revision": "1e57a0ecd176"
+    },
+    {
+      "judge_id": "J18",
+      "model_id": "tiiuae/Falcon3-10B-Instruct",
+      "revision": "8799bc6aec01"
+    },
+    {
+      "judge_id": "J19",
+      "model_id": "CohereLabs/aya-expanse-8b",
+      "revision": "5062468bf9bc"
+    },
+    {
+      "judge_id": "J20",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "revision": "470b1fba1ae0"
+    }
+  ]
+}

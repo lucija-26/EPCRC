@@ -1,0 +1,54 @@
+{
+  "name": "nli4_classifiers",
+  "interface": "nli",
+  "contexts": [
+    "clean"
+  ],
+  "note": "Independent endpoints and different interface. Small initial panel, extend before broad generalization claims. MNLI validation is diagnostic, not a new untouched public benchmark.",
+  "endpoints": [
+    {
+      "judge_id": "N01",
+      "model_id": "FacebookAI/roberta-large-mnli",
+      "revision": "2a8f12d27941090092df78e4ba6f0928eb5eac98",
+      "canonical_indices": [
+        2,
+        1,
+        0
+      ],
+      "label_source": "https://huggingface.co/FacebookAI/roberta-large-mnli/blob/2a8f12d27941090092df78e4ba6f0928eb5eac98/config.json"
+    },
+    {
+      "judge_id": "N02",
+      "model_id": "microsoft/deberta-large-mnli",
+      "revision": "7296194b9009373def4f7c5dad292651e4b5cf4e",
+      "canonical_indices": [
+        2,
+        1,
+        0
+      ],
+      "label_source": "https://huggingface.co/microsoft/deberta-large-mnli/blob/7296194b9009373def4f7c5dad292651e4b5cf4e/config.json"
+    },
+    {
+      "judge_id": "N03",
+      "model_id": "cross-encoder/nli-deberta-v3-base",
+      "revision": "6c749ce3425cd33b46d187e45b92bbf96ee12ec7",
+      "canonical_indices": [
+        1,
+        2,
+        0
+      ],
+      "label_source": "https://huggingface.co/cross-encoder/nli-deberta-v3-base/blob/6c749ce3425cd33b46d187e45b92bbf96ee12ec7/config.json"
+    },
+    {
+      "judge_id": "N04",
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+      "canonical_indices": [
+        0,
+        1,
+        2
+      ],
+      "label_source": "https://huggingface.co/MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli/blob/6f5cf0a2b59cabb106aca4c287eed12e357e90eb/config.json"
+    }
+  ]
+}

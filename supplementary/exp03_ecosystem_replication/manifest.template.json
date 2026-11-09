@@ -1,0 +1,21 @@
+{
+  "note": "Replace all placeholders with actual immutable model checkpoint IDs in tensor endpoint order, and actual cache files. This file is a template, not evidence.",
+  "ecosystems": [
+    {
+      "name": "original_20_judge_panel",
+      "input": "../data/original20.npz",
+      "relationship": "original_panel",
+      "benchmark": "RewardBench2",
+      "assembly_protocol": "Copy the original frozen registry, prompt protocol and checkpoint revisions here.",
+      "model_ids": ["REPLACE_WITH_ACTUAL_ORIGINAL_MODEL_ID_1", "REPLACE_WITH_ACTUAL_ORIGINAL_MODEL_ID_2"]
+    },
+    {
+      "name": "independently_assembled_panel_a",
+      "input": "../data/independent_a.npz",
+      "relationship": "independent_ecosystem",
+      "benchmark": "Declare benchmark name, version and source revision",
+      "assembly_protocol": "Describe output-blind eligibility and selection rules, checkpoint revisions, registration time and why this is not a subset of the original panel.",
+      "model_ids": ["REPLACE_WITH_ACTUAL_NEW_MODEL_ID_1", "REPLACE_WITH_ACTUAL_NEW_MODEL_ID_2"]
+    }
+  ]
+}

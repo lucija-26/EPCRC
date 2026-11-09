@@ -1,0 +1,12 @@
+# Generated experiment outputs; keep model manifests and templates tracked.
+outputs/
+__pycache__/
+.pytest_cache/
+*.log
+*.lock
+/gpu_status.json
+/runtime/locks/
+/runtime/model_preflight.json
+/runtime/llama_preflight.json
+/runtime/access_recheck.json
+/runtime/gpu_environment_status.json

@@ -1,0 +1,127 @@
+{
+  "name": "original_core20_remeasurement",
+  "interface": "judge",
+  "note": "Paper Table 2 revision prefixes. Lock resolves these prefixes; failure must be investigated, never silently replace with main.",
+  "endpoints": [
+    {
+      "judge_id": "J01",
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "paper_revision_prefix": "aa8e72537993"
+    },
+    {
+      "judge_id": "J02",
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "paper_revision_prefix": "a09a35458c70"
+    },
+    {
+      "judge_id": "J03",
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "paper_revision_prefix": "cf98f3b3bbb4"
+    },
+    {
+      "judge_id": "J04",
+      "model_id": "Qwen/Qwen3-4B",
+      "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "paper_revision_prefix": "1cfa9a720891"
+    },
+    {
+      "judge_id": "J05",
+      "model_id": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "paper_revision_prefix": "b968826d9c46"
+    },
+    {
+      "judge_id": "J06",
+      "model_id": "Qwen/Qwen3-14B",
+      "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "paper_revision_prefix": "40c069824f42"
+    },
+    {
+      "judge_id": "J07",
+      "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+      "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+      "paper_revision_prefix": "0cb88a4f764b"
+    },
+    {
+      "judge_id": "J08",
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "paper_revision_prefix": "0e9e39f249a1"
+    },
+    {
+      "judge_id": "J09",
+      "model_id": "google/gemma-3-4b-it",
+      "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "paper_revision_prefix": "093f9f388b31"
+    },
+    {
+      "judge_id": "J10",
+      "model_id": "google/gemma-3-12b-it",
+      "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "paper_revision_prefix": "96b6f1eccf38"
+    },
+    {
+      "judge_id": "J11",
+      "model_id": "microsoft/Phi-4-mini-instruct",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "paper_revision_prefix": "cfbefacb9925"
+    },
+    {
+      "judge_id": "J12",
+      "model_id": "microsoft/phi-4",
+      "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+      "paper_revision_prefix": "2db69c1c3e91"
+    },
+    {
+      "judge_id": "J13",
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "revision": "2fe192450127e6a83f7441aef6e3ca586c338b77",
+      "paper_revision_prefix": "2fe192450127"
+    },
+    {
+      "judge_id": "J14",
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "paper_revision_prefix": "c170c708c41d"
+    },
+    {
+      "judge_id": "J15",
+      "model_id": "mistralai/Mistral-Nemo-Instruct-2407",
+      "revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+      "paper_revision_prefix": "04d8a90549d2"
+    },
+    {
+      "judge_id": "J16",
+      "model_id": "ibm-granite/granite-3.3-8b-instruct",
+      "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "paper_revision_prefix": "51dd4bc2ade4"
+    },
+    {
+      "judge_id": "J17",
+      "model_id": "tiiuae/Falcon3-7B-Instruct",
+      "revision": "1e57a0ecd176c7c139f289c60a74e57f887c3dfb",
+      "paper_revision_prefix": "1e57a0ecd176"
+    },
+    {
+      "judge_id": "J18",
+      "model_id": "tiiuae/Falcon3-10B-Instruct",
+      "revision": "8799bc6aec0152757221dc6b272d824642db6202",
+      "paper_revision_prefix": "8799bc6aec01"
+    },
+    {
+      "judge_id": "J19",
+      "model_id": "CohereLabs/aya-expanse-8b",
+      "revision": "5062468bf9bc0c6035fd64e06274333ec127d980",
+      "paper_revision_prefix": "5062468bf9bc"
+    },
+    {
+      "judge_id": "J20",
+      "model_id": "allenai/OLMo-2-1124-7B-Instruct",
+      "revision": "470b1fba1ae01581f270116362ee4aa1b97f4c84",
+      "paper_revision_prefix": "470b1fba1ae0"
+    }
+  ]
+}

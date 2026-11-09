@@ -1,0 +1,167 @@
+{
+  "note": "Frozen convenience registries and actual output locations. A missing panel remains pending; completed single-panel reports do not imply completion of this three-panel comparison.",
+  "ecosystems": [
+    {
+      "name": "original_core20_remeasurement",
+      "input": "../../results/supplementary/real/core20/responses.npz",
+      "relationship": "original_panel",
+      "benchmark": "RewardBench 2 revision 7ff08853b0d5686e79b13fda8677024f566a104a",
+      "assembly_protocol": "Original 20 model IDs, Table 2 checkpoint revisions remeasured using source scoring protocol; no original response cache available.",
+      "model_ids": [
+        "Qwen/Qwen2.5-3B-Instruct",
+        "Qwen/Qwen2.5-7B-Instruct",
+        "Qwen/Qwen2.5-14B-Instruct",
+        "Qwen/Qwen3-4B",
+        "Qwen/Qwen3-8B",
+        "Qwen/Qwen3-14B",
+        "meta-llama/Llama-3.2-3B-Instruct",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-4b-it",
+        "google/gemma-3-12b-it",
+        "microsoft/Phi-4-mini-instruct",
+        "microsoft/phi-4",
+        "microsoft/Phi-3.5-mini-instruct",
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "mistralai/Mistral-Nemo-Instruct-2407",
+        "ibm-granite/granite-3.3-8b-instruct",
+        "tiiuae/Falcon3-7B-Instruct",
+        "tiiuae/Falcon3-10B-Instruct",
+        "CohereLabs/aya-expanse-8b",
+        "allenai/OLMo-2-1124-7B-Instruct"
+      ],
+      "budgets": [
+        2,
+        4,
+        10,
+        16,
+        18,
+        19,
+        20
+      ],
+      "analysis_result": "../../results/supplementary/real/core20/exp03_ecosystem_replication/results.json",
+      "locked_manifest": "../exp00_response_cache/core20.locked.json",
+      "pairs": "../../results/supplementary/data/rewardbench.jsonl",
+      "source_provenance": "../../results/supplementary/data/rewardbench.provenance.json",
+      "dataset": {
+        "dataset_id": "allenai/reward-bench-2",
+        "config": null,
+        "split": "test",
+        "revision": "7ff08853b0d5686e79b13fda8677024f566a104a"
+      },
+      "model_families": [
+        "Qwen",
+        "Qwen",
+        "Qwen",
+        "Qwen",
+        "Qwen",
+        "Qwen",
+        "Llama",
+        "Llama",
+        "Gemma",
+        "Gemma",
+        "Phi",
+        "Phi",
+        "Phi",
+        "Mistral",
+        "Mistral",
+        "Granite",
+        "Falcon",
+        "Falcon",
+        "Aya",
+        "OLMo"
+      ]
+    },
+    {
+      "name": "independently_assembled_small_judges8",
+      "input": "../../results/supplementary/real/judges8/responses.npz",
+      "relationship": "independent_ecosystem",
+      "benchmark": "RewardBench 2 revision 7ff08853b0d5686e79b13fda8677024f566a104a",
+      "assembly_protocol": "Convenience panel fixed before collecting outputs: eight public small instruction-tuned checkpoints (0.36–3B); no exact model-ID overlap with original panel, partial family overlap; not an iid sample of model populations.",
+      "model_ids": [
+        "Qwen/Qwen2.5-0.5B-Instruct",
+        "Qwen/Qwen2.5-1.5B-Instruct",
+        "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+        "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "allenai/OLMo-2-0425-1B-Instruct",
+        "tiiuae/Falcon3-1B-Instruct",
+        "tiiuae/Falcon3-3B-Instruct",
+        "ibm-granite/granite-3.3-2b-instruct"
+      ],
+      "budgets": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "analysis_result": "../../results/supplementary/real/judges8/exp03_ecosystem_replication/results.json",
+      "locked_manifest": "../exp00_response_cache/independent_judges8.json",
+      "pairs": "../../results/supplementary/data/rewardbench.jsonl",
+      "source_provenance": "../../results/supplementary/data/rewardbench.provenance.json",
+      "dataset": {
+        "dataset_id": "allenai/reward-bench-2",
+        "config": null,
+        "split": "test",
+        "revision": "7ff08853b0d5686e79b13fda8677024f566a104a"
+      },
+      "model_families": [
+        "Qwen",
+        "Qwen",
+        "SmolLM2",
+        "SmolLM2",
+        "OLMo",
+        "Falcon",
+        "Falcon",
+        "Granite"
+      ]
+    },
+    {
+      "name": "nli4_classifiers",
+      "input": "../../results/supplementary/real/nli4/responses.npz",
+      "relationship": "independent_ecosystem",
+      "benchmark": "MNLI validation_matched, nyu-mll/glue bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c",
+      "assembly_protocol": "Four public three-class NLI classifiers, versions and label maps fixed before collecting outputs; different task/interface; shared training corpora and families disclosed, not statistically independent model draws.",
+      "model_ids": [
+        "FacebookAI/roberta-large-mnli",
+        "microsoft/deberta-large-mnli",
+        "cross-encoder/nli-deberta-v3-base",
+        "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli"
+      ],
+      "budgets": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "analysis_result": "../../results/supplementary/real/nli4/exp03_ecosystem_replication/results.json",
+      "locked_manifest": "../exp00_response_cache/nli4.json",
+      "pairs": "../../results/supplementary/data/nli.jsonl",
+      "source_provenance": "../../results/supplementary/data/nli.provenance.json",
+      "dataset": {
+        "dataset_id": "nyu-mll/glue",
+        "config": "mnli",
+        "split": "validation_matched",
+        "revision": "bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c"
+      },
+      "model_families": [
+        "RoBERTa",
+        "DeBERTa",
+        "DeBERTa",
+        "DeBERTa"
+      ]
+    }
+  ],
+  "expected_ecosystem_count": 3,
+  "primary_gamma": 0.2,
+  "gammas": [
+    0.12,
+    0.15,
+    0.2,
+    0.25,
+    0.3
+  ],
+  "family_label_note": "Human-specified broad family labels aligned with model_ids; shared labels disclose related model families, not independent statistical samples or audited training-data overlap."
+}
