@@ -1,6 +1,6 @@
 """Tests for the reporting and packaging layer.
 
-These are the numbers the professor reads, so what is guarded here is not the
+These are the numbers a reader relies on, so what is guarded here is not the
 maths -- that is tested elsewhere -- but the reporting contract:
 
   * a table never silently invents or drops a method or a budget;
@@ -998,7 +998,7 @@ def test_the_final_report_has_the_section_66_headings_in_order():
 
     Only the *numbered* headings are pinned. Material the plan never asked for
     may ship as an appendix -- E8 does -- but it may not take a number, because
-    that would silently renumber the list the professor reads against the plan.
+    that would silently renumber the list a reader checks against the plan.
     """
     text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
     headings = [l for l in text.split("\n") if l.startswith("## ")]

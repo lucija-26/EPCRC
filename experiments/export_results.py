@@ -1,6 +1,6 @@
 """Pack every result into one self-contained, checkable zip.
 
-The professor asked for "all results (e.g. .csv files, summaries.md etc) as a
+The request was for "all results (e.g. .csv files, summaries.md etc) as a
 zip file".  This builds that package, and it is deliberately more than a folder
 of CSVs: a results package that cannot be traced back to the code and seeds
 that produced it cannot be defended, so the zip also carries the raw
@@ -1037,7 +1037,7 @@ def _e7_section(inputs: Dict[str, str]) -> List[str]:
     Deliberately declares no verdict of its own.  `section_verdict` reads the
     token out of the claim body, and C5's body is this section plus
     `_c5_section`, so a second token here could silently become the one the
-    professor reads at the top of C5.
+    reader sees at the top of C5.
     """
     lines = ["## E7: does the basis still work on a benchmark it never saw?", ""]
     lines.append(
@@ -1890,8 +1890,8 @@ _EVIDENCE_MATRIX = [
 def _compliance_section(inputs: Dict[str, str]) -> List[str]:
     """Hand the plan's own evidence matrix back with the evidence filled in.
 
-    The professor set the acceptance criteria in section 31 before any judge
-    was scored.  Reporting against them in his wording is what makes a verdict
+    The plan set the acceptance criteria in section 31 before any judge
+    was scored.  Reporting against them in its wording is what makes a verdict
     checkable: a reader can disagree with a call without first having to work
     out which bar was being aimed at.  `evidence` says only whether the
     required experiment is in this package, which is a fact about the files;
@@ -2065,7 +2065,7 @@ def section_verdict(body: List[str]) -> str:
 
     Deliberately extracted rather than declared beside the section.  A verdict
     stated twice can be changed in one place and not the other, and the one the
-    professor reads first is the one at the top of the final report -- so that
+    reader sees first is the one at the top of the final report -- so that
     one is taken from the argument underneath it.  `PARTIALLY SUPPORTED` is
     tried before `SUPPORTED` because the latter is a substring of it.
     """
@@ -2541,7 +2541,7 @@ def export(panel: str, out_dir: Optional[str] = None,
         handle.write(build_summary(panel, inputs, prov))
 
     # Same sections, the plan's order and headings.  Section 66 fixes the
-    # structure the professor reads, so it is generated rather than kept by
+    # structure a reader follows, so it is generated rather than kept by
     # hand next to a summary that would drift away from it.
     with open(os.path.join(out_dir, "FINAL_REPORT.md"), "w") as handle:
         handle.write(build_final_report(panel, inputs, prov))
