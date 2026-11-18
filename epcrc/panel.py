@@ -74,7 +74,43 @@ CORE20: Dict[str, str] = {
 CORE8_IDS = ["J02", "J05", "J08", "J10", "J12", "J14", "J16", "J20"]
 CORE8: Dict[str, str] = {j: CORE20[j] for j in CORE8_IDS}
 
-PANELS: Dict[str, Dict[str, str]] = {"core8": CORE8, "core20": CORE20}
+# A second panel, disjoint from Core-20, for checking whether the individual-
+# versus-joint removal gap is specific to one set of judges.  Fixed before any
+# of it was scored.  Selection rule: openly downloadable, a chat template that
+# renders, the three labels encode as single tokens (the fast scoring path), no
+# prompt above the context window (experiments/audit_ext_panel.py), and not in
+# Core-20.  Ids use a different letter so no result file can confuse the two.
+EXT20: Dict[str, str] = {
+    "K01": "Qwen/Qwen2.5-1.5B-Instruct",
+    "K02": "Qwen/Qwen3-1.7B",
+    "K03": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "K04": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "K05": "HuggingFaceTB/SmolLM3-3B",
+    "K06": "allenai/OLMo-2-0425-1B-Instruct",
+    "K07": "allenai/OLMo-2-1124-7B-SFT",
+    "K08": "allenai/OLMo-2-1124-13B-Instruct",
+    "K09": "allenai/Llama-3.1-Tulu-3-8B",
+    "K10": "NousResearch/Hermes-3-Llama-3.1-8B",
+    "K11": "arcee-ai/Llama-3.1-SuperNova-Lite",
+    "K12": "ibm-granite/granite-3.3-2b-instruct",
+    "K13": "ibm-granite/granite-3.1-8b-instruct",
+    "K14": "ibm-granite/granite-3.2-8b-instruct",
+    "K15": "tiiuae/Falcon3-1B-Instruct",
+    "K16": "tiiuae/Falcon3-3B-Instruct",
+    "K17": "nvidia/Mistral-NeMo-Minitron-8B-Instruct",
+    "K18": "deepseek-ai/deepseek-llm-7b-chat",
+    "K19": "stabilityai/stablelm-2-1_6b-chat",
+    "K20": "VAGOsolutions/Llama-3.1-SauerkrautLM-8b-Instruct",
+}
+
+# The union.  Its blocks are never scored directly: experiments/
+# build_union_panel.py links the two caches after checking they cover the same
+# pairs in the same order.
+CORE40: Dict[str, str] = {**CORE20, **EXT20}
+
+PANELS: Dict[str, Dict[str, str]] = {
+    "core8": CORE8, "core20": CORE20, "ext20": EXT20, "core40": CORE40,
+}
 
 # Declared bf16 parameter counts, used for the disk and memory budget.  These
 # are the sizes the plan's table states, not values read off the hub.
@@ -83,6 +119,11 @@ PARAMS_B: Dict[str, float] = {
     "J06": 14, "J07": 3, "J08": 8, "J09": 4, "J10": 12,
     "J11": 4, "J12": 14, "J13": 4, "J14": 7, "J15": 12,
     "J16": 8, "J17": 7, "J18": 10, "J19": 8, "J20": 7,
+    # EXT20: nominal sizes from the model cards, in billions.
+    "K01": 1.5, "K02": 1.7, "K03": 7, "K04": 1.7, "K05": 3,
+    "K06": 1.5, "K07": 7, "K08": 14, "K09": 8, "K10": 8,
+    "K11": 8, "K12": 2.5, "K13": 8, "K14": 8, "K15": 1.7,
+    "K16": 3, "K17": 8, "K18": 7, "K19": 1.6, "K20": 8,
 }
 
 

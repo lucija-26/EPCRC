@@ -13,6 +13,8 @@ from epcrc.panel import (
     CORE8,
     CORE8_IDS,
     CORE20,
+    CORE40,
+    EXT20,
     PANELS,
     PARAMS_B,
     panel_weight_gb,
@@ -88,7 +90,7 @@ def test_no_duplicate_repos():
 
 
 def test_param_counts_cover_the_panel_and_match_the_plan():
-    assert set(PARAMS_B) == set(CORE20)
+    assert set(PARAMS_B) == set(CORE20) | set(EXT20)
     for judge, (_, _, params) in SECTION_10.items():
         assert PARAMS_B[judge] == params
 
@@ -102,7 +104,22 @@ def test_panel_weight_is_the_bf16_total():
 
 
 def test_registered_panels():
-    assert PANELS == {"core8": CORE8, "core20": CORE20}
+    assert PANELS == {"core8": CORE8, "core20": CORE20, "ext20": EXT20, "core40": CORE40}
+
+
+def test_second_panel_is_disjoint_from_core20():
+    """The second panel is only a replication if it shares no judge with the first."""
+    assert len(EXT20) == 20
+    assert not set(EXT20) & set(CORE20)
+    assert not set(EXT20.values()) & set(CORE20.values())
+    assert len(set(EXT20.values())) == 20
+    assert all(j.startswith("K") for j in EXT20)
+
+
+def test_union_panel_is_exactly_the_two_panels():
+    assert CORE40 == {**CORE20, **EXT20}
+    assert len(CORE40) == 40
+    assert len({scores_dir(p) for p in ("core20", "ext20", "core40")}) == 3
 
 
 def test_panels_write_to_separate_directories():
