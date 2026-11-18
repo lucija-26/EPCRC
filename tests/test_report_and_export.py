@@ -42,6 +42,11 @@ needs_c7 = pytest.mark.skipif(not os.path.exists(C7), reason="C7 not run")
 needs_e6 = pytest.mark.skipif(not os.path.exists(E6), reason="E6 not run")
 needs_backbone = pytest.mark.skipif(not os.path.exists(BACKBONE),
                                     reason="backbone not run")
+# The full report reads every Core-20 result file.  results/ is not tracked in
+# git, so a fresh checkout has none of them; skip rather than fail there.
+needs_all_core20 = pytest.mark.skipif(
+    not all(p and os.path.exists(p) for p in E.input_paths("core20").values()),
+    reason="Core-20 results not present (results/ is not tracked)")
 
 
 # --------------------------------------------------------------------------
@@ -1027,6 +1032,7 @@ def test_the_final_report_has_the_section_66_headings_in_order():
     ]
 
 
+@needs_all_core20
 def test_every_claim_section_opens_with_one_of_the_four_allowed_words():
     text = E.build_final_report("core20", E.input_paths("core20"), _FAKE_PROV)
     allowed = {"SUPPORTED", "PARTIALLY SUPPORTED", "UNSUPPORTED",
@@ -1097,6 +1103,7 @@ def test_the_result_index_agrees_with_the_report_it_indexes():
         assert entry["verdict"] in index["verdict_vocabulary"]
 
 
+@needs_backbone
 def test_every_table_in_the_index_is_claimed_by_exactly_one_claim():
     inputs = E.input_paths("core20")
     index = E.build_result_index("core20", inputs, _FAKE_PROV)
